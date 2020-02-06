@@ -44,6 +44,24 @@ namespace Syndic
                 da.Fill(ds, t);
         }
 
+        static private void remplirTable(string t, string tpk, string pk, string fk)
+        {
+            ouvrireConnection();
+            SqlDataAdapter da = new SqlDataAdapter("select * from " + t, cn);
+            if (!ds.Tables.Contains(t))
+                da.Fill(ds, t);
+
+            da = new SqlDataAdapter("select * from " + tpk, cn);
+            if (!ds.Tables.Contains(tpk))
+                da.Fill(ds, tpk);
+
+            DataColumn c1 = ds.Tables[t].Columns[pk];
+            DataColumn c2 = ds.Tables[tpk].Columns[tpk];
+
+            DataRelation r = new DataRelation("fk_" + t + "_" + tpk, c1, c2);
+            ds.Relations.Add(r);
+        }
+
         static private void remplirTableClear(string t)
         {
             ouvrireConnection();
@@ -92,6 +110,18 @@ namespace Syndic
             cb = null;
         }
 
+        static public BindingSource remplirGrille(DataGridView d, string t)
+        {
+            BindingSource bs = new BindingSource();
+
+            remplirTable(t);
+
+            bs.DataSource = ds;
+            bs.DataMember = t;
+
+            d.DataSource = bs;
+            return bs;
+        }
         static public BindingSource remplirGrille(DataGridView d, string sql, string t)
         {
             BindingSource bs = new BindingSource();
@@ -113,6 +143,38 @@ namespace Syndic
 
             bs.DataSource = ds;
             bs.DataMember = t;
+
+            l.DataSource = bs;
+            l.DisplayMember = dm;
+            l.ValueMember = vm;
+
+            return bs;
+        }
+
+        static public BindingSource remplirList(ListControl l, string sql, string t, string dm, string vm)
+        {
+            BindingSource bs = new BindingSource();
+
+            remplirTable(sql,t);
+
+            bs.DataSource = ds;
+            bs.DataMember = t;
+
+            l.DataSource = bs;
+            l.DisplayMember = dm;
+            l.ValueMember = vm;
+
+            return bs;
+        }
+
+        static public BindingSource remplirListRel(ListControl l, string t, string dm, string vm,string tpk,string pk,string fk,BindingSource bsk)
+        {
+            BindingSource bs = new BindingSource();
+
+            remplirTable(t);
+
+            bs.DataSource = bsk;
+            bs.DataMember = "fk_" + t + "_" + tpk;
 
             l.DataSource = bs;
             l.DisplayMember = dm;

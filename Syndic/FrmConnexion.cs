@@ -40,7 +40,7 @@ namespace Syndic
 
         private void remplirGrillePropDate()
         {
-            cmd = new SqlCommand("select nom,prenom,date_connexion,nom_type,,c.archive from utilisateur u inner join type_utilisateur t on t.id_type=u.id_type inner join connexion c on c.id_utilisateur=u.id_utilisateur inner join proprietaire e on e.id_proprietaire=u.id_table where u.id_type in (select u.id_type from utilisateur u inner join type_utilisateur t on u.id_type=t.id_type where nom_type='proprietaire') and (date_connexion between '" + dt_de.Value.ToShortDateString()+"' and '"+dt_a.Value.ToShortDateString() + "')", cn);
+            cmd = new SqlCommand("select nom,prenom,date_connexion,nom_type,c.archive from utilisateur u inner join type_utilisateur t on t.id_type=u.id_type inner join connexion c on c.id_utilisateur=u.id_utilisateur inner join proprietaire e on e.id_proprietaire=u.id_table where u.id_type in (select u.id_type from utilisateur u inner join type_utilisateur t on u.id_type=t.id_type where nom_type='proprietaire') and (date_connexion between '" + dt_de.Value.ToShortDateString()+"' and '"+dt_a.Value.ToShortDateString() + "')", cn);
             dr = cmd.ExecuteReader();
             while (dr.Read())
             {
@@ -124,6 +124,8 @@ namespace Syndic
 
             remplirGrilleEmp();
             remplirGrilleProp();
+            if (dt_grid.Rows.Count > 0)
+                dt_grid.Rows[0].Cells[0].Selected = true;
         }
 
         private void rd_nomPrenom_CheckedChanged(object sender, EventArgs e)
@@ -160,6 +162,8 @@ namespace Syndic
                         dt_grid.Rows.Clear();
                         remplirGrilleEmp();
                         remplirGrilleProp();
+                        if (dt_grid.Rows.Count > 0)
+                            dt_grid.Rows[0].Cells[0].Selected = true;
                     }
                     else
                     {
@@ -193,6 +197,8 @@ namespace Syndic
                         dr.Close();
                         dr = null;
                         dt_grid.Sort(dt_grid.Columns[3], ListSortDirection.Descending);
+                        if (dt_grid.Rows.Count > 0)
+                            dt_grid.Rows[0].Cells[0].Selected = true;
                     }
                     break;
                 case "btn_chercherType":
@@ -216,6 +222,8 @@ namespace Syndic
                             dr.Close();
                             dr = null;
                             dt_grid.Sort(dt_grid.Columns[3], ListSortDirection.Descending);
+                            if (dt_grid.Rows.Count > 0)
+                                dt_grid.Rows[0].Cells[0].Selected = true;
                         }
                     }
                     break;
@@ -223,6 +231,8 @@ namespace Syndic
                     dt_grid.Rows.Clear();
                     remplirGrilleEmpDate();
                     remplirGrillePropDate();
+                    if (dt_grid.Rows.Count > 0)
+                        dt_grid.Rows[0].Cells[0].Selected = true;
                     break;
             }
         }
@@ -265,22 +275,28 @@ namespace Syndic
                 case "btn_supprimer":
                     if (dt_grid.Rows.Count > 0)
                     {
-                        cmd = new SqlCommand("update connexion set archive = 0 where date_connexion = '" + dt_grid.CurrentRow.Cells[3].Value.ToString() + "'", cn);
-                        cmd.ExecuteNonQuery();
-                        dt_grid.Rows.Clear();
+                        if(DialogResult.Yes==MessageBox.Show("Voulez-vous Vraiment Supprimer Cette Connexcion ?","Supprimer",MessageBoxButtons.YesNo,MessageBoxIcon.Question))
+                        {
+                            cmd = new SqlCommand("update connexion set archive = 0 where date_connexion = '" + dt_grid.CurrentRow.Cells[3].Value.ToString() + "'", cn);
+                            cmd.ExecuteNonQuery();
+                            dt_grid.Rows.Clear();
 
-                        remplirGrilleEmp();
-                        remplirGrilleProp();
+                            remplirGrilleEmp();
+                            remplirGrilleProp();
+                        }
                     }
                     break;
                 case "btn_vider":
                     if (dt_grid.Rows.Count > 0)
                     {
-                        dt_grid.Rows.Clear();
-                        cmd = new SqlCommand("update connexion set archive = 0", cn);
-                        cmd.ExecuteNonQuery();
-                        remplirGrilleEmp();
-                        remplirGrilleProp();
+                        if (DialogResult.Yes == MessageBox.Show("Voulez-vous Vraiment Vider La Liste Des Connexcion ?", "Vider", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+                        {
+                            dt_grid.Rows.Clear();
+                            cmd = new SqlCommand("update connexion set archive = 0", cn);
+                            cmd.ExecuteNonQuery();
+                            remplirGrilleEmp();
+                            remplirGrilleProp();
+                        }
                     }
                     break;
             }

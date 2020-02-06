@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmConnexion));
             this.dt_grid = new System.Windows.Forms.DataGridView();
             this.nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -70,14 +70,14 @@
             this.dt_grid.AllowUserToAddRows = false;
             this.dt_grid.AllowUserToDeleteRows = false;
             this.dt_grid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dt_grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dt_grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dt_grid.ColumnHeadersHeight = 35;
             this.dt_grid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nom,
@@ -88,13 +88,13 @@
             this.dt_grid.MultiSelect = false;
             this.dt_grid.Name = "dt_grid";
             this.dt_grid.ReadOnly = true;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dt_grid.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dt_grid.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dt_grid.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dt_grid.RowTemplate.Height = 25;
             this.dt_grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dt_grid.Size = new System.Drawing.Size(746, 311);
-            this.dt_grid.TabIndex = 0;
+            this.dt_grid.TabIndex = 3;
             // 
             // nom
             // 
@@ -131,7 +131,7 @@
             this.btn_vider.Location = new System.Drawing.Point(624, 551);
             this.btn_vider.Name = "btn_vider";
             this.btn_vider.Size = new System.Drawing.Size(134, 41);
-            this.btn_vider.TabIndex = 1;
+            this.btn_vider.TabIndex = 9;
             this.btn_vider.Text = "Vider";
             this.btn_vider.UseVisualStyleBackColor = false;
             this.btn_vider.Click += new System.EventHandler(this.btn_supprimer_Click);
@@ -147,7 +147,7 @@
             this.btn_supprimer.Location = new System.Drawing.Point(484, 551);
             this.btn_supprimer.Name = "btn_supprimer";
             this.btn_supprimer.Size = new System.Drawing.Size(134, 41);
-            this.btn_supprimer.TabIndex = 2;
+            this.btn_supprimer.TabIndex = 8;
             this.btn_supprimer.Text = "Supprimer";
             this.btn_supprimer.UseVisualStyleBackColor = false;
             this.btn_supprimer.Click += new System.EventHandler(this.btn_supprimer_Click);
@@ -165,7 +165,7 @@
             this.btn_premiere.Location = new System.Drawing.Point(12, 551);
             this.btn_premiere.Name = "btn_premiere";
             this.btn_premiere.Size = new System.Drawing.Size(46, 41);
-            this.btn_premiere.TabIndex = 3;
+            this.btn_premiere.TabIndex = 4;
             this.btn_premiere.UseVisualStyleBackColor = false;
             this.btn_premiere.Click += new System.EventHandler(this.btn_premiere_Click);
             // 
@@ -182,7 +182,7 @@
             this.btn_derniere.Location = new System.Drawing.Point(201, 551);
             this.btn_derniere.Name = "btn_derniere";
             this.btn_derniere.Size = new System.Drawing.Size(46, 41);
-            this.btn_derniere.TabIndex = 4;
+            this.btn_derniere.TabIndex = 7;
             this.btn_derniere.UseVisualStyleBackColor = false;
             this.btn_derniere.Click += new System.EventHandler(this.btn_premiere_Click);
             // 
@@ -229,7 +229,7 @@
             this.grp_chercher.Location = new System.Drawing.Point(13, 25);
             this.grp_chercher.Name = "grp_chercher";
             this.grp_chercher.Size = new System.Drawing.Size(745, 89);
-            this.grp_chercher.TabIndex = 7;
+            this.grp_chercher.TabIndex = 0;
             this.grp_chercher.TabStop = false;
             this.grp_chercher.Text = "Recherche Par :";
             // 
@@ -292,7 +292,7 @@
             this.btn_chercherNom.Location = new System.Drawing.Point(563, 24);
             this.btn_chercherNom.Name = "btn_chercherNom";
             this.btn_chercherNom.Size = new System.Drawing.Size(115, 32);
-            this.btn_chercherNom.TabIndex = 9;
+            this.btn_chercherNom.TabIndex = 2;
             this.btn_chercherNom.Text = "Rechercher";
             this.btn_chercherNom.UseVisualStyleBackColor = false;
             this.btn_chercherNom.Click += new System.EventHandler(this.btn_chercherDate_Click);
@@ -304,7 +304,7 @@
             this.txt_chercher.Location = new System.Drawing.Point(22, 25);
             this.txt_chercher.Name = "txt_chercher";
             this.txt_chercher.Size = new System.Drawing.Size(524, 29);
-            this.txt_chercher.TabIndex = 0;
+            this.txt_chercher.TabIndex = 1;
             this.txt_chercher.Text = "Tapez Le Nom & Prenom Pour Rechercher";
             this.txt_chercher.Enter += new System.EventHandler(this.txt_chercher_Enter);
             this.txt_chercher.Leave += new System.EventHandler(this.txt_chercher_Leave);
@@ -327,7 +327,7 @@
             this.cb_type.Location = new System.Drawing.Point(22, 22);
             this.cb_type.Name = "cb_type";
             this.cb_type.Size = new System.Drawing.Size(524, 32);
-            this.cb_type.TabIndex = 10;
+            this.cb_type.TabIndex = 12;
             // 
             // btn_chercherType
             // 
@@ -340,7 +340,7 @@
             this.btn_chercherType.Location = new System.Drawing.Point(563, 22);
             this.btn_chercherType.Name = "btn_chercherType";
             this.btn_chercherType.Size = new System.Drawing.Size(115, 32);
-            this.btn_chercherType.TabIndex = 9;
+            this.btn_chercherType.TabIndex = 11;
             this.btn_chercherType.Text = "Rechercher";
             this.btn_chercherType.UseVisualStyleBackColor = false;
             this.btn_chercherType.Click += new System.EventHandler(this.btn_chercherDate_Click);
@@ -356,7 +356,7 @@
             this.pnl_date.Location = new System.Drawing.Point(13, 134);
             this.pnl_date.Name = "pnl_date";
             this.pnl_date.Size = new System.Drawing.Size(745, 80);
-            this.pnl_date.TabIndex = 11;
+            this.pnl_date.TabIndex = 1;
             // 
             // label2
             // 
@@ -385,7 +385,7 @@
             this.dt_de.Location = new System.Drawing.Point(75, 25);
             this.dt_de.Name = "dt_de";
             this.dt_de.Size = new System.Drawing.Size(159, 29);
-            this.dt_de.TabIndex = 11;
+            this.dt_de.TabIndex = 14;
             // 
             // dt_a
             // 
@@ -394,7 +394,7 @@
             this.dt_a.Location = new System.Drawing.Point(339, 25);
             this.dt_a.Name = "dt_a";
             this.dt_a.Size = new System.Drawing.Size(159, 29);
-            this.dt_a.TabIndex = 10;
+            this.dt_a.TabIndex = 13;
             // 
             // btn_chercherDate
             // 
@@ -407,7 +407,7 @@
             this.btn_chercherDate.Location = new System.Drawing.Point(563, 22);
             this.btn_chercherDate.Name = "btn_chercherDate";
             this.btn_chercherDate.Size = new System.Drawing.Size(115, 32);
-            this.btn_chercherDate.TabIndex = 9;
+            this.btn_chercherDate.TabIndex = 18;
             this.btn_chercherDate.Text = "Rechercher";
             this.btn_chercherDate.UseVisualStyleBackColor = false;
             this.btn_chercherDate.Click += new System.EventHandler(this.btn_chercherDate_Click);

@@ -30,7 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.pnl_bar = new System.Windows.Forms.Panel();
+            this.btn_meni_logo = new System.Windows.Forms.Button();
+            this.lbl_titre = new System.Windows.Forms.Label();
+            this.btn_minimaze = new System.Windows.Forms.Button();
+            this.btn_close = new System.Windows.Forms.Button();
             this.pnl_menu = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btn_echeance = new System.Windows.Forms.Button();
             this.btn_historique = new System.Windows.Forms.Button();
             this.btn_deconnection = new System.Windows.Forms.Button();
@@ -48,11 +53,6 @@
             this.btn_immeuble = new System.Windows.Forms.Button();
             this.btn_tableBord = new System.Windows.Forms.Button();
             this.pnl_forms = new System.Windows.Forms.Panel();
-            this.btn_minimaze = new System.Windows.Forms.Button();
-            this.btn_close = new System.Windows.Forms.Button();
-            this.lbl_titre = new System.Windows.Forms.Label();
-            this.btn_meni_logo = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnl_bar.SuspendLayout();
             this.pnl_menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -71,6 +71,54 @@
             this.pnl_bar.Size = new System.Drawing.Size(1000, 23);
             this.pnl_bar.TabIndex = 0;
             this.pnl_bar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnl_bar_MouseMove);
+            // 
+            // btn_meni_logo
+            // 
+            this.btn_meni_logo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_meni_logo.BackgroundImage")));
+            this.btn_meni_logo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_meni_logo.FlatAppearance.BorderSize = 0;
+            this.btn_meni_logo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_meni_logo.Location = new System.Drawing.Point(10, 0);
+            this.btn_meni_logo.Name = "btn_meni_logo";
+            this.btn_meni_logo.Size = new System.Drawing.Size(22, 24);
+            this.btn_meni_logo.TabIndex = 3;
+            this.btn_meni_logo.UseVisualStyleBackColor = true;
+            // 
+            // lbl_titre
+            // 
+            this.lbl_titre.AutoSize = true;
+            this.lbl_titre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_titre.Location = new System.Drawing.Point(45, 3);
+            this.lbl_titre.Name = "lbl_titre";
+            this.lbl_titre.Size = new System.Drawing.Size(143, 15);
+            this.lbl_titre.TabIndex = 3;
+            this.lbl_titre.Text = "Tableau de bord - Syndic";
+            // 
+            // btn_minimaze
+            // 
+            this.btn_minimaze.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_minimaze.BackgroundImage")));
+            this.btn_minimaze.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_minimaze.FlatAppearance.BorderSize = 0;
+            this.btn_minimaze.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_minimaze.Location = new System.Drawing.Point(950, -1);
+            this.btn_minimaze.Name = "btn_minimaze";
+            this.btn_minimaze.Size = new System.Drawing.Size(22, 24);
+            this.btn_minimaze.TabIndex = 3;
+            this.btn_minimaze.UseVisualStyleBackColor = true;
+            this.btn_minimaze.Click += new System.EventHandler(this.btn_close_Click);
+            // 
+            // btn_close
+            // 
+            this.btn_close.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_close.BackgroundImage")));
+            this.btn_close.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_close.FlatAppearance.BorderSize = 0;
+            this.btn_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_close.Location = new System.Drawing.Point(978, -1);
+            this.btn_close.Name = "btn_close";
+            this.btn_close.Size = new System.Drawing.Size(22, 24);
+            this.btn_close.TabIndex = 2;
+            this.btn_close.UseVisualStyleBackColor = true;
+            this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
             // 
             // pnl_menu
             // 
@@ -97,6 +145,16 @@
             this.pnl_menu.Name = "pnl_menu";
             this.pnl_menu.Size = new System.Drawing.Size(230, 677);
             this.pnl_menu.TabIndex = 1;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(230, 51);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
             // 
             // btn_echeance
             // 
@@ -405,64 +463,6 @@
             this.pnl_forms.Name = "pnl_forms";
             this.pnl_forms.Size = new System.Drawing.Size(770, 677);
             this.pnl_forms.TabIndex = 2;
-            // 
-            // btn_minimaze
-            // 
-            this.btn_minimaze.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_minimaze.BackgroundImage")));
-            this.btn_minimaze.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_minimaze.FlatAppearance.BorderSize = 0;
-            this.btn_minimaze.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_minimaze.Location = new System.Drawing.Point(950, -1);
-            this.btn_minimaze.Name = "btn_minimaze";
-            this.btn_minimaze.Size = new System.Drawing.Size(22, 24);
-            this.btn_minimaze.TabIndex = 3;
-            this.btn_minimaze.UseVisualStyleBackColor = true;
-            this.btn_minimaze.Click += new System.EventHandler(this.btn_close_Click);
-            // 
-            // btn_close
-            // 
-            this.btn_close.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_close.BackgroundImage")));
-            this.btn_close.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_close.FlatAppearance.BorderSize = 0;
-            this.btn_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_close.Location = new System.Drawing.Point(978, -1);
-            this.btn_close.Name = "btn_close";
-            this.btn_close.Size = new System.Drawing.Size(22, 24);
-            this.btn_close.TabIndex = 2;
-            this.btn_close.UseVisualStyleBackColor = true;
-            this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
-            // 
-            // lbl_titre
-            // 
-            this.lbl_titre.AutoSize = true;
-            this.lbl_titre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_titre.Location = new System.Drawing.Point(45, 3);
-            this.lbl_titre.Name = "lbl_titre";
-            this.lbl_titre.Size = new System.Drawing.Size(143, 15);
-            this.lbl_titre.TabIndex = 3;
-            this.lbl_titre.Text = "Tableau de bord - Syndic";
-            // 
-            // btn_meni_logo
-            // 
-            this.btn_meni_logo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_meni_logo.BackgroundImage")));
-            this.btn_meni_logo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_meni_logo.FlatAppearance.BorderSize = 0;
-            this.btn_meni_logo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_meni_logo.Location = new System.Drawing.Point(10, 0);
-            this.btn_meni_logo.Name = "btn_meni_logo";
-            this.btn_meni_logo.Size = new System.Drawing.Size(22, 24);
-            this.btn_meni_logo.TabIndex = 3;
-            this.btn_meni_logo.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(230, 51);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
             // 
             // Form1
             // 

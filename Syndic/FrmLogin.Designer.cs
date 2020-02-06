@@ -62,7 +62,7 @@
             this.btn_connecte.Location = new System.Drawing.Point(95, 333);
             this.btn_connecte.Name = "btn_connecte";
             this.btn_connecte.Size = new System.Drawing.Size(231, 48);
-            this.btn_connecte.TabIndex = 0;
+            this.btn_connecte.TabIndex = 2;
             this.btn_connecte.Text = "Connecte";
             this.btn_connecte.UseVisualStyleBackColor = false;
             this.btn_connecte.Click += new System.EventHandler(this.btn_connecte_Click);
@@ -75,7 +75,7 @@
             this.label1.Location = new System.Drawing.Point(99, 301);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(139, 16);
-            this.label1.TabIndex = 4;
+            this.label1.TabIndex = 3;
             this.label1.Text = "Mot De Passe Oublier";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
@@ -86,7 +86,7 @@
             this.txt_password.Location = new System.Drawing.Point(95, 264);
             this.txt_password.Name = "txt_password";
             this.txt_password.Size = new System.Drawing.Size(231, 26);
-            this.txt_password.TabIndex = 2;
+            this.txt_password.TabIndex = 1;
             this.txt_password.Text = "Mot De Passe";
             this.txt_password.Enter += new System.EventHandler(this.txt_username_Enter);
             this.txt_password.Leave += new System.EventHandler(this.txt_username_Leave);
@@ -98,7 +98,7 @@
             this.txt_username.Location = new System.Drawing.Point(95, 216);
             this.txt_username.Name = "txt_username";
             this.txt_username.Size = new System.Drawing.Size(231, 26);
-            this.txt_username.TabIndex = 1;
+            this.txt_username.TabIndex = 0;
             this.txt_username.Text = "Nom Utilisateur Ou Email";
             this.txt_username.Enter += new System.EventHandler(this.txt_username_Enter);
             this.txt_username.Leave += new System.EventHandler(this.txt_username_Leave);
@@ -123,7 +123,7 @@
             this.btn_minimaze.Location = new System.Drawing.Point(371, 0);
             this.btn_minimaze.Name = "btn_minimaze";
             this.btn_minimaze.Size = new System.Drawing.Size(22, 24);
-            this.btn_minimaze.TabIndex = 3;
+            this.btn_minimaze.TabIndex = 4;
             this.btn_minimaze.UseVisualStyleBackColor = true;
             this.btn_minimaze.Click += new System.EventHandler(this.btn_close_Click);
             // 

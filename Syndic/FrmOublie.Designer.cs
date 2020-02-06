@@ -48,7 +48,7 @@
             this.lbl_connecter.Location = new System.Drawing.Point(179, 337);
             this.lbl_connecter.Name = "lbl_connecter";
             this.lbl_connecter.Size = new System.Drawing.Size(69, 16);
-            this.lbl_connecter.TabIndex = 9;
+            this.lbl_connecter.TabIndex = 2;
             this.lbl_connecter.Text = "Connecter";
             this.lbl_connecter.Click += new System.EventHandler(this.lbl_connecter_Click);
             // 
@@ -63,7 +63,7 @@
             this.btn_envoye.Location = new System.Drawing.Point(96, 287);
             this.btn_envoye.Name = "btn_envoye";
             this.btn_envoye.Size = new System.Drawing.Size(242, 43);
-            this.btn_envoye.TabIndex = 0;
+            this.btn_envoye.TabIndex = 1;
             this.btn_envoye.Text = "Envoye";
             this.btn_envoye.UseVisualStyleBackColor = false;
             this.btn_envoye.Click += new System.EventHandler(this.btn_envoye_Click);
@@ -75,7 +75,7 @@
             this.txt_username.Location = new System.Drawing.Point(96, 239);
             this.txt_username.Name = "txt_username";
             this.txt_username.Size = new System.Drawing.Size(242, 26);
-            this.txt_username.TabIndex = 1;
+            this.txt_username.TabIndex = 0;
             this.txt_username.Text = "Tapez Votre Email";
             this.txt_username.Enter += new System.EventHandler(this.txt_username_Enter);
             this.txt_username.Leave += new System.EventHandler(this.txt_username_Leave);
@@ -109,7 +109,7 @@
             this.btn_minimaze.Location = new System.Drawing.Point(369, -1);
             this.btn_minimaze.Name = "btn_minimaze";
             this.btn_minimaze.Size = new System.Drawing.Size(22, 24);
-            this.btn_minimaze.TabIndex = 11;
+            this.btn_minimaze.TabIndex = 3;
             this.btn_minimaze.UseVisualStyleBackColor = true;
             this.btn_minimaze.Click += new System.EventHandler(this.btn_close_Click);
             // 
@@ -122,7 +122,7 @@
             this.btn_close.Location = new System.Drawing.Point(397, 0);
             this.btn_close.Name = "btn_close";
             this.btn_close.Size = new System.Drawing.Size(22, 24);
-            this.btn_close.TabIndex = 10;
+            this.btn_close.TabIndex = 4;
             this.btn_close.UseVisualStyleBackColor = true;
             this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
             // 
