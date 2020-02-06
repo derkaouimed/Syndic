@@ -30,12 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Propietaire_Information));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.txtPhone = new System.Windows.Forms.TextBox();
+            this.txtCodePostal = new System.Windows.Forms.TextBox();
+            this.txtAdrees = new System.Windows.Forms.TextBox();
+            this.txtprenom = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -49,18 +48,19 @@
             this.btn_close = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox6);
-            this.groupBox1.Controls.Add(this.textBox5);
-            this.groupBox1.Controls.Add(this.textBox4);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.txtEmail);
+            this.groupBox1.Controls.Add(this.txtPhone);
+            this.groupBox1.Controls.Add(this.txtCodePostal);
+            this.groupBox1.Controls.Add(this.txtAdrees);
+            this.groupBox1.Controls.Add(this.txtprenom);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label5);
@@ -77,47 +77,40 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Les Information";
             // 
-            // textBox6
+            // txtEmail
             // 
-            this.textBox6.Location = new System.Drawing.Point(165, 302);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(202, 21);
-            this.textBox6.TabIndex = 14;
+            this.txtEmail.Location = new System.Drawing.Point(165, 260);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(202, 21);
+            this.txtEmail.TabIndex = 13;
             // 
-            // textBox5
+            // txtPhone
             // 
-            this.textBox5.Location = new System.Drawing.Point(165, 260);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(202, 21);
-            this.textBox5.TabIndex = 13;
+            this.txtPhone.Location = new System.Drawing.Point(165, 223);
+            this.txtPhone.Name = "txtPhone";
+            this.txtPhone.Size = new System.Drawing.Size(202, 21);
+            this.txtPhone.TabIndex = 12;
             // 
-            // textBox4
+            // txtCodePostal
             // 
-            this.textBox4.Location = new System.Drawing.Point(165, 223);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(202, 21);
-            this.textBox4.TabIndex = 12;
+            this.txtCodePostal.Location = new System.Drawing.Point(165, 183);
+            this.txtCodePostal.Name = "txtCodePostal";
+            this.txtCodePostal.Size = new System.Drawing.Size(202, 21);
+            this.txtCodePostal.TabIndex = 11;
             // 
-            // textBox3
+            // txtAdrees
             // 
-            this.textBox3.Location = new System.Drawing.Point(165, 183);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(202, 21);
-            this.textBox3.TabIndex = 11;
+            this.txtAdrees.Location = new System.Drawing.Point(165, 144);
+            this.txtAdrees.Name = "txtAdrees";
+            this.txtAdrees.Size = new System.Drawing.Size(202, 21);
+            this.txtAdrees.TabIndex = 10;
             // 
-            // textBox2
+            // txtprenom
             // 
-            this.textBox2.Location = new System.Drawing.Point(165, 144);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(202, 21);
-            this.textBox2.TabIndex = 10;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(165, 100);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(202, 21);
-            this.textBox1.TabIndex = 9;
+            this.txtprenom.Location = new System.Drawing.Point(165, 100);
+            this.txtprenom.Name = "txtprenom";
+            this.txtprenom.Size = new System.Drawing.Size(202, 21);
+            this.txtprenom.TabIndex = 9;
             // 
             // label7
             // 
@@ -210,6 +203,7 @@
             this.btn_Proprietaire_Valider.TabIndex = 15;
             this.btn_Proprietaire_Valider.Text = "Valider";
             this.btn_Proprietaire_Valider.UseVisualStyleBackColor = false;
+            this.btn_Proprietaire_Valider.Click += new System.EventHandler(this.btn_Proprietaire_Valider_Click);
             // 
             // panel1
             // 
@@ -262,6 +256,15 @@
             this.button1.TabIndex = 18;
             this.button1.Text = "Annuler";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(165, 295);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(201, 23);
+            this.comboBox1.TabIndex = 14;
             // 
             // Frm_Propietaire_Information
             // 
@@ -289,12 +292,11 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.TextBox txtPhone;
+        private System.Windows.Forms.TextBox txtCodePostal;
+        private System.Windows.Forms.TextBox txtAdrees;
+        private System.Windows.Forms.TextBox txtprenom;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
@@ -308,5 +310,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btn_close;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
