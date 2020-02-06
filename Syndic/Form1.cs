@@ -45,12 +45,15 @@ namespace Syndic
                     break;
                 case "btn_recette":
                     lbl_titre.Text = "Recette - Syndic";
+                    ouvrire(new frm_recette());
                     break;
                 case "btn_cotisation":
                     lbl_titre.Text = "Cotisation - Syndic";
+                    ouvrire(new frm_Cotisation());
                     break;
                 case "btn_echeance":
                     lbl_titre.Text = "Échéance - Syndic";
+                    ouvrire(new frm_Echeance());
                     break;
                 case "btn_immeuble":
                     lbl_titre.Text = "Immeuble - Syndic";
@@ -60,6 +63,7 @@ namespace Syndic
                     break;
                 case "btn_proprietaire":
                     lbl_titre.Text = "Proprietaire - Syndic";
+                    ouvrire(new frm_Proprietaire());
                     break;
                 case "btn_employe":
                     lbl_titre.Text = "Employer - Syndic";

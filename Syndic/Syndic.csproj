@@ -126,6 +126,97 @@
     <Compile Include="FrmOublie.Designer.cs">
       <DependentUpon>FrmOublie.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_Cotisation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_Cotisation.designer.cs">
+      <DependentUpon>frm_Cotisation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_cotisation_Document.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_cotisation_Document.designer.cs">
+      <DependentUpon>frm_cotisation_Document.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_cotisation_real.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_cotisation_real.designer.cs">
+      <DependentUpon>frm_cotisation_real.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Cotisation_Remarque.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_Cotisation_Remarque.designer.cs">
+      <DependentUpon>frm_Cotisation_Remarque.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Echeance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_Echeance.designer.cs">
+      <DependentUpon>frm_Echeance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Propietaire_Information.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Propietaire_Information.designer.cs">
+      <DependentUpon>Frm_Propietaire_Information.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Proprietaire.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_Proprietaire.designer.cs">
+      <DependentUpon>frm_Proprietaire.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_recette.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_recette.designer.cs">
+      <DependentUpon>frm_recette.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_recette_document.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_recette_document.designer.cs">
+      <DependentUpon>frm_recette_document.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_recette_Document_info.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_recette_Document_info.designer.cs">
+      <DependentUpon>frm_recette_Document_info.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_recette_information.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_recette_information.designer.cs">
+      <DependentUpon>frm_recette_information.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_recette_real.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_recette_real.designer.cs">
+      <DependentUpon>frm_recette_real.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_recette_remarque.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_recette_remarque.designer.cs">
+      <DependentUpon>frm_recette_remarque.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_recette_remarque_info.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_recette_remarque_info.designer.cs">
+      <DependentUpon>frm_recette_remarque_info.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Recette_type.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_Recette_type.designer.cs">
+      <DependentUpon>frm_Recette_type.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyHint.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -166,6 +257,51 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmOublie.resx">
       <DependentUpon>FrmOublie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_Cotisation.resx">
+      <DependentUpon>frm_Cotisation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_cotisation_Document.resx">
+      <DependentUpon>frm_cotisation_Document.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_cotisation_real.resx">
+      <DependentUpon>frm_cotisation_real.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_Cotisation_Remarque.resx">
+      <DependentUpon>frm_Cotisation_Remarque.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_Echeance.resx">
+      <DependentUpon>frm_Echeance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Propietaire_Information.resx">
+      <DependentUpon>Frm_Propietaire_Information.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_Proprietaire.resx">
+      <DependentUpon>frm_Proprietaire.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_recette.resx">
+      <DependentUpon>frm_recette.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_recette_document.resx">
+      <DependentUpon>frm_recette_document.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_recette_Document_info.resx">
+      <DependentUpon>frm_recette_Document_info.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_recette_information.resx">
+      <DependentUpon>frm_recette_information.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_recette_real.resx">
+      <DependentUpon>frm_recette_real.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_recette_remarque.resx">
+      <DependentUpon>frm_recette_remarque.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_recette_remarque_info.resx">
+      <DependentUpon>frm_recette_remarque_info.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_Recette_type.resx">
+      <DependentUpon>frm_Recette_type.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

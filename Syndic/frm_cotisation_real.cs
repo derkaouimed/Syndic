@@ -10,18 +10,21 @@ using System.Windows.Forms;
 
 namespace Syndic
 {
-    public partial class FrmAMArticle : Form
+    public partial class frm_cotisation_real : Form
     {
-        public FrmAMArticle()
+        public frm_cotisation_real()
         {
             InitializeComponent();
         }
 
-        private void btn_valider_Click(object sender, EventArgs e)
+        private void btn_Recette_Ajouter_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("ok");
-            MessageBox.Show("ok");
 
         }
-    }   
+
+        private void frm_cotisation_real_Load(object sender, EventArgs e)
+        {
+            
+        }
+    }
 }
