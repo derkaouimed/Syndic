@@ -167,6 +167,7 @@
             this.btn_valider.TabIndex = 58;
             this.btn_valider.Text = "Valider";
             this.btn_valider.UseVisualStyleBackColor = false;
+            this.btn_valider.Click += new System.EventHandler(this.btn_valider_Click);
             // 
             // btn_rubrique
             // 
