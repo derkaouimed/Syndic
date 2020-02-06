@@ -20,6 +20,8 @@ namespace Syndic
         private void btn_valider_Click(object sender, EventArgs e)
         {
             MessageBox.Show("ok");
+            MessageBox.Show("ok");
+
         }
     }
 }
