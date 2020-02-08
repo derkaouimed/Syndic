@@ -14,7 +14,7 @@ namespace Syndic
     static class Fonctions
     {
         static SqlConnection cn = new SqlConnection();
-        static DataSet ds = new DataSet();
+        public static DataSet ds = new DataSet();
         static public void ouvrireConnection()
         {
             if (cn.State != ConnectionState.Open)
@@ -40,20 +40,26 @@ namespace Syndic
         {
             ouvrireConnection();
             SqlDataAdapter da = new SqlDataAdapter("select * from " + t, cn);
-            if (!ds.Tables.Contains(t))
-                da.Fill(ds, t);
+            if (ds.Tables.Contains(t))
+                ds.Tables[t].Clear();
+
+            da.Fill(ds, t);
         }
 
         static private void remplirTable(string t, string tpk, string pk, string fk)
         {
             ouvrireConnection();
             SqlDataAdapter da = new SqlDataAdapter("select * from " + t, cn);
-            if (!ds.Tables.Contains(t))
-                da.Fill(ds, t);
+            if (ds.Tables.Contains(t))
+                ds.Tables[t].Clear();
+
+            da.Fill(ds, t);
 
             da = new SqlDataAdapter("select * from " + tpk, cn);
-            if (!ds.Tables.Contains(tpk))
-                da.Fill(ds, tpk);
+            if (ds.Tables.Contains(tpk))
+                ds.Tables[tpk].Clear();
+        
+            da.Fill(ds, tpk);
 
             DataColumn c1 = ds.Tables[t].Columns[pk];
             DataColumn c2 = ds.Tables[tpk].Columns[tpk];
@@ -62,12 +68,6 @@ namespace Syndic
             ds.Relations.Add(r);
         }
 
-        static private void remplirTableClear(string t)
-        {
-            ouvrireConnection();
-            SqlDataAdapter da = new SqlDataAdapter("select * from " + t, cn);
-            da.Fill(ds, t);
-        }
 
         static private void remplirTableClear(string sql, string t)
         {
@@ -80,8 +80,10 @@ namespace Syndic
         {
             ouvrireConnection();
             SqlDataAdapter da = new SqlDataAdapter(sql, cn);
-            if (!ds.Tables.Contains(t))
-                da.Fill(ds, t);
+            if (ds.Tables.Contains(t))
+                ds.Tables[t].Clear();
+
+            da.Fill(ds, t);
         }
         static public void textHintEntre(TextBox t,string s)
         {

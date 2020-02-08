@@ -276,7 +276,7 @@
             this.btn_cotisation.ForeColor = System.Drawing.Color.White;
             this.btn_cotisation.Image = ((System.Drawing.Image)(resources.GetObject("btn_cotisation.Image")));
             this.btn_cotisation.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_cotisation.Location = new System.Drawing.Point(1, 182);
+            this.btn_cotisation.Location = new System.Drawing.Point(0, 182);
             this.btn_cotisation.Name = "btn_cotisation";
             this.btn_cotisation.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btn_cotisation.Size = new System.Drawing.Size(230, 40);

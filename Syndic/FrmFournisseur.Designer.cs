@@ -50,6 +50,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.pnl_details = new System.Windows.Forms.Panel();
             this.pnl_lst = new System.Windows.Forms.Panel();
+            this.lst_article = new System.Windows.Forms.ListBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.pnl_details.SuspendLayout();
             this.pnl_lst.SuspendLayout();
             this.SuspendLayout();
@@ -62,7 +64,8 @@
             this.txt_chercher.Name = "txt_chercher";
             this.txt_chercher.Size = new System.Drawing.Size(309, 27);
             this.txt_chercher.TabIndex = 1;
-            this.txt_chercher.Text = "Rechercher Par Prenom Ou ICE";
+            this.txt_chercher.Text = "Chercher Par Nom && Prenom Ou ICE";
+            this.txt_chercher.TextChanged += new System.EventHandler(this.txt_chercher_TextChanged);
             this.txt_chercher.Enter += new System.EventHandler(this.txt_chercher_Enter);
             this.txt_chercher.Leave += new System.EventHandler(this.txt_chercher_Leave);
             // 
@@ -76,10 +79,10 @@
             this.btn_suivant.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_suivant.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_suivant.ForeColor = System.Drawing.Color.White;
-            this.btn_suivant.Location = new System.Drawing.Point(222, 555);
+            this.btn_suivant.Location = new System.Drawing.Point(222, 568);
             this.btn_suivant.Name = "btn_suivant";
             this.btn_suivant.Size = new System.Drawing.Size(46, 41);
-            this.btn_suivant.TabIndex = 12;
+            this.btn_suivant.TabIndex = 5;
             this.btn_suivant.UseVisualStyleBackColor = false;
             this.btn_suivant.Click += new System.EventHandler(this.btn_derniere_Click);
             // 
@@ -93,10 +96,10 @@
             this.btn_precedent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_precedent.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_precedent.ForeColor = System.Drawing.Color.White;
-            this.btn_precedent.Location = new System.Drawing.Point(67, 555);
+            this.btn_precedent.Location = new System.Drawing.Point(67, 568);
             this.btn_precedent.Name = "btn_precedent";
             this.btn_precedent.Size = new System.Drawing.Size(46, 41);
-            this.btn_precedent.TabIndex = 11;
+            this.btn_precedent.TabIndex = 4;
             this.btn_precedent.UseVisualStyleBackColor = false;
             this.btn_precedent.Click += new System.EventHandler(this.btn_derniere_Click);
             // 
@@ -110,10 +113,10 @@
             this.btn_derniere.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_derniere.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_derniere.ForeColor = System.Drawing.Color.White;
-            this.btn_derniere.Location = new System.Drawing.Point(274, 555);
+            this.btn_derniere.Location = new System.Drawing.Point(274, 568);
             this.btn_derniere.Name = "btn_derniere";
             this.btn_derniere.Size = new System.Drawing.Size(46, 41);
-            this.btn_derniere.TabIndex = 10;
+            this.btn_derniere.TabIndex = 6;
             this.btn_derniere.UseVisualStyleBackColor = false;
             this.btn_derniere.Click += new System.EventHandler(this.btn_derniere_Click);
             // 
@@ -127,10 +130,10 @@
             this.btn_premiere.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_premiere.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_premiere.ForeColor = System.Drawing.Color.White;
-            this.btn_premiere.Location = new System.Drawing.Point(15, 555);
+            this.btn_premiere.Location = new System.Drawing.Point(15, 568);
             this.btn_premiere.Name = "btn_premiere";
             this.btn_premiere.Size = new System.Drawing.Size(46, 41);
-            this.btn_premiere.TabIndex = 9;
+            this.btn_premiere.TabIndex = 3;
             this.btn_premiere.UseVisualStyleBackColor = false;
             this.btn_premiere.Click += new System.EventHandler(this.btn_derniere_Click);
             // 
@@ -142,10 +145,10 @@
             this.btn_supprimer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_supprimer.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_supprimer.ForeColor = System.Drawing.Color.White;
-            this.btn_supprimer.Location = new System.Drawing.Point(624, 385);
+            this.btn_supprimer.Location = new System.Drawing.Point(623, 583);
             this.btn_supprimer.Name = "btn_supprimer";
             this.btn_supprimer.Size = new System.Drawing.Size(134, 41);
-            this.btn_supprimer.TabIndex = 8;
+            this.btn_supprimer.TabIndex = 11;
             this.btn_supprimer.Text = "Supprimer";
             this.btn_supprimer.UseVisualStyleBackColor = false;
             this.btn_supprimer.Click += new System.EventHandler(this.btn_ajouter_Click);
@@ -158,10 +161,10 @@
             this.btn_ajouter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_ajouter.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_ajouter.ForeColor = System.Drawing.Color.White;
-            this.btn_ajouter.Location = new System.Drawing.Point(344, 385);
+            this.btn_ajouter.Location = new System.Drawing.Point(343, 583);
             this.btn_ajouter.Name = "btn_ajouter";
             this.btn_ajouter.Size = new System.Drawing.Size(134, 41);
-            this.btn_ajouter.TabIndex = 7;
+            this.btn_ajouter.TabIndex = 9;
             this.btn_ajouter.Text = "Ajouter";
             this.btn_ajouter.UseVisualStyleBackColor = false;
             this.btn_ajouter.Click += new System.EventHandler(this.btn_ajouter_Click);
@@ -174,21 +177,24 @@
             this.btn_modifier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_modifier.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_modifier.ForeColor = System.Drawing.Color.White;
-            this.btn_modifier.Location = new System.Drawing.Point(484, 385);
+            this.btn_modifier.Location = new System.Drawing.Point(483, 583);
             this.btn_modifier.Name = "btn_modifier";
             this.btn_modifier.Size = new System.Drawing.Size(134, 41);
-            this.btn_modifier.TabIndex = 13;
+            this.btn_modifier.TabIndex = 10;
             this.btn_modifier.Text = "Modifier";
             this.btn_modifier.UseVisualStyleBackColor = false;
             this.btn_modifier.Click += new System.EventHandler(this.btn_ajouter_Click);
             // 
             // lst_fournisseur
             // 
+            this.lst_fournisseur.Font = new System.Drawing.Font("Century Gothic", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lst_fournisseur.FormattingEnabled = true;
+            this.lst_fournisseur.ItemHeight = 21;
             this.lst_fournisseur.Location = new System.Drawing.Point(13, 51);
             this.lst_fournisseur.Name = "lst_fournisseur";
-            this.lst_fournisseur.Size = new System.Drawing.Size(307, 498);
-            this.lst_fournisseur.TabIndex = 14;
+            this.lst_fournisseur.Size = new System.Drawing.Size(307, 508);
+            this.lst_fournisseur.TabIndex = 2;
+            this.lst_fournisseur.SelectedIndexChanged += new System.EventHandler(this.lst_fournisseur_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -206,7 +212,7 @@
             this.txt_nom.Location = new System.Drawing.Point(134, 56);
             this.txt_nom.Name = "txt_nom";
             this.txt_nom.Size = new System.Drawing.Size(263, 25);
-            this.txt_nom.TabIndex = 16;
+            this.txt_nom.TabIndex = 1;
             // 
             // txt_ice
             // 
@@ -214,7 +220,7 @@
             this.txt_ice.Location = new System.Drawing.Point(134, 16);
             this.txt_ice.Name = "txt_ice";
             this.txt_ice.Size = new System.Drawing.Size(263, 25);
-            this.txt_ice.TabIndex = 18;
+            this.txt_ice.TabIndex = 0;
             // 
             // label2
             // 
@@ -232,7 +238,7 @@
             this.txt_prenom.Location = new System.Drawing.Point(134, 92);
             this.txt_prenom.Name = "txt_prenom";
             this.txt_prenom.Size = new System.Drawing.Size(263, 25);
-            this.txt_prenom.TabIndex = 22;
+            this.txt_prenom.TabIndex = 2;
             // 
             // label3
             // 
@@ -250,7 +256,7 @@
             this.txt_telephone.Location = new System.Drawing.Point(134, 132);
             this.txt_telephone.Name = "txt_telephone";
             this.txt_telephone.Size = new System.Drawing.Size(263, 25);
-            this.txt_telephone.TabIndex = 20;
+            this.txt_telephone.TabIndex = 3;
             // 
             // label4
             // 
@@ -268,7 +274,7 @@
             this.txt_email.Location = new System.Drawing.Point(134, 170);
             this.txt_email.Name = "txt_email";
             this.txt_email.Size = new System.Drawing.Size(263, 25);
-            this.txt_email.TabIndex = 26;
+            this.txt_email.TabIndex = 4;
             // 
             // label5
             // 
@@ -293,10 +299,10 @@
             this.pnl_details.Controls.Add(this.label2);
             this.pnl_details.Controls.Add(this.txt_nom);
             this.pnl_details.Controls.Add(this.label1);
-            this.pnl_details.Location = new System.Drawing.Point(345, 154);
+            this.pnl_details.Location = new System.Drawing.Point(344, 352);
             this.pnl_details.Name = "pnl_details";
             this.pnl_details.Size = new System.Drawing.Size(413, 225);
-            this.pnl_details.TabIndex = 27;
+            this.pnl_details.TabIndex = 8;
             // 
             // pnl_lst
             // 
@@ -308,14 +314,36 @@
             this.pnl_lst.Controls.Add(this.btn_precedent);
             this.pnl_lst.Location = new System.Drawing.Point(11, 15);
             this.pnl_lst.Name = "pnl_lst";
-            this.pnl_lst.Size = new System.Drawing.Size(328, 609);
-            this.pnl_lst.TabIndex = 28;
+            this.pnl_lst.Size = new System.Drawing.Size(328, 622);
+            this.pnl_lst.TabIndex = 0;
+            // 
+            // lst_article
+            // 
+            this.lst_article.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lst_article.FormattingEnabled = true;
+            this.lst_article.ItemHeight = 21;
+            this.lst_article.Location = new System.Drawing.Point(344, 40);
+            this.lst_article.Name = "lst_article";
+            this.lst_article.Size = new System.Drawing.Size(411, 298);
+            this.lst_article.TabIndex = 7;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(345, 15);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(348, 22);
+            this.label6.TabIndex = 30;
+            this.label6.Text = "Les Articles Achat De Ce Fournisseur :";
             // 
             // FrmFournisseur
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(770, 677);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.lst_article);
             this.Controls.Add(this.pnl_lst);
             this.Controls.Add(this.pnl_details);
             this.Controls.Add(this.btn_modifier);
@@ -331,6 +359,7 @@
             this.pnl_lst.ResumeLayout(false);
             this.pnl_lst.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -356,5 +385,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel pnl_details;
         private System.Windows.Forms.Panel pnl_lst;
+        private System.Windows.Forms.ListBox lst_article;
+        private System.Windows.Forms.Label label6;
     }
 }

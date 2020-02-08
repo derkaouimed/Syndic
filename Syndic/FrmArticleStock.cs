@@ -50,10 +50,15 @@ namespace Syndic
             Fonctions.textHintLeave(txt_chercher, "Tapez ID Article Ou Designation Pour Rechercher");
         }
 
+        private void Refrsh_Grille()
+        {
+            bsArt = Fonctions.remplirGrille(dt_grid, sql, "article");
+        }
+
         private void FrmArticleStock_Load(object sender, EventArgs e)
         {
             bsArt = Fonctions.remplirGrille(dt_grid, sql, "article");
-
+            
             dt_grid.Columns[0].Width = 100;
             dt_grid.Columns[1].Width = 180;
 
@@ -114,15 +119,31 @@ namespace Syndic
             }
         }
 
-        private void btn_utiliser_Click(object sender, EventArgs e)
+        private void btn_ajouter_Click(object sender, EventArgs e)
         {
-            int id = Convert.ToInt32(dt_grid.CurrentRow.Cells[0].Value);
-            int row = dt_grid.CurrentRow.Index;
-
-            SqlCommand cmd = new SqlCommand("update article set qtestock -=" + 5 + " where id_article = " + id, Fonctions.CnConnection());
-            cmd.ExecuteNonQuery();
-            Fonctions.refreshTable(sql,"article");
-            bsArt.Position = row;
+            Button btn = (Button)sender;
+            switch (btn.Name)
+            {
+                case "btn_ajouter":
+                    FrmAMArticle f = new FrmAMArticle("AJouter Article");
+                    f.ShowDialog();
+                    Refrsh_Grille();
+                    break;
+                case "btn_modifier":
+                    FrmAMArticle f1 = new FrmAMArticle("Modifier Article", int.Parse(dt_grid.CurrentRow.Cells[0].Value.ToString()));
+                    f1.ShowDialog();
+                    Refrsh_Grille();
+                    break;
+                case "btn_supprimer":
+                    if (dt_grid.Rows.Count > 0)
+                        if (DialogResult.Yes == MessageBox.Show("Voulez-vous Vraiment Supprimer Cette Article ?", "Supprimer", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+                        {
+                            SqlCommand cmd = new SqlCommand("update article set archive = 0 where id_article = " + int.Parse(dt_grid.CurrentRow.Cells[0].Value.ToString()) + "", Fonctions.CnConnection());
+                            cmd.ExecuteNonQuery();
+                            Refrsh_Grille();
+                        }
+                    break;
+            }
         }
     }
 }

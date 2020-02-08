@@ -181,7 +181,6 @@
             this.dt_facture.AllowUserToAddRows = false;
             this.dt_facture.AllowUserToDeleteRows = false;
             this.dt_facture.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dt_facture.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

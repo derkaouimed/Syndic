@@ -13,12 +13,17 @@ namespace Syndic
 {
     public partial class FrmAchat : Form
     {
-        BindingSource bsAchat = new BindingSource();
+        BindingSource bsAchat;
+        string sql = "select a.id_article,a.id_facture,ar.designation as Article,f.designation as Facture,a.qteAchat as 'Quantite Achat',cast(a.prix as decimal(18,2)) as Prix from achat a inner join article ar on ar.id_article=a.id_article inner join facture f on f.id_facture=a.id_facture where a.archive = 1";
         public FrmAchat()
         {
             InitializeComponent();
         }
 
+        private void Refresh_Grille()
+        {
+            bsAchat = Fonctions.remplirGrille(dt_grid, sql, "achat");
+        }
         private void txt_chercher_Enter(object sender, EventArgs e)
         {
             Fonctions.textHintEntre(txt_chercher, "Tapez Un Article Ou Facture Pour Rechercher");
@@ -31,7 +36,6 @@ namespace Syndic
 
         private void FrmAchat_Load(object sender, EventArgs e)
         {
-            string sql = "select a.id_article,a.id_facture,ar.designation as Article,f.designation as Facture,a.qteAchat as 'Quantite En Stock',a.prix as Prix from achat a inner join article ar on ar.id_article=a.id_article inner join facture f on f.id_facture=a.id_facture where a.archive = 1";
             bsAchat = Fonctions.remplirGrille(dt_grid, sql,"achat");
 
             dt_grid.Columns[0].Visible = false;
@@ -56,6 +60,41 @@ namespace Syndic
                     bsAchat.MovePrevious();
                     break;
             }
+        }
+
+        private void btn_ajouter_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            switch (btn.Name)
+            {
+                case "btn_ajouter":
+                    FrmAMAchat f = new FrmAMAchat("Ajouter Achat");
+                    f.ShowDialog();
+                    Refresh_Grille();
+                    break;
+                case "btn_modifier":
+                    FrmAMAchat f1 = new FrmAMAchat("Modifier Achat", int.Parse(dt_grid.CurrentRow.Cells[0].Value.ToString()), int.Parse(dt_grid.CurrentRow.Cells[1].Value.ToString()));
+                    f1.ShowDialog();
+                    Refresh_Grille();
+                    break;
+                case "btn_supprimer":
+                    if (dt_grid.Rows.Count > 0)
+                        if (DialogResult.Yes == MessageBox.Show("Voulez-vous Vraiment Supprimer Cette Achat ?", "Supprimer", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+                        {
+                            SqlCommand cmd = new SqlCommand("update achat set archive = 0 where (id_article = " + int.Parse(dt_grid.CurrentRow.Cells[0].Value.ToString()) + " and id_facture = " + int.Parse(dt_grid.CurrentRow.Cells[1].Value.ToString()) + ")", Fonctions.CnConnection());
+                            cmd.ExecuteNonQuery();
+                            Refresh_Grille();
+                        }
+                    break;
+            }
+        }
+
+        private void btn_chercher_Click(object sender, EventArgs e)
+        {
+            if (txt_chercher.Text != "Tapez Un Article Ou Facture Pour Rechercher")
+                bsAchat.Filter = " Article like '%" + txt_chercher.Text + "%' or Facture like '%" + txt_chercher.Text + "%'";
+            else
+                bsAchat.Filter = "";
         }
     }
 }

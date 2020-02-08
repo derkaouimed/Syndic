@@ -47,7 +47,7 @@
             // 
             this.txt_chercher.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_chercher.ForeColor = System.Drawing.Color.Gray;
-            this.txt_chercher.Location = new System.Drawing.Point(13, 33);
+            this.txt_chercher.Location = new System.Drawing.Point(13, 30);
             this.txt_chercher.Name = "txt_chercher";
             this.txt_chercher.Size = new System.Drawing.Size(624, 27);
             this.txt_chercher.TabIndex = 48;
@@ -65,7 +65,7 @@
             this.btn_suivant.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_suivant.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_suivant.ForeColor = System.Drawing.Color.White;
-            this.btn_suivant.Location = new System.Drawing.Point(141, 534);
+            this.btn_suivant.Location = new System.Drawing.Point(141, 573);
             this.btn_suivant.Name = "btn_suivant";
             this.btn_suivant.Size = new System.Drawing.Size(46, 41);
             this.btn_suivant.TabIndex = 54;
@@ -82,7 +82,7 @@
             this.btn_precedent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_precedent.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_precedent.ForeColor = System.Drawing.Color.White;
-            this.btn_precedent.Location = new System.Drawing.Point(64, 534);
+            this.btn_precedent.Location = new System.Drawing.Point(64, 573);
             this.btn_precedent.Name = "btn_precedent";
             this.btn_precedent.Size = new System.Drawing.Size(46, 41);
             this.btn_precedent.TabIndex = 53;
@@ -99,7 +99,7 @@
             this.btn_derniere.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_derniere.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_derniere.ForeColor = System.Drawing.Color.White;
-            this.btn_derniere.Location = new System.Drawing.Point(193, 534);
+            this.btn_derniere.Location = new System.Drawing.Point(193, 573);
             this.btn_derniere.Name = "btn_derniere";
             this.btn_derniere.Size = new System.Drawing.Size(46, 41);
             this.btn_derniere.TabIndex = 52;
@@ -116,7 +116,7 @@
             this.btn_premier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_premier.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_premier.ForeColor = System.Drawing.Color.White;
-            this.btn_premier.Location = new System.Drawing.Point(12, 534);
+            this.btn_premier.Location = new System.Drawing.Point(12, 573);
             this.btn_premier.Name = "btn_premier";
             this.btn_premier.Size = new System.Drawing.Size(46, 41);
             this.btn_premier.TabIndex = 51;
@@ -131,12 +131,13 @@
             this.btn_modifier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_modifier.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_modifier.ForeColor = System.Drawing.Color.White;
-            this.btn_modifier.Location = new System.Drawing.Point(484, 534);
+            this.btn_modifier.Location = new System.Drawing.Point(484, 573);
             this.btn_modifier.Name = "btn_modifier";
             this.btn_modifier.Size = new System.Drawing.Size(134, 41);
             this.btn_modifier.TabIndex = 57;
             this.btn_modifier.Text = "Modifier";
             this.btn_modifier.UseVisualStyleBackColor = false;
+            this.btn_modifier.Click += new System.EventHandler(this.btn_ajouter_Click);
             // 
             // btn_supprimer
             // 
@@ -146,12 +147,13 @@
             this.btn_supprimer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_supprimer.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_supprimer.ForeColor = System.Drawing.Color.White;
-            this.btn_supprimer.Location = new System.Drawing.Point(624, 534);
+            this.btn_supprimer.Location = new System.Drawing.Point(624, 573);
             this.btn_supprimer.Name = "btn_supprimer";
             this.btn_supprimer.Size = new System.Drawing.Size(134, 41);
             this.btn_supprimer.TabIndex = 56;
             this.btn_supprimer.Text = "Supprimer";
             this.btn_supprimer.UseVisualStyleBackColor = false;
+            this.btn_supprimer.Click += new System.EventHandler(this.btn_ajouter_Click);
             // 
             // btn_ajouter
             // 
@@ -161,12 +163,13 @@
             this.btn_ajouter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_ajouter.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_ajouter.ForeColor = System.Drawing.Color.White;
-            this.btn_ajouter.Location = new System.Drawing.Point(344, 534);
+            this.btn_ajouter.Location = new System.Drawing.Point(344, 573);
             this.btn_ajouter.Name = "btn_ajouter";
             this.btn_ajouter.Size = new System.Drawing.Size(134, 41);
             this.btn_ajouter.TabIndex = 55;
             this.btn_ajouter.Text = "Ajouter";
             this.btn_ajouter.UseVisualStyleBackColor = false;
+            this.btn_ajouter.Click += new System.EventHandler(this.btn_ajouter_Click);
             // 
             // btn_chercher
             // 
@@ -176,19 +179,19 @@
             this.btn_chercher.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_chercher.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_chercher.ForeColor = System.Drawing.Color.White;
-            this.btn_chercher.Location = new System.Drawing.Point(643, 33);
+            this.btn_chercher.Location = new System.Drawing.Point(643, 30);
             this.btn_chercher.Name = "btn_chercher";
             this.btn_chercher.Size = new System.Drawing.Size(115, 27);
             this.btn_chercher.TabIndex = 49;
             this.btn_chercher.Text = "Rechercher";
             this.btn_chercher.UseVisualStyleBackColor = false;
+            this.btn_chercher.Click += new System.EventHandler(this.btn_chercher_Click);
             // 
             // dt_grid
             // 
             this.dt_grid.AllowUserToAddRows = false;
             this.dt_grid.AllowUserToDeleteRows = false;
             this.dt_grid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dt_grid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 11F);
@@ -203,7 +206,7 @@
             this.dt_grid.ReadOnly = true;
             this.dt_grid.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dt_grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dt_grid.Size = new System.Drawing.Size(746, 462);
+            this.dt_grid.Size = new System.Drawing.Size(746, 501);
             this.dt_grid.TabIndex = 47;
             // 
             // FrmAchat

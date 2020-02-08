@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmArticleStock));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.btn_utiliser = new System.Windows.Forms.Button();
             this.btn_suivant = new System.Windows.Forms.Button();
             this.btn_precedent = new System.Windows.Forms.Button();
             this.btn_derniere = new System.Windows.Forms.Button();
@@ -55,22 +54,6 @@
             this.pnl_rubrique.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btn_utiliser
-            // 
-            this.btn_utiliser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
-            this.btn_utiliser.FlatAppearance.BorderSize = 0;
-            this.btn_utiliser.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btn_utiliser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_utiliser.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_utiliser.ForeColor = System.Drawing.Color.White;
-            this.btn_utiliser.Location = new System.Drawing.Point(624, 505);
-            this.btn_utiliser.Name = "btn_utiliser";
-            this.btn_utiliser.Size = new System.Drawing.Size(134, 41);
-            this.btn_utiliser.TabIndex = 51;
-            this.btn_utiliser.Text = "Utiliser";
-            this.btn_utiliser.UseVisualStyleBackColor = false;
-            this.btn_utiliser.Click += new System.EventHandler(this.btn_utiliser_Click);
-            // 
             // btn_suivant
             // 
             this.btn_suivant.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
@@ -81,7 +64,7 @@
             this.btn_suivant.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_suivant.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_suivant.ForeColor = System.Drawing.Color.White;
-            this.btn_suivant.Location = new System.Drawing.Point(142, 505);
+            this.btn_suivant.Location = new System.Drawing.Point(143, 559);
             this.btn_suivant.Name = "btn_suivant";
             this.btn_suivant.Size = new System.Drawing.Size(46, 41);
             this.btn_suivant.TabIndex = 50;
@@ -98,7 +81,7 @@
             this.btn_precedent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_precedent.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_precedent.ForeColor = System.Drawing.Color.White;
-            this.btn_precedent.Location = new System.Drawing.Point(65, 505);
+            this.btn_precedent.Location = new System.Drawing.Point(66, 559);
             this.btn_precedent.Name = "btn_precedent";
             this.btn_precedent.Size = new System.Drawing.Size(46, 41);
             this.btn_precedent.TabIndex = 49;
@@ -115,7 +98,7 @@
             this.btn_derniere.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_derniere.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_derniere.ForeColor = System.Drawing.Color.White;
-            this.btn_derniere.Location = new System.Drawing.Point(194, 505);
+            this.btn_derniere.Location = new System.Drawing.Point(195, 559);
             this.btn_derniere.Name = "btn_derniere";
             this.btn_derniere.Size = new System.Drawing.Size(46, 41);
             this.btn_derniere.TabIndex = 48;
@@ -132,7 +115,7 @@
             this.btn_premier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_premier.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_premier.ForeColor = System.Drawing.Color.White;
-            this.btn_premier.Location = new System.Drawing.Point(13, 505);
+            this.btn_premier.Location = new System.Drawing.Point(14, 559);
             this.btn_premier.Name = "btn_premier";
             this.btn_premier.Size = new System.Drawing.Size(46, 41);
             this.btn_premier.TabIndex = 47;
@@ -187,7 +170,7 @@
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dt_grid.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dt_grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dt_grid.Size = new System.Drawing.Size(746, 350);
+            this.dt_grid.Size = new System.Drawing.Size(746, 406);
             this.dt_grid.TabIndex = 44;
             // 
             // btn_modifier
@@ -198,12 +181,13 @@
             this.btn_modifier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_modifier.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_modifier.ForeColor = System.Drawing.Color.White;
-            this.btn_modifier.Location = new System.Drawing.Point(152, 559);
+            this.btn_modifier.Location = new System.Drawing.Point(485, 559);
             this.btn_modifier.Name = "btn_modifier";
             this.btn_modifier.Size = new System.Drawing.Size(134, 41);
             this.btn_modifier.TabIndex = 54;
             this.btn_modifier.Text = "Modifier";
             this.btn_modifier.UseVisualStyleBackColor = false;
+            this.btn_modifier.Click += new System.EventHandler(this.btn_ajouter_Click);
             // 
             // btn_supprimer
             // 
@@ -213,12 +197,13 @@
             this.btn_supprimer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_supprimer.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_supprimer.ForeColor = System.Drawing.Color.White;
-            this.btn_supprimer.Location = new System.Drawing.Point(292, 559);
+            this.btn_supprimer.Location = new System.Drawing.Point(626, 559);
             this.btn_supprimer.Name = "btn_supprimer";
             this.btn_supprimer.Size = new System.Drawing.Size(134, 41);
             this.btn_supprimer.TabIndex = 53;
             this.btn_supprimer.Text = "Supprimer";
             this.btn_supprimer.UseVisualStyleBackColor = false;
+            this.btn_supprimer.Click += new System.EventHandler(this.btn_ajouter_Click);
             // 
             // btn_ajouter
             // 
@@ -228,12 +213,13 @@
             this.btn_ajouter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_ajouter.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_ajouter.ForeColor = System.Drawing.Color.White;
-            this.btn_ajouter.Location = new System.Drawing.Point(12, 559);
+            this.btn_ajouter.Location = new System.Drawing.Point(345, 559);
             this.btn_ajouter.Name = "btn_ajouter";
             this.btn_ajouter.Size = new System.Drawing.Size(134, 41);
             this.btn_ajouter.TabIndex = 52;
             this.btn_ajouter.Text = "Ajouter";
             this.btn_ajouter.UseVisualStyleBackColor = false;
+            this.btn_ajouter.Click += new System.EventHandler(this.btn_ajouter_Click);
             // 
             // grp_chercher
             // 
@@ -329,7 +315,6 @@
             this.Controls.Add(this.btn_modifier);
             this.Controls.Add(this.btn_supprimer);
             this.Controls.Add(this.btn_ajouter);
-            this.Controls.Add(this.btn_utiliser);
             this.Controls.Add(this.btn_suivant);
             this.Controls.Add(this.btn_precedent);
             this.Controls.Add(this.btn_derniere);
@@ -351,8 +336,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btn_utiliser;
         private System.Windows.Forms.Button btn_suivant;
         private System.Windows.Forms.Button btn_precedent;
         private System.Windows.Forms.Button btn_derniere;

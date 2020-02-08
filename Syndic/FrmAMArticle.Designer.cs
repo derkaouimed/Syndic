@@ -38,10 +38,17 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.btn_annuler = new System.Windows.Forms.Button();
-            this.btn_valider = new System.Windows.Forms.Button();
+            this.btn_annuler_ajt = new System.Windows.Forms.Button();
+            this.btn_valider_ajt = new System.Windows.Forms.Button();
             this.btn_rubrique = new System.Windows.Forms.Button();
+            this.btn_vider = new System.Windows.Forms.Button();
+            this.pnl_ajouter = new System.Windows.Forms.Panel();
+            this.pnl_modifier = new System.Windows.Forms.Panel();
+            this.btn_annuler_mod = new System.Windows.Forms.Button();
+            this.btn_valider_mod = new System.Windows.Forms.Button();
             this.pnlMenuBar.SuspendLayout();
+            this.pnl_ajouter.SuspendLayout();
+            this.pnl_modifier.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlMenuBar
@@ -138,36 +145,37 @@
             this.label5.TabIndex = 8;
             this.label5.Text = "Quantite En Stock :";
             // 
-            // btn_annuler
+            // btn_annuler_ajt
             // 
-            this.btn_annuler.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
-            this.btn_annuler.FlatAppearance.BorderSize = 0;
-            this.btn_annuler.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btn_annuler.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_annuler.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_annuler.ForeColor = System.Drawing.Color.White;
-            this.btn_annuler.Location = new System.Drawing.Point(289, 374);
-            this.btn_annuler.Name = "btn_annuler";
-            this.btn_annuler.Size = new System.Drawing.Size(134, 41);
-            this.btn_annuler.TabIndex = 59;
-            this.btn_annuler.Text = "Annuler";
-            this.btn_annuler.UseVisualStyleBackColor = false;
+            this.btn_annuler_ajt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
+            this.btn_annuler_ajt.FlatAppearance.BorderSize = 0;
+            this.btn_annuler_ajt.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btn_annuler_ajt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_annuler_ajt.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_annuler_ajt.ForeColor = System.Drawing.Color.White;
+            this.btn_annuler_ajt.Location = new System.Drawing.Point(290, 9);
+            this.btn_annuler_ajt.Name = "btn_annuler_ajt";
+            this.btn_annuler_ajt.Size = new System.Drawing.Size(134, 41);
+            this.btn_annuler_ajt.TabIndex = 59;
+            this.btn_annuler_ajt.Text = "Annuler";
+            this.btn_annuler_ajt.UseVisualStyleBackColor = false;
+            this.btn_annuler_ajt.Click += new System.EventHandler(this.btn_valider_Click);
             // 
-            // btn_valider
+            // btn_valider_ajt
             // 
-            this.btn_valider.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
-            this.btn_valider.FlatAppearance.BorderSize = 0;
-            this.btn_valider.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btn_valider.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_valider.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_valider.ForeColor = System.Drawing.Color.White;
-            this.btn_valider.Location = new System.Drawing.Point(123, 374);
-            this.btn_valider.Name = "btn_valider";
-            this.btn_valider.Size = new System.Drawing.Size(134, 41);
-            this.btn_valider.TabIndex = 58;
-            this.btn_valider.Text = "Valider";
-            this.btn_valider.UseVisualStyleBackColor = false;
-            this.btn_valider.Click += new System.EventHandler(this.btn_valider_Click);
+            this.btn_valider_ajt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
+            this.btn_valider_ajt.FlatAppearance.BorderSize = 0;
+            this.btn_valider_ajt.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btn_valider_ajt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_valider_ajt.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_valider_ajt.ForeColor = System.Drawing.Color.White;
+            this.btn_valider_ajt.Location = new System.Drawing.Point(150, 9);
+            this.btn_valider_ajt.Name = "btn_valider_ajt";
+            this.btn_valider_ajt.Size = new System.Drawing.Size(134, 41);
+            this.btn_valider_ajt.TabIndex = 58;
+            this.btn_valider_ajt.Text = "Valider";
+            this.btn_valider_ajt.UseVisualStyleBackColor = false;
+            this.btn_valider_ajt.Click += new System.EventHandler(this.btn_valider_Click);
             // 
             // btn_rubrique
             // 
@@ -184,14 +192,81 @@
             this.btn_rubrique.Text = "+";
             this.btn_rubrique.UseVisualStyleBackColor = false;
             // 
+            // btn_vider
+            // 
+            this.btn_vider.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
+            this.btn_vider.FlatAppearance.BorderSize = 0;
+            this.btn_vider.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btn_vider.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_vider.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_vider.ForeColor = System.Drawing.Color.White;
+            this.btn_vider.Location = new System.Drawing.Point(10, 9);
+            this.btn_vider.Name = "btn_vider";
+            this.btn_vider.Size = new System.Drawing.Size(134, 41);
+            this.btn_vider.TabIndex = 61;
+            this.btn_vider.Text = "Vider";
+            this.btn_vider.UseVisualStyleBackColor = false;
+            this.btn_vider.Click += new System.EventHandler(this.btn_valider_Click);
+            // 
+            // pnl_ajouter
+            // 
+            this.pnl_ajouter.Controls.Add(this.btn_vider);
+            this.pnl_ajouter.Controls.Add(this.btn_annuler_ajt);
+            this.pnl_ajouter.Controls.Add(this.btn_valider_ajt);
+            this.pnl_ajouter.Location = new System.Drawing.Point(50, 362);
+            this.pnl_ajouter.Name = "pnl_ajouter";
+            this.pnl_ajouter.Size = new System.Drawing.Size(432, 61);
+            this.pnl_ajouter.TabIndex = 62;
+            // 
+            // pnl_modifier
+            // 
+            this.pnl_modifier.Controls.Add(this.btn_annuler_mod);
+            this.pnl_modifier.Controls.Add(this.btn_valider_mod);
+            this.pnl_modifier.Location = new System.Drawing.Point(50, 362);
+            this.pnl_modifier.Name = "pnl_modifier";
+            this.pnl_modifier.Size = new System.Drawing.Size(432, 61);
+            this.pnl_modifier.TabIndex = 63;
+            // 
+            // btn_annuler_mod
+            // 
+            this.btn_annuler_mod.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
+            this.btn_annuler_mod.FlatAppearance.BorderSize = 0;
+            this.btn_annuler_mod.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btn_annuler_mod.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_annuler_mod.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_annuler_mod.ForeColor = System.Drawing.Color.White;
+            this.btn_annuler_mod.Location = new System.Drawing.Point(229, 9);
+            this.btn_annuler_mod.Name = "btn_annuler_mod";
+            this.btn_annuler_mod.Size = new System.Drawing.Size(134, 41);
+            this.btn_annuler_mod.TabIndex = 59;
+            this.btn_annuler_mod.Text = "Annuler";
+            this.btn_annuler_mod.UseVisualStyleBackColor = false;
+            this.btn_annuler_mod.Click += new System.EventHandler(this.btn_valider_Click);
+            // 
+            // btn_valider_mod
+            // 
+            this.btn_valider_mod.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
+            this.btn_valider_mod.FlatAppearance.BorderSize = 0;
+            this.btn_valider_mod.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btn_valider_mod.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_valider_mod.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_valider_mod.ForeColor = System.Drawing.Color.White;
+            this.btn_valider_mod.Location = new System.Drawing.Point(64, 9);
+            this.btn_valider_mod.Name = "btn_valider_mod";
+            this.btn_valider_mod.Size = new System.Drawing.Size(134, 41);
+            this.btn_valider_mod.TabIndex = 58;
+            this.btn_valider_mod.Text = "Valider";
+            this.btn_valider_mod.UseVisualStyleBackColor = false;
+            this.btn_valider_mod.Click += new System.EventHandler(this.btn_valider_Click);
+            // 
             // FrmAMArticle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(566, 505);
+            this.Controls.Add(this.pnl_modifier);
+            this.Controls.Add(this.pnl_ajouter);
             this.Controls.Add(this.btn_rubrique);
-            this.Controls.Add(this.btn_annuler);
-            this.Controls.Add(this.btn_valider);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -205,8 +280,11 @@
             this.Name = "FrmAMArticle";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmAMArticle";
+            this.Load += new System.EventHandler(this.FrmAMArticle_Load);
             this.pnlMenuBar.ResumeLayout(false);
             this.pnlMenuBar.PerformLayout();
+            this.pnl_ajouter.ResumeLayout(false);
+            this.pnl_modifier.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -224,8 +302,13 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button btn_annuler;
-        private System.Windows.Forms.Button btn_valider;
+        private System.Windows.Forms.Button btn_annuler_ajt;
+        private System.Windows.Forms.Button btn_valider_ajt;
         private System.Windows.Forms.Button btn_rubrique;
+        private System.Windows.Forms.Button btn_vider;
+        private System.Windows.Forms.Panel pnl_ajouter;
+        private System.Windows.Forms.Panel pnl_modifier;
+        private System.Windows.Forms.Button btn_annuler_mod;
+        private System.Windows.Forms.Button btn_valider_mod;
     }
 }
