@@ -80,6 +80,7 @@ namespace Syndic
                 txtAdrees.Text = dr2[3].ToString();
                 txtCodePostal.Text = dr2[4].ToString();
                 txtPhone.Text = dr2[5].ToString();
+                ////////////////
                 txtEmail.Text = dr2[6].ToString();
                 //
                 //MessageBox.Show("hhhh");
