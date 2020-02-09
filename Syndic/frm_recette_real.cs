@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,6 +14,13 @@ namespace Syndic
 {
     public partial class frm_recette_real : Form
     {
+
+        BindingSource bsProp = new BindingSource();
+        DataSet ds = new DataSet();
+        SqlDataAdapter da;
+        SqlConnection cn = new SqlConnection();
+
+
         public frm_recette_real()
         {
             InitializeComponent();
@@ -57,8 +66,24 @@ namespace Syndic
 
         private void frm_recette_real_Load(object sender, EventArgs e)
         {
-            LesButton(true);
+            //LesButton(true);
             txt_search = MyHint.LoadText(txt_search, "Le Montant de Recette");
+            ds.Tables.Clear();
+            if (cn.State != ConnectionState.Open)
+            {
+                cn.ConnectionString = ConfigurationManager.ConnectionStrings["SyndicCS"].ToString();
+                cn.Open();
+            }
+            da = new SqlDataAdapter("Select id_recette as [NumRecette],montant as Montant,t.nomtype as Type from recette r inner join type_recette t on t.id_type = r.id_type where r.archive = 1", cn);
+            if (!ds.Tables.Contains("recette"))
+                
+             da.Fill(ds,"recette");
+
+            bsProp.DataSource = ds;
+            bsProp.DataMember = "recette";
+
+            dataGridView1.DataSource = bsProp;
+
 
         }
 
@@ -75,6 +100,41 @@ namespace Syndic
         private void txt_search_Enter(object sender, EventArgs e)
         {
             txt_search = MyHint.HintEnter(txt_search, "Le Montant de Recette");
+            
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            SqlCommandBuilder com = new SqlCommandBuilder(da);
+            da.Update(ds.Tables["recette"]);
+
+            //string s = "";
+            //if(dataGridView1.RowCount >= 0)
+            //    s = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+
+            if (txt_search.Text.Equals("Taper Le Montant de Recette pour rechercher") /*&& txt_search.Text == "" && s == ""*/)
+            {
+                bsProp.DataSource = ds;
+                bsProp.DataMember = "recette";
+                dataGridView1.DataSource = bsProp;
+            }
+            else
+            {
+                String se = txt_search.Text.Replace("'", " ");
+                if (txt_search.Text.Equals("Taper Le Montant de Recette pour rechercher"))
+                {
+                    bsProp.DataSource = ds;
+                    bsProp.DataMember = "recette";
+                    dataGridView1.DataSource = bsProp;
+
+                }
+                else
+                {
+                    bsProp.Filter = "montant = " + se + "";
+
+                }
+            }
+
         }
     }
 }

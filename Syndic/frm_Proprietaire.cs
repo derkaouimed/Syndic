@@ -86,8 +86,9 @@ namespace Syndic
 
         private void frm_Proprietaire_Load(object sender, EventArgs e)
         {
-            
-            txt_search = MyHint.LoadText(txt_search, "Nom & Prenom de Proprietaire");
+
+            Fonctions.textHintEntre(txt_search, "Taper Votre Nom Est Prenom Pour Rechercher");
+
             if (cn.State != ConnectionState.Open)
             {
                 cn.ConnectionString = ConfigurationManager.ConnectionStrings["SyndicCS"].ToString();
@@ -137,6 +138,9 @@ namespace Syndic
 
         private void button1_Click(object sender, EventArgs e)
         {
+            SqlCommandBuilder com = new SqlCommandBuilder(da);
+            da.Update(ds.Tables["Proprietaire"]);
+            
             string s = "";
             s =  dataGridView1.Rows[0].Cells[0].Value.ToString();
             if (txt_search.Text.Equals("Taper Nom & Prenom de Proprietaire pour rechercher") && txt_search.Text == "" && s=="")
@@ -161,6 +165,7 @@ namespace Syndic
                 }
             }
            
+            
             
           
            

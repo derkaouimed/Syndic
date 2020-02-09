@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Propietaire_Information));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtPhone = new System.Windows.Forms.TextBox();
             this.txtCodePostal = new System.Windows.Forms.TextBox();
@@ -48,7 +49,6 @@
             this.btn_close = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -77,6 +77,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Les Information";
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(165, 295);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(201, 23);
+            this.comboBox1.TabIndex = 14;
+            // 
             // txtEmail
             // 
             this.txtEmail.Location = new System.Drawing.Point(165, 260);
@@ -90,6 +98,7 @@
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(202, 21);
             this.txtPhone.TabIndex = 12;
+            this.txtPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPhone_KeyPress);
             // 
             // txtCodePostal
             // 
@@ -258,14 +267,6 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(165, 295);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(201, 23);
-            this.comboBox1.TabIndex = 14;
-            // 
             // Frm_Propietaire_Information
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -280,7 +281,9 @@
             this.Name = "Frm_Propietaire_Information";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Frm_Propietaire_Information";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Frm_Propietaire_Information_FormClosing);
             this.Load += new System.EventHandler(this.Frm_Propietaire_Information_Load);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Frm_Propietaire_Information_MouseMove);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.panel1.ResumeLayout(false);

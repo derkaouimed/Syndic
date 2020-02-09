@@ -190,5 +190,6 @@ namespace Syndic
             ds.Tables[t].Clear();
             remplirTableClear(sql, t);
         }
+
     }
 }

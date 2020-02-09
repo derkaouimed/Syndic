@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Threading;
 
 namespace Syndic
 {
@@ -18,9 +19,11 @@ namespace Syndic
         int id;
         String s = "";
         SqlDataReader dr;
-        SqlCommand com;
+        SqlCommand com = new SqlCommand();
         SqlDataReader dr2;
-        SqlCommand com2;
+        SqlCommand com2 = new SqlCommand();
+        SqlDataReader dr3;
+        SqlCommand com3 = new SqlCommand();
         SqlConnection cn = new SqlConnection();
         public Frm_Propietaire_Information(String _S,int id)
         {
@@ -84,39 +87,56 @@ namespace Syndic
                 txtEmail.Text = dr2[6].ToString();
                 //
                 //MessageBox.Show("hhhh");
-            }
-            com = new SqlCommand("Select * from ville",cn);
-            dr = com.ExecuteReader();
-            while (dr.Read())
-            {
-                comboBox1.Items.Add(dr[1].ToString());
-            }
-            
-            com = null;
-           // dr.Close();
 
-           
-           
+            }
+            if (cn.State != ConnectionState.Open)
+                cn.Open();
+            com3 = new SqlCommand("Select * from ville", cn);
+            dr3 = com3.ExecuteReader();
+
+            while (dr3.Read())
+            {
+                //MessageBox.Show("" + dr3[1].ToString());
+                comboBox1.Items.Add(dr3[1].ToString());
+            }
+
+            com3 = null;
+            dr3.Close();
+
+
+
+
+            com2 = null;
+            dr2.Close();
+
+
+
+            dr.Close();
+            com = null;
+
+
+
 
         }
-      
+
         private void btn_Proprietaire_Valider_Click(object sender, EventArgs e)
         {
-           
+            
+
 
             if (label8.Text == "Ajouter")
             {
-                com = null;
-                dr.Close();
-                com = new SqlCommand("select id_ville from ville where nom_ville like '" + comboBox1.Text + "'", cn);
-                dr = com.ExecuteReader();
-                dr.Read();
-                int b = int.Parse(dr[0].ToString());
+                
+                
+                com3 = new SqlCommand("select id_ville from ville where nom_ville like '" + comboBox1.Text + "'", cn);
+                dr3 = com3.ExecuteReader();
+                dr3.Read();
+                int b = int.Parse(dr3[0].ToString());
 
                 if (txtnom.Text != "" && txtprenom.Text != "")
                 {
-                    com = null;
-                    dr.Close();
+                    com3 = null;
+                    dr3.Close();
                     com = new SqlCommand("insert into proprietaire values('" + txtnom.Text + "','" + txtprenom.Text + "','" + txtAdrees.Text + "','" + txtCodePostal.Text + "','" + txtPhone.Text + "','" + txtEmail.Text + "'," + b + ",1)", cn);
                     int a = -1;
                     a = com.ExecuteNonQuery();
@@ -139,10 +159,21 @@ namespace Syndic
                // dr.Close();
                 dr2.Close();
                 com2 = null;
+                //////
+                int idVille = 0;
+                com = new SqlCommand("Select distinct id_ville from ville where nom_ville like '%" + comboBox1.Text + "%'", cn);
+                dr2 = com.ExecuteReader();
+                dr2.Read();
+                idVille = int.Parse(dr2[0].ToString());
 
-                com = new SqlCommand("update proprietaire set nom = '"+txtnom.Text+"',prenom = '"+txtprenom.Text+"',adresse = '"+txtAdrees.Text+"',code_postale = "+int.Parse(txtCodePostal.Text.ToString())+" ,telephone = '"+txtPhone.Text+"',email = '"+txtEmail.Text+"',id_ville = (Select id_ville from ville where nom_ville like '"+comboBox1.Text+ "') where id_proprietaire = "+id, cn);
+                com = null;
+                // dr.Close();
+                dr2.Close();
+                com2 = null;
+                //////
+                com = new SqlCommand("update proprietaire set nom = '"+txtnom.Text+"',prenom = '"+txtprenom.Text+"',adresse = '"+txtAdrees.Text+"',code_postale = "+int.Parse(txtCodePostal.Text.ToString())+" ,telephone = '"+txtPhone.Text+"',email = '"+txtEmail.Text+"',id_ville = "+idVille+" where id_proprietaire = "+id, cn);
                 int f = -1;
-                com.ExecuteReader();
+                f = com.ExecuteNonQuery();
                 if (f != -1)
                 {
                     MessageBox.Show("modified");
@@ -165,6 +196,27 @@ namespace Syndic
             txtprenom.Text = "";
             txtAdrees.Text = "";
             comboBox1.Text = "";
+
+        }
+
+        private void Frm_Propietaire_Information_MouseMove(object sender, MouseEventArgs e)
+        {
+            
+        }
+
+        private void Frm_Propietaire_Information_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            frm_Proprietaire f = new frm_Proprietaire();
+            f.ShowDialog();
+        }
+
+        private void txtPhone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(!Char.IsDigit(e.KeyChar))
+            {
+                MessageBox.Show("Only Numbers");
+                e.Handled = false;
+            }
         }
     }
 }

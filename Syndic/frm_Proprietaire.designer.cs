@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btn_Proprietaire_Supprimer = new System.Windows.Forms.Button();
             this.btn_Proprietaire_Modifier = new System.Windows.Forms.Button();
             this.btn_Proprietaire_Ajouter = new System.Windows.Forms.Button();
@@ -35,9 +37,9 @@
             this.btn_previous = new System.Windows.Forms.Button();
             this.btn_Last = new System.Windows.Forms.Button();
             this.btn_next = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.txt_search = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,7 +51,7 @@
             this.btn_Proprietaire_Supprimer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Proprietaire_Supprimer.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Proprietaire_Supprimer.ForeColor = System.Drawing.Color.White;
-            this.btn_Proprietaire_Supprimer.Location = new System.Drawing.Point(630, 531);
+            this.btn_Proprietaire_Supprimer.Location = new System.Drawing.Point(657, 555);
             this.btn_Proprietaire_Supprimer.Name = "btn_Proprietaire_Supprimer";
             this.btn_Proprietaire_Supprimer.Size = new System.Drawing.Size(101, 43);
             this.btn_Proprietaire_Supprimer.TabIndex = 8;
@@ -65,7 +67,7 @@
             this.btn_Proprietaire_Modifier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Proprietaire_Modifier.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Proprietaire_Modifier.ForeColor = System.Drawing.Color.White;
-            this.btn_Proprietaire_Modifier.Location = new System.Drawing.Point(524, 531);
+            this.btn_Proprietaire_Modifier.Location = new System.Drawing.Point(551, 555);
             this.btn_Proprietaire_Modifier.Name = "btn_Proprietaire_Modifier";
             this.btn_Proprietaire_Modifier.Size = new System.Drawing.Size(100, 43);
             this.btn_Proprietaire_Modifier.TabIndex = 5;
@@ -81,7 +83,7 @@
             this.btn_Proprietaire_Ajouter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Proprietaire_Ajouter.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Proprietaire_Ajouter.ForeColor = System.Drawing.Color.White;
-            this.btn_Proprietaire_Ajouter.Location = new System.Drawing.Point(416, 531);
+            this.btn_Proprietaire_Ajouter.Location = new System.Drawing.Point(443, 555);
             this.btn_Proprietaire_Ajouter.Name = "btn_Proprietaire_Ajouter";
             this.btn_Proprietaire_Ajouter.Size = new System.Drawing.Size(102, 43);
             this.btn_Proprietaire_Ajouter.TabIndex = 4;
@@ -97,7 +99,7 @@
             this.btn_first.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_first.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_first.ForeColor = System.Drawing.Color.White;
-            this.btn_first.Location = new System.Drawing.Point(40, 535);
+            this.btn_first.Location = new System.Drawing.Point(12, 555);
             this.btn_first.Name = "btn_first";
             this.btn_first.Size = new System.Drawing.Size(54, 37);
             this.btn_first.TabIndex = 5;
@@ -113,7 +115,7 @@
             this.btn_previous.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_previous.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_previous.ForeColor = System.Drawing.Color.White;
-            this.btn_previous.Location = new System.Drawing.Point(100, 535);
+            this.btn_previous.Location = new System.Drawing.Point(72, 555);
             this.btn_previous.Name = "btn_previous";
             this.btn_previous.Size = new System.Drawing.Size(54, 37);
             this.btn_previous.TabIndex = 6;
@@ -129,7 +131,7 @@
             this.btn_Last.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Last.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Last.ForeColor = System.Drawing.Color.White;
-            this.btn_Last.Location = new System.Drawing.Point(245, 535);
+            this.btn_Last.Location = new System.Drawing.Point(217, 555);
             this.btn_Last.Name = "btn_Last";
             this.btn_Last.Size = new System.Drawing.Size(50, 37);
             this.btn_Last.TabIndex = 7;
@@ -145,7 +147,7 @@
             this.btn_next.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_next.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_next.ForeColor = System.Drawing.Color.White;
-            this.btn_next.Location = new System.Drawing.Point(185, 535);
+            this.btn_next.Location = new System.Drawing.Point(157, 555);
             this.btn_next.Name = "btn_next";
             this.btn_next.Size = new System.Drawing.Size(54, 37);
             this.btn_next.TabIndex = 8;
@@ -153,19 +155,10 @@
             this.btn_next.UseVisualStyleBackColor = false;
             this.btn_next.Click += new System.EventHandler(this.btn_Last_Click);
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(40, 73);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(691, 452);
-            this.dataGridView1.TabIndex = 12;
-            this.dataGridView1.Click += new System.EventHandler(this.dataGridView1_Click);
-            // 
             // txt_search
             // 
             this.txt_search.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_search.Location = new System.Drawing.Point(52, 38);
+            this.txt_search.Location = new System.Drawing.Point(12, 38);
             this.txt_search.Name = "txt_search";
             this.txt_search.Size = new System.Drawing.Size(487, 29);
             this.txt_search.TabIndex = 13;
@@ -180,7 +173,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(587, 33);
+            this.button1.Location = new System.Drawing.Point(614, 33);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(144, 34);
             this.button1.TabIndex = 14;
@@ -188,12 +181,40 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridView1.ColumnHeadersHeight = 48;
+            this.dataGridView1.Location = new System.Drawing.Point(12, 73);
+            this.dataGridView1.MultiSelect = false;
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersVisible = false;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridView1.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.dataGridView1.RowTemplate.Height = 28;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(746, 476);
+            this.dataGridView1.TabIndex = 15;
+            // 
             // frm_Proprietaire
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(770, 634);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btn_next);
             this.Controls.Add(this.btn_Proprietaire_Supprimer);
             this.Controls.Add(this.btn_Last);
@@ -203,7 +224,6 @@
             this.Controls.Add(this.btn_first);
             this.Controls.Add(this.txt_search);
             this.Controls.Add(this.btn_Proprietaire_Ajouter);
-            this.Controls.Add(this.dataGridView1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frm_Proprietaire";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -223,8 +243,8 @@
         private System.Windows.Forms.Button btn_Last;
         private System.Windows.Forms.Button btn_previous;
         private System.Windows.Forms.Button btn_first;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TextBox txt_search;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
