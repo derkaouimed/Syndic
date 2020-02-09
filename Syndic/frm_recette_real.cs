@@ -38,25 +38,40 @@ namespace Syndic
         }
         private void btn_Recette_Ajouter_Click(object sender, EventArgs e)
         {
-            Button btn = (Button)sender;
+           Button btn = (Button)sender;
             switch (btn.Name)
             {
                 case "btn_Recette_Ajouter":
-                    frm_recette_information f = new frm_recette_information();
+                    frm_recette_information f = new frm_recette_information("Ajouter",0);
                     f.ShowDialog();
-
                     //LesButton(false);
                     break;
                 case "btn_Recette_modifier":
-                    frm_recette_information ff = new frm_recette_information();
+                    frm_recette_information ff = new frm_recette_information("Modifier",int.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString()));
                     ff.ShowDialog();
+
                     //LesButton(false);
+
                     break;
                 case "btn_Recette_Supprimer":
                     DialogResult d = MessageBox.Show("Suppresion", "Voules Vous Supprime Ce Propietaire ?", MessageBoxButtons.OK);
                     if (DialogResult.OK == d)
                     {
-                        /////
+                        SqlDataReader dr4;
+                        SqlCommand com4 = new SqlCommand("Update recette set archive = 0 where id_recette = " + int.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString()), cn);
+                        int a = 0;
+                        a = com4.ExecuteNonQuery();
+                        if (a != 0)
+                        {
+                            MessageBox.Show("Removed !!");
+
+                            dataGridView1.Rows.RemoveAt(dataGridView1.CurrentRow.Index);
+
+                        }
+
+                        else
+                            MessageBox.Show("Error in removing !!");
+
                     }
                     //LesButton(false);
                     break;
@@ -102,7 +117,7 @@ namespace Syndic
             txt_search = MyHint.HintEnter(txt_search, "Le Montant de Recette");
             
         }
-
+        SqlCommandBuilder commande;
         private void button1_Click(object sender, EventArgs e)
         {
             SqlCommandBuilder com = new SqlCommandBuilder(da);
@@ -112,11 +127,14 @@ namespace Syndic
             //if(dataGridView1.RowCount >= 0)
             //    s = dataGridView1.CurrentRow.Cells[0].Value.ToString();
 
-            if (txt_search.Text.Equals("Taper Le Montant de Recette pour rechercher") /*&& txt_search.Text == "" && s == ""*/)
+            if (txt_search.Text.Equals("Taper Le Montant de Recette pour rechercher") || txt_search.Text == "")
             {
+                commande = new SqlCommandBuilder(da);
+                da.Update(ds.Tables["recette"]);
                 bsProp.DataSource = ds;
                 bsProp.DataMember = "recette";
                 dataGridView1.DataSource = bsProp;
+                
             }
             else
             {
@@ -135,6 +153,26 @@ namespace Syndic
                 }
             }
 
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            bsProp.MovePrevious();
+        }
+
+        private void moveFirst_Click(object sender, EventArgs e)
+        {
+            bsProp.MoveFirst();
+        }
+
+        private void MoveNext_Click(object sender, EventArgs e)
+        {
+            bsProp.MoveNext();
+        }
+
+        private void MoveLast_Click(object sender, EventArgs e)
+        {
+            bsProp.MoveLast();
         }
     }
 }

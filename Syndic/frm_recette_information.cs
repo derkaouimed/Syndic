@@ -8,14 +8,27 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.Data.SqlClient;
+using System.Configuration;
 
 namespace Syndic
 {
     public partial class frm_recette_information : Form
     {
-        public frm_recette_information()
+        string s = "";
+        SqlDataReader dr;
+        int id = 0;
+        SqlDataReader dr2;
+        SqlCommand com = new SqlCommand();
+        SqlCommand com22 = new SqlCommand();
+        SqlConnection cn = new SqlConnection();
+
+        public frm_recette_information(String _S,int _id)
         {
             InitializeComponent();
+            s = _S;
+            id = _id;
+            label8.Text = s;
         }
 
         private void panel1_MouseMove(object sender, MouseEventArgs e)
@@ -38,6 +51,39 @@ namespace Syndic
 
         private void frm_recette_information_Load(object sender, EventArgs e)
         {
+            if (cn.State != ConnectionState.Open)
+            {
+                cn.ConnectionString = ConfigurationManager.ConnectionStrings["SyndicCS"].ToString();
+                cn.Open();
+            }
+            if (label8.Text == "Modifier")
+            {
+                if (cn.State != ConnectionState.Open)
+                    cn.Open();
+                com22 = new SqlCommand("Select montant ,nomtype from recette r inner join type_recette t on t.id_type = r.id_type where id_recette = "+id,cn);
+
+                dr2 = com22.ExecuteReader();
+                while (dr2.Read())
+                {
+                    textBox1.Text = dr2[0].ToString();
+                    comboBox1.Text = dr2[1].ToString();
+                }
+
+                dr2.Close();
+                com22 = null;
+
+            }
+
+            com = new SqlCommand("Select nomtype from type_recette",cn);
+            dr = com.ExecuteReader();
+            while (dr.Read())
+            {
+                MessageBox.Show("hhhhh");
+                comboBox1.Items.Add(""+dr[0].ToString());
+
+            }
+            com = null;
+            dr.Close();
 
         }
 
@@ -48,8 +94,38 @@ namespace Syndic
 
         private void button2_Click(object sender, EventArgs e)
         {
-            frm_Recette_type f = new frm_Recette_type();
+            this.Hide();
+            frm_Recette_type f = new frm_Recette_type("Modifier",id);
             f.ShowDialog();
+        }
+        SqlCommand com2 = new SqlCommand();
+        //SqlDataReader dr2;
+        private void btn_Recette_valider_Click(object sender, EventArgs e)
+        {
+            //hna erro hitax makaynaxi identity  >> autoIncrement  //
+
+            if (textBox1.Text != "" && comboBox1.Text != "")
+            {
+                Random r = new Random();
+                int j = r.Next(1000);
+
+                com2 = new SqlCommand("insert into recette values ("+j+",'" + textBox1.Text.ToString() + "',(Select distinct id_type from type_recette where nomtype like '%" + comboBox1.Text + "%'),1)", cn);
+                int a = -1;
+                a = com2.ExecuteNonQuery();
+                if (a != -1)
+                {
+                    MessageBox.Show("Added");
+                }
+                else
+                {
+                    MessageBox.Show("not Added !!");
+                }
+            }
+            else
+                MessageBox.Show("Remplire Data");
+
+
+
         }
     }
 }

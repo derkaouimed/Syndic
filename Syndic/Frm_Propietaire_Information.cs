@@ -126,8 +126,6 @@ namespace Syndic
 
             if (label8.Text == "Ajouter")
             {
-                
-                
                 com3 = new SqlCommand("select id_ville from ville where nom_ville like '" + comboBox1.Text + "'", cn);
                 dr3 = com3.ExecuteReader();
                 dr3.Read();
