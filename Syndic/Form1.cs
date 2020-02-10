@@ -57,9 +57,11 @@ namespace Syndic
                     break;
                 case "btn_immeuble":
                     lbl_titre.Text = "Immeuble - Syndic";
+                    ouvrire(new Frm_immeuble());
                     break;
                 case "btn_bien":
                     lbl_titre.Text = "Bien - Syndic";
+                    ouvrire(new Frm_Bien());
                     break;
                 case "btn_proprietaire":
                     lbl_titre.Text = "Proprietaire - Syndic";
@@ -74,7 +76,8 @@ namespace Syndic
                     break;
                 case "btn_utilisateur":
                     lbl_titre.Text = "Utilisateur - Syndic";
-                    break;
+                    ouvrire(new Frm_utilisateur());
+                        break;
                 case "btn_fournisseur":
                     lbl_titre.Text = "Fournisseur - Syndic";
                     ouvrire(new FrmFournisseur());

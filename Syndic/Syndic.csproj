@@ -132,6 +132,54 @@
     <Compile Include="FrmOublie.Designer.cs">
       <DependentUpon>FrmOublie.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm_Bien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Bien.Designer.cs">
+      <DependentUpon>Frm_Bien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Bien1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Bien1.Designer.cs">
+      <DependentUpon>Frm_Bien1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Bien_Aj.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Bien_Aj.Designer.cs">
+      <DependentUpon>Frm_Bien_Aj.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Bien_Doc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Bien_Doc.Designer.cs">
+      <DependentUpon>Frm_Bien_Doc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Bien_Document_aj.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Bien_Document_aj.Designer.cs">
+      <DependentUpon>Frm_Bien_Document_aj.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Bien_Remarque.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Bien_Remarque.Designer.cs">
+      <DependentUpon>Frm_Bien_Remarque.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Bien_remarque_aj.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Bien_remarque_aj.Designer.cs">
+      <DependentUpon>Frm_Bien_remarque_aj.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Bien_Type.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Bien_Type.Designer.cs">
+      <DependentUpon>Frm_Bien_Type.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_Cotisation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -161,6 +209,24 @@
     </Compile>
     <Compile Include="frm_Echeance.designer.cs">
       <DependentUpon>frm_Echeance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_immeuble.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_immeuble.Designer.cs">
+      <DependentUpon>Frm_immeuble.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_immeuble_aj.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_immeuble_aj.Designer.cs">
+      <DependentUpon>Frm_immeuble_aj.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_immeuble_res.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_immeuble_res.Designer.cs">
+      <DependentUpon>frm_immeuble_res.cs</DependentUpon>
     </Compile>
     <Compile Include="Frm_Propietaire_Information.cs">
       <SubType>Form</SubType>
@@ -222,6 +288,24 @@
     <Compile Include="frm_Recette_type.designer.cs">
       <DependentUpon>frm_Recette_type.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm_utilisateur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_utilisateur.Designer.cs">
+      <DependentUpon>Frm_utilisateur.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Utilisateur_aj.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Utilisateur_aj.Designer.cs">
+      <DependentUpon>Frm_Utilisateur_aj.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_utilisateur_type.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_utilisateur_type.Designer.cs">
+      <DependentUpon>Frm_utilisateur_type.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyHint.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -267,6 +351,30 @@
     <EmbeddedResource Include="FrmOublie.resx">
       <DependentUpon>FrmOublie.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Bien.resx">
+      <DependentUpon>Frm_Bien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Bien1.resx">
+      <DependentUpon>Frm_Bien1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Bien_Aj.resx">
+      <DependentUpon>Frm_Bien_Aj.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Bien_Doc.resx">
+      <DependentUpon>Frm_Bien_Doc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Bien_Document_aj.resx">
+      <DependentUpon>Frm_Bien_Document_aj.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Bien_Remarque.resx">
+      <DependentUpon>Frm_Bien_Remarque.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Bien_remarque_aj.resx">
+      <DependentUpon>Frm_Bien_remarque_aj.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Bien_Type.resx">
+      <DependentUpon>Frm_Bien_Type.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_Cotisation.resx">
       <DependentUpon>frm_Cotisation.cs</DependentUpon>
     </EmbeddedResource>
@@ -281,6 +389,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_Echeance.resx">
       <DependentUpon>frm_Echeance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_immeuble.resx">
+      <DependentUpon>Frm_immeuble.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_immeuble_aj.resx">
+      <DependentUpon>Frm_immeuble_aj.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_immeuble_res.resx">
+      <DependentUpon>frm_immeuble_res.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_Propietaire_Information.resx">
       <DependentUpon>Frm_Propietaire_Information.cs</DependentUpon>
@@ -311,6 +428,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_Recette_type.resx">
       <DependentUpon>frm_Recette_type.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_utilisateur.resx">
+      <DependentUpon>Frm_utilisateur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Utilisateur_aj.resx">
+      <DependentUpon>Frm_Utilisateur_aj.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_utilisateur_type.resx">
+      <DependentUpon>Frm_utilisateur_type.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
