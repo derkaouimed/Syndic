@@ -135,6 +135,7 @@ namespace Syndic
                 {
                     com3 = null;
                     dr3.Close();
+
                     com = new SqlCommand("insert into proprietaire values('" + txtnom.Text + "','" + txtprenom.Text + "','" + txtAdrees.Text + "','" + txtCodePostal.Text + "','" + txtPhone.Text + "','" + txtEmail.Text + "'," + b + ",1)", cn);
                     int a = -1;
                     a = com.ExecuteNonQuery();

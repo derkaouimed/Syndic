@@ -42,6 +42,7 @@ namespace Syndic
 
                     break;
                 case "btn_Bien_modifier":
+
                     Frm_Bien_Aj ff = new Frm_Bien_Aj("Modifier", int.Parse(gridBien.CurrentRow.Cells[0].Value.ToString()));
                     ff.ShowDialog();
 
@@ -94,7 +95,7 @@ namespace Syndic
         private void Frm_Bien1_Load(object sender, EventArgs e)
         {
             ouvriConnectio();
-            AD = new SqlDataAdapter("select id_bien,NomApparetemnt,etage,superficie,charges,b.titrefoncier,i.nom as [immeuble] , t.nom,c.consomation,c.date_controle from bien B inner join type_bien t on t.id_type=b.id_type_bien inner join conteur_eau c on c.id_conteurEau=b.id_conteurEau inner join immeuble i on i.id_immeuble=b.id_immeuble ", CN);
+            AD = new SqlDataAdapter("select id_bien,NomApparetemnt,etage,superficie,charges,b.titrefoncier , t.nom as [type],i.nom as [immeuble],(p.nom +' '+p.prenom) as [nomComplet] ,c.consomation,c.date_controle from bien B inner join type_bien t on t.id_type=b.id_type_bien inner join conteur_eau c on c.id_conteurEau=b.id_conteurEau inner join immeuble i on i.id_immeuble=b.id_immeuble inner join proprietaire p on p.id_proprietaire= b.id_proprietaire ", CN);
             if (!DS.Tables.Contains("bien"))
 
                 AD.Fill(DS, "bien");

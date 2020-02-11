@@ -13,9 +13,15 @@ namespace Syndic
 {
     public partial class Frm_Bien_Document_aj : Form
     {
-        public Frm_Bien_Document_aj()
+        string s = "";
+        int id;
+   
+        public Frm_Bien_Document_aj(string s , int id)
         {
             InitializeComponent();
+            this.id = id;
+            this.s = s;
+            label3.Text = s;
         }
 
         public const int WM_NCLBUTTONDOWN = 0xA1;

@@ -63,6 +63,7 @@ namespace Syndic
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+
             Frm_Bien_Aj ff = new Frm_Bien_Aj("Modifier", id);
             ff.ShowDialog();
         }
@@ -78,23 +79,31 @@ namespace Syndic
 
         private void Frm_Bien_Type_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Frm_Bien_Aj f = new Frm_Bien_Aj("Modifier", id);
-            f.ShowDialog();
+            //Frm_Bien_Aj f = new Frm_Bien_Aj("Modifier", id);
+            //f.ShowDialog();
         }
 
         private void btn_Recette_valider_Click(object sender, EventArgs e)
         {
-            com = new SqlCommand("Insert into type_recette values ('" + textBox1.Text + "',1)", CN);
-            int a = -1;
-            a = com.ExecuteNonQuery();
-            if (a != -1)
+            if (textBox1.Text != "")
             {
-                MessageBox.Show("Enregistrer");
+                com = new SqlCommand("Insert into type_bien values ('" + textBox1.Text + "',1)", CN);
+                int a = -1;
+                a = com.ExecuteNonQuery();
+                if (a != -1)
+                {
+                    MessageBox.Show("Enregistrer");
+                }
+                else
+                {
+                    MessageBox.Show("Erreur  !!");
+                }
             }
             else
             {
-                MessageBox.Show("Erreur  !!");
+                MessageBox.Show("if faut entre le nom !!!!!");
             }
+           
         }
     }
 }

@@ -13,9 +13,14 @@ namespace Syndic
 {
     public partial class Frm_Bien_remarque_aj : Form
     {
-        public Frm_Bien_remarque_aj()
+        string s = "";
+        int id;
+        public Frm_Bien_remarque_aj( string s , int id)
         {
             InitializeComponent();
+            this.id = id;
+            this.s = s;
+            label3.Text = s;
         }
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
@@ -37,6 +42,11 @@ namespace Syndic
                 ReleaseCapture();
                 SendMessage(this.Handle, WM_NCLBUTTONDOWN, new IntPtr(HT_CAPTION), IntPtr.Zero);
             }
+        }
+
+        private void Frm_Bien_remarque_aj_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

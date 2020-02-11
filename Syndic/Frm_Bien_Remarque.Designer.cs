@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.grp_fichier = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.movePrecedent = new System.Windows.Forms.Button();
             this.MoveNext = new System.Windows.Forms.Button();
             this.MoveLast = new System.Windows.Forms.Button();
@@ -37,12 +38,11 @@
             this.btn_Bien_rem_modifier = new System.Windows.Forms.Button();
             this.btn_Bien_rem_Ajouter = new System.Windows.Forms.Button();
             this.btn_rechercher = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.grid_bien_rem = new System.Windows.Forms.DataGridView();
             this.txt_nomfich = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.grp_fichier.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grid_bien_rem)).BeginInit();
             this.SuspendLayout();
             // 
             // grp_fichier
@@ -56,7 +56,7 @@
             this.grp_fichier.Controls.Add(this.btn_Bien_rem_modifier);
             this.grp_fichier.Controls.Add(this.btn_Bien_rem_Ajouter);
             this.grp_fichier.Controls.Add(this.btn_rechercher);
-            this.grp_fichier.Controls.Add(this.dataGridView1);
+            this.grp_fichier.Controls.Add(this.grid_bien_rem);
             this.grp_fichier.Controls.Add(this.txt_nomfich);
             this.grp_fichier.Controls.Add(this.label8);
             this.grp_fichier.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
@@ -66,6 +66,23 @@
             this.grp_fichier.TabIndex = 31;
             this.grp_fichier.TabStop = false;
             this.grp_fichier.Text = "Remarque";
+            this.grp_fichier.Enter += new System.EventHandler(this.grp_fichier_Enter);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(583, 34);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(144, 34);
+            this.button1.TabIndex = 42;
+            this.button1.Text = "Rechercher";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // movePrecedent
             // 
@@ -190,16 +207,16 @@
             this.btn_rechercher.Text = "Rechercher";
             this.btn_rechercher.UseVisualStyleBackColor = false;
             // 
-            // dataGridView1
+            // grid_bien_rem
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(22, 77);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(705, 328);
-            this.dataGridView1.TabIndex = 9;
+            this.grid_bien_rem.AllowUserToAddRows = false;
+            this.grid_bien_rem.AllowUserToDeleteRows = false;
+            this.grid_bien_rem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grid_bien_rem.Location = new System.Drawing.Point(22, 77);
+            this.grid_bien_rem.Name = "grid_bien_rem";
+            this.grid_bien_rem.ReadOnly = true;
+            this.grid_bien_rem.Size = new System.Drawing.Size(705, 328);
+            this.grid_bien_rem.TabIndex = 9;
             // 
             // txt_nomfich
             // 
@@ -217,21 +234,6 @@
             this.label8.TabIndex = 8;
             this.label8.Text = "Nom  :";
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(583, 34);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(144, 34);
-            this.button1.TabIndex = 42;
-            this.button1.Text = "Rechercher";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
             // Frm_Bien_Remarque
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -243,9 +245,10 @@
             this.Location = new System.Drawing.Point(12, 31);
             this.Name = "Frm_Bien_Remarque";
             this.Text = "Frm_Bien_Remarque";
+            this.Load += new System.EventHandler(this.Frm_Bien_Remarque_Load);
             this.grp_fichier.ResumeLayout(false);
             this.grp_fichier.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grid_bien_rem)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -253,7 +256,7 @@
         #endregion
 
         private System.Windows.Forms.GroupBox grp_fichier;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView grid_bien_rem;
         private System.Windows.Forms.TextBox txt_nomfich;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btn_rechercher;

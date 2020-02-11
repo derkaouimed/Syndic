@@ -37,11 +37,11 @@
             this.btn_Bien_doc_modifier = new System.Windows.Forms.Button();
             this.btn_Bien_doc_Ajouter = new System.Windows.Forms.Button();
             this.btn_rechercher = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.grid_doc_bien = new System.Windows.Forms.DataGridView();
             this.txt_nomfich = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.grp_fichier.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grid_doc_bien)).BeginInit();
             this.SuspendLayout();
             // 
             // grp_fichier
@@ -54,7 +54,7 @@
             this.grp_fichier.Controls.Add(this.btn_Bien_doc_modifier);
             this.grp_fichier.Controls.Add(this.btn_Bien_doc_Ajouter);
             this.grp_fichier.Controls.Add(this.btn_rechercher);
-            this.grp_fichier.Controls.Add(this.dataGridView1);
+            this.grp_fichier.Controls.Add(this.grid_doc_bien);
             this.grp_fichier.Controls.Add(this.txt_nomfich);
             this.grp_fichier.Controls.Add(this.label8);
             this.grp_fichier.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
@@ -64,6 +64,7 @@
             this.grp_fichier.TabIndex = 12;
             this.grp_fichier.TabStop = false;
             this.grp_fichier.Text = "Fichier";
+            this.grp_fichier.Enter += new System.EventHandler(this.grp_fichier_Enter);
             // 
             // movePrecedent
             // 
@@ -79,6 +80,7 @@
             this.movePrecedent.TabIndex = 34;
             this.movePrecedent.Text = "<";
             this.movePrecedent.UseVisualStyleBackColor = false;
+            this.movePrecedent.Click += new System.EventHandler(this.movePrecedent_Click);
             // 
             // MoveNext
             // 
@@ -94,6 +96,7 @@
             this.MoveNext.TabIndex = 33;
             this.MoveNext.Text = ">";
             this.MoveNext.UseVisualStyleBackColor = false;
+            this.MoveNext.Click += new System.EventHandler(this.MoveNext_Click);
             // 
             // MoveLast
             // 
@@ -109,6 +112,7 @@
             this.MoveLast.TabIndex = 32;
             this.MoveLast.Text = ">>";
             this.MoveLast.UseVisualStyleBackColor = false;
+            this.MoveLast.Click += new System.EventHandler(this.MoveLast_Click);
             // 
             // moveFirst
             // 
@@ -124,6 +128,7 @@
             this.moveFirst.TabIndex = 30;
             this.moveFirst.Text = "<<";
             this.moveFirst.UseVisualStyleBackColor = false;
+            this.moveFirst.Click += new System.EventHandler(this.moveFirst_Click);
             // 
             // btn_Bien_doc_Supprimer
             // 
@@ -187,17 +192,18 @@
             this.btn_rechercher.TabIndex = 27;
             this.btn_rechercher.Text = "Rechercher";
             this.btn_rechercher.UseVisualStyleBackColor = false;
+            this.btn_rechercher.Click += new System.EventHandler(this.btn_rechercher_Click);
             // 
-            // dataGridView1
+            // grid_doc_bien
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(22, 77);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(705, 328);
-            this.dataGridView1.TabIndex = 9;
+            this.grid_doc_bien.AllowUserToAddRows = false;
+            this.grid_doc_bien.AllowUserToDeleteRows = false;
+            this.grid_doc_bien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grid_doc_bien.Location = new System.Drawing.Point(22, 77);
+            this.grid_doc_bien.Name = "grid_doc_bien";
+            this.grid_doc_bien.ReadOnly = true;
+            this.grid_doc_bien.Size = new System.Drawing.Size(705, 328);
+            this.grid_doc_bien.TabIndex = 9;
             // 
             // txt_nomfich
             // 
@@ -225,9 +231,10 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Frm_Bien_Doc";
             this.Text = "Frm_Bien_Doc";
+            this.Load += new System.EventHandler(this.Frm_Bien_Doc_Load);
             this.grp_fichier.ResumeLayout(false);
             this.grp_fichier.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grid_doc_bien)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -235,7 +242,7 @@
         #endregion
 
         private System.Windows.Forms.GroupBox grp_fichier;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView grid_doc_bien;
         private System.Windows.Forms.TextBox txt_nomfich;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btn_rechercher;
