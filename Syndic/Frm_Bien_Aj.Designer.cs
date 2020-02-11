@@ -48,12 +48,16 @@
             this.button1 = new System.Windows.Forms.Button();
             this.btn_Recette_valider = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.lbl_text = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txt_nom = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
+            this.panel1.Controls.Add(this.lbl_text);
             this.panel1.Controls.Add(this.btn_close);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -225,6 +229,7 @@
             this.btn_Recette_valider.TabIndex = 76;
             this.btn_Recette_valider.Text = "Valider";
             this.btn_Recette_valider.UseVisualStyleBackColor = false;
+            this.btn_Recette_valider.Click += new System.EventHandler(this.btn_Recette_valider_Click);
             // 
             // button2
             // 
@@ -242,11 +247,37 @@
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // lbl_text
+            // 
+            this.lbl_text.AutoSize = true;
+            this.lbl_text.Location = new System.Drawing.Point(12, 5);
+            this.lbl_text.Name = "lbl_text";
+            this.lbl_text.Size = new System.Drawing.Size(0, 13);
+            this.lbl_text.TabIndex = 20;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label8.Location = new System.Drawing.Point(67, 47);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(48, 16);
+            this.label8.TabIndex = 73;
+            this.label8.Text = "Nom :";
+            // 
+            // txt_nom
+            // 
+            this.txt_nom.Location = new System.Drawing.Point(210, 47);
+            this.txt_nom.Name = "txt_nom";
+            this.txt_nom.Size = new System.Drawing.Size(91, 20);
+            this.txt_nom.TabIndex = 79;
+            // 
             // Frm_Bien_Aj
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(402, 488);
+            this.Controls.Add(this.txt_nom);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btn_Recette_valider);
@@ -264,12 +295,14 @@
             this.Controls.Add(this.txt_superficier);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txt_titre);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.label3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Frm_Bien_Aj";
             this.Text = "Frm_Bien_Aj";
             this.Load += new System.EventHandler(this.Frm_Bien_Aj_Load);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -296,5 +329,8 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btn_Recette_valider;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label lbl_text;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txt_nom;
     }
 }

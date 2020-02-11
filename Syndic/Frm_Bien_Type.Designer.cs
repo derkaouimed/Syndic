@@ -36,12 +36,14 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.btn_Recette_valider = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.btn_close);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -124,6 +126,17 @@
             this.btn_Recette_valider.TabIndex = 62;
             this.btn_Recette_valider.Text = "Valider";
             this.btn_Recette_valider.UseVisualStyleBackColor = false;
+            this.btn_Recette_valider.Click += new System.EventHandler(this.btn_Recette_valider_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(3, 4);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(61, 16);
+            this.label1.TabIndex = 64;
+            this.label1.Text = "Ajouter ";
             // 
             // Frm_Bien_Type
             // 
@@ -141,6 +154,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Frm_Bien_Type_FormClosing);
             this.Load += new System.EventHandler(this.Frm_Bien_Type_Load);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -155,5 +169,6 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btn_Recette_valider;
+        private System.Windows.Forms.Label label1;
     }
 }

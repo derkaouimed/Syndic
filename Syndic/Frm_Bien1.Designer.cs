@@ -29,9 +29,7 @@
         private void InitializeComponent()
         {
             this.grp_fichier = new System.Windows.Forms.GroupBox();
-            this.gridBien = new System.Windows.Forms.DataGridView();
-            this.txt_nomfich = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
+            this.btn_rechercher = new System.Windows.Forms.Button();
             this.movePrecedent = new System.Windows.Forms.Button();
             this.MoveNext = new System.Windows.Forms.Button();
             this.MoveLast = new System.Windows.Forms.Button();
@@ -39,7 +37,9 @@
             this.btn_Bien_Supprimer = new System.Windows.Forms.Button();
             this.btn_Bien_modifier = new System.Windows.Forms.Button();
             this.btn_Bien_Ajouter = new System.Windows.Forms.Button();
-            this.btn_rechercher = new System.Windows.Forms.Button();
+            this.gridBien = new System.Windows.Forms.DataGridView();
+            this.txt_nomfich = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.grp_fichier.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridBien)).BeginInit();
             this.SuspendLayout();
@@ -64,33 +64,23 @@
             this.grp_fichier.TabIndex = 26;
             this.grp_fichier.TabStop = false;
             this.grp_fichier.Text = "Bien";
+            this.grp_fichier.Enter += new System.EventHandler(this.grp_fichier_Enter);
             // 
-            // gridBien
+            // btn_rechercher
             // 
-            this.gridBien.AllowUserToAddRows = false;
-            this.gridBien.AllowUserToDeleteRows = false;
-            this.gridBien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridBien.Location = new System.Drawing.Point(22, 77);
-            this.gridBien.Name = "gridBien";
-            this.gridBien.ReadOnly = true;
-            this.gridBien.Size = new System.Drawing.Size(705, 328);
-            this.gridBien.TabIndex = 9;
-            // 
-            // txt_nomfich
-            // 
-            this.txt_nomfich.Location = new System.Drawing.Point(198, 36);
-            this.txt_nomfich.Name = "txt_nomfich";
-            this.txt_nomfich.Size = new System.Drawing.Size(264, 23);
-            this.txt_nomfich.TabIndex = 7;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(19, 39);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(140, 16);
-            this.label8.TabIndex = 8;
-            this.label8.Text = "Nom  Appartement :";
+            this.btn_rechercher.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btn_rechercher.FlatAppearance.BorderSize = 0;
+            this.btn_rechercher.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btn_rechercher.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_rechercher.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_rechercher.ForeColor = System.Drawing.Color.White;
+            this.btn_rechercher.Location = new System.Drawing.Point(583, 25);
+            this.btn_rechercher.Name = "btn_rechercher";
+            this.btn_rechercher.Size = new System.Drawing.Size(144, 34);
+            this.btn_rechercher.TabIndex = 26;
+            this.btn_rechercher.Text = "Rechercher";
+            this.btn_rechercher.UseVisualStyleBackColor = false;
+            this.btn_rechercher.Click += new System.EventHandler(this.btn_rechercher_Click);
             // 
             // movePrecedent
             // 
@@ -106,6 +96,7 @@
             this.movePrecedent.TabIndex = 25;
             this.movePrecedent.Text = "<";
             this.movePrecedent.UseVisualStyleBackColor = false;
+            this.movePrecedent.Click += new System.EventHandler(this.movePrecedent_Click);
             // 
             // MoveNext
             // 
@@ -121,6 +112,7 @@
             this.MoveNext.TabIndex = 24;
             this.MoveNext.Text = ">";
             this.MoveNext.UseVisualStyleBackColor = false;
+            this.MoveNext.Click += new System.EventHandler(this.MoveNext_Click);
             // 
             // MoveLast
             // 
@@ -136,6 +128,7 @@
             this.MoveLast.TabIndex = 23;
             this.MoveLast.Text = ">>";
             this.MoveLast.UseVisualStyleBackColor = false;
+            this.MoveLast.Click += new System.EventHandler(this.MoveLast_Click);
             // 
             // moveFirst
             // 
@@ -151,6 +144,7 @@
             this.moveFirst.TabIndex = 21;
             this.moveFirst.Text = "<<";
             this.moveFirst.UseVisualStyleBackColor = false;
+            this.moveFirst.Click += new System.EventHandler(this.moveFirst_Click);
             // 
             // btn_Bien_Supprimer
             // 
@@ -200,20 +194,32 @@
             this.btn_Bien_Ajouter.UseVisualStyleBackColor = false;
             this.btn_Bien_Ajouter.Click += new System.EventHandler(this.btn_Bien_Supprimer_Click);
             // 
-            // btn_rechercher
+            // gridBien
             // 
-            this.btn_rechercher.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.btn_rechercher.FlatAppearance.BorderSize = 0;
-            this.btn_rechercher.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.btn_rechercher.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_rechercher.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_rechercher.ForeColor = System.Drawing.Color.White;
-            this.btn_rechercher.Location = new System.Drawing.Point(583, 25);
-            this.btn_rechercher.Name = "btn_rechercher";
-            this.btn_rechercher.Size = new System.Drawing.Size(144, 34);
-            this.btn_rechercher.TabIndex = 26;
-            this.btn_rechercher.Text = "Rechercher";
-            this.btn_rechercher.UseVisualStyleBackColor = false;
+            this.gridBien.AllowUserToAddRows = false;
+            this.gridBien.AllowUserToDeleteRows = false;
+            this.gridBien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridBien.Location = new System.Drawing.Point(22, 77);
+            this.gridBien.Name = "gridBien";
+            this.gridBien.ReadOnly = true;
+            this.gridBien.Size = new System.Drawing.Size(705, 328);
+            this.gridBien.TabIndex = 9;
+            // 
+            // txt_nomfich
+            // 
+            this.txt_nomfich.Location = new System.Drawing.Point(198, 36);
+            this.txt_nomfich.Name = "txt_nomfich";
+            this.txt_nomfich.Size = new System.Drawing.Size(264, 23);
+            this.txt_nomfich.TabIndex = 7;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(19, 39);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(140, 16);
+            this.label8.TabIndex = 8;
+            this.label8.Text = "Nom  Appartement :";
             // 
             // Frm_Bien1
             // 
@@ -225,6 +231,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Frm_Bien1";
             this.Text = "Frm_Bien1";
+            this.Load += new System.EventHandler(this.Frm_Bien1_Load);
             this.grp_fichier.ResumeLayout(false);
             this.grp_fichier.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridBien)).EndInit();
