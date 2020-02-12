@@ -8,11 +8,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.Configuration;
+using System.Data.SqlClient;
 
 namespace Syndic
 {
     public partial class Frm_Bien_remarque_aj : Form
     {
+        SqlDataReader DR;
+        SqlCommand com = new SqlCommand();
+        SqlCommand comI = new SqlCommand();
+        SqlConnection CN = new SqlConnection();
         string s = "";
         int id;
         public Frm_Bien_remarque_aj( string s , int id)
@@ -22,6 +28,19 @@ namespace Syndic
             this.s = s;
             label3.Text = s;
         }
+
+
+
+        public void ouvrirconnection()
+        {
+            if (CN.State != ConnectionState.Open)
+            {
+                CN.ConnectionString = ConfigurationManager.ConnectionStrings["SyndicCS"].ToString();
+                CN.Open();
+            }
+        }
+
+
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
 
@@ -46,6 +65,51 @@ namespace Syndic
 
         private void Frm_Bien_remarque_aj_Load(object sender, EventArgs e)
         {
+
+        }
+
+        private void btn_RecetteDocument_valider_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_bienRem_valider_Click(object sender, EventArgs e)
+        {
+            if (label5.Text == "Ajouter")
+            {
+                com = new SqlCommand("Select id_bien from bien where nom like '" + cm_bien.Text + "'", CN);
+                DR = com.ExecuteReader();
+                DR.Read();
+                int T = int.Parse(DR[0].ToString());
+
+                if (txt_nom.Text != "" && txt_rem.Text != "")
+                {
+
+                }
+                else
+                    MessageBox.Show("Remplir tous les champs !!!");
+            }
+            else if (label5.Text == "Modifier")
+            {
+                int I = 0;
+                comI = new SqlCommand("Select distinct id_bien from bien where nom like '%" + cm_bien.Text + "%'", CN);
+                DR = com.ExecuteReader();
+                DR.Read();
+                I = int.Parse(DR[0].ToString());
+                comI = new SqlCommand("update remarque_bien set nom = '" + txt_nom.Text + "',remarque = '" + txt_rem.Text +"',id_bien = '" + I + " where id_remarque = " + id, CN);
+                int f = -1;
+                f = comI.ExecuteNonQuery();
+                if (f != -1)
+                {
+                    MessageBox.Show("modifie");
+                }
+                else
+                {
+                    MessageBox.Show("Erreur modifie !!");
+                }
+
+            }
+
 
         }
     }

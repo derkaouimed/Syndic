@@ -46,8 +46,8 @@
             this.txt_consomation = new System.Windows.Forms.TextBox();
             this.txt_charge = new System.Windows.Forms.TextBox();
             this.txt_etage = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btn_Recette_valider = new System.Windows.Forms.Button();
+            this.btn_bien_annuler = new System.Windows.Forms.Button();
+            this.btn_bien_valider = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.txt_nom = new System.Windows.Forms.TextBox();
@@ -212,36 +212,37 @@
             this.txt_etage.Size = new System.Drawing.Size(91, 20);
             this.txt_etage.TabIndex = 62;
             // 
-            // button1
+            // btn_bien_annuler
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(226, 418);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(112, 38);
-            this.button1.TabIndex = 77;
-            this.button1.Text = "Annuler";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btn_bien_annuler.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
+            this.btn_bien_annuler.FlatAppearance.BorderSize = 0;
+            this.btn_bien_annuler.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btn_bien_annuler.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_bien_annuler.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_bien_annuler.ForeColor = System.Drawing.Color.White;
+            this.btn_bien_annuler.Location = new System.Drawing.Point(226, 418);
+            this.btn_bien_annuler.Name = "btn_bien_annuler";
+            this.btn_bien_annuler.Size = new System.Drawing.Size(112, 38);
+            this.btn_bien_annuler.TabIndex = 77;
+            this.btn_bien_annuler.Text = "Annuler";
+            this.btn_bien_annuler.UseVisualStyleBackColor = false;
+            this.btn_bien_annuler.Click += new System.EventHandler(this.btn_bien_annuler_Click_1);
             // 
-            // btn_Recette_valider
+            // btn_bien_valider
             // 
-            this.btn_Recette_valider.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
-            this.btn_Recette_valider.FlatAppearance.BorderSize = 0;
-            this.btn_Recette_valider.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.btn_Recette_valider.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Recette_valider.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Recette_valider.ForeColor = System.Drawing.Color.White;
-            this.btn_Recette_valider.Location = new System.Drawing.Point(44, 418);
-            this.btn_Recette_valider.Name = "btn_Recette_valider";
-            this.btn_Recette_valider.Size = new System.Drawing.Size(112, 38);
-            this.btn_Recette_valider.TabIndex = 76;
-            this.btn_Recette_valider.Text = "Valider";
-            this.btn_Recette_valider.UseVisualStyleBackColor = false;
-            this.btn_Recette_valider.Click += new System.EventHandler(this.btn_Recette_valider_Click);
+            this.btn_bien_valider.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
+            this.btn_bien_valider.FlatAppearance.BorderSize = 0;
+            this.btn_bien_valider.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btn_bien_valider.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_bien_valider.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_bien_valider.ForeColor = System.Drawing.Color.White;
+            this.btn_bien_valider.Location = new System.Drawing.Point(44, 418);
+            this.btn_bien_valider.Name = "btn_bien_valider";
+            this.btn_bien_valider.Size = new System.Drawing.Size(112, 38);
+            this.btn_bien_valider.TabIndex = 76;
+            this.btn_bien_valider.Text = "Valider";
+            this.btn_bien_valider.UseVisualStyleBackColor = false;
+            this.btn_bien_valider.Click += new System.EventHandler(this.btn_bien_valider_Click);
             // 
             // button2
             // 
@@ -321,8 +322,8 @@
             this.Controls.Add(this.cmb_imm);
             this.Controls.Add(this.txt_nom);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.btn_Recette_valider);
+            this.Controls.Add(this.btn_bien_annuler);
+            this.Controls.Add(this.btn_bien_valider);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dt_date);
@@ -370,8 +371,8 @@
         private System.Windows.Forms.TextBox txt_consomation;
         private System.Windows.Forms.TextBox txt_charge;
         private System.Windows.Forms.TextBox txt_etage;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button btn_Recette_valider;
+        private System.Windows.Forms.Button btn_bien_annuler;
+        private System.Windows.Forms.Button btn_bien_valider;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label lbl_text;
         private System.Windows.Forms.Label label8;

@@ -49,7 +49,7 @@ namespace Syndic
 
                     break;
                 case "btn_Bien_Supprimer":
-                    DialogResult d = MessageBox.Show("Supprerimer", "Voulez Vous Supprime cette Bien ?", MessageBoxButtons.OK);
+                    DialogResult d = MessageBox.Show("Supprerimer", "Voulez Vous Supprime cette Bien ?", MessageBoxButtons.YesNo);
                     if (DialogResult.OK == d)
                     {
                         SqlDataReader dr;
