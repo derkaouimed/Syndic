@@ -19,6 +19,8 @@ namespace Syndic
         SqlCommand com = new SqlCommand();
         SqlCommand comI = new SqlCommand();
         SqlConnection CN = new SqlConnection();
+        SqlCommand comT = new SqlCommand();
+        SqlDataReader DRT;
         string s = "";
         int id;
         public Frm_Bien_remarque_aj( string s , int id)
@@ -65,7 +67,34 @@ namespace Syndic
 
         private void Frm_Bien_remarque_aj_Load(object sender, EventArgs e)
         {
+            ouvrirconnection();
+            if (label3.Text == "Modifier")
+            {
+                if (CN.State != ConnectionState.Open)
+                    CN.Open();
+                com = new SqlCommand("select nom, fichier, b.NomApparetemnt from document_bien d inner join bien b on b.id_bien = d.id_bien where id_remarquet= " + id, CN);
 
+                DR = com.ExecuteReader();
+
+                DR.Read();
+                txt_nom.Text = DR[1].ToString();
+                txt_rem.Text = DR[3].ToString();
+                cm_bien.Text = DR[2].ToString();
+                DR.Close();
+                com = null;
+
+            }
+
+
+            comT = new SqlCommand("Select NomApparetemnt from bien", CN);
+            DRT = comT.ExecuteReader();
+            while (DRT.Read())
+            {
+                cm_bien.Items.Add("" + DRT[0].ToString());
+
+            }
+            comT = null;
+            DRT.Close();
         }
 
         private void btn_RecetteDocument_valider_Click(object sender, EventArgs e)
@@ -84,6 +113,20 @@ namespace Syndic
 
                 if (txt_nom.Text != "" && txt_rem.Text != "")
                 {
+                    com = null;
+                    DR.Close();
+
+                    com = new SqlCommand("insert into proprietaire values('" + txt_nom.Text + ",'" + txt_rem.Text + ",'" + T + ",1)", CN);
+                    int a = -1;
+                    a = com.ExecuteNonQuery();
+                    if (a != -1)
+                    {
+                        MessageBox.Show("Enregistrer !!! ");
+                    }
+                    else
+                    {
+                        MessageBox.Show("not enregistrer !!");
+                    }
 
                 }
                 else

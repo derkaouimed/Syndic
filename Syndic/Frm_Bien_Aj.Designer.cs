@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Bien_Aj));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lbl_text = new System.Windows.Forms.Label();
             this.btn_close = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.dt_date = new System.Windows.Forms.DateTimePicker();
@@ -55,28 +54,21 @@
             this.cmb_prop = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.lbl_text = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
-            this.panel1.Controls.Add(this.lbl_text);
             this.panel1.Controls.Add(this.btn_close);
+            this.panel1.Controls.Add(this.lbl_text);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(402, 23);
             this.panel1.TabIndex = 1;
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
-            // 
-            // lbl_text
-            // 
-            this.lbl_text.AutoSize = true;
-            this.lbl_text.Location = new System.Drawing.Point(12, 5);
-            this.lbl_text.Name = "lbl_text";
-            this.lbl_text.Size = new System.Drawing.Size(0, 13);
-            this.lbl_text.TabIndex = 20;
             // 
             // btn_close
             // 
@@ -313,6 +305,15 @@
             this.label11.TabIndex = 70;
             this.label11.Text = "Immeuble :";
             // 
+            // lbl_text
+            // 
+            this.lbl_text.AutoSize = true;
+            this.lbl_text.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lbl_text.Location = new System.Drawing.Point(3, 3);
+            this.lbl_text.Name = "lbl_text";
+            this.lbl_text.Size = new System.Drawing.Size(0, 16);
+            this.lbl_text.TabIndex = 73;
+            // 
             // Frm_Bien_Aj
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -374,12 +375,12 @@
         private System.Windows.Forms.Button btn_bien_annuler;
         private System.Windows.Forms.Button btn_bien_valider;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label lbl_text;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txt_nom;
         private System.Windows.Forms.ComboBox cmb_imm;
         private System.Windows.Forms.ComboBox cmb_prop;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lbl_text;
     }
 }

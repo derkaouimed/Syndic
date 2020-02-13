@@ -147,18 +147,24 @@ namespace Syndic
 
         private void btn_bien_valider_Click(object sender, EventArgs e)
         {
-            if (label8.Text == "Ajouter")
+            if (lbl_text.Text == "Ajouter")
             {
                 comT = new SqlCommand("Select id_type from type_bien where nom like '" + comboBox1.Text + "'", CN);
                 DRT = comT.ExecuteReader();
                 DRT.Read();
                 int T = int.Parse(DRT[0].ToString());
 
+                comT = null;
+                DRT.Close();
+
                 comI = new SqlCommand("Select id_immeuble from immeuble where nom like '" + cmb_imm.Text + "'", CN);
                 DRI = comI.ExecuteReader();
                 DRI.Read();
+
                 int b = int.Parse(DRI[0].ToString());
 
+                comI = null;
+                DRI.Close();
                 comP = new SqlCommand("Select id_proprietaire from Proprietaire where nom+' '+prenom like'" + cmb_prop.Text + "'", CN);
                 DRP = comP.ExecuteReader();
                 DRP.Read();
@@ -166,18 +172,16 @@ namespace Syndic
 
                 if (txt_nom.Text != "" && txt_charge.Text != "" && txt_consomation.Text != "" && txt_etage.Text != "" && txt_superficier.Text != "" && txt_titre.Text != "" && dt_date.Text != "")
                 {
-                    Random r = new Random();
-                    int j = r.Next(1000);
-                    comT = null;
-                    DRT.Close();
 
-                    comI = null;
-                    DRI.Close();
+                    
+                  
+
+                   
 
                     comP = null;
                     DRP.Close();
 
-                    com3 = new SqlCommand("insert into proprietaire values(" + j + ",'" + txt_nom.Text + "','" + txt_etage.Text + "','" + txt_superficier.Text + "','" + txt_charge.Text + "','" + b + "','" + T + "','" + c + "','" + txt_titre.Text + "','" + txt_consomation.Text + "'," + dt_date.Text + ",1)", CN);
+                    com3 = new SqlCommand("insert into proprietaire values( "+ txt_nom.Text + "','" + txt_etage.Text + "','" + txt_superficier.Text + "','" + txt_charge.Text + "','" + b + "','" + T + "','" + c + "','" + txt_titre.Text + "','" + txt_consomation.Text + "'," + dt_date.Text + ",1)", CN);
                     int a = -1;
                     a = com3.ExecuteNonQuery();
                     if (a != -1)
@@ -218,7 +222,7 @@ namespace Syndic
 
 
             }
-            else if (label8.Text == "Modifier")
+            else if (lbl_text.Text == "Modifier")
             {
                 com3 = null;
 
