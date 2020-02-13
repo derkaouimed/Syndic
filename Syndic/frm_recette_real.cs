@@ -64,6 +64,7 @@ namespace Syndic
                         if (a != 0)
                         {
                             MessageBox.Show("Removed !!");
+                            ///////////////////
 
                             dataGridView1.Rows.RemoveAt(dataGridView1.CurrentRow.Index);
 
