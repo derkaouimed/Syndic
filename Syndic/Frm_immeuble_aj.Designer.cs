@@ -176,6 +176,7 @@
             this.btn_RecetteDocument_valider.TabIndex = 59;
             this.btn_RecetteDocument_valider.Text = "Valider";
             this.btn_RecetteDocument_valider.UseVisualStyleBackColor = false;
+            this.btn_RecetteDocument_valider.Click += new System.EventHandler(this.btn_RecetteDocument_valider_Click);
             // 
             // button3
             // 
