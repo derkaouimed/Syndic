@@ -222,12 +222,6 @@
     <Compile Include="Frm_immeuble_aj.Designer.cs">
       <DependentUpon>Frm_immeuble_aj.cs</DependentUpon>
     </Compile>
-    <Compile Include="frm_immeuble_res.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frm_immeuble_res.Designer.cs">
-      <DependentUpon>frm_immeuble_res.cs</DependentUpon>
-    </Compile>
     <Compile Include="Frm_Propietaire_Information.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -395,9 +389,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_immeuble_aj.resx">
       <DependentUpon>Frm_immeuble_aj.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frm_immeuble_res.resx">
-      <DependentUpon>frm_immeuble_res.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_Propietaire_Information.resx">
       <DependentUpon>Frm_Propietaire_Information.cs</DependentUpon>
