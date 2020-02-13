@@ -47,7 +47,7 @@ namespace Syndic
                     DialogResult d = MessageBox.Show("Suppresion","Voules Vous Supprime Ce Propietaire ?",MessageBoxButtons.OK);
                     if (DialogResult.OK == d)
                     {
-                        SqlDataReader dr;
+                        //SqlDataReader dr;
                         SqlCommand com = new SqlCommand("Update Proprietaire set archive = 0 where id_Proprietaire = "+int.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString()), cn);
                         int a = 0;
                         a = com.ExecuteNonQuery();
