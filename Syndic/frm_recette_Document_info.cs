@@ -98,5 +98,10 @@ namespace Syndic
 
 
         }
+
+        private void btn_RecetteDocument_valider_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

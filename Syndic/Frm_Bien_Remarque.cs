@@ -22,15 +22,7 @@ namespace Syndic
         {
             InitializeComponent();
         }
-        public void ouvriConnectio()
-        {
-            if (CN.State != ConnectionState.Open)
-            {
-                CN.ConnectionString = ConfigurationManager.ConnectionStrings["SyndicCS"].ToString();
-                CN.Open();
-            }
-        }
-
+      
         private void btn_Bien_rem_Supprimer_Click(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
@@ -50,7 +42,7 @@ namespace Syndic
                     DialogResult d = MessageBox.Show("Supprerimer", "Voulez Vous Supprime ce remarque ?", MessageBoxButtons.OK);
                     if (DialogResult.OK == d)
                     {
-                        SqlDataReader dr;
+                       
 
                         SqlCommand com = new SqlCommand("Update remarque_bien set archive = 0 where id_remarque = " + int.Parse(grid_bien_rem.CurrentRow.Cells[0].Value.ToString()), CN);
                         int a = 0;
@@ -91,7 +83,7 @@ namespace Syndic
         private void Frm_Bien_Remarque_Load(object sender, EventArgs e)
         {
 
-            ouvriConnectio();
+            Fonctions.ouvrireConnection();
             AD = new SqlDataAdapter("select nom,remarque , b.NomApparetemnt from remarque_bien d inner join bien b on b.id_bien=d.id_bien ", CN);
             if (!DS.Tables.Contains("remarque_bien"))
 

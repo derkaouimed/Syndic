@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_recette_Document_info));
             this.btn_close = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -40,7 +41,6 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.btn_RecetteDocument_Annuler = new System.Windows.Forms.Button();
             this.btn_RecetteDocument_valider = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -68,6 +68,15 @@
             this.panel1.Size = new System.Drawing.Size(384, 23);
             this.panel1.TabIndex = 1;
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(174, 5);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(40, 13);
+            this.label8.TabIndex = 21;
+            this.label8.Text = "Ajouter";
             // 
             // button1
             // 
@@ -163,15 +172,7 @@
             this.btn_RecetteDocument_valider.TabIndex = 14;
             this.btn_RecetteDocument_valider.Text = "Valider";
             this.btn_RecetteDocument_valider.UseVisualStyleBackColor = false;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(174, 5);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(40, 13);
-            this.label8.TabIndex = 21;
-            this.label8.Text = "Ajouter";
+            this.btn_RecetteDocument_valider.Click += new System.EventHandler(this.btn_RecetteDocument_valider_Click);
             // 
             // frm_recette_Document_info
             // 

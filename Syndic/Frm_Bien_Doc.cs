@@ -50,7 +50,6 @@ namespace Syndic
                     DialogResult d = MessageBox.Show("Supprerimer", "Voulez Vous Supprime ce document ?", MessageBoxButtons.OK);
                     if (DialogResult.OK == d)
                     {
-                        SqlDataReader dr;
 
                         SqlCommand com = new SqlCommand("Update document_bien set archive = 0 where id_document = " + int.Parse(grid_doc_bien.CurrentRow.Cells[0].Value.ToString()), CN);
                         int a = 0;

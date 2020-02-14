@@ -46,7 +46,7 @@ namespace Syndic
             //f.ShowDialog();
         }
 
-        private void btn_RecetteDocument_valider_Click(object sender, EventArgs e)
+        private void btn_immeuble_valider_Click(object sender, EventArgs e)
         {
 
         }

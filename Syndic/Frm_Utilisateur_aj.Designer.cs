@@ -198,6 +198,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Frm_Utilisateur_aj";
             this.Text = "Frm_Utilisateur_aj";
+            this.Load += new System.EventHandler(this.Frm_Utilisateur_aj_Load);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -17,7 +17,6 @@ namespace Syndic
     {
         string s = "";
         int id = 0;
-        SqlDataReader DR;
         SqlCommand com = new SqlCommand();
         SqlConnection CN = new SqlConnection();
         public Frm_Bien_Type(string _s, int _id)
