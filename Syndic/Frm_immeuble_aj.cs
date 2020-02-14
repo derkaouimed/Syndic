@@ -41,9 +41,9 @@ namespace Syndic
 
         private void button3_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            frm_immeuble_res f = new frm_immeuble_res();
-            f.ShowDialog();
+            //this.Hide();
+            //frm_immeuble_res f = new frm_immeuble_res();
+            //f.ShowDialog();
         }
 
         private void btn_RecetteDocument_valider_Click(object sender, EventArgs e)

@@ -40,6 +40,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.btn_RecetteDocument_Annuler = new System.Windows.Forms.Button();
             this.btn_RecetteDocument_valider = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,6 +59,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
+            this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.btn_close);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -162,6 +164,15 @@
             this.btn_RecetteDocument_valider.Text = "Valider";
             this.btn_RecetteDocument_valider.UseVisualStyleBackColor = false;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(174, 5);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(40, 13);
+            this.label8.TabIndex = 21;
+            this.label8.Text = "Ajouter";
+            // 
             // frm_recette_Document_info
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -180,7 +191,9 @@
             this.Name = "frm_recette_Document_info";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frm_recette_Document_info";
+            this.Load += new System.EventHandler(this.frm_recette_Document_info_Load);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -199,5 +212,6 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button btn_RecetteDocument_Annuler;
         private System.Windows.Forms.Button btn_RecetteDocument_valider;
+        private System.Windows.Forms.Label label8;
     }
 }
