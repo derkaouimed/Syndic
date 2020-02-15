@@ -157,6 +157,7 @@
             this.btn_RecetteDocument_Annuler.TabIndex = 15;
             this.btn_RecetteDocument_Annuler.Text = "Annuler";
             this.btn_RecetteDocument_Annuler.UseVisualStyleBackColor = false;
+            this.btn_RecetteDocument_Annuler.Click += new System.EventHandler(this.btn_RecetteDocument_Annuler_Click);
             // 
             // btn_RecetteDocument_valider
             // 
@@ -192,7 +193,9 @@
             this.Name = "frm_recette_Document_info";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frm_recette_Document_info";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frm_recette_Document_info_FormClosing);
             this.Load += new System.EventHandler(this.frm_recette_Document_info_Load);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.frm_recette_Document_info_MouseMove);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

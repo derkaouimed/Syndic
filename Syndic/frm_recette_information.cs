@@ -20,6 +20,7 @@ namespace Syndic
         int id = 0;
         SqlDataReader dr2;
         SqlCommand com = new SqlCommand();
+        SqlCommand com33 = new SqlCommand();
         SqlCommand com22 = new SqlCommand();
         SqlConnection cn = new SqlConnection();
 
@@ -60,30 +61,37 @@ namespace Syndic
             {
                 if (cn.State != ConnectionState.Open)
                     cn.Open();
-                com22 = new SqlCommand("Select montant ,nomtype from recette r inner join type_recette t on t.id_type = r.id_type where id_recette = "+id,cn);
+                com22 = new SqlCommand("Select montant ,nomtype,t.id_type from recette r inner join type_recette t on t.id_type = r.id_type where id_recette = " + id, cn);
 
                 dr2 = com22.ExecuteReader();
                 while (dr2.Read())
                 {
                     textBox1.Text = dr2[0].ToString();
                     comboBox1.Text = dr2[1].ToString();
+                    comboBox1.ValueMember = dr[2].ToString();
                 }
 
                 dr2.Close();
                 com22 = null;
 
-            }
 
-            com = new SqlCommand("Select nomtype from type_recette",cn);
-            dr = com.ExecuteReader();
-            while (dr.Read())
-            {
-                MessageBox.Show("hhhhh");
-                comboBox1.Items.Add(""+dr[0].ToString());
+              
 
             }
-            com = null;
+            else { 
+                com = new SqlCommand("Select nomtype,id_type from type_recette",cn);
+                dr = com.ExecuteReader();
+                while (dr.Read())
+                {
+                    //MessageBox.Show("hhhhh");
+                    comboBox1.Items.Add(""+dr[0].ToString());
+                    //comboBox1.ValueMember = dr[1].ToString();
+                }
+                com = null;
+                dr.Close();
+            }
             dr.Close();
+
 
         }
 
@@ -103,29 +111,90 @@ namespace Syndic
         private void btn_Recette_valider_Click(object sender, EventArgs e)
         {
             //hna erro hitax makaynaxi identity  >> autoIncrement  //
-
-            if (textBox1.Text != "" && comboBox1.Text != "")
-            {
-                Random r = new Random();
-                int j = r.Next(1000);
-
-                com2 = new SqlCommand("insert into recette values ("+j+",'" + textBox1.Text.ToString() + "',(Select distinct id_type from type_recette where nomtype like '%" + comboBox1.Text + "%'),1)", cn);
-                int a = -1;
-                a = com2.ExecuteNonQuery();
-                if (a != -1)
+           
+                if (label8.Text == "Ajouter")
                 {
-                    MessageBox.Show("Added");
+                    if (textBox1.Text != "" && comboBox1.Text != "")
+                    {
+                        Random r = new Random();
+                        int j = r.Next(1000);
+
+                        com2 = new SqlCommand("insert into recette values (" + j + ",'" + textBox1.Text.ToString() + "',(Select distinct id_type from type_recette where nomtype like '%" + comboBox1.Text + "%'),1)", cn);
+                        int a = -1;
+                        a = com2.ExecuteNonQuery();
+                        if (a != -1)
+                        {
+                            MessageBox.Show("Added");
+                        }
+                        else
+                        {
+                            MessageBox.Show("not Added !!");
+                        }
+                    com2 = null;
+                    
+                    }
+                    else
+                        MessageBox.Show("Remplire Data");
+
                 }
                 else
                 {
-                    MessageBox.Show("not Added !!");
+                //dr.Close();
+
+                //dr2.Close();
+                try
+                {
+
+                    com33 = new SqlCommand("update recette set montant = '" + textBox1.Text.ToString() + "',id_type = (Select id_type from type_recette where nomtype like '" + comboBox1.Text.ToString() + "') where id_recette = " + id, cn);
+                    int a = -1;
+                    a = com33.ExecuteNonQuery();
+                    if (a != -1)
+                    {
+                        MessageBox.Show("Updates Succesfully");
+                    }
+                    else
+                        MessageBox.Show(" error Updates Succesfully");
                 }
+                catch {
+                    return;
+                }
+
+                }
+          
+           
+
+
+
+
+
+
+        }
+        int move = 0;
+
+        private void frm_recette_information_MouseMove(object sender, MouseEventArgs e)
+        {
+            SqlDataReader da1000;
+            SqlCommand com1000 = new SqlCommand();
+            com = null;
+            move++;
+            cn.Close();
+
+            cn.Open();
+            if (move <= 1)
+            {
+                com1000 = new SqlCommand("Select nomtype from type_recette", cn);
+                da1000 = com1000.ExecuteReader();
+                while (da1000.Read())
+                {
+                    //MessageBox.Show(""+dr[0].ToString());
+                    comboBox1.Items.Add("" + da1000[0].ToString());
+                    //comboBox1.ValueMember = dr[1].ToString();
+                }
+                com1000 = null;
+                da1000.Close();
+
+
             }
-            else
-                MessageBox.Show("Remplire Data");
-
-
-
         }
     }
 }

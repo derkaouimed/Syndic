@@ -34,17 +34,38 @@ namespace Syndic
             switch (btn.Name)
             {
                 case "btn_RecetteDocument_Ajouter":
-                    frm_recette_Document_info ff = new frm_recette_Document_info();
+                    
+                    frm_recette_Document_info ff = new frm_recette_Document_info("Ajouter");
                     ff.ShowDialog();
                     
                     break;
                 case "btn_RecetteDocument_modifier":
-                    frm_recette_Document_info f = new frm_recette_Document_info();
+                    
+                    frm_recette_Document_info f = new frm_recette_Document_info("Modifier",int.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString()));
                     f.ShowDialog();
 
                     break;
                 case "btn_RecetteDocument_Supprimer":
+                    DialogResult d = MessageBox.Show("Voules Vous Supprime Ce Document ?", "Suppresion", MessageBoxButtons.YesNo);
+                    if (DialogResult.Yes == d)
+                    {
+                        
+                        SqlCommand com4 = new SqlCommand("Update document_recette set archive = 0 where id_document = " + int.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString()), cn);
+                        int a = 0;
+                        a = com4.ExecuteNonQuery();
+                        if (a != 0)
+                        {
+                            MessageBox.Show("Removed !!");
+                            ///////////////////
 
+                            dataGridView1.Rows.RemoveAt(dataGridView1.CurrentRow.Index);
+
+                        }
+
+                        else
+                            MessageBox.Show("Error in removing !!");
+
+                    }
                     break;
            
                  

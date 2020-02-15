@@ -44,8 +44,8 @@ namespace Syndic
                     //LesButton(false);
                     break;
                 case "btn_Proprietaire_Supprimer":
-                    DialogResult d = MessageBox.Show("Suppresion","Voules Vous Supprime Ce Propietaire ?",MessageBoxButtons.OK);
-                    if (DialogResult.OK == d)
+                    DialogResult d = MessageBox.Show("Voules Vous Supprime Ce Proprietaire ?", "Suppresion", MessageBoxButtons.YesNo);
+                    if (DialogResult.Yes == d)
                     {
                         //SqlDataReader dr;
                         SqlCommand com = new SqlCommand("Update Proprietaire set archive = 0 where id_Proprietaire = "+int.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString()), cn);

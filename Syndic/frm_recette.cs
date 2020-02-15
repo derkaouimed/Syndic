@@ -15,6 +15,7 @@ namespace Syndic
         public frm_recette()
         {
             InitializeComponent();
+            btn_recette.PerformClick();
         }
         private void ouvrire(Form frm)
         {
