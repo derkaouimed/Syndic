@@ -33,15 +33,15 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btn_close = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.txt_fich = new System.Windows.Forms.TextBox();
+            this.txt_nom = new System.Windows.Forms.TextBox();
+            this.cmb_bien = new System.Windows.Forms.ComboBox();
             this.button3 = new System.Windows.Forms.Button();
             this.btn_Recette_valider = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -97,6 +97,15 @@
             this.btn_close.TabIndex = 19;
             this.btn_close.UseVisualStyleBackColor = true;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label3.Location = new System.Drawing.Point(3, 4);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(0, 16);
+            this.label3.TabIndex = 39;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -127,27 +136,27 @@
             this.label7.TabIndex = 39;
             this.label7.Text = "Nom :";
             // 
-            // textBox2
+            // txt_fich
             // 
-            this.textBox2.Location = new System.Drawing.Point(176, 236);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(121, 20);
-            this.textBox2.TabIndex = 38;
+            this.txt_fich.Location = new System.Drawing.Point(176, 236);
+            this.txt_fich.Name = "txt_fich";
+            this.txt_fich.Size = new System.Drawing.Size(121, 20);
+            this.txt_fich.TabIndex = 38;
             // 
-            // textBox1
+            // txt_nom
             // 
-            this.textBox1.Location = new System.Drawing.Point(176, 123);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(121, 20);
-            this.textBox1.TabIndex = 37;
+            this.txt_nom.Location = new System.Drawing.Point(176, 123);
+            this.txt_nom.Name = "txt_nom";
+            this.txt_nom.Size = new System.Drawing.Size(121, 20);
+            this.txt_nom.TabIndex = 37;
             // 
-            // comboBox1
+            // cmb_bien
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(176, 176);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 36;
+            this.cmb_bien.FormattingEnabled = true;
+            this.cmb_bien.Location = new System.Drawing.Point(176, 176);
+            this.cmb_bien.Name = "cmb_bien";
+            this.cmb_bien.Size = new System.Drawing.Size(121, 21);
+            this.cmb_bien.TabIndex = 36;
             // 
             // button3
             // 
@@ -178,15 +187,7 @@
             this.btn_Recette_valider.TabIndex = 64;
             this.btn_Recette_valider.Text = "Valider";
             this.btn_Recette_valider.UseVisualStyleBackColor = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(3, 4);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(0, 16);
-            this.label3.TabIndex = 39;
+            this.btn_Recette_valider.Click += new System.EventHandler(this.btn_Recette_valider_Click);
             // 
             // Frm_Bien_Document_aj
             // 
@@ -198,9 +199,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.txt_fich);
+            this.Controls.Add(this.txt_nom);
+            this.Controls.Add(this.cmb_bien);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Frm_Bien_Document_aj";
@@ -222,9 +223,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox txt_fich;
+        private System.Windows.Forms.TextBox txt_nom;
+        private System.Windows.Forms.ComboBox cmb_bien;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button btn_Recette_valider;
         private System.Windows.Forms.Label label3;

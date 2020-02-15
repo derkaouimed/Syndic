@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+using System.Configuration;
 using System.Runtime.InteropServices;
 
 namespace Syndic
@@ -45,6 +47,11 @@ namespace Syndic
             this.Hide();
             Frm_utilisateur_type f = new Frm_utilisateur_type();
             f.ShowDialog();
+        }
+
+        private void Frm_Utilisateur_aj_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

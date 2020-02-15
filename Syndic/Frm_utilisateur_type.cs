@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+using System.Configuration;
 using System.Runtime.InteropServices;
 
 namespace Syndic
@@ -43,6 +45,11 @@ namespace Syndic
         {
             Frm_Utilisateur_aj f = new Frm_Utilisateur_aj();
             f.ShowDialog();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

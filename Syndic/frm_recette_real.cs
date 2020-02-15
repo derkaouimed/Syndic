@@ -54,8 +54,8 @@ namespace Syndic
 
                     break;
                 case "btn_Recette_Supprimer":
-                    DialogResult d = MessageBox.Show("Suppresion", "Voules Vous Supprime Ce Propietaire ?", MessageBoxButtons.OK);
-                    if (DialogResult.OK == d)
+                    DialogResult d = MessageBox.Show("Voules Vous Supprime Ce recette ?", "Suppresion", MessageBoxButtons.YesNo);
+                    if (DialogResult.Yes == d)
                     {
                         SqlDataReader dr4;
                         SqlCommand com4 = new SqlCommand("Update recette set archive = 0 where id_recette = " + int.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString()), cn);
@@ -64,6 +64,7 @@ namespace Syndic
                         if (a != 0)
                         {
                             MessageBox.Show("Removed !!");
+                            ///////////////////
 
                             dataGridView1.Rows.RemoveAt(dataGridView1.CurrentRow.Index);
 

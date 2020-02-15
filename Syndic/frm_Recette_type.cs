@@ -68,17 +68,25 @@ namespace Syndic
 
         private void btn_Recette_valider_Click(object sender, EventArgs e)
         {
-            com = new SqlCommand("Insert into type_recette values ('"+textBox1.Text+"',1)",cn);
-            int a = -1;
-            a = com.ExecuteNonQuery();
-            if (a != -1)
+            try
             {
-                MessageBox.Show("Added");
+                com = new SqlCommand("Insert into type_recette values ('" + textBox1.Text + "',1)", cn);
+                int a = -1;
+                a = com.ExecuteNonQuery();
+                if (a != -1)
+                {
+                    MessageBox.Show("Added");
+                }
+                else
+                {
+                    MessageBox.Show("not Added !!");
+                }
             }
-            else
-            {
-                MessageBox.Show("not Added !!");
+            catch {
+                MessageBox.Show("Name Not valid");
+                return;
             }
+          
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -88,7 +96,7 @@ namespace Syndic
 
         private void frm_Recette_type_FormClosing(object sender, FormClosingEventArgs e)
         {
-            frm_recette_information f = new frm_recette_information("Modifier",id);
+            frm_recette_information f = new frm_recette_information("Ajouter",id);
             f.ShowDialog();
         }
     }

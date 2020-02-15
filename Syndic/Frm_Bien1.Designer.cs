@@ -38,14 +38,15 @@
             this.btn_Bien_modifier = new System.Windows.Forms.Button();
             this.btn_Bien_Ajouter = new System.Windows.Forms.Button();
             this.gridBien = new System.Windows.Forms.DataGridView();
-            this.txt_nomfich = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.txt_nomfich = new System.Windows.Forms.TextBox();
             this.grp_fichier.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridBien)).BeginInit();
             this.SuspendLayout();
             // 
             // grp_fichier
             // 
+            this.grp_fichier.Controls.Add(this.txt_nomfich);
             this.grp_fichier.Controls.Add(this.btn_rechercher);
             this.grp_fichier.Controls.Add(this.movePrecedent);
             this.grp_fichier.Controls.Add(this.MoveNext);
@@ -55,7 +56,6 @@
             this.grp_fichier.Controls.Add(this.btn_Bien_modifier);
             this.grp_fichier.Controls.Add(this.btn_Bien_Ajouter);
             this.grp_fichier.Controls.Add(this.gridBien);
-            this.grp_fichier.Controls.Add(this.txt_nomfich);
             this.grp_fichier.Controls.Add(this.label8);
             this.grp_fichier.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.grp_fichier.Location = new System.Drawing.Point(12, 31);
@@ -198,19 +198,13 @@
             // 
             this.gridBien.AllowUserToAddRows = false;
             this.gridBien.AllowUserToDeleteRows = false;
+            this.gridBien.BackgroundColor = System.Drawing.Color.White;
             this.gridBien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridBien.Location = new System.Drawing.Point(22, 77);
             this.gridBien.Name = "gridBien";
             this.gridBien.ReadOnly = true;
             this.gridBien.Size = new System.Drawing.Size(705, 328);
             this.gridBien.TabIndex = 9;
-            // 
-            // txt_nomfich
-            // 
-            this.txt_nomfich.Location = new System.Drawing.Point(198, 36);
-            this.txt_nomfich.Name = "txt_nomfich";
-            this.txt_nomfich.Size = new System.Drawing.Size(264, 23);
-            this.txt_nomfich.TabIndex = 7;
             // 
             // label8
             // 
@@ -220,6 +214,16 @@
             this.label8.Size = new System.Drawing.Size(140, 16);
             this.label8.TabIndex = 8;
             this.label8.Text = "Nom  Appartement :";
+            // 
+            // txt_nomfich
+            // 
+            this.txt_nomfich.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_nomfich.ForeColor = System.Drawing.Color.Gray;
+            this.txt_nomfich.Location = new System.Drawing.Point(174, 28);
+            this.txt_nomfich.Name = "txt_nomfich";
+            this.txt_nomfich.Size = new System.Drawing.Size(309, 27);
+            this.txt_nomfich.TabIndex = 27;
+            this.txt_nomfich.Text = "Chercher Par Nom";
             // 
             // Frm_Bien1
             // 
@@ -243,7 +247,6 @@
 
         private System.Windows.Forms.GroupBox grp_fichier;
         private System.Windows.Forms.DataGridView gridBien;
-        private System.Windows.Forms.TextBox txt_nomfich;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button movePrecedent;
         private System.Windows.Forms.Button MoveNext;
@@ -253,5 +256,6 @@
         private System.Windows.Forms.Button btn_Bien_modifier;
         private System.Windows.Forms.Button btn_Bien_Ajouter;
         private System.Windows.Forms.Button btn_rechercher;
+        private System.Windows.Forms.TextBox txt_nomfich;
     }
 }

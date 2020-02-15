@@ -41,7 +41,7 @@
             // 
             this.pnl_form.Location = new System.Drawing.Point(0, 45);
             this.pnl_form.Name = "pnl_form";
-            this.pnl_form.Size = new System.Drawing.Size(770, 589);
+            this.pnl_form.Size = new System.Drawing.Size(770, 634);
             this.pnl_form.TabIndex = 9;
             this.pnl_form.Paint += new System.Windows.Forms.PaintEventHandler(this.pnl_form_Paint);
             // 

@@ -39,9 +39,9 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.btn_RecetteDocument_Annuler = new System.Windows.Forms.Button();
-            this.btn_RecetteDocument_valider = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btn_immeuble_Annuler = new System.Windows.Forms.Button();
+            this.btn_immeuble_valider = new System.Windows.Forms.Button();
+            this.btn_res = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -147,60 +147,61 @@
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 54;
             // 
-            // btn_RecetteDocument_Annuler
+            // btn_immeuble_Annuler
             // 
-            this.btn_RecetteDocument_Annuler.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
-            this.btn_RecetteDocument_Annuler.FlatAppearance.BorderSize = 0;
-            this.btn_RecetteDocument_Annuler.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.btn_RecetteDocument_Annuler.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_RecetteDocument_Annuler.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_RecetteDocument_Annuler.ForeColor = System.Drawing.Color.White;
-            this.btn_RecetteDocument_Annuler.Location = new System.Drawing.Point(176, 370);
-            this.btn_RecetteDocument_Annuler.Name = "btn_RecetteDocument_Annuler";
-            this.btn_RecetteDocument_Annuler.Size = new System.Drawing.Size(116, 43);
-            this.btn_RecetteDocument_Annuler.TabIndex = 60;
-            this.btn_RecetteDocument_Annuler.Text = "Annuler";
-            this.btn_RecetteDocument_Annuler.UseVisualStyleBackColor = false;
+            this.btn_immeuble_Annuler.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
+            this.btn_immeuble_Annuler.FlatAppearance.BorderSize = 0;
+            this.btn_immeuble_Annuler.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btn_immeuble_Annuler.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_immeuble_Annuler.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_immeuble_Annuler.ForeColor = System.Drawing.Color.White;
+            this.btn_immeuble_Annuler.Location = new System.Drawing.Point(176, 370);
+            this.btn_immeuble_Annuler.Name = "btn_immeuble_Annuler";
+            this.btn_immeuble_Annuler.Size = new System.Drawing.Size(116, 43);
+            this.btn_immeuble_Annuler.TabIndex = 60;
+            this.btn_immeuble_Annuler.Text = "Annuler";
+            this.btn_immeuble_Annuler.UseVisualStyleBackColor = false;
             // 
-            // btn_RecetteDocument_valider
+            // btn_immeuble_valider
             // 
-            this.btn_RecetteDocument_valider.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
-            this.btn_RecetteDocument_valider.FlatAppearance.BorderSize = 0;
-            this.btn_RecetteDocument_valider.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.btn_RecetteDocument_valider.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_RecetteDocument_valider.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_RecetteDocument_valider.ForeColor = System.Drawing.Color.White;
-            this.btn_RecetteDocument_valider.Location = new System.Drawing.Point(28, 370);
-            this.btn_RecetteDocument_valider.Name = "btn_RecetteDocument_valider";
-            this.btn_RecetteDocument_valider.Size = new System.Drawing.Size(116, 43);
-            this.btn_RecetteDocument_valider.TabIndex = 59;
-            this.btn_RecetteDocument_valider.Text = "Valider";
-            this.btn_RecetteDocument_valider.UseVisualStyleBackColor = false;
+            this.btn_immeuble_valider.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
+            this.btn_immeuble_valider.FlatAppearance.BorderSize = 0;
+            this.btn_immeuble_valider.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btn_immeuble_valider.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_immeuble_valider.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_immeuble_valider.ForeColor = System.Drawing.Color.White;
+            this.btn_immeuble_valider.Location = new System.Drawing.Point(28, 370);
+            this.btn_immeuble_valider.Name = "btn_immeuble_valider";
+            this.btn_immeuble_valider.Size = new System.Drawing.Size(116, 43);
+            this.btn_immeuble_valider.TabIndex = 59;
+            this.btn_immeuble_valider.Text = "Valider";
+            this.btn_immeuble_valider.UseVisualStyleBackColor = false;
+            this.btn_immeuble_valider.Click += new System.EventHandler(this.btn_immeuble_valider_Click);
             // 
-            // button3
+            // btn_res
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(299, 245);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(41, 21);
-            this.button3.TabIndex = 79;
-            this.button3.Text = "...";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btn_res.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
+            this.btn_res.FlatAppearance.BorderSize = 0;
+            this.btn_res.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btn_res.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_res.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_res.ForeColor = System.Drawing.Color.White;
+            this.btn_res.Location = new System.Drawing.Point(299, 245);
+            this.btn_res.Name = "btn_res";
+            this.btn_res.Size = new System.Drawing.Size(41, 21);
+            this.btn_res.TabIndex = 79;
+            this.btn_res.Text = "...";
+            this.btn_res.UseVisualStyleBackColor = false;
+            this.btn_res.Click += new System.EventHandler(this.button3_Click);
             // 
             // Frm_immeuble_aj
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(352, 450);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.btn_RecetteDocument_Annuler);
-            this.Controls.Add(this.btn_RecetteDocument_valider);
+            this.Controls.Add(this.btn_res);
+            this.Controls.Add(this.btn_immeuble_Annuler);
+            this.Controls.Add(this.btn_immeuble_valider);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label2);
@@ -229,8 +230,8 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button btn_RecetteDocument_Annuler;
-        private System.Windows.Forms.Button btn_RecetteDocument_valider;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btn_immeuble_Annuler;
+        private System.Windows.Forms.Button btn_immeuble_valider;
+        private System.Windows.Forms.Button btn_res;
     }
 }
