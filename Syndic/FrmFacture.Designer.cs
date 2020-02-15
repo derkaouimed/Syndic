@@ -77,6 +77,7 @@
             this.btn_modifier.TabIndex = 7;
             this.btn_modifier.Text = "Modifier";
             this.btn_modifier.UseVisualStyleBackColor = false;
+            this.btn_modifier.Click += new System.EventHandler(this.btn_ajouter_Click);
             // 
             // btn_suivant
             // 
@@ -160,6 +161,7 @@
             this.btn_supprimer.TabIndex = 8;
             this.btn_supprimer.Text = "Supprimer";
             this.btn_supprimer.UseVisualStyleBackColor = false;
+            this.btn_supprimer.Click += new System.EventHandler(this.btn_ajouter_Click);
             // 
             // btn_ajouter
             // 
@@ -175,6 +177,7 @@
             this.btn_ajouter.TabIndex = 6;
             this.btn_ajouter.Text = "Ajouter";
             this.btn_ajouter.UseVisualStyleBackColor = false;
+            this.btn_ajouter.Click += new System.EventHandler(this.btn_ajouter_Click);
             // 
             // dt_facture
             // 

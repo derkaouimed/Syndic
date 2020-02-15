@@ -17,7 +17,7 @@ namespace Syndic
         BindingSource bsAr;
         SqlCommand cmd;
         bool ajt = false;
-        int ice;
+        int ice, pos = 0;
         public FrmFournisseur()
         {
             InitializeComponent();
@@ -111,6 +111,7 @@ namespace Syndic
                     btn_modifier.Text = "Valider";
                     btn_supprimer.Text = "Annuler";
                     ice = int.Parse(txt_ice.Text);
+                    pos = lst_fournisseur.SelectedIndex;
                     break;
                 case "Supprimer":
                     if (DialogResult.Yes == MessageBox.Show("Voulez-vous Vraiment Supprimer Ce Fournisseur ?", "Supprimer", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
@@ -129,19 +130,19 @@ namespace Syndic
                         {
                             cmd = new SqlCommand("insert into fournisseur values ('" + txt_nom.Text + "','" + txt_prenom.Text + "','" + txt_telephone.Text + "','" + txt_email.Text + "'," + int.Parse(txt_ice.Text) + ",1)", Fonctions.CnConnection());
                             cmd.ExecuteNonQuery();
-                            lst_fournisseur.SelectedIndex = lst_fournisseur.Items.Count - 1;
+                            pos = lst_fournisseur.Items.Count - 1;
+                            ajt = false;
                         }
                         else
                         {
-                            int pos = lst_fournisseur.SelectedIndex;
                             cmd = new SqlCommand("update fournisseur set nom = '" + txt_nom.Text + "', prenom = '" + txt_prenom.Text + "', telephone = '" + txt_telephone.Text + "', email = '" + txt_email.Text + "', ice = " + txt_ice.Text + " where ice = " + ice + "", Fonctions.CnConnection());
                             cmd.ExecuteNonQuery();
-                            lst_fournisseur.SelectedIndex = pos;
                         }
                         activie(true);
                         btn_modifier.Text = "Modifier";
                         btn_supprimer.Text = "Supprimer";
                         remplir_lstFR();
+                        lst_fournisseur.SelectedIndex = pos;
                     }
                     break;
                 case "Annuler":

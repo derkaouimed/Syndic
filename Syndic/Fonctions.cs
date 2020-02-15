@@ -61,8 +61,8 @@ namespace Syndic
         
             da.Fill(ds, tpk);
 
-            DataColumn c1 = ds.Tables[t].Columns[pk];
-            DataColumn c2 = ds.Tables[tpk].Columns[tpk];
+            DataColumn c1 = ds.Tables[tpk].Columns[fk];
+            DataColumn c2 = ds.Tables[t].Columns[pk];
 
             DataRelation r = new DataRelation("fk_" + t + "_" + tpk, c1, c2);
             ds.Relations.Add(r);
@@ -173,7 +173,7 @@ namespace Syndic
         {
             BindingSource bs = new BindingSource();
 
-            remplirTable(t);
+            remplirTable(t,tpk,pk,fk);
 
             bs.DataSource = bsk;
             bs.DataMember = "fk_" + t + "_" + tpk;

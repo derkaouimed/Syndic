@@ -72,6 +72,12 @@
     <Compile Include="FrmAMArticle.Designer.cs">
       <DependentUpon>FrmAMArticle.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmAMFacture.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAMFacture.Designer.cs">
+      <DependentUpon>FrmAMFacture.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmAMFournisseur.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +101,12 @@
     </Compile>
     <Compile Include="FrmConnexion.Designer.cs">
       <DependentUpon>FrmConnexion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDocFacture.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDocFacture.Designer.cs">
+      <DependentUpon>FrmDocFacture.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmFacture.cs">
       <SubType>Form</SubType>
@@ -131,6 +143,12 @@
     </Compile>
     <Compile Include="FrmOublie.Designer.cs">
       <DependentUpon>FrmOublie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRemFacture.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRemFacture.Designer.cs">
+      <DependentUpon>FrmRemFacture.cs</DependentUpon>
     </Compile>
     <Compile Include="Frm_Bien.cs">
       <SubType>Form</SubType>
@@ -210,6 +228,12 @@
     <Compile Include="frm_Echeance.designer.cs">
       <DependentUpon>frm_Echeance.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm_Employe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Employe.Designer.cs">
+      <DependentUpon>Frm_Employe.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_immeuble.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -221,12 +245,6 @@
     </Compile>
     <Compile Include="Frm_immeuble_aj.Designer.cs">
       <DependentUpon>Frm_immeuble_aj.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frm_immeuble_res.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frm_immeuble_res.Designer.cs">
-      <DependentUpon>frm_immeuble_res.cs</DependentUpon>
     </Compile>
     <Compile Include="Frm_Propietaire_Information.cs">
       <SubType>Form</SubType>
@@ -321,6 +339,9 @@
     <EmbeddedResource Include="FrmAMArticle.resx">
       <DependentUpon>FrmAMArticle.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmAMFacture.resx">
+      <DependentUpon>FrmAMFacture.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmAMFournisseur.resx">
       <DependentUpon>FrmAMFournisseur.cs</DependentUpon>
     </EmbeddedResource>
@@ -332,6 +353,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmConnexion.resx">
       <DependentUpon>FrmConnexion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDocFacture.resx">
+      <DependentUpon>FrmDocFacture.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmFacture.resx">
       <DependentUpon>FrmFacture.cs</DependentUpon>
@@ -350,6 +374,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmOublie.resx">
       <DependentUpon>FrmOublie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRemFacture.resx">
+      <DependentUpon>FrmRemFacture.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_Bien.resx">
       <DependentUpon>Frm_Bien.cs</DependentUpon>
@@ -390,14 +417,14 @@
     <EmbeddedResource Include="frm_Echeance.resx">
       <DependentUpon>frm_Echeance.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Employe.resx">
+      <DependentUpon>Frm_Employe.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Frm_immeuble.resx">
       <DependentUpon>Frm_immeuble.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_immeuble_aj.resx">
       <DependentUpon>Frm_immeuble_aj.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frm_immeuble_res.resx">
-      <DependentUpon>frm_immeuble_res.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_Propietaire_Information.resx">
       <DependentUpon>Frm_Propietaire_Information.cs</DependentUpon>

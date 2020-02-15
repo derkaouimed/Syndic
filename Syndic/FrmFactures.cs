@@ -41,9 +41,11 @@ namespace Syndic
                     break;
                 case "btn_documents":
                     pnl_selection.Location = new Point(258, 39);
+                    ouvrire(new FrmDocFacture());
                     break;
                 case "btn_remarques":
                     pnl_selection.Location = new Point(515, 39);
+                    ouvrire(new FrmRemFacture());
                     break;
             }
         }
