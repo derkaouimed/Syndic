@@ -176,7 +176,6 @@
             this.btn_immeuble_valider.TabIndex = 59;
             this.btn_immeuble_valider.Text = "Valider";
             this.btn_immeuble_valider.UseVisualStyleBackColor = false;
-            this.btn_immeuble_valider.Click += new System.EventHandler(this.btn_immeuble_valider_Click);
             // 
             // btn_res
             // 
