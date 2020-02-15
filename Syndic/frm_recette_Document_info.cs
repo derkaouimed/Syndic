@@ -23,6 +23,9 @@ namespace Syndic
         SqlCommand com;
         SqlDataReader dr;
         SqlCommand com22;
+        /// <summary>
+        /// ///////////;;;;;;
+        /// </summary>
         SqlDataReader dr2;
 
         string s;
