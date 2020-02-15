@@ -28,30 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Bien1));
             this.grp_fichier = new System.Windows.Forms.GroupBox();
+            this.txt_nomfich = new System.Windows.Forms.TextBox();
             this.btn_rechercher = new System.Windows.Forms.Button();
-            this.movePrecedent = new System.Windows.Forms.Button();
-            this.MoveNext = new System.Windows.Forms.Button();
-            this.MoveLast = new System.Windows.Forms.Button();
-            this.moveFirst = new System.Windows.Forms.Button();
             this.btn_Bien_Supprimer = new System.Windows.Forms.Button();
             this.btn_Bien_modifier = new System.Windows.Forms.Button();
             this.btn_Bien_Ajouter = new System.Windows.Forms.Button();
             this.gridBien = new System.Windows.Forms.DataGridView();
             this.label8 = new System.Windows.Forms.Label();
-            this.txt_nomfich = new System.Windows.Forms.TextBox();
+            this.btn_suivant = new System.Windows.Forms.Button();
+            this.btn_precedent = new System.Windows.Forms.Button();
+            this.btn_derniere = new System.Windows.Forms.Button();
+            this.btn_premiere = new System.Windows.Forms.Button();
             this.grp_fichier.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridBien)).BeginInit();
             this.SuspendLayout();
             // 
             // grp_fichier
             // 
+            this.grp_fichier.Controls.Add(this.btn_suivant);
+            this.grp_fichier.Controls.Add(this.btn_precedent);
+            this.grp_fichier.Controls.Add(this.btn_derniere);
+            this.grp_fichier.Controls.Add(this.btn_premiere);
             this.grp_fichier.Controls.Add(this.txt_nomfich);
             this.grp_fichier.Controls.Add(this.btn_rechercher);
-            this.grp_fichier.Controls.Add(this.movePrecedent);
-            this.grp_fichier.Controls.Add(this.MoveNext);
-            this.grp_fichier.Controls.Add(this.MoveLast);
-            this.grp_fichier.Controls.Add(this.moveFirst);
             this.grp_fichier.Controls.Add(this.btn_Bien_Supprimer);
             this.grp_fichier.Controls.Add(this.btn_Bien_modifier);
             this.grp_fichier.Controls.Add(this.btn_Bien_Ajouter);
@@ -66,9 +67,19 @@
             this.grp_fichier.Text = "Bien";
             this.grp_fichier.Enter += new System.EventHandler(this.grp_fichier_Enter);
             // 
+            // txt_nomfich
+            // 
+            this.txt_nomfich.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_nomfich.ForeColor = System.Drawing.Color.Gray;
+            this.txt_nomfich.Location = new System.Drawing.Point(174, 28);
+            this.txt_nomfich.Name = "txt_nomfich";
+            this.txt_nomfich.Size = new System.Drawing.Size(309, 27);
+            this.txt_nomfich.TabIndex = 27;
+            this.txt_nomfich.Text = "Chercher Par Nom";
+            // 
             // btn_rechercher
             // 
-            this.btn_rechercher.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btn_rechercher.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
             this.btn_rechercher.FlatAppearance.BorderSize = 0;
             this.btn_rechercher.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.btn_rechercher.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -82,73 +93,9 @@
             this.btn_rechercher.UseVisualStyleBackColor = false;
             this.btn_rechercher.Click += new System.EventHandler(this.btn_rechercher_Click);
             // 
-            // movePrecedent
-            // 
-            this.movePrecedent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.movePrecedent.FlatAppearance.BorderSize = 0;
-            this.movePrecedent.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.movePrecedent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.movePrecedent.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.movePrecedent.ForeColor = System.Drawing.Color.White;
-            this.movePrecedent.Location = new System.Drawing.Point(79, 486);
-            this.movePrecedent.Name = "movePrecedent";
-            this.movePrecedent.Size = new System.Drawing.Size(47, 36);
-            this.movePrecedent.TabIndex = 25;
-            this.movePrecedent.Text = "<";
-            this.movePrecedent.UseVisualStyleBackColor = false;
-            this.movePrecedent.Click += new System.EventHandler(this.movePrecedent_Click);
-            // 
-            // MoveNext
-            // 
-            this.MoveNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.MoveNext.FlatAppearance.BorderSize = 0;
-            this.MoveNext.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.MoveNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MoveNext.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MoveNext.ForeColor = System.Drawing.Color.White;
-            this.MoveNext.Location = new System.Drawing.Point(145, 486);
-            this.MoveNext.Name = "MoveNext";
-            this.MoveNext.Size = new System.Drawing.Size(47, 36);
-            this.MoveNext.TabIndex = 24;
-            this.MoveNext.Text = ">";
-            this.MoveNext.UseVisualStyleBackColor = false;
-            this.MoveNext.Click += new System.EventHandler(this.MoveNext_Click);
-            // 
-            // MoveLast
-            // 
-            this.MoveLast.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.MoveLast.FlatAppearance.BorderSize = 0;
-            this.MoveLast.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.MoveLast.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MoveLast.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MoveLast.ForeColor = System.Drawing.Color.White;
-            this.MoveLast.Location = new System.Drawing.Point(198, 486);
-            this.MoveLast.Name = "MoveLast";
-            this.MoveLast.Size = new System.Drawing.Size(47, 36);
-            this.MoveLast.TabIndex = 23;
-            this.MoveLast.Text = ">>";
-            this.MoveLast.UseVisualStyleBackColor = false;
-            this.MoveLast.Click += new System.EventHandler(this.MoveLast_Click);
-            // 
-            // moveFirst
-            // 
-            this.moveFirst.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.moveFirst.FlatAppearance.BorderSize = 0;
-            this.moveFirst.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.moveFirst.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.moveFirst.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.moveFirst.ForeColor = System.Drawing.Color.White;
-            this.moveFirst.Location = new System.Drawing.Point(26, 486);
-            this.moveFirst.Name = "moveFirst";
-            this.moveFirst.Size = new System.Drawing.Size(47, 36);
-            this.moveFirst.TabIndex = 21;
-            this.moveFirst.Text = "<<";
-            this.moveFirst.UseVisualStyleBackColor = false;
-            this.moveFirst.Click += new System.EventHandler(this.moveFirst_Click);
-            // 
             // btn_Bien_Supprimer
             // 
-            this.btn_Bien_Supprimer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btn_Bien_Supprimer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
             this.btn_Bien_Supprimer.FlatAppearance.BorderSize = 0;
             this.btn_Bien_Supprimer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.btn_Bien_Supprimer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -164,7 +111,7 @@
             // 
             // btn_Bien_modifier
             // 
-            this.btn_Bien_modifier.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btn_Bien_modifier.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
             this.btn_Bien_modifier.FlatAppearance.BorderSize = 0;
             this.btn_Bien_modifier.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.btn_Bien_modifier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -180,7 +127,7 @@
             // 
             // btn_Bien_Ajouter
             // 
-            this.btn_Bien_Ajouter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btn_Bien_Ajouter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
             this.btn_Bien_Ajouter.FlatAppearance.BorderSize = 0;
             this.btn_Bien_Ajouter.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.btn_Bien_Ajouter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -215,15 +162,73 @@
             this.label8.TabIndex = 8;
             this.label8.Text = "Nom  Appartement :";
             // 
-            // txt_nomfich
+            // btn_suivant
             // 
-            this.txt_nomfich.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_nomfich.ForeColor = System.Drawing.Color.Gray;
-            this.txt_nomfich.Location = new System.Drawing.Point(174, 28);
-            this.txt_nomfich.Name = "txt_nomfich";
-            this.txt_nomfich.Size = new System.Drawing.Size(309, 27);
-            this.txt_nomfich.TabIndex = 27;
-            this.txt_nomfich.Text = "Chercher Par Nom";
+            this.btn_suivant.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
+            this.btn_suivant.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_suivant.BackgroundImage")));
+            this.btn_suivant.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btn_suivant.FlatAppearance.BorderSize = 0;
+            this.btn_suivant.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btn_suivant.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_suivant.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_suivant.ForeColor = System.Drawing.Color.White;
+            this.btn_suivant.Location = new System.Drawing.Point(152, 486);
+            this.btn_suivant.Name = "btn_suivant";
+            this.btn_suivant.Size = new System.Drawing.Size(46, 41);
+            this.btn_suivant.TabIndex = 52;
+            this.btn_suivant.UseVisualStyleBackColor = false;
+            this.btn_suivant.Click += new System.EventHandler(this.btn_suivant_Click);
+            // 
+            // btn_precedent
+            // 
+            this.btn_precedent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
+            this.btn_precedent.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_precedent.BackgroundImage")));
+            this.btn_precedent.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btn_precedent.FlatAppearance.BorderSize = 0;
+            this.btn_precedent.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btn_precedent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_precedent.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_precedent.ForeColor = System.Drawing.Color.White;
+            this.btn_precedent.Location = new System.Drawing.Point(74, 486);
+            this.btn_precedent.Name = "btn_precedent";
+            this.btn_precedent.Size = new System.Drawing.Size(46, 41);
+            this.btn_precedent.TabIndex = 51;
+            this.btn_precedent.UseVisualStyleBackColor = false;
+            this.btn_precedent.Click += new System.EventHandler(this.btn_precedent_Click);
+            // 
+            // btn_derniere
+            // 
+            this.btn_derniere.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
+            this.btn_derniere.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_derniere.BackgroundImage")));
+            this.btn_derniere.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btn_derniere.FlatAppearance.BorderSize = 0;
+            this.btn_derniere.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btn_derniere.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_derniere.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_derniere.ForeColor = System.Drawing.Color.White;
+            this.btn_derniere.Location = new System.Drawing.Point(204, 486);
+            this.btn_derniere.Name = "btn_derniere";
+            this.btn_derniere.Size = new System.Drawing.Size(46, 41);
+            this.btn_derniere.TabIndex = 53;
+            this.btn_derniere.UseVisualStyleBackColor = false;
+            this.btn_derniere.Click += new System.EventHandler(this.btn_derniere_Click);
+            // 
+            // btn_premiere
+            // 
+            this.btn_premiere.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
+            this.btn_premiere.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_premiere.BackgroundImage")));
+            this.btn_premiere.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btn_premiere.FlatAppearance.BorderSize = 0;
+            this.btn_premiere.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btn_premiere.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_premiere.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_premiere.ForeColor = System.Drawing.Color.White;
+            this.btn_premiere.Location = new System.Drawing.Point(22, 486);
+            this.btn_premiere.Name = "btn_premiere";
+            this.btn_premiere.Size = new System.Drawing.Size(46, 41);
+            this.btn_premiere.TabIndex = 50;
+            this.btn_premiere.UseVisualStyleBackColor = false;
+            this.btn_premiere.Click += new System.EventHandler(this.btn_premiere_Click);
             // 
             // Frm_Bien1
             // 
@@ -248,14 +253,14 @@
         private System.Windows.Forms.GroupBox grp_fichier;
         private System.Windows.Forms.DataGridView gridBien;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button movePrecedent;
-        private System.Windows.Forms.Button MoveNext;
-        private System.Windows.Forms.Button MoveLast;
-        private System.Windows.Forms.Button moveFirst;
         private System.Windows.Forms.Button btn_Bien_Supprimer;
         private System.Windows.Forms.Button btn_Bien_modifier;
         private System.Windows.Forms.Button btn_Bien_Ajouter;
         private System.Windows.Forms.Button btn_rechercher;
         private System.Windows.Forms.TextBox txt_nomfich;
+        private System.Windows.Forms.Button btn_suivant;
+        private System.Windows.Forms.Button btn_precedent;
+        private System.Windows.Forms.Button btn_derniere;
+        private System.Windows.Forms.Button btn_premiere;
     }
 }

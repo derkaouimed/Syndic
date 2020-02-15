@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -52,7 +53,7 @@ namespace Syndic
                     DialogResult d = MessageBox.Show("Supprerimer", "Voulez Vous Supprime cette Bien ?", MessageBoxButtons.YesNo);
                     if (DialogResult.OK == d)
                     {
-                      
+
 
                         SqlCommand com = new SqlCommand("Update bien set archive = 0 where id_bien = " + int.Parse(gridBien.CurrentRow.Cells[0].Value.ToString()), CN);
                         int a = 0;
@@ -86,15 +87,15 @@ namespace Syndic
             AD.Update(DS.Tables["bien"]);
 
             string f = txt_nomfich.Text == "Chercher Par Nom " ? "" : "NomApparetemnt like '%" + txt_nomfich.Text + "%'";
-          //  string f = txt_nomfich.Text == "" ? "" : "NomApparetemnt like '%" + txt_nomfich.Text + "%'";
+            //  string f = txt_nomfich.Text == "" ? "" : "NomApparetemnt like '%" + txt_nomfich.Text + "%'";
 
             BSbien.Filter = f;
-        
-            }
+
+        }
 
         private void Frm_Bien1_Load(object sender, EventArgs e)
         {
-            Fonctions.ouvrireConnection();
+            ouvriConnectio();
             AD = new SqlDataAdapter("select id_bien,NomApparetemnt,etage,superficie,charges,b.titrefoncier , t.nom as [type],i.nom as [immeuble],(p.nom +' '+p.prenom) as [nomComplet] ,c.consomation,c.date_controle from bien B inner join type_bien t on t.id_type=b.id_type_bien inner join conteur_eau c on c.id_conteurEau=b.id_conteurEau inner join immeuble i on i.id_immeuble=b.id_immeuble inner join proprietaire p on p.id_proprietaire= b.id_proprietaire ", CN);
             if (!DS.Tables.Contains("bien"))
 
@@ -107,22 +108,24 @@ namespace Syndic
 
         }
 
-        private void moveFirst_Click(object sender, EventArgs e)
+           
+
+        private void btn_premiere_Click(object sender, EventArgs e)
         {
             BSbien.MoveFirst();
         }
 
-        private void movePrecedent_Click(object sender, EventArgs e)
+        private void btn_derniere_Click(object sender, EventArgs e)
+        {
+            BSbien.MoveLast();
+        }
+
+        private void btn_precedent_Click(object sender, EventArgs e)
         {
             BSbien.MovePrevious();
         }
 
-        private void MoveNext_Click(object sender, EventArgs e)
-        {
-            BSbien.MoveNext();
-        }
-
-        private void MoveLast_Click(object sender, EventArgs e)
+        private void btn_suivant_Click(object sender, EventArgs e)
         {
             BSbien.MoveLast();
         }

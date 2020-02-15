@@ -22,7 +22,15 @@ namespace Syndic
         {
             InitializeComponent();
         }
-      
+        public void ouvriConnectio()
+        {
+            if (CN.State != ConnectionState.Open)
+            {
+                CN.ConnectionString = ConfigurationManager.ConnectionStrings["SyndicCS"].ToString();
+                CN.Open();
+            }
+        }
+
         private void btn_Bien_rem_Supprimer_Click(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
@@ -83,7 +91,7 @@ namespace Syndic
         private void Frm_Bien_Remarque_Load(object sender, EventArgs e)
         {
 
-            Fonctions.ouvrireConnection();
+            ouvriConnectio();
             AD = new SqlDataAdapter("select nom,remarque , b.NomApparetemnt from remarque_bien d inner join bien b on b.id_bien=d.id_bien ", CN);
             if (!DS.Tables.Contains("remarque_bien"))
 

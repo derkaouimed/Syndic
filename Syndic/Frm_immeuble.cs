@@ -23,6 +23,14 @@ namespace Syndic
             InitializeComponent();
         }
 
+        public void ouvriConnectio()
+        {
+            if (CN.State != ConnectionState.Open)
+            {
+                CN.ConnectionString = ConfigurationManager.ConnectionStrings["SyndicCS"].ToString();
+                CN.Open();
+            }
+        }
         private void btn_immeuble_Supprimer_Click(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
@@ -34,7 +42,7 @@ namespace Syndic
 
                     break;
                 case "btn_immeuble_modifier":
-                   Frm_immeuble_aj ff = new Frm_immeuble_aj();
+                    Frm_immeuble_aj ff = new Frm_immeuble_aj();
                     ff.ShowDialog();
 
 
@@ -43,7 +51,7 @@ namespace Syndic
                     DialogResult d = MessageBox.Show("Supprerimer", "Voulez Vous Supprime cette immeuble ?", MessageBoxButtons.YesNo);
                     if (DialogResult.OK == d)
                     {
-                        
+
 
                         SqlCommand com = new SqlCommand("Update immeuble set archive = 0 where id_immeuble = " + int.Parse(dtG_immeuble.CurrentRow.Cells[0].Value.ToString()), CN);
                         int a = 0;
@@ -62,7 +70,7 @@ namespace Syndic
                     }
 
 
-            break;
+                    break;
 
             }
         }
@@ -92,20 +100,22 @@ namespace Syndic
             else
             {
 
-                BSimm.Filter = " nom like '%" + txt_chercher.Text.Replace("'", "''") + "%'";
+                BSimm.Filter = " [Nom immeuble] like '%" + txt_chercher.Text.Replace("'", "''") + "%'";
 
             }
         }
 
         private void Frm_immeuble_Load(object sender, EventArgs e)
         {
-            Fonctions.ouvrireConnection();
+            ouvriConnectio();
             AD = new SqlDataAdapter("select id_immeuble as [ID] , i.nom as [Nom immeuble],r.nom as [residence],i.titrefoncier as[titre foncier] from immeuble i inner join residence r on r.id_residence=i.id_residence ", CN);
 
-            AD.Fill(DS, "immeuble");
+            if (!DS.Tables.Contains("immeuble"))
 
-            dtG_immeuble.DataSource = DS;
-            dtG_immeuble.DataMember = "immeuble";
+                AD.Fill(DS, "immeuble");
+
+            BSimm.DataSource = DS;
+            BSimm.DataMember = "immeuble";
 
             dtG_immeuble.DataSource = BSimm;
         }
@@ -129,5 +139,11 @@ namespace Syndic
         {
             BSimm.MoveLast();
         }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }
+
