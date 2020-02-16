@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.pnlMenuBar = new System.Windows.Forms.Panel();
-            this.btn_facture = new System.Windows.Forms.Button();
-            this.btn_documents = new System.Windows.Forms.Button();
             this.btn_remarques = new System.Windows.Forms.Button();
+            this.btn_documents = new System.Windows.Forms.Button();
+            this.btn_facture = new System.Windows.Forms.Button();
             this.pnl_selection = new System.Windows.Forms.Panel();
             this.pnl_forms = new System.Windows.Forms.Panel();
             this.pnlMenuBar.SuspendLayout();
@@ -47,38 +47,6 @@
             this.pnlMenuBar.Name = "pnlMenuBar";
             this.pnlMenuBar.Size = new System.Drawing.Size(770, 43);
             this.pnlMenuBar.TabIndex = 0;
-            // 
-            // btn_facture
-            // 
-            this.btn_facture.BackColor = System.Drawing.Color.Black;
-            this.btn_facture.FlatAppearance.BorderSize = 0;
-            this.btn_facture.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.btn_facture.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_facture.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_facture.ForeColor = System.Drawing.Color.White;
-            this.btn_facture.Location = new System.Drawing.Point(0, 0);
-            this.btn_facture.Name = "btn_facture";
-            this.btn_facture.Size = new System.Drawing.Size(256, 43);
-            this.btn_facture.TabIndex = 4;
-            this.btn_facture.Text = "Les Factures";
-            this.btn_facture.UseVisualStyleBackColor = false;
-            this.btn_facture.Click += new System.EventHandler(this.btn_facture_Click);
-            // 
-            // btn_documents
-            // 
-            this.btn_documents.BackColor = System.Drawing.Color.Black;
-            this.btn_documents.FlatAppearance.BorderSize = 0;
-            this.btn_documents.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.btn_documents.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_documents.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_documents.ForeColor = System.Drawing.Color.White;
-            this.btn_documents.Location = new System.Drawing.Point(258, 0);
-            this.btn_documents.Name = "btn_documents";
-            this.btn_documents.Size = new System.Drawing.Size(255, 43);
-            this.btn_documents.TabIndex = 5;
-            this.btn_documents.Text = "Les Documents";
-            this.btn_documents.UseVisualStyleBackColor = false;
-            this.btn_documents.Click += new System.EventHandler(this.btn_facture_Click);
             // 
             // btn_remarques
             // 
@@ -96,10 +64,42 @@
             this.btn_remarques.UseVisualStyleBackColor = false;
             this.btn_remarques.Click += new System.EventHandler(this.btn_facture_Click);
             // 
+            // btn_documents
+            // 
+            this.btn_documents.BackColor = System.Drawing.Color.Black;
+            this.btn_documents.FlatAppearance.BorderSize = 0;
+            this.btn_documents.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btn_documents.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_documents.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_documents.ForeColor = System.Drawing.Color.White;
+            this.btn_documents.Location = new System.Drawing.Point(258, 0);
+            this.btn_documents.Name = "btn_documents";
+            this.btn_documents.Size = new System.Drawing.Size(255, 43);
+            this.btn_documents.TabIndex = 5;
+            this.btn_documents.Text = "Les Documents";
+            this.btn_documents.UseVisualStyleBackColor = false;
+            this.btn_documents.Click += new System.EventHandler(this.btn_facture_Click);
+            // 
+            // btn_facture
+            // 
+            this.btn_facture.BackColor = System.Drawing.Color.Black;
+            this.btn_facture.FlatAppearance.BorderSize = 0;
+            this.btn_facture.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btn_facture.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_facture.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_facture.ForeColor = System.Drawing.Color.White;
+            this.btn_facture.Location = new System.Drawing.Point(0, 0);
+            this.btn_facture.Name = "btn_facture";
+            this.btn_facture.Size = new System.Drawing.Size(256, 43);
+            this.btn_facture.TabIndex = 4;
+            this.btn_facture.Text = "Les Factures";
+            this.btn_facture.UseVisualStyleBackColor = false;
+            this.btn_facture.Click += new System.EventHandler(this.btn_facture_Click);
+            // 
             // pnl_selection
             // 
             this.pnl_selection.BackColor = System.Drawing.Color.Orange;
-            this.pnl_selection.Location = new System.Drawing.Point(515, 39);
+            this.pnl_selection.Location = new System.Drawing.Point(0, 39);
             this.pnl_selection.Name = "pnl_selection";
             this.pnl_selection.Size = new System.Drawing.Size(255, 5);
             this.pnl_selection.TabIndex = 5;
@@ -124,6 +124,7 @@
             this.Name = "FrmFactures";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmFactures";
+            this.Load += new System.EventHandler(this.FrmFactures_Load);
             this.pnlMenuBar.ResumeLayout(false);
             this.ResumeLayout(false);
 

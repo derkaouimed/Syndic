@@ -69,6 +69,7 @@ namespace Syndic
                     break;
                 case "btn_employe":
                     lbl_titre.Text = "Employer - Syndic";
+                    ouvrire(new Frm_Employe());
                     break;
                 case "btn_historique":
                     lbl_titre.Text = "Historique - Syndic";

@@ -49,5 +49,10 @@ namespace Syndic
                     break;
             }
         }
+
+        private void FrmFactures_Load(object sender, EventArgs e)
+        {
+            ouvrire(new FrmFacture());
+        }
     }
 }

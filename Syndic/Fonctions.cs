@@ -68,6 +68,27 @@ namespace Syndic
             ds.Relations.Add(r);
         }
 
+        static private void remplirTable(string sql, string t, string tpk, string pk, string fk)
+        {
+            ouvrireConnection();
+            SqlDataAdapter da = new SqlDataAdapter(sql, cn);
+            if (ds.Tables.Contains(t))
+                ds.Tables[t].Clear();
+
+            da.Fill(ds, t);
+
+            da = new SqlDataAdapter("select * from " + tpk, cn);
+            if (ds.Tables.Contains(tpk))
+                ds.Tables[tpk].Clear();
+
+            da.Fill(ds, tpk);
+
+            DataColumn c1 = ds.Tables[tpk].Columns[fk];
+            DataColumn c2 = ds.Tables[t].Columns[pk];
+
+            DataRelation r = new DataRelation("fk_" + t + "_" + tpk, c1, c2);
+            ds.Relations.Add(r);
+        }
 
         static private void remplirTableClear(string sql, string t)
         {
@@ -185,6 +206,21 @@ namespace Syndic
             return bs;
         }
 
+        static public BindingSource remplirListRel(ListControl l, string sql,string t, string dm, string vm, string tpk, string pk, string fk, BindingSource bsk)
+        {
+            BindingSource bs = new BindingSource();
+
+            remplirTable(sql, t, tpk, pk, fk);
+
+            bs.DataSource = bsk;
+            bs.DataMember = "fk_" + t + "_" + tpk;
+
+            l.DataSource = bs;
+            l.DisplayMember = dm;
+            l.ValueMember = vm;
+
+            return bs;
+        }
         static public void refreshTable(string sql, string t)
         {
             ds.Tables[t].Clear();

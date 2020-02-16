@@ -39,6 +39,7 @@
             this.btn_repos = new System.Windows.Forms.Button();
             this.btn_absence = new System.Windows.Forms.Button();
             this.btn_contrat = new System.Windows.Forms.Button();
+            this.pnl_selection = new System.Windows.Forms.Panel();
             this.pnlMenuBar.SuspendLayout();
             this.pnlForms.SuspendLayout();
             this.pnlDrop.SuspendLayout();
@@ -46,6 +47,7 @@
             // 
             // pnlMenuBar
             // 
+            this.pnlMenuBar.Controls.Add(this.pnl_selection);
             this.pnlMenuBar.Controls.Add(this.btn_remarque);
             this.pnlMenuBar.Controls.Add(this.btn_drop);
             this.pnlMenuBar.Controls.Add(this.btn_document);
@@ -182,6 +184,14 @@
             this.btn_contrat.Text = "Les Contrats";
             this.btn_contrat.UseVisualStyleBackColor = false;
             // 
+            // pnl_selection
+            // 
+            this.pnl_selection.BackColor = System.Drawing.Color.Orange;
+            this.pnl_selection.Location = new System.Drawing.Point(0, 39);
+            this.pnl_selection.Name = "pnl_selection";
+            this.pnl_selection.Size = new System.Drawing.Size(242, 5);
+            this.pnl_selection.TabIndex = 9;
+            // 
             // Frm_Employe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -212,5 +222,6 @@
         private System.Windows.Forms.Button btn_repos;
         private System.Windows.Forms.Button btn_absence;
         private System.Windows.Forms.Button btn_contrat;
+        private System.Windows.Forms.Panel pnl_selection;
     }
 }
