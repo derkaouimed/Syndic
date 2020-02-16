@@ -24,6 +24,15 @@ namespace Syndic
         {
             InitializeComponent();
         }
+        public void ouvriConnectio()
+        {
+            if (CN.State != ConnectionState.Open)
+            {
+                CN.ConnectionString = ConfigurationManager.ConnectionStrings["SyndicCS"].ToString();
+                CN.Open();
+            }
+        }
+
 
         private void btn_utilisateur_Ajouter_Click(object sender, EventArgs e)
         {
@@ -67,13 +76,13 @@ namespace Syndic
 
         private void Frm_utilisateur_Load(object sender, EventArgs e)
         {
-            Fonctions.ouvrireConnection();
+            ouvriConnectio();
             AD = new SqlDataAdapter("select id_utilisateur as [ID] , u.login ,u.password as [Mot Passe ],t.nom_type as[Type utilisateur] from utilisateur u inner join type_utilisateur t on t.id_type=u.id_type ", CN);
+            if (!DS.Tables.Contains("utilisateur"))
+                AD.Fill(DS, "utilisateur");
 
-            AD.Fill(DS, "utilisateur");
-
-            dtG_utilisateur.DataSource = DS;
-            dtG_utilisateur.DataMember = "utilisateur";
+            BSut.DataSource = DS;
+            BSut.DataMember = "utilisateur";
 
             dtG_utilisateur.DataSource = BSut;
         }
@@ -87,9 +96,7 @@ namespace Syndic
                 BSut.Filter = "";
             else
             {
-
-                BSut.Filter = " nom like '%" + txt_chercher.Text.Replace("'", "''") + "%'";
-
+                BSut.Filter = " login like '%" + txt_chercher.Text.Replace("'", "''") + "%'";
             }
         }
 
@@ -121,6 +128,16 @@ namespace Syndic
         private void btn_derniere_Click(object sender, EventArgs e)
         {
             BSut.MoveLast();
+        }
+
+        private void txt_chercher_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_chercher_TextChanged_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
