@@ -31,12 +31,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Bien_Aj));
             this.panel1 = new System.Windows.Forms.Panel();
             this.btn_close = new System.Windows.Forms.Button();
+            this.lbl_text = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.dt_date = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -54,7 +52,6 @@
             this.cmb_prop = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.lbl_text = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -83,6 +80,15 @@
             this.btn_close.UseVisualStyleBackColor = true;
             this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
             // 
+            // lbl_text
+            // 
+            this.lbl_text.AutoSize = true;
+            this.lbl_text.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lbl_text.Location = new System.Drawing.Point(3, 3);
+            this.lbl_text.Name = "lbl_text";
+            this.lbl_text.Size = new System.Drawing.Size(0, 16);
+            this.lbl_text.TabIndex = 73;
+            // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
@@ -90,14 +96,6 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(91, 21);
             this.comboBox1.TabIndex = 75;
-            // 
-            // dt_date
-            // 
-            this.dt_date.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dt_date.Location = new System.Drawing.Point(210, 372);
-            this.dt_date.Name = "dt_date";
-            this.dt_date.Size = new System.Drawing.Size(91, 20);
-            this.dt_date.TabIndex = 74;
             // 
             // label5
             // 
@@ -118,26 +116,6 @@
             this.label1.Size = new System.Drawing.Size(84, 16);
             this.label1.TabIndex = 68;
             this.label1.Text = "superficie :";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label7.Location = new System.Drawing.Point(63, 372);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(107, 16);
-            this.label7.TabIndex = 69;
-            this.label7.Text = "date controle :";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label6.Location = new System.Drawing.Point(63, 345);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(104, 16);
-            this.label6.TabIndex = 70;
-            this.label6.Text = "consomation :";
             // 
             // label2
             // 
@@ -185,9 +163,9 @@
             // 
             // txt_consomation
             // 
-            this.txt_consomation.Location = new System.Drawing.Point(210, 341);
+            this.txt_consomation.Location = new System.Drawing.Point(338, 237);
             this.txt_consomation.Name = "txt_consomation";
-            this.txt_consomation.Size = new System.Drawing.Size(91, 20);
+            this.txt_consomation.Size = new System.Drawing.Size(10, 20);
             this.txt_consomation.TabIndex = 64;
             // 
             // txt_charge
@@ -212,7 +190,7 @@
             this.btn_bien_annuler.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_bien_annuler.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_bien_annuler.ForeColor = System.Drawing.Color.White;
-            this.btn_bien_annuler.Location = new System.Drawing.Point(226, 418);
+            this.btn_bien_annuler.Location = new System.Drawing.Point(236, 367);
             this.btn_bien_annuler.Name = "btn_bien_annuler";
             this.btn_bien_annuler.Size = new System.Drawing.Size(112, 38);
             this.btn_bien_annuler.TabIndex = 77;
@@ -228,7 +206,7 @@
             this.btn_bien_valider.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_bien_valider.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_bien_valider.ForeColor = System.Drawing.Color.White;
-            this.btn_bien_valider.Location = new System.Drawing.Point(44, 418);
+            this.btn_bien_valider.Location = new System.Drawing.Point(49, 367);
             this.btn_bien_valider.Name = "btn_bien_valider";
             this.btn_bien_valider.Size = new System.Drawing.Size(112, 38);
             this.btn_bien_valider.TabIndex = 76;
@@ -305,20 +283,11 @@
             this.label11.TabIndex = 70;
             this.label11.Text = "Immeuble :";
             // 
-            // lbl_text
-            // 
-            this.lbl_text.AutoSize = true;
-            this.lbl_text.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.lbl_text.Location = new System.Drawing.Point(3, 3);
-            this.lbl_text.Name = "lbl_text";
-            this.lbl_text.Size = new System.Drawing.Size(0, 16);
-            this.lbl_text.TabIndex = 73;
-            // 
             // Frm_Bien_Aj
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(402, 488);
+            this.ClientSize = new System.Drawing.Size(402, 428);
             this.Controls.Add(this.cmb_prop);
             this.Controls.Add(this.cmb_imm);
             this.Controls.Add(this.txt_nom);
@@ -327,17 +296,14 @@
             this.Controls.Add(this.btn_bien_valider);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.dt_date);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txt_etage);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txt_charge);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.txt_consomation);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.txt_superficier);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txt_titre);
@@ -359,11 +325,8 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btn_close;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.DateTimePicker dt_date;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;

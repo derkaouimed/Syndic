@@ -84,7 +84,7 @@ namespace Syndic
             {
                 if (CN.State != ConnectionState.Open)
                     CN.Open();
-                com = new SqlCommand("select id_bien,NomApparetemnt,etage,superficie,charges,b.titrefoncier , t.nom as [type],i.nom as [immeuble],(p.nom +' '+p.prenom) as [nomComplet] ,c.consomation,c.date_controle from bien B inner join type_bien t on t.id_type=b.id_type_bien inner join conteur_eau c on c.id_conteurEau=b.id_conteurEau inner join immeuble i on i.id_immeuble=b.id_immeuble inner join proprietaire p on p.id_proprietaire= b.id_proprietaire where id_bien= " + id, CN);
+                com = new SqlCommand("select id_bien,NomApparetemnt,etage,superficie,charges,b.titrefoncier , t.nom as [type],i.nom as [immeuble],(p.nom +' '+p.prenom) as [nomComplet] ,c.consomation from bien B inner join type_bien t on t.id_type=b.id_type_bien inner join conteur_eau c on c.id_conteurEau=b.id_conteurEau inner join immeuble i on i.id_immeuble=b.id_immeuble inner join proprietaire p on p.id_proprietaire= b.id_proprietaire where id_bien= " + id, CN);
 
                 DR = com.ExecuteReader();
                 
@@ -98,8 +98,6 @@ namespace Syndic
                     cmb_imm.Text = DR[7].ToString();
                     cmb_prop.Text = DR[8].ToString();
                     txt_consomation.Text = DR[9].ToString();
-                    dt_date.Text = DR[10].ToString();
-
                
                 DR.Close();
                 com = null;
@@ -170,7 +168,7 @@ namespace Syndic
                 DRP.Read();
                 int c = int.Parse(DRP[0].ToString());
 
-                if (txt_nom.Text != "" && txt_charge.Text != "" && txt_consomation.Text != "" && txt_etage.Text != "" && txt_superficier.Text != "" && txt_titre.Text != "" && dt_date.Text != "")
+                if (txt_nom.Text != "" && txt_charge.Text != "" && txt_etage.Text != "" && txt_superficier.Text != "" && txt_titre.Text != "")
                 {
 
                     
@@ -181,7 +179,14 @@ namespace Syndic
                     comP = null;
                     DRP.Close();
 
-                    com3 = new SqlCommand("insert into proprietaire values( "+ txt_nom.Text + "','" + txt_etage.Text + "','" + txt_superficier.Text + "','" + txt_charge.Text + "','" + b + "','" + T + "','" + c + "','" + txt_titre.Text + "','" + txt_consomation.Text + "'," + dt_date.Text + ",1)", CN);
+                    SqlCommand cm = new SqlCommand("Select max(id_conteurEau) from conteur_eau",CN);
+                    txt_consomation.Text = cm.ExecuteScalar().ToString();
+
+                    com3 = new SqlCommand("insert into conteur_eau (consomation,archive) values ('',1)"
+                        +" insert into bien values( '" + txt_nom.Text + "' , '" 
+                        + txt_etage.Text + "' , '" + txt_superficier.Text + "' , '" 
+                        + txt_charge.Text + "' , '" + b + "' , '" + T + "' ,  '" + c + "' , '" 
+                        + txt_titre.Text + "' , '" + txt_consomation.Text + "' ,'1')", CN);
                     int a = -1;
                     a = com3.ExecuteNonQuery();
                     if (a != -1)
@@ -259,7 +264,7 @@ namespace Syndic
                 DR.Close();
                 com = null;
                 //////
-                com3 = new SqlCommand("update bien set nomAppartement = '" + txt_nom.Text + "',etage = '" + txt_etage.Text + "',syperficie = '" + txt_superficier.Text + "',charge = " + txt_charge + " ,id_immeuble = '" + I + "',id_type_bien = '" + T + "',id_propreitaire = " + P + "',titrefoncier = '" + txt_titre.Text + "',consomation = '" + txt_consomation.Text + "',date_controle = '" + dt_date.Text + " where id_bien = " + id, CN);
+                com3 = new SqlCommand("update bien set nomAppartement = '" + txt_nom.Text + "',etage = '" + txt_etage.Text + "',syperficie = '" + txt_superficier.Text + "',charge = " + txt_charge + " ,id_immeuble = '" + I + "',id_type_bien = '" + T + "',id_propreitaire = " + P + "',titrefoncier = '" + txt_titre.Text + "',consomation = '" + txt_consomation.Text +" where id_bien = " + id, CN);
                 int f = -1;
                 f = com3.ExecuteNonQuery();
                 if (f != -1)
