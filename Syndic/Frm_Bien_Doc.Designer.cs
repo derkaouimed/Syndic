@@ -28,159 +28,248 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Bien_Doc));
             this.grp_fichier = new System.Windows.Forms.GroupBox();
-            this.movePrecedent = new System.Windows.Forms.Button();
-            this.MoveNext = new System.Windows.Forms.Button();
-            this.MoveLast = new System.Windows.Forms.Button();
-            this.moveFirst = new System.Windows.Forms.Button();
-            this.btn_Bien_doc_Supprimer = new System.Windows.Forms.Button();
-            this.btn_Bien_doc_modifier = new System.Windows.Forms.Button();
-            this.btn_Bien_doc_Ajouter = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txt_cherch_doc = new System.Windows.Forms.TextBox();
+            this.list_document = new System.Windows.Forms.ListBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txt_chercher_bien = new System.Windows.Forms.TextBox();
+            this.btn_suivant = new System.Windows.Forms.Button();
+            this.btn_precedent = new System.Windows.Forms.Button();
+            this.btn_derniere = new System.Windows.Forms.Button();
+            this.btn_premiere = new System.Windows.Forms.Button();
+            this.list_bien = new System.Windows.Forms.ListBox();
+            this.btn_Bien_Doc_Supprimer = new System.Windows.Forms.Button();
+            this.btn_Bien_Doc_modifier = new System.Windows.Forms.Button();
+            this.btn_Bien_Doc_Ajouter = new System.Windows.Forms.Button();
             this.btn_rechercher = new System.Windows.Forms.Button();
-            this.grid_doc_bien = new System.Windows.Forms.DataGridView();
-            this.txt_nomfich = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.grp_fichier.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grid_doc_bien)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // grp_fichier
             // 
-            this.grp_fichier.Controls.Add(this.movePrecedent);
-            this.grp_fichier.Controls.Add(this.MoveNext);
-            this.grp_fichier.Controls.Add(this.MoveLast);
-            this.grp_fichier.Controls.Add(this.moveFirst);
-            this.grp_fichier.Controls.Add(this.btn_Bien_doc_Supprimer);
-            this.grp_fichier.Controls.Add(this.btn_Bien_doc_modifier);
-            this.grp_fichier.Controls.Add(this.btn_Bien_doc_Ajouter);
+            this.grp_fichier.Controls.Add(this.groupBox2);
+            this.grp_fichier.Controls.Add(this.groupBox1);
+            this.grp_fichier.Controls.Add(this.btn_Bien_Doc_Supprimer);
+            this.grp_fichier.Controls.Add(this.btn_Bien_Doc_modifier);
+            this.grp_fichier.Controls.Add(this.btn_Bien_Doc_Ajouter);
             this.grp_fichier.Controls.Add(this.btn_rechercher);
-            this.grp_fichier.Controls.Add(this.grid_doc_bien);
-            this.grp_fichier.Controls.Add(this.txt_nomfich);
-            this.grp_fichier.Controls.Add(this.label8);
             this.grp_fichier.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
-            this.grp_fichier.Location = new System.Drawing.Point(12, 31);
+            this.grp_fichier.Location = new System.Drawing.Point(12, 34);
             this.grp_fichier.Name = "grp_fichier";
             this.grp_fichier.Size = new System.Drawing.Size(746, 569);
-            this.grp_fichier.TabIndex = 12;
+            this.grp_fichier.TabIndex = 32;
             this.grp_fichier.TabStop = false;
-            this.grp_fichier.Text = "Fichier";
-            this.grp_fichier.Enter += new System.EventHandler(this.grp_fichier_Enter);
+            this.grp_fichier.Text = "Document";
             // 
-            // movePrecedent
+            // groupBox2
             // 
-            this.movePrecedent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
-            this.movePrecedent.FlatAppearance.BorderSize = 0;
-            this.movePrecedent.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.movePrecedent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.movePrecedent.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.movePrecedent.ForeColor = System.Drawing.Color.White;
-            this.movePrecedent.Location = new System.Drawing.Point(79, 485);
-            this.movePrecedent.Name = "movePrecedent";
-            this.movePrecedent.Size = new System.Drawing.Size(47, 36);
-            this.movePrecedent.TabIndex = 34;
-            this.movePrecedent.Text = "<";
-            this.movePrecedent.UseVisualStyleBackColor = false;
-            this.movePrecedent.Click += new System.EventHandler(this.movePrecedent_Click);
+            this.groupBox2.Controls.Add(this.txt_cherch_doc);
+            this.groupBox2.Controls.Add(this.list_document);
+            this.groupBox2.Controls.Add(this.button2);
+            this.groupBox2.Location = new System.Drawing.Point(354, 35);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(386, 444);
+            this.groupBox2.TabIndex = 46;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "fichier";
             // 
-            // MoveNext
+            // txt_cherch_doc
             // 
-            this.MoveNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
-            this.MoveNext.FlatAppearance.BorderSize = 0;
-            this.MoveNext.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.MoveNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MoveNext.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MoveNext.ForeColor = System.Drawing.Color.White;
-            this.MoveNext.Location = new System.Drawing.Point(145, 485);
-            this.MoveNext.Name = "MoveNext";
-            this.MoveNext.Size = new System.Drawing.Size(47, 36);
-            this.MoveNext.TabIndex = 33;
-            this.MoveNext.Text = ">";
-            this.MoveNext.UseVisualStyleBackColor = false;
-            this.MoveNext.Click += new System.EventHandler(this.MoveNext_Click);
+            this.txt_cherch_doc.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_cherch_doc.ForeColor = System.Drawing.Color.Gray;
+            this.txt_cherch_doc.Location = new System.Drawing.Point(13, 35);
+            this.txt_cherch_doc.Name = "txt_cherch_doc";
+            this.txt_cherch_doc.Size = new System.Drawing.Size(210, 27);
+            this.txt_cherch_doc.TabIndex = 58;
+            this.txt_cherch_doc.Text = "Chercher Nom document";
+            this.txt_cherch_doc.Enter += new System.EventHandler(this.txt_cherch_doc_Enter);
+            this.txt_cherch_doc.Leave += new System.EventHandler(this.txt_cherch_doc_Leave);
             // 
-            // MoveLast
+            // list_document
             // 
-            this.MoveLast.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
-            this.MoveLast.FlatAppearance.BorderSize = 0;
-            this.MoveLast.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.MoveLast.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MoveLast.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MoveLast.ForeColor = System.Drawing.Color.White;
-            this.MoveLast.Location = new System.Drawing.Point(198, 485);
-            this.MoveLast.Name = "MoveLast";
-            this.MoveLast.Size = new System.Drawing.Size(47, 36);
-            this.MoveLast.TabIndex = 32;
-            this.MoveLast.Text = ">>";
-            this.MoveLast.UseVisualStyleBackColor = false;
-            this.MoveLast.Click += new System.EventHandler(this.MoveLast_Click);
+            this.list_document.FormattingEnabled = true;
+            this.list_document.ItemHeight = 16;
+            this.list_document.Location = new System.Drawing.Point(13, 81);
+            this.list_document.Name = "list_document";
+            this.list_document.Size = new System.Drawing.Size(354, 308);
+            this.list_document.TabIndex = 44;
             // 
-            // moveFirst
+            // button2
             // 
-            this.moveFirst.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
-            this.moveFirst.FlatAppearance.BorderSize = 0;
-            this.moveFirst.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.moveFirst.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.moveFirst.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.moveFirst.ForeColor = System.Drawing.Color.White;
-            this.moveFirst.Location = new System.Drawing.Point(26, 485);
-            this.moveFirst.Name = "moveFirst";
-            this.moveFirst.Size = new System.Drawing.Size(47, 36);
-            this.moveFirst.TabIndex = 30;
-            this.moveFirst.Text = "<<";
-            this.moveFirst.UseVisualStyleBackColor = false;
-            this.moveFirst.Click += new System.EventHandler(this.moveFirst_Click);
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(229, 31);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(138, 34);
+            this.button2.TabIndex = 42;
+            this.button2.Text = "Rechercher";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // btn_Bien_doc_Supprimer
+            // groupBox1
             // 
-            this.btn_Bien_doc_Supprimer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
-            this.btn_Bien_doc_Supprimer.FlatAppearance.BorderSize = 0;
-            this.btn_Bien_doc_Supprimer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.btn_Bien_doc_Supprimer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Bien_doc_Supprimer.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Bien_doc_Supprimer.ForeColor = System.Drawing.Color.White;
-            this.btn_Bien_doc_Supprimer.Location = new System.Drawing.Point(611, 485);
-            this.btn_Bien_doc_Supprimer.Name = "btn_Bien_doc_Supprimer";
-            this.btn_Bien_doc_Supprimer.Size = new System.Drawing.Size(116, 43);
-            this.btn_Bien_doc_Supprimer.TabIndex = 31;
-            this.btn_Bien_doc_Supprimer.Text = "Supprimer";
-            this.btn_Bien_doc_Supprimer.UseVisualStyleBackColor = false;
-            this.btn_Bien_doc_Supprimer.Click += new System.EventHandler(this.btn_Bien_Supprimer_Click);
+            this.groupBox1.Controls.Add(this.txt_chercher_bien);
+            this.groupBox1.Controls.Add(this.btn_suivant);
+            this.groupBox1.Controls.Add(this.btn_precedent);
+            this.groupBox1.Controls.Add(this.btn_derniere);
+            this.groupBox1.Controls.Add(this.btn_premiere);
+            this.groupBox1.Controls.Add(this.list_bien);
+            this.groupBox1.Location = new System.Drawing.Point(26, 35);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(294, 444);
+            this.groupBox1.TabIndex = 45;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Nom Bien";
             // 
-            // btn_Bien_doc_modifier
+            // txt_chercher_bien
             // 
-            this.btn_Bien_doc_modifier.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
-            this.btn_Bien_doc_modifier.FlatAppearance.BorderSize = 0;
-            this.btn_Bien_doc_modifier.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.btn_Bien_doc_modifier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Bien_doc_modifier.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Bien_doc_modifier.ForeColor = System.Drawing.Color.White;
-            this.btn_Bien_doc_modifier.Location = new System.Drawing.Point(489, 485);
-            this.btn_Bien_doc_modifier.Name = "btn_Bien_doc_modifier";
-            this.btn_Bien_doc_modifier.Size = new System.Drawing.Size(116, 43);
-            this.btn_Bien_doc_modifier.TabIndex = 29;
-            this.btn_Bien_doc_modifier.Text = "Modifier";
-            this.btn_Bien_doc_modifier.UseVisualStyleBackColor = false;
-            this.btn_Bien_doc_modifier.Click += new System.EventHandler(this.btn_Bien_Supprimer_Click);
+            this.txt_chercher_bien.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_chercher_bien.ForeColor = System.Drawing.Color.Gray;
+            this.txt_chercher_bien.Location = new System.Drawing.Point(14, 39);
+            this.txt_chercher_bien.Name = "txt_chercher_bien";
+            this.txt_chercher_bien.Size = new System.Drawing.Size(252, 27);
+            this.txt_chercher_bien.TabIndex = 58;
+            this.txt_chercher_bien.Text = "Chercher Par Nom Bien";
+            this.txt_chercher_bien.Enter += new System.EventHandler(this.txt_chercher_bien_Enter);
+            this.txt_chercher_bien.Leave += new System.EventHandler(this.txt_chercher_bien_Leave);
             // 
-            // btn_Bien_doc_Ajouter
+            // btn_suivant
             // 
-            this.btn_Bien_doc_Ajouter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
-            this.btn_Bien_doc_Ajouter.FlatAppearance.BorderSize = 0;
-            this.btn_Bien_doc_Ajouter.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.btn_Bien_doc_Ajouter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Bien_doc_Ajouter.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Bien_doc_Ajouter.ForeColor = System.Drawing.Color.White;
-            this.btn_Bien_doc_Ajouter.Location = new System.Drawing.Point(367, 485);
-            this.btn_Bien_doc_Ajouter.Name = "btn_Bien_doc_Ajouter";
-            this.btn_Bien_doc_Ajouter.Size = new System.Drawing.Size(116, 43);
-            this.btn_Bien_doc_Ajouter.TabIndex = 28;
-            this.btn_Bien_doc_Ajouter.Text = "Ajouter";
-            this.btn_Bien_doc_Ajouter.UseVisualStyleBackColor = false;
-            this.btn_Bien_doc_Ajouter.Click += new System.EventHandler(this.btn_Bien_Supprimer_Click);
+            this.btn_suivant.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
+            this.btn_suivant.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_suivant.BackgroundImage")));
+            this.btn_suivant.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btn_suivant.FlatAppearance.BorderSize = 0;
+            this.btn_suivant.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btn_suivant.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_suivant.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_suivant.ForeColor = System.Drawing.Color.White;
+            this.btn_suivant.Location = new System.Drawing.Point(168, 395);
+            this.btn_suivant.Name = "btn_suivant";
+            this.btn_suivant.Size = new System.Drawing.Size(46, 41);
+            this.btn_suivant.TabIndex = 56;
+            this.btn_suivant.UseVisualStyleBackColor = false;
+            this.btn_suivant.Click += new System.EventHandler(this.btn_suivant_Click);
+            // 
+            // btn_precedent
+            // 
+            this.btn_precedent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
+            this.btn_precedent.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_precedent.BackgroundImage")));
+            this.btn_precedent.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btn_precedent.FlatAppearance.BorderSize = 0;
+            this.btn_precedent.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btn_precedent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_precedent.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_precedent.ForeColor = System.Drawing.Color.White;
+            this.btn_precedent.Location = new System.Drawing.Point(66, 395);
+            this.btn_precedent.Name = "btn_precedent";
+            this.btn_precedent.Size = new System.Drawing.Size(46, 41);
+            this.btn_precedent.TabIndex = 55;
+            this.btn_precedent.UseVisualStyleBackColor = false;
+            this.btn_precedent.Click += new System.EventHandler(this.btn_precedent_Click);
+            // 
+            // btn_derniere
+            // 
+            this.btn_derniere.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
+            this.btn_derniere.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_derniere.BackgroundImage")));
+            this.btn_derniere.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btn_derniere.FlatAppearance.BorderSize = 0;
+            this.btn_derniere.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btn_derniere.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_derniere.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_derniere.ForeColor = System.Drawing.Color.White;
+            this.btn_derniere.Location = new System.Drawing.Point(220, 395);
+            this.btn_derniere.Name = "btn_derniere";
+            this.btn_derniere.Size = new System.Drawing.Size(46, 41);
+            this.btn_derniere.TabIndex = 57;
+            this.btn_derniere.UseVisualStyleBackColor = false;
+            this.btn_derniere.Click += new System.EventHandler(this.btn_derniere_Click);
+            // 
+            // btn_premiere
+            // 
+            this.btn_premiere.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
+            this.btn_premiere.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_premiere.BackgroundImage")));
+            this.btn_premiere.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btn_premiere.FlatAppearance.BorderSize = 0;
+            this.btn_premiere.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btn_premiere.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_premiere.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_premiere.ForeColor = System.Drawing.Color.White;
+            this.btn_premiere.Location = new System.Drawing.Point(14, 395);
+            this.btn_premiere.Name = "btn_premiere";
+            this.btn_premiere.Size = new System.Drawing.Size(46, 41);
+            this.btn_premiere.TabIndex = 54;
+            this.btn_premiere.UseVisualStyleBackColor = false;
+            this.btn_premiere.Click += new System.EventHandler(this.btn_premiere_Click);
+            // 
+            // list_bien
+            // 
+            this.list_bien.FormattingEnabled = true;
+            this.list_bien.ItemHeight = 16;
+            this.list_bien.Location = new System.Drawing.Point(14, 81);
+            this.list_bien.Name = "list_bien";
+            this.list_bien.Size = new System.Drawing.Size(253, 308);
+            this.list_bien.TabIndex = 43;
+            // 
+            // btn_Bien_Doc_Supprimer
+            // 
+            this.btn_Bien_Doc_Supprimer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
+            this.btn_Bien_Doc_Supprimer.FlatAppearance.BorderSize = 0;
+            this.btn_Bien_Doc_Supprimer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btn_Bien_Doc_Supprimer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Bien_Doc_Supprimer.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Bien_Doc_Supprimer.ForeColor = System.Drawing.Color.White;
+            this.btn_Bien_Doc_Supprimer.Location = new System.Drawing.Point(611, 485);
+            this.btn_Bien_Doc_Supprimer.Name = "btn_Bien_Doc_Supprimer";
+            this.btn_Bien_Doc_Supprimer.Size = new System.Drawing.Size(116, 43);
+            this.btn_Bien_Doc_Supprimer.TabIndex = 38;
+            this.btn_Bien_Doc_Supprimer.Text = "Supprimer";
+            this.btn_Bien_Doc_Supprimer.UseVisualStyleBackColor = false;
+            this.btn_Bien_Doc_Supprimer.Click += new System.EventHandler(this.btn_Bien_Supprimer_Click);
+            // 
+            // btn_Bien_Doc_modifier
+            // 
+            this.btn_Bien_Doc_modifier.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
+            this.btn_Bien_Doc_modifier.FlatAppearance.BorderSize = 0;
+            this.btn_Bien_Doc_modifier.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btn_Bien_Doc_modifier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Bien_Doc_modifier.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Bien_Doc_modifier.ForeColor = System.Drawing.Color.White;
+            this.btn_Bien_Doc_modifier.Location = new System.Drawing.Point(489, 485);
+            this.btn_Bien_Doc_modifier.Name = "btn_Bien_Doc_modifier";
+            this.btn_Bien_Doc_modifier.Size = new System.Drawing.Size(116, 43);
+            this.btn_Bien_Doc_modifier.TabIndex = 36;
+            this.btn_Bien_Doc_modifier.Text = "Modifier";
+            this.btn_Bien_Doc_modifier.UseVisualStyleBackColor = false;
+            this.btn_Bien_Doc_modifier.Click += new System.EventHandler(this.btn_Bien_Supprimer_Click);
+            // 
+            // btn_Bien_Doc_Ajouter
+            // 
+            this.btn_Bien_Doc_Ajouter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
+            this.btn_Bien_Doc_Ajouter.FlatAppearance.BorderSize = 0;
+            this.btn_Bien_Doc_Ajouter.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btn_Bien_Doc_Ajouter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Bien_Doc_Ajouter.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Bien_Doc_Ajouter.ForeColor = System.Drawing.Color.White;
+            this.btn_Bien_Doc_Ajouter.Location = new System.Drawing.Point(367, 485);
+            this.btn_Bien_Doc_Ajouter.Name = "btn_Bien_Doc_Ajouter";
+            this.btn_Bien_Doc_Ajouter.Size = new System.Drawing.Size(116, 43);
+            this.btn_Bien_Doc_Ajouter.TabIndex = 35;
+            this.btn_Bien_Doc_Ajouter.Text = "Ajouter";
+            this.btn_Bien_Doc_Ajouter.UseVisualStyleBackColor = false;
+            this.btn_Bien_Doc_Ajouter.Click += new System.EventHandler(this.btn_Bien_Supprimer_Click);
             // 
             // btn_rechercher
             // 
-            this.btn_rechercher.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
+            this.btn_rechercher.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.btn_rechercher.FlatAppearance.BorderSize = 0;
             this.btn_rechercher.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.btn_rechercher.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -188,38 +277,10 @@
             this.btn_rechercher.ForeColor = System.Drawing.Color.White;
             this.btn_rechercher.Location = new System.Drawing.Point(583, 28);
             this.btn_rechercher.Name = "btn_rechercher";
-            this.btn_rechercher.Size = new System.Drawing.Size(144, 34);
-            this.btn_rechercher.TabIndex = 27;
+            this.btn_rechercher.Size = new System.Drawing.Size(0, 0);
+            this.btn_rechercher.TabIndex = 32;
             this.btn_rechercher.Text = "Rechercher";
             this.btn_rechercher.UseVisualStyleBackColor = false;
-            this.btn_rechercher.Click += new System.EventHandler(this.btn_rechercher_Click);
-            // 
-            // grid_doc_bien
-            // 
-            this.grid_doc_bien.AllowUserToAddRows = false;
-            this.grid_doc_bien.AllowUserToDeleteRows = false;
-            this.grid_doc_bien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grid_doc_bien.Location = new System.Drawing.Point(22, 77);
-            this.grid_doc_bien.Name = "grid_doc_bien";
-            this.grid_doc_bien.ReadOnly = true;
-            this.grid_doc_bien.Size = new System.Drawing.Size(705, 328);
-            this.grid_doc_bien.TabIndex = 9;
-            // 
-            // txt_nomfich
-            // 
-            this.txt_nomfich.Location = new System.Drawing.Point(158, 32);
-            this.txt_nomfich.Name = "txt_nomfich";
-            this.txt_nomfich.Size = new System.Drawing.Size(264, 23);
-            this.txt_nomfich.TabIndex = 7;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(19, 39);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(50, 16);
-            this.label8.TabIndex = 8;
-            this.label8.Text = "Nom  :";
             // 
             // Frm_Bien_Doc
             // 
@@ -233,8 +294,10 @@
             this.Text = "Frm_Bien_Doc";
             this.Load += new System.EventHandler(this.Frm_Bien_Doc_Load);
             this.grp_fichier.ResumeLayout(false);
-            this.grp_fichier.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grid_doc_bien)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -242,16 +305,20 @@
         #endregion
 
         private System.Windows.Forms.GroupBox grp_fichier;
-        private System.Windows.Forms.DataGridView grid_doc_bien;
-        private System.Windows.Forms.TextBox txt_nomfich;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.TextBox txt_cherch_doc;
+        private System.Windows.Forms.ListBox list_document;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox txt_chercher_bien;
+        private System.Windows.Forms.Button btn_suivant;
+        private System.Windows.Forms.Button btn_precedent;
+        private System.Windows.Forms.Button btn_derniere;
+        private System.Windows.Forms.Button btn_premiere;
+        private System.Windows.Forms.ListBox list_bien;
+        private System.Windows.Forms.Button btn_Bien_Doc_Supprimer;
+        private System.Windows.Forms.Button btn_Bien_Doc_modifier;
+        private System.Windows.Forms.Button btn_Bien_Doc_Ajouter;
         private System.Windows.Forms.Button btn_rechercher;
-        private System.Windows.Forms.Button movePrecedent;
-        private System.Windows.Forms.Button MoveNext;
-        private System.Windows.Forms.Button MoveLast;
-        private System.Windows.Forms.Button moveFirst;
-        private System.Windows.Forms.Button btn_Bien_doc_Supprimer;
-        private System.Windows.Forms.Button btn_Bien_doc_modifier;
-        private System.Windows.Forms.Button btn_Bien_doc_Ajouter;
     }
 }

@@ -107,7 +107,7 @@ namespace Syndic
 
         private void txt_chercher_Enter(object sender, EventArgs e)
         {
-            Fonctions.textHintEntre(txt_chercher, "Chercher Par Nom ");
+            Fonctions.textHintEntre(txt_chercher, "Chercher Par Nom");
         }
 
         private void btn_premiere_Click(object sender, EventArgs e)

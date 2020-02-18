@@ -147,6 +147,9 @@ namespace Syndic
         {
             if (lbl_text.Text == "Ajouter")
             {
+                txt_con.Visible = false;
+                dt_cons.Visible = false;
+
                 comT = new SqlCommand("Select id_type from type_bien where nom like '" + comboBox1.Text + "'", CN);
                 DRT = comT.ExecuteReader();
                 DRT.Read();
@@ -163,21 +166,18 @@ namespace Syndic
 
                 comI = null;
                 DRI.Close();
+
                 comP = new SqlCommand("Select id_proprietaire from Proprietaire where nom+' '+prenom like'" + cmb_prop.Text + "'", CN);
                 DRP = comP.ExecuteReader();
                 DRP.Read();
                 int c = int.Parse(DRP[0].ToString());
 
+
+                comP = null;
+                DRP.Close();
+
                 if (txt_nom.Text != "" && txt_charge.Text != "" && txt_etage.Text != "" && txt_superficier.Text != "" && txt_titre.Text != "")
                 {
-
-                    
-                  
-
-                   
-
-                    comP = null;
-                    DRP.Close();
 
                     SqlCommand cm = new SqlCommand("Select max(id_conteurEau) from conteur_eau",CN);
                     txt_consomation.Text = cm.ExecuteScalar().ToString();
@@ -203,32 +203,13 @@ namespace Syndic
                     MessageBox.Show("Remplire Les champs");
 
 
-
-                //if (txt_nom.Text != "" && txt_charge.Text != "" && txt_consomation.Text != "" && txt_etage.Text != "" && txt_superficier.Text != "" && txt_titre.Text != "" && comboBox1.Text != "" && cmb_imm.Text != "" && cmb_prop.Text != "" && dt_date.Text != "")
-                //{
-                //    Random r = new Random();
-                //    int j = r.Next(1000);
-
-                //    com2 = new SqlCommand("insert into bien values (" + j + ",'" + txt_nom.Text.ToString() + ",'" + txt_etage.Text.ToString() + ",'" + txt_superficier.Text.ToString() + ",'" + txt_charge.Text.ToString() + ",'" + txt_titre.Text.ToString() + "',(Select distinct id_type from type_bien where nom like '%" + comboBox1.Text + "%') '" + "',(Select distinct id_immeuble from immeuble where nom like '%" + cmb_imm.Text + "%', )" + "',(Select distinct id_proprietaire from proprietaire where (nom+' '+prenom) like '%" + cmb_prop.Text + "%' ) '" + ",'" + txt_consomation.Text + ",'" + dt_date.Text + " ,1)", CN);
-                //    int a = -1;
-                //    a = com2.ExecuteNonQuery();
-                //    if (a != -1)
-                //    {
-                //        MessageBox.Show("Added");
-                //    }
-                //    else
-                //    {
-                //        MessageBox.Show("Erreur !!");
-                //    }
-                //}
-                //else
-                //    MessageBox.Show("Remplire les champs ");
-
-
-
             }
             else if (lbl_text.Text == "Modifier")
             {
+                txt_con.Visible = true;
+                dt_cons.Visible = true;
+
+
                 com3 = null;
 
                 DR.Close();
@@ -236,35 +217,62 @@ namespace Syndic
 
                 int T = 0;
                 com3 = new SqlCommand("Select distinct id_type from type_bien where nom like '%" + comboBox1.Text + "%'", CN);
-                DR = com.ExecuteReader();
+                DR = com3.ExecuteReader();
                 DR.Read();
                 T = int.Parse(DR[0].ToString());
 
+                com3 = null;
+
+                DR.Close();
+                com = null;
+
                 int I = 0;
                 com3 = new SqlCommand("Select distinct id_immeuble from immeuble where nom like '%" + cmb_imm.Text + "%'", CN);
-                DR = com.ExecuteReader();
+                DR = com3.ExecuteReader();
                 DR.Read();
                 I = int.Parse(DR[0].ToString());
 
+                com3 = null;
+
+                DR.Close();
+                com = null;
+
                 int P = 0;
                 com3 = new SqlCommand("Select id_proprietaire from Proprietaire where nom+' '+prenom like '%" + cmb_prop.Text + "%'", CN);
-                DR = com.ExecuteReader();
+                DR = com3.ExecuteReader();
                 DR.Read();
                 P = int.Parse(DR[0].ToString());
 
-                int C = 0;
-                com3 = new SqlCommand("Select id_conteurEau from conteurEau where consomation like '%" + txt_consomation.Text + "%'", CN);
-                DR = com.ExecuteReader();
-                DR.Read();
-                C = int.Parse(DR[0].ToString());
+                com3 = null;
 
-
-                // com3 = null;
-                // dr.Close();
                 DR.Close();
                 com = null;
-                //////
-                com3 = new SqlCommand("update bien set nomAppartement = '" + txt_nom.Text + "',etage = '" + txt_etage.Text + "',syperficie = '" + txt_superficier.Text + "',charge = " + txt_charge + " ,id_immeuble = '" + I + "',id_type_bien = '" + T + "',id_propreitaire = " + P + "',titrefoncier = '" + txt_titre.Text + "',consomation = '" + txt_consomation.Text +" where id_bien = " + id, CN);
+
+                //com3 = new SqlCommand("Select id_conteurEau from conteur_eau c inner join bien b on b.id_conteurEau=c.id_conteurEau ", CN);
+                //txt_consomation.Text = com3.ExecuteReader().ToString();
+
+                //int C = 0;
+                //com3 = new SqlCommand("Select id_conteurEau from conteurEau where consomation like '%" + txt_consomation.Text + "%'", CN);
+                //DR = com.ExecuteReader();
+                //DR.Read();
+                //C = int.Parse(DR[0].ToString());
+
+
+                //com3 = null;
+
+                //DR.Close();
+                //com = null;
+
+
+                com3 = new SqlCommand("update bien set NomApparetemnt = '" + txt_nom.Text + "',etage = '" 
+                    + txt_etage.Text + "',superficie = '" + txt_superficier.Text 
+                    + "',charges = '" + txt_charge.Text + "' ,id_immeuble = '" + I + "',id_type_bien = '"
+                    + T + "',id_proprietaire =' " + P + "',titrefoncier = '" + txt_titre.Text + "',id_conteurEau = '"
+                    + txt_consomation.Text +"' where id_bien = " + id, CN);
+
+                com3 = new SqlCommand("update conteur_eau set consomation='" + txt_con+ "',date_controle'" + dt_cons+ "'where id_conteurEau = '"+txt_consomation.Text, CN);
+
+
                 int f = -1;
                 f = com3.ExecuteNonQuery();
                 if (f != -1)
@@ -282,8 +290,20 @@ namespace Syndic
 
         private void btn_bien_annuler_Click_1(object sender, EventArgs e)
         {
-            //if (txt_nom.Text == "")
-            //    MessageBox.Show("vide");
+            if (lbl_text.Text == "Ajouter")
+            {
+                txt_nom.Text = "";
+                txt_charge.Text = "";
+                txt_consomation.Text = "";
+                txt_etage.Text = "";
+                txt_superficier.Text = "";
+                txt_titre.Text = "";
+                cmb_imm.Text = "";
+                cmb_prop.Text = "";
+                comboBox1.Text = "";
+            }
+            else
+                this.Close();
         }
     }
     }

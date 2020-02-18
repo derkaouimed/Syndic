@@ -35,12 +35,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.txt_pas = new System.Windows.Forms.TextBox();
+            this.txt_log = new System.Windows.Forms.TextBox();
+            this.cmb_typ = new System.Windows.Forms.ComboBox();
             this.button2 = new System.Windows.Forms.Button();
             this.btn_Recette_valider = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,6 +50,7 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.btn_close);
+            this.panel1.Controls.Add(this.label3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -111,27 +113,27 @@
             this.label7.TabIndex = 57;
             this.label7.Text = "Login :";
             // 
-            // textBox2
+            // txt_pas
             // 
-            this.textBox2.Location = new System.Drawing.Point(179, 171);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(121, 20);
-            this.textBox2.TabIndex = 56;
+            this.txt_pas.Location = new System.Drawing.Point(179, 171);
+            this.txt_pas.Name = "txt_pas";
+            this.txt_pas.Size = new System.Drawing.Size(121, 20);
+            this.txt_pas.TabIndex = 56;
             // 
-            // textBox1
+            // txt_log
             // 
-            this.textBox1.Location = new System.Drawing.Point(179, 115);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(121, 20);
-            this.textBox1.TabIndex = 55;
+            this.txt_log.Location = new System.Drawing.Point(179, 115);
+            this.txt_log.Name = "txt_log";
+            this.txt_log.Size = new System.Drawing.Size(121, 20);
+            this.txt_log.TabIndex = 55;
             // 
-            // comboBox1
+            // cmb_typ
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(179, 231);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 54;
+            this.cmb_typ.FormattingEnabled = true;
+            this.cmb_typ.Location = new System.Drawing.Point(179, 231);
+            this.cmb_typ.Name = "cmb_typ";
+            this.cmb_typ.Size = new System.Drawing.Size(121, 21);
+            this.cmb_typ.TabIndex = 54;
             // 
             // button2
             // 
@@ -147,6 +149,7 @@
             this.button2.TabIndex = 65;
             this.button2.Text = "Annuler";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // btn_Recette_valider
             // 
@@ -179,6 +182,15 @@
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label3.Location = new System.Drawing.Point(3, 4);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(0, 16);
+            this.label3.TabIndex = 58;
+            // 
             // Frm_Utilisateur_aj
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -191,15 +203,16 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.txt_pas);
+            this.Controls.Add(this.txt_log);
+            this.Controls.Add(this.cmb_typ);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Frm_Utilisateur_aj";
             this.Text = "Frm_Utilisateur_aj";
             this.Load += new System.EventHandler(this.Frm_Utilisateur_aj_Load);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -213,11 +226,12 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox txt_pas;
+        private System.Windows.Forms.TextBox txt_log;
+        private System.Windows.Forms.ComboBox cmb_typ;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btn_Recette_valider;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label label3;
     }
 }

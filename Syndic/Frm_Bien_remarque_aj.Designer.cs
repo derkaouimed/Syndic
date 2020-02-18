@@ -33,7 +33,6 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btn_close = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -42,8 +41,7 @@
             this.cm_bien = new System.Windows.Forms.ComboBox();
             this.btn_bienRe_Annuler = new System.Windows.Forms.Button();
             this.btn_bienRem_valider = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,10 +50,8 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.btn_close);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.btn_close);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -100,15 +96,6 @@
             this.btn_close.TabIndex = 19;
             this.btn_close.UseVisualStyleBackColor = true;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(3, 3);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(0, 16);
-            this.label3.TabIndex = 47;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -118,6 +105,7 @@
             this.label2.Size = new System.Drawing.Size(88, 16);
             this.label2.TabIndex = 49;
             this.label2.Text = "Remarque :";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
             // 
@@ -175,6 +163,7 @@
             this.btn_bienRe_Annuler.TabIndex = 51;
             this.btn_bienRe_Annuler.Text = "Annuler";
             this.btn_bienRe_Annuler.UseVisualStyleBackColor = false;
+            this.btn_bienRe_Annuler.Click += new System.EventHandler(this.btn_bienRe_Annuler_Click);
             // 
             // btn_bienRem_valider
             // 
@@ -192,23 +181,15 @@
             this.btn_bienRem_valider.UseVisualStyleBackColor = false;
             this.btn_bienRem_valider.Click += new System.EventHandler(this.btn_bienRem_valider_Click);
             // 
-            // label4
+            // label3
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(3, 3);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(0, 16);
-            this.label4.TabIndex = 47;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label5.Location = new System.Drawing.Point(9, 3);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(0, 16);
-            this.label5.TabIndex = 47;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label3.Location = new System.Drawing.Point(3, 3);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(0, 16);
+            this.label3.TabIndex = 49;
+            this.label3.Click += new System.EventHandler(this.label2_Click);
             // 
             // Frm_Bien_remarque_aj
             // 
@@ -250,7 +231,5 @@
         private System.Windows.Forms.Button btn_bienRe_Annuler;
         private System.Windows.Forms.Button btn_bienRem_valider;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
     }
 }

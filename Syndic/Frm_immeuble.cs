@@ -37,12 +37,12 @@ namespace Syndic
             switch (btn.Name)
             {
                 case "btn_immeuble_Ajouter":
-                    Frm_immeuble_aj f = new Frm_immeuble_aj();
+                    Frm_immeuble_aj f = new Frm_immeuble_aj("Ajouter",0);
                     f.ShowDialog();
 
                     break;
                 case "btn_immeuble_modifier":
-                    Frm_immeuble_aj ff = new Frm_immeuble_aj();
+                    Frm_immeuble_aj ff = new Frm_immeuble_aj("Modifier", int.Parse(dtG_immeuble.CurrentRow.Cells[0].Value.ToString()));
                     ff.ShowDialog();
 
 
@@ -75,40 +75,22 @@ namespace Syndic
             }
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_Enter(object sender, EventArgs e)
-        {
-            Fonctions.textHintEntre(txt_chercher, "Chercher Par Nom ");
-        }
-
-        private void textBox1_Leave(object sender, EventArgs e)
-        {
-            Fonctions.textHintLeave(txt_chercher, "Chercher Par Nom");
-        }
-
+     
         private void btn_rechercher_Click(object sender, EventArgs e)
         {
             SqlCommandBuilder com = new SqlCommandBuilder(AD);
             AD.Update(DS.Tables["immeuble"]);
 
-            if (txt_chercher.Text == "Chercher Par Nom ")
-                BSimm.Filter = "";
-            else
-            {
+               // BSimm.Filter = " [Nom immeuble] like '%" + txt_chercher.Text.Replace("'", "''") + "%'";
 
-                BSimm.Filter = " [Nom immeuble] like '%" + txt_chercher.Text.Replace("'", "''") + "%'";
-
-            }
+            string f = txt_chercher.Text == "Chercher Par Nom" ? "" : "[Nom immeuble] like '%" + txt_chercher.Text + "%'";
+            BSimm.Filter = f;
         }
 
         private void Frm_immeuble_Load(object sender, EventArgs e)
         {
             ouvriConnectio();
-            AD = new SqlDataAdapter("select id_immeuble as [ID] , i.nom as [Nom immeuble],r.nom as [residence],i.titrefoncier as[titre foncier] from immeuble i inner join residence r on r.id_residence=i.id_residence ", CN);
+            AD = new SqlDataAdapter("select id_immeuble as [ID] , i.nom as [Nom immeuble],r.nom as [residence],i.titrefoncier as[titre foncier],i.paiment from immeuble i inner join residence r on r.id_residence=i.id_residence ", CN);
 
             if (!DS.Tables.Contains("immeuble"))
 
@@ -143,6 +125,21 @@ namespace Syndic
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void txt_chercher_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_chercher_Enter(object sender, EventArgs e)
+        {
+            Fonctions.textHintEntre(txt_chercher,"Chercher Par Nom");
+        }
+
+        private void txt_chercher_Leave(object sender, EventArgs e)
+        {
+            Fonctions.textHintLeave(txt_chercher,"Chercher Par Nom");
         }
     }
 }

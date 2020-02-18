@@ -104,21 +104,22 @@ namespace Syndic
 
         private void btn_bienRem_valider_Click(object sender, EventArgs e)
         {
-            if (label5.Text == "Ajouter")
+            if (label3.Text == "Ajouter")
             {
-                com = new SqlCommand("Select id_bien from bien where nom like '" + cm_bien.Text + "'", CN);
-                DR = com.ExecuteReader();
-                DR.Read();
-                int T = int.Parse(DR[0].ToString());
+                comT = new SqlCommand("Select id_bien from bien where NomApparetemnt like '" + cm_bien.Text + "'", CN);
+                DRT = comT.ExecuteReader();
+                DRT.Read();
+                int T = int.Parse(DRT[0].ToString());
+                comT = null;
+                DRT.Close();
 
                 if (txt_nom.Text != "" && txt_rem.Text != "")
                 {
-                    com = null;
-                    DR.Close();
+                   
 
-                    com = new SqlCommand("insert into proprietaire values('" + txt_nom.Text + ",'" + txt_rem.Text + ",'" + T + ",1)", CN);
+                    comI = new SqlCommand("insert into remarque_bien values('" + txt_nom.Text + "','" + txt_rem.Text + "','" + T + "','1')", CN);
                     int a = -1;
-                    a = com.ExecuteNonQuery();
+                    a = comI.ExecuteNonQuery();
                     if (a != -1)
                     {
                         MessageBox.Show("Enregistrer !!! ");
@@ -132,10 +133,10 @@ namespace Syndic
                 else
                     MessageBox.Show("Remplir tous les champs !!!");
             }
-            else if (label5.Text == "Modifier")
+            else if (label3.Text == "Modifier")
             {
                 int I = 0;
-                comI = new SqlCommand("Select distinct id_bien from bien where nom like '%" + cm_bien.Text + "%'", CN);
+                comI = new SqlCommand("Select distinct id_bien from bien where NomApparetemnt like '%" + cm_bien.Text + "%'", CN);
                 DR = com.ExecuteReader();
                 DR.Read();
                 I = int.Parse(DR[0].ToString());
@@ -153,6 +154,23 @@ namespace Syndic
 
             }
 
+
+        }
+
+        private void btn_bienRe_Annuler_Click(object sender, EventArgs e)
+        {
+            if (label3.Text == "Ajouter")
+            {
+                txt_nom.Text = "";
+                txt_rem.Text = "";
+                cm_bien.Text = "";
+            }
+            else
+                this.Close();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
 
         }
     }

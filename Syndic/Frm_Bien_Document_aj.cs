@@ -106,19 +106,21 @@ namespace Syndic
         {
             if (label3.Text == "Ajouter")
             {
-                com = new SqlCommand("Select id_bien from bien where nom like '" + cmb_bien.Text + "'", CN);
-                DR = com.ExecuteReader();
-                DR.Read();
-                int T = int.Parse(DR[0].ToString());
+                comT = new SqlCommand("Select id_bien from bien where NomApparetemnt like '" + cmb_bien.Text + "'", CN);
+                DRT = comT.ExecuteReader();
+                DRT.Read();
+                int T = int.Parse(DRT[0].ToString());
+
+                comT = null;
+                DRT.Close();
 
                 if (txt_nom.Text != "" && txt_fich.Text != "")
                 {
-                    com = null;
-                    DR.Close();
+                    
 
-                    com = new SqlCommand("insert into document_bien values('" + txt_nom.Text + ",'" + txt_fich.Text + ",'" + T + ",1)", CN);
+                    comI = new SqlCommand("insert into document_bien values('" + txt_nom.Text + "','" + txt_fich.Text + "','" + T + "','1')", CN);
                     int a = -1;
-                    a = com.ExecuteNonQuery();
+                    a = comI.ExecuteNonQuery();
                     if (a != -1)
                     {
                         MessageBox.Show("Enregistrer !!! ");
@@ -153,6 +155,18 @@ namespace Syndic
 
             }
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (label3.Text == "Ajouter")
+            {
+                txt_fich.Text = "";
+                txt_nom.Text = "";
+                cmb_bien.Text = "";
+            }
+            else
+                this.Close();
         }
     }
 }

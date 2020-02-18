@@ -53,5 +53,17 @@ namespace Syndic
         {
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (label3.Text == "Ajouter")
+            {
+                txt_log.Text = "";
+                txt_pas.Text = "";
+                cmb_typ.Text = "";
+            }
+            else
+                this.Close();
+        }
     }
 }

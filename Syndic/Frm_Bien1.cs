@@ -87,8 +87,6 @@ namespace Syndic
             AD.Update(DS.Tables["bien"]);
 
             string f = txt_nomfich.Text == "Chercher Par Nom " ? "" : "NomApparetemnt like '%" + txt_nomfich.Text + "%'";
-            //  string f = txt_nomfich.Text == "" ? "" : "NomApparetemnt like '%" + txt_nomfich.Text + "%'";
-
             BSbien.Filter = f;
 
         }
@@ -128,6 +126,16 @@ namespace Syndic
         private void btn_suivant_Click(object sender, EventArgs e)
         {
             BSbien.MoveLast();
+        }
+
+        private void txt_nomfich_Leave(object sender, EventArgs e)
+        {
+            Fonctions.textHintLeave(txt_nomfich, "Chercher Par Nom");
+        }
+
+        private void txt_nomfich_Enter(object sender, EventArgs e)
+        {
+            Fonctions.textHintEntre(txt_nomfich, "Chercher Par Nom");
         }
     }
 }

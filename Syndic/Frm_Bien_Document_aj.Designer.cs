@@ -172,6 +172,7 @@
             this.button3.TabIndex = 65;
             this.button3.Text = "Annuler";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // btn_Recette_valider
             // 

@@ -73,7 +73,10 @@
             this.txt_chercher.Name = "txt_chercher";
             this.txt_chercher.Size = new System.Drawing.Size(381, 27);
             this.txt_chercher.TabIndex = 50;
-            this.txt_chercher.Text = "Chercher Par Nom ";
+            this.txt_chercher.Text = "Chercher Par Nom";
+            this.txt_chercher.TextChanged += new System.EventHandler(this.txt_chercher_TextChanged);
+            this.txt_chercher.Enter += new System.EventHandler(this.txt_chercher_Enter);
+            this.txt_chercher.Leave += new System.EventHandler(this.txt_chercher_Leave);
             // 
             // btn_suivant
             // 
