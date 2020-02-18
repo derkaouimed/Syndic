@@ -45,6 +45,7 @@
             this.btn_Bien_Doc_modifier = new System.Windows.Forms.Button();
             this.btn_Bien_Doc_Ajouter = new System.Windows.Forms.Button();
             this.btn_rechercher = new System.Windows.Forms.Button();
+            this.txtidDoc = new System.Windows.Forms.TextBox();
             this.grp_fichier.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -68,8 +69,9 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.txt_cherch_doc);
             this.groupBox2.Controls.Add(this.list_document);
+            this.groupBox2.Controls.Add(this.txtidDoc);
+            this.groupBox2.Controls.Add(this.txt_cherch_doc);
             this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Location = new System.Drawing.Point(354, 35);
             this.groupBox2.Name = "groupBox2";
@@ -98,6 +100,7 @@
             this.list_document.Name = "list_document";
             this.list_document.Size = new System.Drawing.Size(354, 308);
             this.list_document.TabIndex = 44;
+            this.list_document.SelectedIndexChanged += new System.EventHandler(this.list_document_SelectedIndexChanged);
             // 
             // button2
             // 
@@ -218,6 +221,7 @@
             this.list_bien.Name = "list_bien";
             this.list_bien.Size = new System.Drawing.Size(253, 308);
             this.list_bien.TabIndex = 43;
+            this.list_bien.SelectedIndexChanged += new System.EventHandler(this.list_bien_SelectedIndexChanged);
             // 
             // btn_Bien_Doc_Supprimer
             // 
@@ -282,6 +286,18 @@
             this.btn_rechercher.Text = "Rechercher";
             this.btn_rechercher.UseVisualStyleBackColor = false;
             // 
+            // txtidDoc
+            // 
+            this.txtidDoc.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtidDoc.ForeColor = System.Drawing.Color.Gray;
+            this.txtidDoc.Location = new System.Drawing.Point(55, 143);
+            this.txtidDoc.Name = "txtidDoc";
+            this.txtidDoc.Size = new System.Drawing.Size(168, 27);
+            this.txtidDoc.TabIndex = 58;
+            this.txtidDoc.Text = "Chercher Nom document";
+            this.txtidDoc.Enter += new System.EventHandler(this.txt_cherch_doc_Enter);
+            this.txtidDoc.Leave += new System.EventHandler(this.txt_cherch_doc_Leave);
+            // 
             // Frm_Bien_Doc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -320,5 +336,6 @@
         private System.Windows.Forms.Button btn_Bien_Doc_modifier;
         private System.Windows.Forms.Button btn_Bien_Doc_Ajouter;
         private System.Windows.Forms.Button btn_rechercher;
+        private System.Windows.Forms.TextBox txtidDoc;
     }
 }

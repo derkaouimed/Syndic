@@ -24,8 +24,8 @@ namespace Syndic
 
         string s = "";
         int id;
-   
-        public Frm_Bien_Document_aj(string s , int id)
+
+        public Frm_Bien_Document_aj(string s, int id)
         {
             InitializeComponent();
             this.id = id;
@@ -60,16 +60,19 @@ namespace Syndic
             ouvrirconnection();
             if (label3.Text == "Modifier")
             {
+                    MessageBox.Show(""+id);
                 if (CN.State != ConnectionState.Open)
                     CN.Open();
-                com = new SqlCommand("select nom, fichier, b.NomApparetemnt from document_bien d inner join bien b on b.id_bien = d.id_bien where id_document= " + id, CN);
+                com = new SqlCommand("select nom, fichier, b.NomApparetemnt from document_bien d inner join bien b on b.id_bien = d.id_bien where b.id_bien = " + id, CN);
 
                 DR = com.ExecuteReader();
 
-                DR.Read();
-                txt_nom.Text = DR[1].ToString();
-                txt_fich.Text = DR[3].ToString();
-                cmb_bien.Text = DR[2].ToString();
+                while (DR.Read())
+                {
+                    txt_nom.Text = DR[0].ToString();
+                    txt_fich.Text = DR[1].ToString();
+                    cmb_bien.Text = DR[2].ToString();
+                }
                 DR.Close();
                 com = null;
 
@@ -116,7 +119,7 @@ namespace Syndic
 
                 if (txt_nom.Text != "" && txt_fich.Text != "")
                 {
-                    
+
 
                     comI = new SqlCommand("insert into document_bien values('" + txt_nom.Text + "','" + txt_fich.Text + "','" + T + "','1')", CN);
                     int a = -1;
@@ -137,11 +140,15 @@ namespace Syndic
             else if (label3.Text == "Modifier")
             {
                 int I = 0;
-                comI = new SqlCommand("Select distinct id_bien from bien where nom like '%" + cmb_bien.Text + "%'", CN);
-                DR = com.ExecuteReader();
+                comI = new SqlCommand("Select distinct id_bien from bien where NomApparetemnt like '%" + cmb_bien.Text + "%'", CN);
+                DR = comI.ExecuteReader();
                 DR.Read();
                 I = int.Parse(DR[0].ToString());
-                comI = new SqlCommand("update document_bien set nom = '" + txt_nom.Text + "',document = '" + txt_fich.Text + "',id_bien = '" + I + " where id_remarque = " + id, CN);
+
+                comI = null;
+                DR.Close();
+
+                comI = new SqlCommand("update document_bien set nom = '" + txt_nom.Text + "',fichier = '" + txt_fich.Text + "',id_bien = '" + I + "' where id_bien = " + id, CN);
                 int f = -1;
                 f = comI.ExecuteNonQuery();
                 if (f != -1)

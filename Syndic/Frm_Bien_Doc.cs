@@ -15,6 +15,7 @@ namespace Syndic
     public partial class Frm_Bien_Doc : Form
     {
         BindingSource BSbien = new BindingSource();
+        BindingSource BSdoc = new BindingSource();
         SqlConnection CN = new SqlConnection();
         DataSet DS = new DataSet();
         SqlDataAdapter AD;
@@ -37,35 +38,31 @@ namespace Syndic
             switch (btn.Name)
             {
                 case "btn_Bien_Doc_Ajouter":
-                    Frm_Bien_Document_aj ff = new Frm_Bien_Document_aj("Ajouter",0);
+                    Frm_Bien_Document_aj ff = new Frm_Bien_Document_aj("Ajouter", 0);
                     ff.ShowDialog();
 
                     break;
                 case "btn_Bien_Doc_modifier":
-                    Frm_Bien_Document_aj f = new Frm_Bien_Document_aj("Modifier", int.Parse(list_document.SelectedIndex.ToString()));
+                    Frm_Bien_Document_aj f = new Frm_Bien_Document_aj("Modifier", int.Parse(list_bien.SelectedValue.ToString()));
                     f.ShowDialog();
 
                     break;
                 case "btn_Bien_Doc_Supprimer":
-                    //DialogResult d = MessageBox.Show("Supprerimer", "Voulez Vous Supprime ce document ?", MessageBoxButtons.OK);
-                    //if (DialogResult.OK == d)
-                    //{
+                    DialogResult d = MessageBox.Show("Voulez Vous Supprime ce document ?", "Supprerimer", MessageBoxButtons.YesNo);
+                    if (DialogResult.Yes == d)
+                    {
+                        SqlCommand com = new SqlCommand("Update document_bien set archive = 0 where id_document = " + int.Parse(list_document.SelectedValue.ToString()), CN);
+                        int a = 0;
+                        a = com.ExecuteNonQuery();
+                        if (a != 0)
+                        {
+                            MessageBox.Show("Supprimer !!");
+                        }
 
-                    //    SqlCommand com = new SqlCommand("Update document_bien set archive = 0 where id_document = " + int.Parse(grid_doc_bien.CurrentRow.Cells[0].Value.ToString()), CN);
-                    //    int a = 0;
-                    //    a = com.ExecuteNonQuery();
-                    //    if (a != 0)
-                    //    {
-                    //        MessageBox.Show("Supprimer !!");
+                        else
+                            MessageBox.Show("Error de Supprimer !!");
 
-                    //        grid_doc_bien.Rows.RemoveAt(grid_doc_bien.CurrentRow.Index);
-
-                    //    }
-
-                    //    else
-                    //        MessageBox.Show("Error de Supprimer !!");
-
-                    //}
+                    }
 
                     break;
 
@@ -89,9 +86,24 @@ namespace Syndic
             list_bien.ValueMember = "id_bien";
             list_bien.DisplayMember = "NomApparetemnt";
 
+            AD = null;
+
+            AD = new SqlDataAdapter("select * from document_bien where archive='1'", CN);
+            if (!DS.Tables.Contains("document_bien"))
+                AD.Fill(DS, "document_bien");
+            BSdoc.DataSource = DS;
+            BSdoc.DataMember = "document_bien";
+
+            list_document.DataSource = BSdoc;
+            list_document.DisplayMember = "fichier";
+            list_document.ValueMember = "id_document";
+            //txtidDoc.DataBindings.Add("Text", BSdoc, "id_document");
+
+
+
         }
 
-       
+
 
         private void grp_fichier_Enter(object sender, EventArgs e)
         {
@@ -147,6 +159,17 @@ namespace Syndic
         private void txt_cherch_doc_Enter(object sender, EventArgs e)
         {
             Fonctions.textHintEntre(txt_cherch_doc, "Chercher Nom document");
+        }
+
+        private void list_bien_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            BSdoc.Filter = "id_bien = '" + list_bien.SelectedValue + "'";
+        }
+
+        private void list_document_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //txtidDoc.DataBindings.Add("Text", BSdoc, "id_document");
+
         }
     }
 }
