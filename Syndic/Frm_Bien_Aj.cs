@@ -147,9 +147,6 @@ namespace Syndic
         {
             if (lbl_text.Text == "Ajouter")
             {
-                txt_con.Visible = false;
-                dt_cons.Visible = false;
-
                 comT = new SqlCommand("Select id_type from type_bien where nom like '" + comboBox1.Text + "'", CN);
                 DRT = comT.ExecuteReader();
                 DRT.Read();
@@ -206,8 +203,7 @@ namespace Syndic
             }
             else if (lbl_text.Text == "Modifier")
             {
-                txt_con.Visible = true;
-                dt_cons.Visible = true;
+               
 
 
                 com3 = null;

@@ -52,8 +52,6 @@
             this.cmb_prop = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.dt_cons = new System.Windows.Forms.DateTimePicker();
-            this.txt_con = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -285,28 +283,11 @@
             this.label11.TabIndex = 70;
             this.label11.Text = "Immeuble :";
             // 
-            // dt_cons
-            // 
-            this.dt_cons.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dt_cons.Location = new System.Drawing.Point(210, 374);
-            this.dt_cons.Name = "dt_cons";
-            this.dt_cons.Size = new System.Drawing.Size(91, 20);
-            this.dt_cons.TabIndex = 83;
-            // 
-            // txt_con
-            // 
-            this.txt_con.Location = new System.Drawing.Point(210, 346);
-            this.txt_con.Name = "txt_con";
-            this.txt_con.Size = new System.Drawing.Size(91, 20);
-            this.txt_con.TabIndex = 82;
-            // 
             // Frm_Bien_Aj
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(405, 450);
-            this.Controls.Add(this.dt_cons);
-            this.Controls.Add(this.txt_con);
             this.Controls.Add(this.cmb_prop);
             this.Controls.Add(this.cmb_imm);
             this.Controls.Add(this.txt_nom);
@@ -364,7 +345,5 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label lbl_text;
-        private System.Windows.Forms.DateTimePicker dt_cons;
-        private System.Windows.Forms.TextBox txt_con;
     }
 }

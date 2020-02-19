@@ -15,6 +15,7 @@ namespace Syndic
     public partial class Frm_Bien_Remarque : Form
     {
         BindingSource BSbien = new BindingSource();
+        BindingSource BSrem = new BindingSource();
         SqlConnection CN = new SqlConnection();
         DataSet DS = new DataSet();
         SqlDataAdapter AD;
@@ -42,7 +43,7 @@ namespace Syndic
 
                     break;
                 case "btn_Bien_rem_modifier":
-                    Frm_Bien_remarque_aj ff = new Frm_Bien_remarque_aj("Modifier", int.Parse(list_bien.SelectedIndex.ToString()));
+                    Frm_Bien_remarque_aj ff = new Frm_Bien_remarque_aj("Modifier", int.Parse(List_rema.SelectedIndex.ToString()));
                     ff.ShowDialog();
 
                     break;
@@ -77,7 +78,7 @@ namespace Syndic
             SqlCommandBuilder com = new SqlCommandBuilder(AD);
             AD.Update(DS.Tables["remarque"]);
 
-            string f = txt_cherch_rem.Text == "Chercher Par Nom Bien " ? "" : "nom like '%" + txt_cherch_rem.Text + "%'";
+            string f = txt_chercher_rem.Text == "Chercher Par Nom Bien" ? "" : "nom like '%" + txt_chercher_rem.Text + "%'";
 
 
             BSbien.Filter = f;
@@ -92,7 +93,7 @@ namespace Syndic
         {
 
             ouvriConnectio();
-            AD = new SqlDataAdapter("select * from bien ", CN);
+            AD = new SqlDataAdapter("select * from bien where archive=1", CN);
             if (!DS.Tables.Contains("bien"))
 
                 AD.Fill(DS, "bien");
@@ -100,31 +101,36 @@ namespace Syndic
             BSbien.DataSource = DS;
             BSbien.DataMember = "bien";
 
-            list_bien.DataSource = BSbien;
-            list_bien.ValueMember = "id_bien";
-            list_bien.DisplayMember = "NomApparetemnt";
+            cmb_bien.DataSource = BSbien;
+            cmb_bien.ValueMember = "id_bien";
+            cmb_bien.DisplayMember = "NomApparetemnt";
+
+            AD = null;
+
+            AD = new SqlDataAdapter("select * from remarque_bien where archive = 1", CN);
+            if (!DS.Tables.Contains("remarque_bien"))
+                AD.Fill(DS, "remarque_bien");
+            BSrem.DataSource = DS;
+            BSrem.DataMember = "remarque_bien";
+
+            List_rema.DataSource = BSrem;
+            List_rema.ValueMember = "id_remarque";
+            List_rema.DisplayMember = "remarque";
+          
         }
 
       
         private void txt_chercher_bien_Leave(object sender, EventArgs e)
         {
-            Fonctions.textHintLeave(txt_chercher_bien, "Chercher Par Nom Bien");
+            Fonctions.textHintLeave(txt_chercher_rem, "Chercher Par Nom Bien");
         }
 
         private void txt_chercher_bien_Enter(object sender, EventArgs e)
         {
-            Fonctions.textHintEntre(txt_chercher_bien, "Chercher Par Nom Bien");
+            Fonctions.textHintEntre(txt_chercher_rem, "Chercher Par Nom Bien");
         }
 
-        private void txt_cherch_rem_Leave(object sender, EventArgs e)
-        {
-            Fonctions.textHintLeave(txt_cherch_rem, "Chercher Nom Remarque");
-        }
-
-        private void txt_cherch_rem_Enter(object sender, EventArgs e)
-        {
-            Fonctions.textHintEntre(txt_cherch_rem, "Chercher Nom Remarque");
-        }
+      
 
         private void btn_premiere_Click(object sender, EventArgs e)
         {
@@ -144,6 +150,16 @@ namespace Syndic
         private void btn_derniere_Click(object sender, EventArgs e)
         {
             BSbien.MoveLast();
+        }
+
+        private void List_rema_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void cmb_bien_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            BSrem.Filter = "id_bien = '" + List_rema.SelectedValue + "'";
         }
     }
 }

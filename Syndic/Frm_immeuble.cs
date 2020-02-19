@@ -49,7 +49,7 @@ namespace Syndic
                     break;
                 case "btn_immeuble_Supprimer":
                     DialogResult d = MessageBox.Show("Supprerimer", "Voulez Vous Supprime cette immeuble ?", MessageBoxButtons.YesNo);
-                    if (DialogResult.OK == d)
+                    if (DialogResult.Yes == d)
                     {
 
 
@@ -60,7 +60,7 @@ namespace Syndic
                         {
                             MessageBox.Show("Supprimer !!");
 
-                            dtG_immeuble.Rows.RemoveAt(dtG_immeuble.CurrentRow.Index);
+                           // dtG_immeuble.Rows.RemoveAt(dtG_immeuble.CurrentRow.Index);
 
                         }
 
@@ -80,9 +80,6 @@ namespace Syndic
         {
             SqlCommandBuilder com = new SqlCommandBuilder(AD);
             AD.Update(DS.Tables["immeuble"]);
-
-               // BSimm.Filter = " [Nom immeuble] like '%" + txt_chercher.Text.Replace("'", "''") + "%'";
-
             string f = txt_chercher.Text == "Chercher Par Nom" ? "" : "[Nom immeuble] like '%" + txt_chercher.Text + "%'";
             BSimm.Filter = f;
         }
@@ -90,7 +87,7 @@ namespace Syndic
         private void Frm_immeuble_Load(object sender, EventArgs e)
         {
             ouvriConnectio();
-            AD = new SqlDataAdapter("select id_immeuble as [ID] , i.nom as [Nom immeuble],r.nom as [residence],i.titrefoncier as[titre foncier],i.paiment from immeuble i inner join residence r on r.id_residence=i.id_residence ", CN);
+            AD = new SqlDataAdapter("select id_immeuble as [ID] , nom as [Nom immeuble],titrefoncier as[titre foncier],paiment from immeuble  where archive='1' ", CN);
 
             if (!DS.Tables.Contains("immeuble"))
 

@@ -18,8 +18,8 @@ namespace Syndic
         SqlCommand com = new SqlCommand();
         SqlCommand com1 = new SqlCommand();
         SqlDataReader DR1;
-        SqlCommand comR = new SqlCommand();
-        SqlDataReader DRR;
+       // SqlCommand comR = new SqlCommand();
+        //SqlDataReader DRR;
         SqlConnection CN = new SqlConnection();
         string s = "";
         int id;
@@ -70,23 +70,25 @@ namespace Syndic
         {
             if (label5.Text == "Ajouter")
             {
-                comR = new SqlCommand("select id_residence from residence where nom like '" + cmb_res.Text + "'", CN);
-                DRR = comR.ExecuteReader();
-                DRR.Read();
-                int T = int.Parse(DRR[0].ToString());
+                //comR = new SqlCommand("select id_residence from residence where nom like '" + cmb_res.Text + "'", CN);
+                //DRR = comR.ExecuteReader();
+                //DRR.Read();
+                //int T = int.Parse(DRR[0].ToString());
 
-                comR = null;
-                DRR.Close();
+                //comR = null;
+                //DRR.Close();
 
                 if(txt_nm.Text!="" && txt_tit.Text!="" && txt_pai.Text != "")
                 {
-                    com= new SqlCommand("insert into immeuble values('" + txt_nm.Text + "', '" + T + "' , '" + txt_tit.Text + "' , '"
+                    com= new SqlCommand("insert into immeuble values('" + txt_nm.Text + "' ,'4', '" + txt_tit.Text + "' , '"
                         + txt_pai.Text+ "' ,'1')", CN);
                     int a = -1;
                     a = com.ExecuteNonQuery();
                     if (a != -1)
                     {
-                        MessageBox.Show("Enregistrer");
+                       DialogResult d= MessageBox.Show("Enregistrer","enregistrer",MessageBoxButtons.OK);
+                        if (DialogResult.OK == d)
+                            this.Close();
                     }
                     else
                     {
@@ -104,21 +106,25 @@ namespace Syndic
                 DR1.Close();
                 com1 = null;
 
-                int T = 0;
-                com = new SqlCommand("Select distinct id_residence from residence where nom like '%" + cmb_res.Text + "%'", CN);
-                DR1 = com.ExecuteReader();
-                DR1.Read();
-                T = int.Parse(DR1[0].ToString());
+                //int T = 0;
+                //com = new SqlCommand("Select distinct id_residence from residence where nom like '%" + cmb_res.Text + "%'", CN);
+                //DR1 = com.ExecuteReader();
+                //DR1.Read();
+                //T = int.Parse(DR1[0].ToString());
 
-                DR1.Close();
-                com = null;
+                //DR1.Close();
+                //com = null;
                 //////
-                com = new SqlCommand("update immeuble set nom = '" + txt_nm.Text + "',id_residence = '" + T + "',titrefoncier = '" + txt_tit.Text + "',paiment = '" + txt_pai + " where id_bien = " + id, CN);
+                com = new SqlCommand("update immeuble set nom = '" + txt_nm.Text + "',titrefoncier = '" + txt_tit.Text + "', paiment = '" + txt_pai.Text + "' where id_immeuble = " + id, CN);
                 int f = -1;
                 f = com.ExecuteNonQuery();
                 if (f != -1)
                 {
-                    MessageBox.Show("modifie");
+                    DialogResult d = MessageBox.Show("Modifier","Modification",MessageBoxButtons.OK);
+                    if (DialogResult.OK == d)
+                    {
+                        this.Close();
+                    }
                 }
                 else
                 {
@@ -141,27 +147,26 @@ namespace Syndic
             {
                 if (CN.State != ConnectionState.Open)
                     CN.Open();
-                com1 = new SqlCommand("select id_immeuble as [ID] , i.nom as [Nom immeuble],r.nom as [residence],i.titrefoncier as[titre foncier],i.paiment from immeuble i inner join residence r on r.id_residence=i.id_residence  whare id_immeuble = " + id, CN);
+                com1 = new SqlCommand("select id_immeuble as [ID] , nom as [Nom immeuble],titrefoncier as[titre foncier],paiment from immeuble where id_immeuble = " + id, CN);
                 DR1 = com1.ExecuteReader();
 
                 DR1.Read();
                 txt_nm.Text = DR1[1].ToString();
-                cmb_res.Text = DR1[2].ToString();
-                txt_tit.Text = DR1[3].ToString();
-                txt_pai.Text = DR1[4].ToString();
+                txt_tit.Text = DR1[2].ToString();
+                txt_pai.Text = DR1[3].ToString();
 
                 DR1.Close();
                 com1 = null;
             }
-            comR = new SqlCommand("Select nom from residence", CN);
-            DRR = comR.ExecuteReader();
-            while (DRR.Read())
-            {
-                cmb_res.Items.Add("" + DRR[0].ToString());
+            //comR = new SqlCommand("Select nom from residence", CN);
+            //DRR = comR.ExecuteReader();
+            //while (DRR.Read())
+            //{
+            //    cmb_res.Items.Add("" + DRR[0].ToString());
 
-            }
-            comR = null;
-            DRR.Close();
+            //}
+            //comR = null;
+            //DRR.Close();
         }
 
         private void btn_immeuble_Annuler_Click(object sender, EventArgs e)
@@ -171,7 +176,7 @@ namespace Syndic
                 txt_nm.Text = "";
                 txt_pai.Text = "";
                 txt_tit.Text = "";
-                cmb_res.Text = "";
+               // cmb_res.Text = "";
             }
             else
                 this.Close();

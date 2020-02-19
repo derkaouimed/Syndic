@@ -50,7 +50,7 @@ namespace Syndic
 
                     break;
                 case "btn_Bien_Supprimer":
-                    DialogResult d = MessageBox.Show("Supprerimer", "Voulez Vous Supprime cette Bien ?", MessageBoxButtons.YesNo);
+                    DialogResult d = MessageBox.Show("Voulez Vous Supprime cette Bien ?", "Supprerimer", MessageBoxButtons.YesNo);
                     if (DialogResult.OK == d)
                     {
 
@@ -62,7 +62,7 @@ namespace Syndic
                         {
                             MessageBox.Show("Supprimer !!");
 
-                            gridBien.Rows.RemoveAt(gridBien.CurrentRow.Index);
+                           // gridBien.Rows.RemoveAt(gridBien.CurrentRow.Index);
 
                         }
 
@@ -94,7 +94,7 @@ namespace Syndic
         private void Frm_Bien1_Load(object sender, EventArgs e)
         {
             ouvriConnectio();
-            AD = new SqlDataAdapter("select id_bien,NomApparetemnt,etage,superficie,charges,b.titrefoncier , t.nom as [type],i.nom as [immeuble],(p.nom +' '+p.prenom) as [nomComplet] ,c.consomation,c.date_controle from bien B inner join type_bien t on t.id_type=b.id_type_bien inner join conteur_eau c on c.id_conteurEau=b.id_conteurEau inner join immeuble i on i.id_immeuble=b.id_immeuble inner join proprietaire p on p.id_proprietaire= b.id_proprietaire ", CN);
+            AD = new SqlDataAdapter("select id_bien,NomApparetemnt,etage,superficie,charges,b.titrefoncier , t.nom as [type],i.nom as [immeuble],(p.nom +' '+p.prenom) as [nomComplet] ,c.consomation,c.date_controle from bien B inner join type_bien t on t.id_type=b.id_type_bien inner join conteur_eau c on c.id_conteurEau=b.id_conteurEau inner join immeuble i on i.id_immeuble=b.id_immeuble inner join proprietaire p on p.id_proprietaire= b.id_proprietaire where b.archive='1'", CN);
             if (!DS.Tables.Contains("bien"))
 
                 AD.Fill(DS, "bien");
