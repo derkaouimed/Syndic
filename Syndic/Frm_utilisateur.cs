@@ -16,10 +16,17 @@ namespace Syndic
 {
     public partial class Frm_utilisateur : Form
     {
-        SqlDataAdapter AD;
+       SqlDataAdapter AD ;
         BindingSource BSut = new BindingSource();
+        BindingSource BSty = new BindingSource();
         SqlConnection CN = new SqlConnection();
+        SqlCommand comT = new SqlCommand();
+        SqlCommand com = new SqlCommand();
+        SqlDataReader DRT;
+
+
         DataSet DS = new DataSet();
+        bool aj;
         public Frm_utilisateur()
         {
             InitializeComponent();
@@ -39,14 +46,72 @@ namespace Syndic
             Button btn = (Button)sender;
             switch (btn.Name)
             {
+                case "btn_valider":
+                    if (aj)
+                    {
+                        ouvriConnectio();
+                        comT = new SqlCommand("Select id_type from type_utilisateur where nom_type like '" + cmb_typ.Text + "'", CN);
+                        DRT = comT.ExecuteReader();
+                        DRT.Read();
+                        int T = int.Parse(DRT[0].ToString());
+
+                        comT = null;
+                        DRT.Close();
+
+                        if (txt_log.Text != "" && txt_pass.Text != "")
+                        {
+
+
+                            com = new SqlCommand("insert into utilisateur values('" + txt_log.Text + "','" + txt_pass.Text + "', 'P '" + "','" + T + "','1','1')", CN);
+                            int a = -1;
+                            a = com.ExecuteNonQuery();
+                            if (a != -1)
+                            {
+                                MessageBox.Show("Enregistrer !!! ");
+                            }
+                            else
+                            {
+                                MessageBox.Show("not enregistrer !!");
+                            }
+
+                        }
+                        else
+                            MessageBox.Show("Remplir tous les champs !!!");
+                    }
+
+                    break;
+                case "btn_annuler":
+                    btn_valider.Visible = false;
+                    btn_annuler.Visible = false;
+                    groupBox2.Enabled = false;
+                    btn_utilisateur_Ajouter.Visible = true;
+                    btn_utilisateur_modifier.Visible = true;
+                    btn_utilisateur_Supprimer.Visible = true;
+                    groupBox2.Enabled = false;
+
+                    break;
                 case "btn_utilisateur_Ajouter":
-                    Frm_Utilisateur_aj ff = new Frm_Utilisateur_aj();
-                    ff.ShowDialog();
+                   
+                    btn_valider.Visible = true;
+                    btn_annuler.Visible = true;
+                    groupBox2.Enabled = true;
+                    btn_utilisateur_Ajouter.Visible = false;
+                    btn_utilisateur_modifier.Visible = false;
+                    btn_utilisateur_Supprimer.Visible = false;
+                    txt_log.Text = "";
+                    txt_pass.Text = "";
+                    cmb_typ.Text = "";
+                    aj = true;
 
                     break;
                 case "btn_utilisateur_modifier":
-                    Frm_Utilisateur_aj f = new Frm_Utilisateur_aj();
-                    f.ShowDialog();
+                    btn_utilisateur_Ajouter.Visible = false;
+                    btn_utilisateur_modifier.Visible = false;
+                    btn_utilisateur_Supprimer.Visible = false;
+                    btn_valider.Visible = true;
+                    btn_annuler.Visible = true;
+                    groupBox2.Enabled = true;
+                    aj = false;
 
                     break;
                 case "btn_utilisateur_Supprimer":
@@ -55,14 +120,14 @@ namespace Syndic
                     {
 
 
-                        SqlCommand com = new SqlCommand("Update utilisateur set archive = 0 where id_utilisateur = " + int.Parse(dtG_utilisateur.CurrentRow.Cells[0].Value.ToString()), CN);
+                        SqlCommand com = new SqlCommand("Update utilisateur set archive = 0 where id_utilisateur = " + int.Parse(lst_utilisateur.SelectedValue.ToString()), CN);
                         int a = 0;
                         a = com.ExecuteNonQuery();
                         if (a != 0)
                         {
-                            MessageBox.Show("Supprimer !!");
-
-                            dtG_utilisateur.Rows.RemoveAt(dtG_utilisateur.CurrentRow.Index);
+                           MessageBox.Show("supresion" , "suppeimer !!",MessageBoxButtons.OK);
+                           
+                           // dtG_utilisateur.Rows.RemoveAt(dtG_utilisateur.CurrentRow.Index);
 
                         }
 
@@ -76,28 +141,23 @@ namespace Syndic
 
         private void Frm_utilisateur_Load(object sender, EventArgs e)
         {
-            ouvriConnectio();
-            AD = new SqlDataAdapter("select id_utilisateur as [ID] , u.login ,u.password as [Mot Passe ],t.nom_type as[Type utilisateur] from utilisateur u inner join type_utilisateur t on t.id_type=u.id_type ", CN);
-            if (!DS.Tables.Contains("utilisateur"))
-                AD.Fill(DS, "utilisateur");
+            Fonctions.ouvrireConnection();
+            BSut = Fonctions.remplirList(lst_utilisateur, "utilisateur", "login", "id_utilisateur");
+            txt_log.DataBindings.Add("text", BSut, "login");
+            txt_pass.DataBindings.Add("text", BSut, "password");
 
-            BSut.DataSource = DS;
-            BSut.DataMember = "utilisateur";
-
-            dtG_utilisateur.DataSource = BSut;
+            BSty = Fonctions.remplirList(cmb_typ, "type_utilisateur", "nom_type", "id_type");
+            cmb_typ.DataBindings.Add("selectedvalue", BSut, "id_type");
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             SqlCommandBuilder com = new SqlCommandBuilder(AD);
             AD.Update(DS.Tables["utilisateur"]);
+            string f = txt_chercher.Text == "Chercher Par Nom" ? "" : "login like '%" + txt_chercher.Text + "%'";
+            BSut.Filter = f;
 
-            if (txt_chercher.Text == "Chercher Par Nom ")
-                BSut.Filter = "";
-            else
-            {
-                BSut.Filter = " login like '%" + txt_chercher.Text.Replace("'", "''") + "%'";
-            }
+
         }
 
         private void txt_chercher_Leave(object sender, EventArgs e)
@@ -136,6 +196,11 @@ namespace Syndic
         }
 
         private void txt_chercher_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
         {
 
         }

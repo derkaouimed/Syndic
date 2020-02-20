@@ -93,7 +93,7 @@ namespace Syndic
         {
 
             ouvriConnectio();
-            AD = new SqlDataAdapter("select * from bien where archive=1", CN);
+            AD = new SqlDataAdapter("select * from bien where archive = 1 ", CN);
             if (!DS.Tables.Contains("bien"))
 
                 AD.Fill(DS, "bien");
@@ -107,16 +107,21 @@ namespace Syndic
 
             AD = null;
 
-            AD = new SqlDataAdapter("select * from remarque_bien where archive = 1", CN);
+
+
+            AD = new SqlDataAdapter("select * from remarque_bien where archive=1", CN);
             if (!DS.Tables.Contains("remarque_bien"))
                 AD.Fill(DS, "remarque_bien");
+
             BSrem.DataSource = DS;
             BSrem.DataMember = "remarque_bien";
 
             List_rema.DataSource = BSrem;
             List_rema.ValueMember = "id_remarque";
             List_rema.DisplayMember = "remarque";
-          
+
+
+
         }
 
       

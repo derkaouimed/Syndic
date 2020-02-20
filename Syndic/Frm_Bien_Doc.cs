@@ -74,7 +74,7 @@ namespace Syndic
         private void Frm_Bien_Doc_Load(object sender, EventArgs e)
         {
             ouvriConnectio();
-            AD = new SqlDataAdapter("select * from bien ", CN);
+            AD = new SqlDataAdapter("select * from bien  ", CN);
             if (!DS.Tables.Contains("bien"))
 
                 AD.Fill(DS, "bien");
@@ -97,6 +97,7 @@ namespace Syndic
             list_document.DataSource = BSdoc;
             list_document.DisplayMember = "fichier";
             list_document.ValueMember = "id_document";
+
             //txtidDoc.DataBindings.Add("Text", BSdoc, "id_document");
 
 
