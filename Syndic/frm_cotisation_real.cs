@@ -28,8 +28,14 @@ namespace Syndic
 
         private void btn_Recette_Ajouter_Click(object sender, EventArgs e)
         {
+            //SqlCommandBuilder com = new SqlCommandBuilder(da);
+            //da.Update(ds.Tables["cotisation"]);
+
+
             frm_cotisation_information f = new frm_cotisation_information("Ajouter");
             f.ShowDialog();
+            SqlCommandBuilder com2 = new SqlCommandBuilder(da);
+            da.Update(ds.Tables["cotisation"]);
         }
 
         private void frm_cotisation_real_Load(object sender, EventArgs e)
@@ -159,7 +165,7 @@ namespace Syndic
 
         private void btn_Recette_modifier_Click(object sender, EventArgs e)
         {
-            frm_cotisation_information f = new frm_cotisation_information("Modifier");
+            frm_cotisation_information f = new frm_cotisation_information("Modifier",int.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString()));
             f.ShowDialog();
 
             

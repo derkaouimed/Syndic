@@ -53,9 +53,17 @@ namespace Syndic
                 if (cn.State != ConnectionState.Open)
                     cn.Open();
 
-                
+                /////////
+                SqlCommand com = new SqlCommand("select date_cotisation,montant,c.prenom,nomType from cotisation c inner join Proprietaire p on c.id_proprietaire = p.id_proprietaire inner join type_cotisation t on t.id_type = id_typeCotisation where id_cotisation = " + id, cn);
+                SqlDataReader read = com.ExecuteReader();
+                read.Read();
 
+                dateTimePicker1.Value = DateTime.Parse(read[0].ToString());
+                txtMontant.Text = read[1].ToString();
+                cmb_proprietaire.Text = read[2].ToString();
+                cmb_type.Text = read[3].ToString();
 
+                /////////////
             }
             //remplire proprietaire
             com2 = new SqlCommand("Select * from proprietaire where archive = 1", cn);
@@ -132,7 +140,7 @@ namespace Syndic
         private void frm_cotisation_information_MouseMove(object sender, MouseEventArgs e)
         {
             move++;
-            if (move <= 1)
+            if (move <= 1 && cmb_type.Text != "")
             {
                 com22 = new SqlCommand("Select * from type_cotisation where archive = 1", cn);
                 dr2 = com22.ExecuteReader();
