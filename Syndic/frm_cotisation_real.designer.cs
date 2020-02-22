@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -64,12 +64,13 @@
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(65, 552);
+            this.button4.Location = new System.Drawing.Point(65, 536);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(47, 36);
             this.button4.TabIndex = 28;
             this.button4.Text = "<";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
@@ -79,12 +80,13 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(131, 552);
+            this.button3.Location = new System.Drawing.Point(131, 536);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(47, 36);
             this.button3.TabIndex = 27;
             this.button3.Text = ">";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -94,12 +96,13 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(184, 552);
+            this.button2.Location = new System.Drawing.Point(184, 536);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(47, 36);
             this.button2.TabIndex = 26;
             this.button2.Text = ">>";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // btn_Recette_Annuler
             // 
@@ -109,12 +112,13 @@
             this.btn_Recette_Annuler.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Recette_Annuler.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Recette_Annuler.ForeColor = System.Drawing.Color.White;
-            this.btn_Recette_Annuler.Location = new System.Drawing.Point(12, 552);
+            this.btn_Recette_Annuler.Location = new System.Drawing.Point(12, 536);
             this.btn_Recette_Annuler.Name = "btn_Recette_Annuler";
             this.btn_Recette_Annuler.Size = new System.Drawing.Size(47, 36);
             this.btn_Recette_Annuler.TabIndex = 22;
             this.btn_Recette_Annuler.Text = "<<";
             this.btn_Recette_Annuler.UseVisualStyleBackColor = false;
+            this.btn_Recette_Annuler.Click += new System.EventHandler(this.btn_Recette_Annuler_Click);
             // 
             // btn_Recette_Supprimer
             // 
@@ -124,7 +128,7 @@
             this.btn_Recette_Supprimer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Recette_Supprimer.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Recette_Supprimer.ForeColor = System.Drawing.Color.White;
-            this.btn_Recette_Supprimer.Location = new System.Drawing.Point(619, 552);
+            this.btn_Recette_Supprimer.Location = new System.Drawing.Point(619, 538);
             this.btn_Recette_Supprimer.Name = "btn_Recette_Supprimer";
             this.btn_Recette_Supprimer.Size = new System.Drawing.Size(116, 43);
             this.btn_Recette_Supprimer.TabIndex = 24;
@@ -139,12 +143,13 @@
             this.btn_Recette_modifier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Recette_modifier.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Recette_modifier.ForeColor = System.Drawing.Color.White;
-            this.btn_Recette_modifier.Location = new System.Drawing.Point(497, 552);
+            this.btn_Recette_modifier.Location = new System.Drawing.Point(497, 538);
             this.btn_Recette_modifier.Name = "btn_Recette_modifier";
             this.btn_Recette_modifier.Size = new System.Drawing.Size(116, 43);
             this.btn_Recette_modifier.TabIndex = 21;
             this.btn_Recette_modifier.Text = "Modifier";
             this.btn_Recette_modifier.UseVisualStyleBackColor = false;
+            this.btn_Recette_modifier.Click += new System.EventHandler(this.btn_Recette_modifier_Click);
             // 
             // btn_Recette_Ajouter
             // 
@@ -154,7 +159,7 @@
             this.btn_Recette_Ajouter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Recette_Ajouter.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Recette_Ajouter.ForeColor = System.Drawing.Color.White;
-            this.btn_Recette_Ajouter.Location = new System.Drawing.Point(375, 552);
+            this.btn_Recette_Ajouter.Location = new System.Drawing.Point(375, 538);
             this.btn_Recette_Ajouter.Name = "btn_Recette_Ajouter";
             this.btn_Recette_Ajouter.Size = new System.Drawing.Size(116, 43);
             this.btn_Recette_Ajouter.TabIndex = 20;
@@ -167,22 +172,22 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle45.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle45.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle45.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle45.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle45.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle45.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle45.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle45;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.ColumnHeadersHeight = 48;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 166);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 154);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
-            dataGridViewCellStyle46.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle46;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Century Gothic", 10F);
             this.dataGridView1.RowTemplate.Height = 28;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -194,7 +199,7 @@
             this.grp_chercher.Controls.Add(this.rd_date);
             this.grp_chercher.Controls.Add(this.rd_nomPrenom);
             this.grp_chercher.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grp_chercher.Location = new System.Drawing.Point(12, 7);
+            this.grp_chercher.Location = new System.Drawing.Point(12, 5);
             this.grp_chercher.Name = "grp_chercher";
             this.grp_chercher.Size = new System.Drawing.Size(723, 67);
             this.grp_chercher.TabIndex = 34;
@@ -235,7 +240,7 @@
             this.pnl_date.Controls.Add(this.dt_de);
             this.pnl_date.Controls.Add(this.dt_a);
             this.pnl_date.Controls.Add(this.btn_chercherDate);
-            this.pnl_date.Location = new System.Drawing.Point(12, 80);
+            this.pnl_date.Location = new System.Drawing.Point(12, 73);
             this.pnl_date.Name = "pnl_date";
             this.pnl_date.Size = new System.Drawing.Size(723, 80);
             this.pnl_date.TabIndex = 35;
@@ -302,7 +307,7 @@
             this.pnl_nomPrenom.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnl_nomPrenom.Controls.Add(this.btn_chercherNom);
             this.pnl_nomPrenom.Controls.Add(this.txt_chercher);
-            this.pnl_nomPrenom.Location = new System.Drawing.Point(12, 80);
+            this.pnl_nomPrenom.Location = new System.Drawing.Point(12, 73);
             this.pnl_nomPrenom.Name = "pnl_nomPrenom";
             this.pnl_nomPrenom.Size = new System.Drawing.Size(723, 80);
             this.pnl_nomPrenom.TabIndex = 19;
