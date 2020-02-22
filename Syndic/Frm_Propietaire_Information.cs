@@ -217,6 +217,11 @@ namespace Syndic
                 e.Handled = false;
             }
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
 

@@ -222,6 +222,12 @@
     <Compile Include="frm_cotisation_Document.designer.cs">
       <DependentUpon>frm_cotisation_Document.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_cotisation_information.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_cotisation_information.Designer.cs">
+      <DependentUpon>frm_cotisation_information.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_cotisation_real.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -431,6 +437,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_cotisation_Document.resx">
       <DependentUpon>frm_cotisation_Document.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_cotisation_information.resx">
+      <DependentUpon>frm_cotisation_information.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_cotisation_real.resx">
       <DependentUpon>frm_cotisation_real.cs</DependentUpon>

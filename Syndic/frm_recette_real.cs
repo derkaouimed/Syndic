@@ -57,7 +57,7 @@ namespace Syndic
                     DialogResult d = MessageBox.Show("Voules Vous Supprime Ce recette ?", "Suppresion", MessageBoxButtons.YesNo);
                     if (DialogResult.Yes == d)
                     {
-                        SqlDataReader dr4;
+                       // SqlDataReader dr4;
                         SqlCommand com4 = new SqlCommand("Update recette set archive = 0 where id_recette = " + int.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString()), cn);
                         int a = 0;
                         a = com4.ExecuteNonQuery();

@@ -109,6 +109,7 @@ namespace Syndic
             {
                 commande = new SqlCommandBuilder(da);
                 da.Update(ds.Tables["remarque"]);
+                bsProp.Filter = "";
                 bsProp.DataSource = ds;
                 bsProp.DataMember = "remarque";
                 dataGridView1.DataSource = bsProp;
@@ -119,6 +120,7 @@ namespace Syndic
                 String se = txt_search.Text.Replace("'", " ");
                 if (txt_search.Text.Equals("Taper Le Nom de Remarque pour rechercher"))
                 {
+                    bsProp.Filter = "";
                     bsProp.DataSource = ds;
                     bsProp.DataMember = "remarque";
                     dataGridView1.DataSource = bsProp;

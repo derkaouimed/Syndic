@@ -274,6 +274,7 @@
             // pnl_nomPrenom
             // 
             this.pnl_nomPrenom.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnl_nomPrenom.Controls.Add(this.pnl_date);
             this.pnl_nomPrenom.Controls.Add(this.btn_chercherNom);
             this.pnl_nomPrenom.Controls.Add(this.txt_chercher);
             this.pnl_nomPrenom.Location = new System.Drawing.Point(13, 134);
@@ -314,7 +315,7 @@
             this.pnl_type.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnl_type.Controls.Add(this.cb_type);
             this.pnl_type.Controls.Add(this.btn_chercherType);
-            this.pnl_type.Location = new System.Drawing.Point(13, 134);
+            this.pnl_type.Location = new System.Drawing.Point(14, 134);
             this.pnl_type.Name = "pnl_type";
             this.pnl_type.Size = new System.Drawing.Size(745, 80);
             this.pnl_type.TabIndex = 10;
@@ -353,7 +354,7 @@
             this.pnl_date.Controls.Add(this.dt_de);
             this.pnl_date.Controls.Add(this.dt_a);
             this.pnl_date.Controls.Add(this.btn_chercherDate);
-            this.pnl_date.Location = new System.Drawing.Point(13, 134);
+            this.pnl_date.Location = new System.Drawing.Point(0, 0);
             this.pnl_date.Name = "pnl_date";
             this.pnl_date.Size = new System.Drawing.Size(745, 80);
             this.pnl_date.TabIndex = 1;
@@ -417,7 +418,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(770, 634);
-            this.Controls.Add(this.pnl_date);
             this.Controls.Add(this.pnl_type);
             this.Controls.Add(this.pnl_nomPrenom);
             this.Controls.Add(this.grp_chercher);

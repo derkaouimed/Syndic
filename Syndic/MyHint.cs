@@ -10,7 +10,7 @@ namespace Syndic
 {
     static class MyHint 
     {
-       // static string name = "";
+       
 
         public static TextBox HintEnter(TextBox txt_search,string name="") {
             
@@ -43,8 +43,7 @@ namespace Syndic
             return txt_search;
         }
          
-        
-
+      
 
 
     }

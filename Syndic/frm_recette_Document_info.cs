@@ -18,7 +18,7 @@ namespace Syndic
 
         BindingSource bsProp = new BindingSource();
         DataSet ds = new DataSet();
-        SqlDataAdapter da;
+        //SqlDataAdapter da;
         SqlConnection cn = new SqlConnection();
         SqlCommand com;
         SqlDataReader dr;
