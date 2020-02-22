@@ -219,7 +219,9 @@
             this.Name = "frm_cotisation_information";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frm_cotisation_information";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frm_cotisation_information_FormClosed);
             this.Load += new System.EventHandler(this.frm_cotisation_information_Load);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.frm_cotisation_information_MouseMove);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);

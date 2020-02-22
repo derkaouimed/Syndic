@@ -48,7 +48,7 @@ namespace Syndic
                 cn.ConnectionString = ConfigurationManager.ConnectionStrings["SyndicCS"].ToString();
                 cn.Open();
             }
-            da = new SqlDataAdapter("Select id_cotisation as [NumCotisation],date_cotisation as Date,montant as Montant,concat(nom,' ',prenom) as Proprietaire,id_typeCotisation as Type from cotisation c join proprietaire p on p.id_proprietaire = c.id_proprietaire where c.archive =1", cn);
+            da = new SqlDataAdapter("Select id_cotisation as [NumCotisation],date_cotisation as Date,montant as Montant,concat(nom,' ',prenom) as Proprietaire,id_typeCotisation as Type from cotisation c join proprietaire p on p.id_proprietaire = c.id_proprietaire where c.archive = 1", cn);
             if (!ds.Tables.Contains("cotisation"))
                da.Fill(ds, "cotisation");
 
@@ -85,7 +85,7 @@ namespace Syndic
             
         }
         string search="";
-        string load = "";
+        //string load = "";
         private void btn_chercherNom_Click(object sender, EventArgs e)
         {
 
@@ -115,7 +115,7 @@ namespace Syndic
 
             // second try 
             //
-            da = new SqlDataAdapter("Select id_cotisation as [NumCotisation],date_cotisation as Date,montant as Montant,concat(nom,' ',prenom) as Proprietaire,id_typeCotisation as Type from cotisation c join proprietaire p on p.id_proprietaire = c.id_proprietaire where c.archive =1 and date_cotisation >= '" + dt_de.Value.ToShortDateString() + "' and date_cotisation <= '" + dt_a.Value.ToShortDateString() + "' ", cn);
+            da = new SqlDataAdapter("Select id_cotisation as [NumCotisation],date_cotisation as Date,montant as Montant,concat(nom,' ',prenom) as Proprietaire,t.nomType as Type from cotisation c join proprietaire p  on p.id_proprietaire = c.id_proprietaire  join type_cotisation t on t.id_type = c.id_typeCotisation  where c.archive = 1 and date_cotisation >= '" + dt_de.Value.ToShortDateString() + "' and date_cotisation <= '" + dt_a.Value.ToShortDateString() + "' ", cn);
             if (!ds.Tables.Contains("cotisation2"))
                 da.Fill(ds, "cotisation2");
 
@@ -123,7 +123,7 @@ namespace Syndic
             bsProp.DataMember = "cotisation2";
 
             dataGridView1.DataSource = bsProp;
-            Thread.Sleep(20);
+            //Thread.Sleep(20);
             if (dataGridView1.RowCount <= 0)
             {
                 MessageBox.Show("Nothing Found !","empty",MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -161,6 +161,8 @@ namespace Syndic
         {
             frm_cotisation_information f = new frm_cotisation_information("Modifier");
             f.ShowDialog();
+
+            
         }
     }
 }

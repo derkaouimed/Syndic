@@ -17,7 +17,7 @@ namespace Syndic
     {
         string s = "";
         int id = 0;
-        SqlDataReader dr;
+        //SqlDataReader dr;
         SqlCommand com = new SqlCommand();
         SqlConnection cn = new SqlConnection();
         public frm_Recette_type(string _s,int _id)

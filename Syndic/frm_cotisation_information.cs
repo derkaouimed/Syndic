@@ -58,24 +58,21 @@ namespace Syndic
 
             }
             //remplire proprietaire
-                com2 = new SqlCommand("Select * from proprietaire where archive = 1",cn);
-                dr = com2.ExecuteReader();
-                while (dr.Read())
-                {
-                    cmb_proprietaire.Items.Add(dr[2].ToString());
-
-
-                }
-            dr.Close();
-            //remplire type
-            com22 = new SqlCommand("Select * from type_cotisation",cn);
-            dr2 = com22.ExecuteReader();
-            while (dr2.Read())
+            com2 = new SqlCommand("Select * from proprietaire where archive = 1", cn);
+            dr = com2.ExecuteReader();
+            while (dr.Read())
             {
-                cmb_type.Items.Add(dr[1].ToString());
+                cmb_proprietaire.Items.Add(dr[2].ToString());
+
 
             }
 
+            //remplire type
+           
+
+            
+            dr.Close();
+            
 
 
         }
@@ -104,15 +101,22 @@ namespace Syndic
             {
                 if (txtMontant.Text != "" || cmb_proprietaire.Text != "" || cmb_type.Text != "")
                 {
-                    com = new SqlCommand("insert into cotisation values('" + dateTimePicker1.Value.ToShortDateString() + "'," + txtMontant.Text + "," + cmb_proprietaire.ValueMember + "," + cmb_proprietaire.ValueMember + ");", cn);
-                    int a = -1;
-                    a = com.ExecuteNonQuery();
-                    if (a != -1)
+                    try
                     {
-                        MessageBox.Show("Insertion Success !");
+                        com = new SqlCommand("insert into cotisation values('" + dateTimePicker1.Value.ToShortDateString() + "'," + txtMontant.Text + ",(select distinct id_type from type_cotisation where nomType like '" + cmb_proprietaire.Text + "' and archive = 1),(select distinct id_proprietaire from proprietaire where prenom like '" + cmb_proprietaire.Text + "'  and archive = 1),1);", cn);
+                        int a = -1;
+                        a = com.ExecuteNonQuery();
+                        if (a != -1)
+                        {
+                            MessageBox.Show("Insertion Success !");
+                        }
+                        else
+                            MessageBox.Show("Echec Dans Insertion !");
                     }
-                    else
-                        MessageBox.Show("Echec Dans Insertion !");
+                    catch {
+                        return;
+                    }
+                   
                 }
                 else
                     MessageBox.Show("Remplire Les Donner");
@@ -124,5 +128,31 @@ namespace Syndic
            
             
          }
+        int move = 0;
+        private void frm_cotisation_information_MouseMove(object sender, MouseEventArgs e)
+        {
+            move++;
+            if (move <= 1)
+            {
+                com22 = new SqlCommand("Select * from type_cotisation where archive = 1", cn);
+                dr2 = com22.ExecuteReader();
+                while (dr2.Read())
+                {
+
+                    cmb_type.Items.Add(dr2[1].ToString());
+
+                }
+
+
+            }
+            dr2.Close();
+        }
+
+        private void frm_cotisation_information_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            
+
+
+        }
     }
 }
