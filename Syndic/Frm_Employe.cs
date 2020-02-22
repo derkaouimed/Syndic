@@ -18,12 +18,78 @@ namespace Syndic
             pnlDrop.Visible = false;
         }
 
+        private void cacher()
+        {
+            if (pnlMenuBar.Height == 175)
+            {
+                pnlDrop.Visible = false;
+                pnlMenuBar.Height = 43;
+            }
+        }
+
+        private void ouvrire(Form frm)
+        {
+            if (this.pnlForms.Controls.Count > 0)
+                this.pnlForms.Controls.RemoveAt(0);
+
+            Form fh = frm as Form;
+            fh.TopLevel = false;
+            fh.Dock = DockStyle.Fill;
+            fh.AutoScroll = true;
+            this.pnlForms.Controls.Add(fh);
+            this.pnlForms.Tag = fh;
+            fh.Show();
+        }
         private void btn_drop_Click(object sender, EventArgs e)
         {
-            if (pnlDrop.Visible)
-                pnlDrop.Visible = false;
+            if (pnlMenuBar.Height == 43)
+            {
+                pnlDrop.Visible = Visible;
+                pnlMenuBar.Height = 175;
+            }
             else
-                pnlDrop.Visible = true;
+            {
+                pnlDrop.Visible = false;
+                pnlMenuBar.Height = 43;
+            }
+        }
+
+        private void btn_employe_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            switch (btn.Name)
+            {
+                case "btn_employe":
+                    ouvrire(new Frm_Employes());
+                    cacher();
+                    pnl_selection.Location = new Point(0, 39);
+                    break;
+                case "btn_document":
+                    cacher();
+                    pnl_selection.Location = new Point(243, 39);
+                    break;
+                case "btn_remarque":
+                    cacher();
+                    pnl_selection.Location = new Point(486, 39);
+                    break;
+                case "btn_contrat":
+                    btn_drop.PerformClick();
+                    pnl_selection.Location = new Point(526, 77);
+                    break;
+                case "btn_absence":
+                    btn_drop.PerformClick();
+                    pnl_selection.Location = new Point(526, 121);
+                    break;
+                case "btn_repos":
+                    btn_drop.PerformClick();
+                    pnl_selection.Location = new Point(526, 165);
+                    break;
+            }
+        }
+
+        private void Frm_Employe_Load(object sender, EventArgs e)
+        {
+            btn_employe.PerformClick();
         }
     }
 }

@@ -142,5 +142,15 @@ namespace Syndic
         {
             remplirLst();
         }
+
+        private void txt_chercher_Enter(object sender, EventArgs e)
+        {
+            Fonctions.textHintEntre(txt_chercher, "Tapez Nom Pour Chercher");
+        }
+
+        private void txt_chercher_Leave(object sender, EventArgs e)
+        {
+            Fonctions.textHintLeave(txt_chercher, "Tapez Nom Pour Chercher");
+        }
     }
 }

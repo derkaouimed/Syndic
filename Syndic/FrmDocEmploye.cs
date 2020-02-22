@@ -7,23 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
-using System.Configuration;
-
-
 
 namespace Syndic
 {
-    public partial class Frm_utilisateur : Form
+    public partial class FrmDocEmploye : Form
     {
-        public Frm_utilisateur()
+        public FrmDocEmploye()
         {
             InitializeComponent();
-        }
-
-        private void btn_derniere_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

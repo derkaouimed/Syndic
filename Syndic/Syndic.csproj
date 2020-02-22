@@ -72,6 +72,12 @@
     <Compile Include="FrmAMArticle.Designer.cs">
       <DependentUpon>FrmAMArticle.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmAMDocFacture.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAMDocFacture.Designer.cs">
+      <DependentUpon>FrmAMDocFacture.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmAMFacture.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +107,12 @@
     </Compile>
     <Compile Include="FrmConnexion.Designer.cs">
       <DependentUpon>FrmConnexion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDocEmploye.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDocEmploye.Designer.cs">
+      <DependentUpon>FrmDocEmploye.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmDocFacture.cs">
       <SubType>Form</SubType>
@@ -234,6 +246,12 @@
     <Compile Include="Frm_Employe.Designer.cs">
       <DependentUpon>Frm_Employe.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm_Employes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Employes.Designer.cs">
+      <DependentUpon>Frm_Employes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_immeuble.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -339,6 +357,9 @@
     <EmbeddedResource Include="FrmAMArticle.resx">
       <DependentUpon>FrmAMArticle.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmAMDocFacture.resx">
+      <DependentUpon>FrmAMDocFacture.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmAMFacture.resx">
       <DependentUpon>FrmAMFacture.cs</DependentUpon>
     </EmbeddedResource>
@@ -353,6 +374,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmConnexion.resx">
       <DependentUpon>FrmConnexion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDocEmploye.resx">
+      <DependentUpon>FrmDocEmploye.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmDocFacture.resx">
       <DependentUpon>FrmDocFacture.cs</DependentUpon>
@@ -419,6 +443,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_Employe.resx">
       <DependentUpon>Frm_Employe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Employes.resx">
+      <DependentUpon>Frm_Employes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_immeuble.resx">
       <DependentUpon>Frm_immeuble.cs</DependentUpon>

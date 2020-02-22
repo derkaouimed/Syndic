@@ -37,12 +37,12 @@
             this.txt_chercher = new System.Windows.Forms.TextBox();
             this.btn_premiere = new System.Windows.Forms.Button();
             this.grp_details = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txt_nomremarque = new System.Windows.Forms.TextBox();
             this.txt_remarque = new System.Windows.Forms.TextBox();
             this.grp_facture = new System.Windows.Forms.GroupBox();
             this.cb_facture = new System.Windows.Forms.ComboBox();
-            this.txt_nomremarque = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.btn_modifier = new System.Windows.Forms.Button();
             this.btn_supprimer = new System.Windows.Forms.Button();
             this.btn_ajouter = new System.Windows.Forms.Button();
@@ -86,7 +86,7 @@
             this.btn_suivant.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_suivant.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_suivant.ForeColor = System.Drawing.Color.White;
-            this.btn_suivant.Location = new System.Drawing.Point(170, 442);
+            this.btn_suivant.Location = new System.Drawing.Point(190, 442);
             this.btn_suivant.Name = "btn_suivant";
             this.btn_suivant.Size = new System.Drawing.Size(46, 41);
             this.btn_suivant.TabIndex = 7;
@@ -103,7 +103,7 @@
             this.btn_precedent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_precedent.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_precedent.ForeColor = System.Drawing.Color.White;
-            this.btn_precedent.Location = new System.Drawing.Point(92, 442);
+            this.btn_precedent.Location = new System.Drawing.Point(69, 442);
             this.btn_precedent.Name = "btn_precedent";
             this.btn_precedent.Size = new System.Drawing.Size(46, 41);
             this.btn_precedent.TabIndex = 6;
@@ -120,7 +120,7 @@
             this.btn_derniere.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_derniere.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_derniere.ForeColor = System.Drawing.Color.White;
-            this.btn_derniere.Location = new System.Drawing.Point(222, 442);
+            this.btn_derniere.Location = new System.Drawing.Point(242, 442);
             this.btn_derniere.Name = "btn_derniere";
             this.btn_derniere.Size = new System.Drawing.Size(46, 41);
             this.btn_derniere.TabIndex = 8;
@@ -135,6 +135,8 @@
             this.txt_chercher.Size = new System.Drawing.Size(288, 27);
             this.txt_chercher.TabIndex = 3;
             this.txt_chercher.Text = "Tapez Nom Pour Chercher";
+            this.txt_chercher.Enter += new System.EventHandler(this.txt_chercher_Enter);
+            this.txt_chercher.Leave += new System.EventHandler(this.txt_chercher_Leave);
             // 
             // btn_premiere
             // 
@@ -146,7 +148,7 @@
             this.btn_premiere.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_premiere.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_premiere.ForeColor = System.Drawing.Color.White;
-            this.btn_premiere.Location = new System.Drawing.Point(40, 442);
+            this.btn_premiere.Location = new System.Drawing.Point(17, 442);
             this.btn_premiere.Name = "btn_premiere";
             this.btn_premiere.Size = new System.Drawing.Size(46, 41);
             this.btn_premiere.TabIndex = 5;
@@ -166,6 +168,32 @@
             this.grp_details.TabIndex = 9;
             this.grp_details.TabStop = false;
             this.grp_details.Text = "Information De Remarques :";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(7, 109);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(173, 21);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "Texte De Remarque :";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(7, 41);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(167, 21);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "Nom De Remarque :";
+            // 
+            // txt_nomremarque
+            // 
+            this.txt_nomremarque.ForeColor = System.Drawing.Color.Black;
+            this.txt_nomremarque.Location = new System.Drawing.Point(11, 67);
+            this.txt_nomremarque.Name = "txt_nomremarque";
+            this.txt_nomremarque.Size = new System.Drawing.Size(427, 27);
+            this.txt_nomremarque.TabIndex = 10;
             // 
             // txt_remarque
             // 
@@ -196,32 +224,6 @@
             this.cb_facture.Size = new System.Drawing.Size(261, 28);
             this.cb_facture.TabIndex = 1;
             this.cb_facture.SelectedIndexChanged += new System.EventHandler(this.cb_facture_SelectedIndexChanged);
-            // 
-            // txt_nomremarque
-            // 
-            this.txt_nomremarque.ForeColor = System.Drawing.Color.Black;
-            this.txt_nomremarque.Location = new System.Drawing.Point(11, 67);
-            this.txt_nomremarque.Name = "txt_nomremarque";
-            this.txt_nomremarque.Size = new System.Drawing.Size(427, 27);
-            this.txt_nomremarque.TabIndex = 10;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 41);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(167, 21);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "Nom De Remarque :";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(7, 109);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(173, 21);
-            this.label2.TabIndex = 13;
-            this.label2.Text = "Texte De Remarque :";
             // 
             // btn_modifier
             // 

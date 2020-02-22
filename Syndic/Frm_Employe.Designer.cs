@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Employe));
             this.pnlMenuBar = new System.Windows.Forms.Panel();
+            this.pnl_selection = new System.Windows.Forms.Panel();
             this.btn_remarque = new System.Windows.Forms.Button();
             this.btn_drop = new System.Windows.Forms.Button();
             this.btn_document = new System.Windows.Forms.Button();
@@ -39,15 +40,14 @@
             this.btn_repos = new System.Windows.Forms.Button();
             this.btn_absence = new System.Windows.Forms.Button();
             this.btn_contrat = new System.Windows.Forms.Button();
-            this.pnl_selection = new System.Windows.Forms.Panel();
             this.pnlMenuBar.SuspendLayout();
-            this.pnlForms.SuspendLayout();
             this.pnlDrop.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlMenuBar
             // 
             this.pnlMenuBar.Controls.Add(this.pnl_selection);
+            this.pnlMenuBar.Controls.Add(this.pnlDrop);
             this.pnlMenuBar.Controls.Add(this.btn_remarque);
             this.pnlMenuBar.Controls.Add(this.btn_drop);
             this.pnlMenuBar.Controls.Add(this.btn_document);
@@ -57,6 +57,14 @@
             this.pnlMenuBar.Name = "pnlMenuBar";
             this.pnlMenuBar.Size = new System.Drawing.Size(770, 43);
             this.pnlMenuBar.TabIndex = 0;
+            // 
+            // pnl_selection
+            // 
+            this.pnl_selection.BackColor = System.Drawing.Color.Orange;
+            this.pnl_selection.Location = new System.Drawing.Point(0, 39);
+            this.pnl_selection.Name = "pnl_selection";
+            this.pnl_selection.Size = new System.Drawing.Size(242, 5);
+            this.pnl_selection.TabIndex = 9;
             // 
             // btn_remarque
             // 
@@ -72,6 +80,7 @@
             this.btn_remarque.TabIndex = 8;
             this.btn_remarque.Text = "Les Remarques";
             this.btn_remarque.UseVisualStyleBackColor = false;
+            this.btn_remarque.Click += new System.EventHandler(this.btn_employe_Click);
             // 
             // btn_drop
             // 
@@ -104,6 +113,7 @@
             this.btn_document.TabIndex = 6;
             this.btn_document.Text = "Les Documents";
             this.btn_document.UseVisualStyleBackColor = false;
+            this.btn_document.Click += new System.EventHandler(this.btn_employe_Click);
             // 
             // btn_employe
             // 
@@ -119,10 +129,10 @@
             this.btn_employe.TabIndex = 5;
             this.btn_employe.Text = "Les Employes";
             this.btn_employe.UseVisualStyleBackColor = false;
+            this.btn_employe.Click += new System.EventHandler(this.btn_employe_Click);
             // 
             // pnlForms
             // 
-            this.pnlForms.Controls.Add(this.pnlDrop);
             this.pnlForms.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlForms.Location = new System.Drawing.Point(0, 43);
             this.pnlForms.Name = "pnlForms";
@@ -134,7 +144,7 @@
             this.pnlDrop.Controls.Add(this.btn_repos);
             this.pnlDrop.Controls.Add(this.btn_absence);
             this.pnlDrop.Controls.Add(this.btn_contrat);
-            this.pnlDrop.Location = new System.Drawing.Point(528, 0);
+            this.pnlDrop.Location = new System.Drawing.Point(527, 39);
             this.pnlDrop.Name = "pnlDrop";
             this.pnlDrop.Size = new System.Drawing.Size(243, 133);
             this.pnlDrop.TabIndex = 0;
@@ -153,6 +163,7 @@
             this.btn_repos.TabIndex = 11;
             this.btn_repos.Text = "Les Repos";
             this.btn_repos.UseVisualStyleBackColor = false;
+            this.btn_repos.Click += new System.EventHandler(this.btn_employe_Click);
             // 
             // btn_absence
             // 
@@ -168,6 +179,7 @@
             this.btn_absence.TabIndex = 10;
             this.btn_absence.Text = "Les Absences";
             this.btn_absence.UseVisualStyleBackColor = false;
+            this.btn_absence.Click += new System.EventHandler(this.btn_employe_Click);
             // 
             // btn_contrat
             // 
@@ -183,14 +195,7 @@
             this.btn_contrat.TabIndex = 9;
             this.btn_contrat.Text = "Les Contrats";
             this.btn_contrat.UseVisualStyleBackColor = false;
-            // 
-            // pnl_selection
-            // 
-            this.pnl_selection.BackColor = System.Drawing.Color.Orange;
-            this.pnl_selection.Location = new System.Drawing.Point(0, 39);
-            this.pnl_selection.Name = "pnl_selection";
-            this.pnl_selection.Size = new System.Drawing.Size(242, 5);
-            this.pnl_selection.TabIndex = 9;
+            this.btn_contrat.Click += new System.EventHandler(this.btn_employe_Click);
             // 
             // Frm_Employe
             // 
@@ -203,8 +208,8 @@
             this.Name = "Frm_Employe";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Frm_Employe";
+            this.Load += new System.EventHandler(this.Frm_Employe_Load);
             this.pnlMenuBar.ResumeLayout(false);
-            this.pnlForms.ResumeLayout(false);
             this.pnlDrop.ResumeLayout(false);
             this.ResumeLayout(false);
 

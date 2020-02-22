@@ -227,5 +227,10 @@ namespace Syndic
             remplirTableClear(sql, t);
         }
 
+        static public void OuvrirDocument(string chemin)
+        {
+            System.Diagnostics.Process.Start(chemin);
+        }
+
     }
 }
