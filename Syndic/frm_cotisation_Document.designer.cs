@@ -117,6 +117,7 @@
             this.lst_document.Name = "lst_document";
             this.lst_document.Size = new System.Drawing.Size(425, 466);
             this.lst_document.TabIndex = 7;
+            this.lst_document.DoubleClick += new System.EventHandler(this.lst_document_DoubleClick);
             // 
             // txt_chercher_doc
             // 
@@ -156,6 +157,7 @@
             this.lst_cotisation.Size = new System.Drawing.Size(288, 466);
             this.lst_cotisation.TabIndex = 1;
             this.lst_cotisation.SelectedIndexChanged += new System.EventHandler(this.lst_cotisation_SelectedIndexChanged);
+            this.lst_cotisation.DoubleClick += new System.EventHandler(this.lst_cotisation_DoubleClick);
             // 
             // btn_suivant
             // 

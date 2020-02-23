@@ -50,7 +50,7 @@ namespace Syndic
             string str = lst_document.Text;
 
             int id = Int32.Parse((str).Substring(0, str.IndexOf(' ')));
-
+            MessageBox.Show(""+id);
             return id;
         }
         private void txt_search_Enter(object sender, EventArgs e)
@@ -203,6 +203,18 @@ namespace Syndic
                 remplirDoc();
             }
         }
-    
+
+        private void lst_cotisation_DoubleClick(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void lst_document_DoubleClick(object sender, EventArgs e)
+        {
+            cmd = new SqlCommand("select ficher from document_cotisation where id_document = " + GetID(), Fonctions.CnConnection());
+            string chemin = cmd.ExecuteScalar().ToString();
+            MessageBox.Show(chemin);
+            Fonctions.OuvrirDocument(chemin);
+        }
     }
 }
