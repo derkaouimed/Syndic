@@ -44,6 +44,7 @@ namespace Syndic
         private int GetID()
         {
             string str = lst_documents.Text;
+
             int id = Int32.Parse((str).Substring(0, str.IndexOf(' ')));
 
             return id;
