@@ -11,131 +11,211 @@ using System.Windows.Forms;
 using System.Configuration;
 using System.Data.SqlClient;
 
+
 namespace Syndic
 {
     public partial class Frm_Bien1 : Form
     {
-        BindingSource BSbien = new BindingSource();
-        SqlConnection CN = new SqlConnection();
-        DataSet DS = new DataSet();
-        SqlDataAdapter AD;
+
+        BindingSource bsBien;
+        BindingSource bsType;
+        BindingSource bsimmeub;
+        BindingSource bsProp;
+        // BindingSource bscon;
+        
+
+        int pos = 0;
         public Frm_Bien1()
         {
             InitializeComponent();
         }
-        public void ouvriConnectio()
+
+        private void activer(bool b)
         {
-            if (CN.State != ConnectionState.Open)
+            grp_bien.Enabled = b;
+            grp_information.Enabled = !b;
+
+            btn_ajouter.Visible = b;
+            btn_modifier.Visible = b;
+            btn_supprimer.Visible = b;
+
+            btn_valider.Visible = !b;
+            btn_annuler.Visible = !b;
+
+           // btn_ajouter.Enabled = b;
+        }
+
+        private void remplirEmps()
+        {
+            string sql = "select b.* ,c.consomation,c.date_controle, (p.prenom+' '+p.nom) as nomcomplete from bien b inner join proprietaire p on p.id_proprietaire=b.id_proprietaire inner join conteur_eau c on c.id_conteurEau=b.id_conteurEau where b.archive = 1";
+            bsBien = Fonctions.remplirList(lst_bien, sql, "bien", "NomApparetemnt", "id_bien");
+
+            txt_id.DataBindings.Clear();
+            txt_nom.DataBindings.Clear();
+            txt_etage.DataBindings.Clear();
+            txt_super.DataBindings.Clear();
+            txt_charge.DataBindings.Clear();
+            txt_foncier.DataBindings.Clear();
+            txt_archive.DataBindings.Clear();
+            txt_consomation.DataBindings.Clear();
+            dt_date.DataBindings.Clear();
+
+            txt_id.DataBindings.Add("Text", bsBien, "id_bien");
+            txt_nom.DataBindings.Add("Text", bsBien, "NomApparetemnt");
+            txt_etage.DataBindings.Add("Text", bsBien, "etage");
+            txt_super.DataBindings.Add("Text", bsBien, "superficie");
+            txt_charge.DataBindings.Add("Text", bsBien, "charges");
+            txt_foncier.DataBindings.Add("Text", bsBien, "titrefoncier");
+
+           txt_consomation.DataBindings.Add("text", bsBien, "consomation");
+            dt_date.DataBindings.Add("text", bsBien, "date_controle");
+          
+
+            txt_archive.DataBindings.Add("Text", bsBien, "archive");
+
+            cb_type.DataBindings.Clear();
+            cb_immeuble.DataBindings.Clear();
+            cb_prop.DataBindings.Clear();
+
+            bsType = Fonctions.remplirList(cb_type, "type_bien", "nom", "id_type");
+            cb_type.DataBindings.Add("SelectedValue", bsBien, "id_type_bien");
+
+            bsimmeub = Fonctions.remplirList(cb_immeuble, "immeuble", "nom", "id_immeuble");
+            cb_immeuble.DataBindings.Add("SelectedValue", bsBien, "id_immeuble");
+
+            bsProp = Fonctions.remplirList(cb_prop, "proprietaire", "nomcomplete", "id_proprietaire");
+            cb_prop.DataBindings.Add("SelectedValue", bsBien, "id_proprietaire");
+
+
+        }
+        private void afficherpnl()
+        {
+            if (rd_nomPrenom.Checked)
             {
-                CN.ConnectionString = ConfigurationManager.ConnectionStrings["SyndicCS"].ToString();
-                CN.Open();
+                pnl_nom.Visible = true;
+                pnl_im.Visible = false;
             }
-        }
-
-        private void btn_Bien_Supprimer_Click(object sender, EventArgs e)
-        {
-            Button btn = (Button)sender;
-            switch (btn.Name)
+            else
             {
-                case "btn_Bien_Ajouter":
-                    Frm_Bien_Aj f = new Frm_Bien_Aj("Ajouter", 0);
-                    f.ShowDialog();
-
-                    break;
-                case "btn_Bien_modifier":
-
-                    Frm_Bien_Aj ff = new Frm_Bien_Aj("Modifier", int.Parse(gridBien.CurrentRow.Cells[0].Value.ToString()));
-                    ff.ShowDialog();
-
-
-                    break;
-                case "btn_Bien_Supprimer":
-                    DialogResult d = MessageBox.Show("Voulez Vous Supprime cette Bien ?", "Supprerimer", MessageBoxButtons.YesNo);
-                    if (DialogResult.OK == d)
-                    {
-
-
-                        SqlCommand com = new SqlCommand("Update bien set archive = 0 where id_bien = " + int.Parse(gridBien.CurrentRow.Cells[0].Value.ToString()), CN);
-                        int a = 0;
-                        a = com.ExecuteNonQuery();
-                        if (a != 0)
-                        {
-                            MessageBox.Show("Supprimer !!");
-
-                           // gridBien.Rows.RemoveAt(gridBien.CurrentRow.Index);
-
-                        }
-
-                        else
-                            MessageBox.Show("Error de Supprimer !!");
-
-                    }
-
-                    break;
-
+                pnl_nom.Visible = false;
+                pnl_im.Visible = true;
             }
-        }
-
-        private void grp_fichier_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn_rechercher_Click(object sender, EventArgs e)
-        {
-            SqlCommandBuilder com = new SqlCommandBuilder(AD);
-            AD.Update(DS.Tables["bien"]);
-
-            string f = txt_nomfich.Text == "Chercher Par Nom " ? "" : "NomApparetemnt like '%" + txt_nomfich.Text + "%'";
-            BSbien.Filter = f;
-
         }
 
         private void Frm_Bien1_Load(object sender, EventArgs e)
         {
-            ouvriConnectio();
-            AD = new SqlDataAdapter("select id_bien,NomApparetemnt,etage,superficie,charges,b.titrefoncier , t.nom as [type],i.nom as [immeuble],(p.nom +' '+p.prenom) as [nomComplet] ,c.consomation,c.date_controle from bien B inner join type_bien t on t.id_type=b.id_type_bien inner join conteur_eau c on c.id_conteurEau=b.id_conteurEau inner join immeuble i on i.id_immeuble=b.id_immeuble inner join proprietaire p on p.id_proprietaire= b.id_proprietaire where b.archive='1'", CN);
-            if (!DS.Tables.Contains("bien"))
-
-                AD.Fill(DS, "bien");
-
-            BSbien.DataSource = DS;
-            BSbien.DataMember = "bien";
-
-            gridBien.DataSource = BSbien;
-
+            remplirEmps();
+            activer(true);
+            afficherpnl();
         }
 
-           
-
-        private void btn_premiere_Click(object sender, EventArgs e)
+        private void btn_supprimer_Click_1(object sender, EventArgs e)
         {
-            BSbien.MoveFirst();
-        }
+            Button btn = (Button)sender;
+            switch (btn.Name)
+            {
+                case "btn_ajouter":
+                    pos = lst_bien.Items.Count;
+                    bsBien.AddNew();
+                    txt_consomation.Enabled = false;
+                    dt_date.Enabled = false;
 
-        private void btn_derniere_Click(object sender, EventArgs e)
-        {
-            BSbien.MoveLast();
-        }
 
-        private void btn_precedent_Click(object sender, EventArgs e)
-        {
-            BSbien.MovePrevious();
+                    txt_archive.Text = "true";
+                    activer(false);
+                    break;
+                case "btn_modifier":
+                    activer(false);
+                    break;
+                case "btn_supprimer":
+                    if (lst_bien.Items.Count > 0)
+                    {
+                        if (DialogResult.Yes == MessageBox.Show("Voulez-vous Vraiment Supprimer Cette Bien ?", "Supprimer", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+                        {
+                            pos = lst_bien.SelectedIndex - 1;
+                            txt_archive.Text = "False";
+                            bsBien.EndEdit();
+                            Fonctions.syncr("bien", Fonctions.CnConnection(), Fonctions.ds);
+                            remplirEmps();
+
+                            lst_bien.SelectedIndex = pos;
+                        }
+                    }
+                    break;
+                case "btn_valider":
+                    bsBien.EndEdit();
+                    Fonctions.syncr("bien", Fonctions.CnConnection(), Fonctions.ds);
+                    remplirEmps();
+                    lst_bien.SelectedIndex = pos;
+                    activer(true);
+                    break;
+                case "btn_annuler":
+                    bsBien.CancelEdit();
+                    activer(true);
+                    break;
+            }
         }
 
         private void btn_suivant_Click(object sender, EventArgs e)
         {
-            BSbien.MoveLast();
+            Button btn = (Button)sender;
+            switch (btn.Name)
+            {
+                case "btn_derniere":
+                    bsBien.MoveLast();
+                    break;
+                case "btn_suivant":
+                    bsBien.MoveNext();
+                    break;
+                case "btn_premiere":
+                    bsBien.MoveFirst();
+                    break;
+                case "btn_precedent":
+                    bsBien.MovePrevious();
+                    break;
+            }
         }
 
-        private void txt_nomfich_Leave(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-            Fonctions.textHintLeave(txt_nomfich, "Chercher Par Nom");
+            Frm_Bien_Type f = new Frm_Bien_Type("Modifier",pos);
+            f.ShowDialog();
         }
 
-        private void txt_nomfich_Enter(object sender, EventArgs e)
+        private void txt_chercher_Leave(object sender, EventArgs e)
         {
-            Fonctions.textHintEntre(txt_nomfich, "Chercher Par Nom");
+            Fonctions.textHintLeave(txt_chercher, "Taper un Nom Pour Chercher");
+        }
+
+        private void txt_chercher_Enter(object sender, EventArgs e)
+        {
+            Fonctions.textHintEntre(txt_chercher, "Taper un Nom Pour Chercher");
+        }
+
+        private void btn_chercherType_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void rd_type_Click(object sender, EventArgs e)
+        {
+            //pnlAfficher();
+        }
+
+        private void rd_type_CheckedChanged_1(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string f = txt_chercher.Text == "Taper un Nom Pour Chercher" ? "" : "NomApparetemnt like '%" + txt_chercher.Text + "%'";
+            bsBien.Filter = f;
+        }
+
+        private void rd_type_CheckedChanged_2(object sender, EventArgs e)
+        {
+            afficherpnl();
         }
     }
 }

@@ -31,8 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Bien_Doc));
             this.grp_fichier = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txt_cherch_doc = new System.Windows.Forms.TextBox();
             this.list_document = new System.Windows.Forms.ListBox();
+            this.txtidDoc = new System.Windows.Forms.TextBox();
+            this.txt_cherch_doc = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txt_chercher_bien = new System.Windows.Forms.TextBox();
@@ -45,7 +46,6 @@
             this.btn_Bien_Doc_modifier = new System.Windows.Forms.Button();
             this.btn_Bien_Doc_Ajouter = new System.Windows.Forms.Button();
             this.btn_rechercher = new System.Windows.Forms.Button();
-            this.txtidDoc = new System.Windows.Forms.TextBox();
             this.grp_fichier.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -66,6 +66,7 @@
             this.grp_fichier.TabIndex = 32;
             this.grp_fichier.TabStop = false;
             this.grp_fichier.Text = "Document";
+            this.grp_fichier.Enter += new System.EventHandler(this.grp_fichier_Enter_1);
             // 
             // groupBox2
             // 
@@ -80,6 +81,28 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "fichier";
             // 
+            // list_document
+            // 
+            this.list_document.FormattingEnabled = true;
+            this.list_document.ItemHeight = 16;
+            this.list_document.Location = new System.Drawing.Point(13, 81);
+            this.list_document.Name = "list_document";
+            this.list_document.Size = new System.Drawing.Size(354, 308);
+            this.list_document.TabIndex = 44;
+            this.list_document.SelectedIndexChanged += new System.EventHandler(this.list_document_SelectedIndexChanged);
+            // 
+            // txtidDoc
+            // 
+            this.txtidDoc.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtidDoc.ForeColor = System.Drawing.Color.Gray;
+            this.txtidDoc.Location = new System.Drawing.Point(55, 143);
+            this.txtidDoc.Name = "txtidDoc";
+            this.txtidDoc.Size = new System.Drawing.Size(168, 27);
+            this.txtidDoc.TabIndex = 58;
+            this.txtidDoc.Text = "Chercher Nom document";
+            this.txtidDoc.Enter += new System.EventHandler(this.txt_cherch_doc_Enter);
+            this.txtidDoc.Leave += new System.EventHandler(this.txt_cherch_doc_Leave);
+            // 
             // txt_cherch_doc
             // 
             this.txt_cherch_doc.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -91,16 +114,6 @@
             this.txt_cherch_doc.Text = "Chercher Nom document";
             this.txt_cherch_doc.Enter += new System.EventHandler(this.txt_cherch_doc_Enter);
             this.txt_cherch_doc.Leave += new System.EventHandler(this.txt_cherch_doc_Leave);
-            // 
-            // list_document
-            // 
-            this.list_document.FormattingEnabled = true;
-            this.list_document.ItemHeight = 16;
-            this.list_document.Location = new System.Drawing.Point(13, 81);
-            this.list_document.Name = "list_document";
-            this.list_document.Size = new System.Drawing.Size(354, 308);
-            this.list_document.TabIndex = 44;
-            this.list_document.SelectedIndexChanged += new System.EventHandler(this.list_document_SelectedIndexChanged);
             // 
             // button2
             // 
@@ -142,6 +155,7 @@
             this.txt_chercher_bien.Size = new System.Drawing.Size(252, 27);
             this.txt_chercher_bien.TabIndex = 58;
             this.txt_chercher_bien.Text = "Chercher Par Nom Bien";
+            this.txt_chercher_bien.TextChanged += new System.EventHandler(this.txt_chercher_bien_TextChanged);
             this.txt_chercher_bien.Enter += new System.EventHandler(this.txt_chercher_bien_Enter);
             this.txt_chercher_bien.Leave += new System.EventHandler(this.txt_chercher_bien_Leave);
             // 
@@ -285,18 +299,6 @@
             this.btn_rechercher.TabIndex = 32;
             this.btn_rechercher.Text = "Rechercher";
             this.btn_rechercher.UseVisualStyleBackColor = false;
-            // 
-            // txtidDoc
-            // 
-            this.txtidDoc.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtidDoc.ForeColor = System.Drawing.Color.Gray;
-            this.txtidDoc.Location = new System.Drawing.Point(55, 143);
-            this.txtidDoc.Name = "txtidDoc";
-            this.txtidDoc.Size = new System.Drawing.Size(168, 27);
-            this.txtidDoc.TabIndex = 58;
-            this.txtidDoc.Text = "Chercher Nom document";
-            this.txtidDoc.Enter += new System.EventHandler(this.txt_cherch_doc_Enter);
-            this.txtidDoc.Leave += new System.EventHandler(this.txt_cherch_doc_Leave);
             // 
             // Frm_Bien_Doc
             // 

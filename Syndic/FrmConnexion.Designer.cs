@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmConnexion));
             this.dt_grid = new System.Windows.Forms.DataGridView();
             this.nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,22 +47,22 @@
             this.rd_type = new System.Windows.Forms.RadioButton();
             this.rd_nomPrenom = new System.Windows.Forms.RadioButton();
             this.pnl_nomPrenom = new System.Windows.Forms.Panel();
-            this.btn_chercherNom = new System.Windows.Forms.Button();
-            this.txt_chercher = new System.Windows.Forms.TextBox();
-            this.pnl_type = new System.Windows.Forms.Panel();
-            this.cb_type = new System.Windows.Forms.ComboBox();
-            this.btn_chercherType = new System.Windows.Forms.Button();
             this.pnl_date = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dt_de = new System.Windows.Forms.DateTimePicker();
             this.dt_a = new System.Windows.Forms.DateTimePicker();
             this.btn_chercherDate = new System.Windows.Forms.Button();
+            this.btn_chercherNom = new System.Windows.Forms.Button();
+            this.txt_chercher = new System.Windows.Forms.TextBox();
+            this.pnl_type = new System.Windows.Forms.Panel();
+            this.cb_type = new System.Windows.Forms.ComboBox();
+            this.btn_chercherType = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dt_grid)).BeginInit();
             this.grp_chercher.SuspendLayout();
             this.pnl_nomPrenom.SuspendLayout();
-            this.pnl_type.SuspendLayout();
             this.pnl_date.SuspendLayout();
+            this.pnl_type.SuspendLayout();
             this.SuspendLayout();
             // 
             // dt_grid
@@ -70,14 +70,14 @@
             this.dt_grid.AllowUserToAddRows = false;
             this.dt_grid.AllowUserToDeleteRows = false;
             this.dt_grid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dt_grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dt_grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dt_grid.ColumnHeadersHeight = 35;
             this.dt_grid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nom,
@@ -88,8 +88,8 @@
             this.dt_grid.MultiSelect = false;
             this.dt_grid.Name = "dt_grid";
             this.dt_grid.ReadOnly = true;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dt_grid.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dt_grid.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dt_grid.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dt_grid.RowTemplate.Height = 25;
             this.dt_grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -228,10 +228,11 @@
             this.grp_chercher.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grp_chercher.Location = new System.Drawing.Point(13, 25);
             this.grp_chercher.Name = "grp_chercher";
-            this.grp_chercher.Size = new System.Drawing.Size(745, 89);
+            this.grp_chercher.Size = new System.Drawing.Size(746, 89);
             this.grp_chercher.TabIndex = 0;
             this.grp_chercher.TabStop = false;
             this.grp_chercher.Text = "Recherche Par :";
+            this.grp_chercher.Enter += new System.EventHandler(this.grp_chercher_Enter);
             // 
             // rd_date
             // 
@@ -281,70 +282,6 @@
             this.pnl_nomPrenom.Name = "pnl_nomPrenom";
             this.pnl_nomPrenom.Size = new System.Drawing.Size(745, 80);
             this.pnl_nomPrenom.TabIndex = 8;
-            // 
-            // btn_chercherNom
-            // 
-            this.btn_chercherNom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
-            this.btn_chercherNom.FlatAppearance.BorderSize = 0;
-            this.btn_chercherNom.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btn_chercherNom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_chercherNom.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_chercherNom.ForeColor = System.Drawing.Color.White;
-            this.btn_chercherNom.Location = new System.Drawing.Point(563, 24);
-            this.btn_chercherNom.Name = "btn_chercherNom";
-            this.btn_chercherNom.Size = new System.Drawing.Size(115, 32);
-            this.btn_chercherNom.TabIndex = 2;
-            this.btn_chercherNom.Text = "Rechercher";
-            this.btn_chercherNom.UseVisualStyleBackColor = false;
-            this.btn_chercherNom.Click += new System.EventHandler(this.btn_chercherDate_Click);
-            // 
-            // txt_chercher
-            // 
-            this.txt_chercher.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_chercher.ForeColor = System.Drawing.Color.Gray;
-            this.txt_chercher.Location = new System.Drawing.Point(22, 25);
-            this.txt_chercher.Name = "txt_chercher";
-            this.txt_chercher.Size = new System.Drawing.Size(524, 29);
-            this.txt_chercher.TabIndex = 1;
-            this.txt_chercher.Text = "Tapez Le Nom & Prenom Pour Rechercher";
-            this.txt_chercher.Enter += new System.EventHandler(this.txt_chercher_Enter);
-            this.txt_chercher.Leave += new System.EventHandler(this.txt_chercher_Leave);
-            // 
-            // pnl_type
-            // 
-            this.pnl_type.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnl_type.Controls.Add(this.cb_type);
-            this.pnl_type.Controls.Add(this.btn_chercherType);
-            this.pnl_type.Location = new System.Drawing.Point(14, 134);
-            this.pnl_type.Name = "pnl_type";
-            this.pnl_type.Size = new System.Drawing.Size(745, 80);
-            this.pnl_type.TabIndex = 10;
-            // 
-            // cb_type
-            // 
-            this.cb_type.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cb_type.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.cb_type.FormattingEnabled = true;
-            this.cb_type.Location = new System.Drawing.Point(22, 22);
-            this.cb_type.Name = "cb_type";
-            this.cb_type.Size = new System.Drawing.Size(524, 32);
-            this.cb_type.TabIndex = 12;
-            // 
-            // btn_chercherType
-            // 
-            this.btn_chercherType.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
-            this.btn_chercherType.FlatAppearance.BorderSize = 0;
-            this.btn_chercherType.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btn_chercherType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_chercherType.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_chercherType.ForeColor = System.Drawing.Color.White;
-            this.btn_chercherType.Location = new System.Drawing.Point(563, 22);
-            this.btn_chercherType.Name = "btn_chercherType";
-            this.btn_chercherType.Size = new System.Drawing.Size(115, 32);
-            this.btn_chercherType.TabIndex = 11;
-            this.btn_chercherType.Text = "Rechercher";
-            this.btn_chercherType.UseVisualStyleBackColor = false;
-            this.btn_chercherType.Click += new System.EventHandler(this.btn_chercherDate_Click);
             // 
             // pnl_date
             // 
@@ -413,6 +350,70 @@
             this.btn_chercherDate.UseVisualStyleBackColor = false;
             this.btn_chercherDate.Click += new System.EventHandler(this.btn_chercherDate_Click);
             // 
+            // btn_chercherNom
+            // 
+            this.btn_chercherNom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
+            this.btn_chercherNom.FlatAppearance.BorderSize = 0;
+            this.btn_chercherNom.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btn_chercherNom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_chercherNom.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_chercherNom.ForeColor = System.Drawing.Color.White;
+            this.btn_chercherNom.Location = new System.Drawing.Point(563, 24);
+            this.btn_chercherNom.Name = "btn_chercherNom";
+            this.btn_chercherNom.Size = new System.Drawing.Size(115, 32);
+            this.btn_chercherNom.TabIndex = 2;
+            this.btn_chercherNom.Text = "Rechercher";
+            this.btn_chercherNom.UseVisualStyleBackColor = false;
+            this.btn_chercherNom.Click += new System.EventHandler(this.btn_chercherDate_Click);
+            // 
+            // txt_chercher
+            // 
+            this.txt_chercher.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_chercher.ForeColor = System.Drawing.Color.Gray;
+            this.txt_chercher.Location = new System.Drawing.Point(22, 25);
+            this.txt_chercher.Name = "txt_chercher";
+            this.txt_chercher.Size = new System.Drawing.Size(524, 29);
+            this.txt_chercher.TabIndex = 1;
+            this.txt_chercher.Text = "Tapez Le Nom & Prenom Pour Rechercher";
+            this.txt_chercher.Enter += new System.EventHandler(this.txt_chercher_Enter);
+            this.txt_chercher.Leave += new System.EventHandler(this.txt_chercher_Leave);
+            // 
+            // pnl_type
+            // 
+            this.pnl_type.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnl_type.Controls.Add(this.cb_type);
+            this.pnl_type.Controls.Add(this.btn_chercherType);
+            this.pnl_type.Location = new System.Drawing.Point(14, 134);
+            this.pnl_type.Name = "pnl_type";
+            this.pnl_type.Size = new System.Drawing.Size(745, 80);
+            this.pnl_type.TabIndex = 10;
+            // 
+            // cb_type
+            // 
+            this.cb_type.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_type.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.cb_type.FormattingEnabled = true;
+            this.cb_type.Location = new System.Drawing.Point(22, 22);
+            this.cb_type.Name = "cb_type";
+            this.cb_type.Size = new System.Drawing.Size(524, 32);
+            this.cb_type.TabIndex = 12;
+            // 
+            // btn_chercherType
+            // 
+            this.btn_chercherType.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
+            this.btn_chercherType.FlatAppearance.BorderSize = 0;
+            this.btn_chercherType.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btn_chercherType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_chercherType.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_chercherType.ForeColor = System.Drawing.Color.White;
+            this.btn_chercherType.Location = new System.Drawing.Point(563, 22);
+            this.btn_chercherType.Name = "btn_chercherType";
+            this.btn_chercherType.Size = new System.Drawing.Size(115, 32);
+            this.btn_chercherType.TabIndex = 11;
+            this.btn_chercherType.Text = "Rechercher";
+            this.btn_chercherType.UseVisualStyleBackColor = false;
+            this.btn_chercherType.Click += new System.EventHandler(this.btn_chercherDate_Click);
+            // 
             // FrmConnexion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -438,9 +439,9 @@
             this.grp_chercher.PerformLayout();
             this.pnl_nomPrenom.ResumeLayout(false);
             this.pnl_nomPrenom.PerformLayout();
-            this.pnl_type.ResumeLayout(false);
             this.pnl_date.ResumeLayout(false);
             this.pnl_date.PerformLayout();
+            this.pnl_type.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

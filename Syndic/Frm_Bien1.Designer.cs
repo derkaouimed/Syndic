@@ -29,43 +29,303 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Bien1));
-            this.grp_fichier = new System.Windows.Forms.GroupBox();
+            this.grp_information = new System.Windows.Forms.GroupBox();
+            this.dt_date = new System.Windows.Forms.DateTimePicker();
+            this.button2 = new System.Windows.Forms.Button();
+            this.cb_prop = new System.Windows.Forms.ComboBox();
+            this.cb_immeuble = new System.Windows.Forms.ComboBox();
+            this.cb_type = new System.Windows.Forms.ComboBox();
+            this.txt_consomation = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txt_foncier = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txt_charge = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txt_super = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txt_etage = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txt_nom = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txt_id = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.grp_bien = new System.Windows.Forms.GroupBox();
             this.btn_suivant = new System.Windows.Forms.Button();
             this.btn_precedent = new System.Windows.Forms.Button();
             this.btn_derniere = new System.Windows.Forms.Button();
             this.btn_premiere = new System.Windows.Forms.Button();
-            this.txt_nomfich = new System.Windows.Forms.TextBox();
-            this.btn_rechercher = new System.Windows.Forms.Button();
-            this.btn_Bien_Supprimer = new System.Windows.Forms.Button();
-            this.btn_Bien_modifier = new System.Windows.Forms.Button();
-            this.btn_Bien_Ajouter = new System.Windows.Forms.Button();
-            this.gridBien = new System.Windows.Forms.DataGridView();
-            this.label8 = new System.Windows.Forms.Label();
-            this.grp_fichier.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridBien)).BeginInit();
+            this.lst_bien = new System.Windows.Forms.ListBox();
+            this.txt_archive = new System.Windows.Forms.TextBox();
+            this.btn_annuler = new System.Windows.Forms.Button();
+            this.btn_valider = new System.Windows.Forms.Button();
+            this.btn_modifier = new System.Windows.Forms.Button();
+            this.btn_supprimer = new System.Windows.Forms.Button();
+            this.btn_ajouter = new System.Windows.Forms.Button();
+            this.grp_chercher = new System.Windows.Forms.GroupBox();
+            this.rd_type = new System.Windows.Forms.RadioButton();
+            this.rd_nomPrenom = new System.Windows.Forms.RadioButton();
+            this.pnl_nom = new System.Windows.Forms.Panel();
+            this.pnl_im = new System.Windows.Forms.Panel();
+            this.btn_nom = new System.Windows.Forms.Button();
+            this.cm_ch_im = new System.Windows.Forms.ComboBox();
+            this.cm_et = new System.Windows.Forms.ComboBox();
+            this.txt_chercher = new System.Windows.Forms.TextBox();
+            this.btn_chercherType = new System.Windows.Forms.Button();
+            this.grp_information.SuspendLayout();
+            this.grp_bien.SuspendLayout();
+            this.grp_chercher.SuspendLayout();
+            this.pnl_nom.SuspendLayout();
+            this.pnl_im.SuspendLayout();
             this.SuspendLayout();
             // 
-            // grp_fichier
+            // grp_information
             // 
-            this.grp_fichier.Controls.Add(this.btn_suivant);
-            this.grp_fichier.Controls.Add(this.btn_precedent);
-            this.grp_fichier.Controls.Add(this.btn_derniere);
-            this.grp_fichier.Controls.Add(this.btn_premiere);
-            this.grp_fichier.Controls.Add(this.txt_nomfich);
-            this.grp_fichier.Controls.Add(this.btn_rechercher);
-            this.grp_fichier.Controls.Add(this.btn_Bien_Supprimer);
-            this.grp_fichier.Controls.Add(this.btn_Bien_modifier);
-            this.grp_fichier.Controls.Add(this.btn_Bien_Ajouter);
-            this.grp_fichier.Controls.Add(this.gridBien);
-            this.grp_fichier.Controls.Add(this.label8);
-            this.grp_fichier.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
-            this.grp_fichier.Location = new System.Drawing.Point(12, 31);
-            this.grp_fichier.Name = "grp_fichier";
-            this.grp_fichier.Size = new System.Drawing.Size(746, 569);
-            this.grp_fichier.TabIndex = 26;
-            this.grp_fichier.TabStop = false;
-            this.grp_fichier.Text = "Bien";
-            this.grp_fichier.Enter += new System.EventHandler(this.grp_fichier_Enter);
+            this.grp_information.Controls.Add(this.dt_date);
+            this.grp_information.Controls.Add(this.button2);
+            this.grp_information.Controls.Add(this.cb_prop);
+            this.grp_information.Controls.Add(this.cb_immeuble);
+            this.grp_information.Controls.Add(this.cb_type);
+            this.grp_information.Controls.Add(this.txt_consomation);
+            this.grp_information.Controls.Add(this.label11);
+            this.grp_information.Controls.Add(this.label6);
+            this.grp_information.Controls.Add(this.txt_foncier);
+            this.grp_information.Controls.Add(this.label7);
+            this.grp_information.Controls.Add(this.label8);
+            this.grp_information.Controls.Add(this.label9);
+            this.grp_information.Controls.Add(this.label10);
+            this.grp_information.Controls.Add(this.txt_charge);
+            this.grp_information.Controls.Add(this.label4);
+            this.grp_information.Controls.Add(this.txt_super);
+            this.grp_information.Controls.Add(this.label5);
+            this.grp_information.Controls.Add(this.txt_etage);
+            this.grp_information.Controls.Add(this.label3);
+            this.grp_information.Controls.Add(this.txt_nom);
+            this.grp_information.Controls.Add(this.label2);
+            this.grp_information.Controls.Add(this.txt_id);
+            this.grp_information.Controls.Add(this.label1);
+            this.grp_information.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grp_information.Location = new System.Drawing.Point(366, 156);
+            this.grp_information.Name = "grp_information";
+            this.grp_information.Size = new System.Drawing.Size(392, 377);
+            this.grp_information.TabIndex = 3;
+            this.grp_information.TabStop = false;
+            this.grp_information.Text = "Les Informations :";
+            // 
+            // dt_date
+            // 
+            this.dt_date.Location = new System.Drawing.Point(125, 340);
+            this.dt_date.Name = "dt_date";
+            this.dt_date.Size = new System.Drawing.Size(260, 24);
+            this.dt_date.TabIndex = 80;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(341, 205);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(41, 25);
+            this.button2.TabIndex = 79;
+            this.button2.Text = "...";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // cb_prop
+            // 
+            this.cb_prop.FormattingEnabled = true;
+            this.cb_prop.Location = new System.Drawing.Point(125, 236);
+            this.cb_prop.Name = "cb_prop";
+            this.cb_prop.Size = new System.Drawing.Size(260, 25);
+            this.cb_prop.TabIndex = 23;
+            // 
+            // cb_immeuble
+            // 
+            this.cb_immeuble.FormattingEnabled = true;
+            this.cb_immeuble.Location = new System.Drawing.Point(126, 173);
+            this.cb_immeuble.Name = "cb_immeuble";
+            this.cb_immeuble.Size = new System.Drawing.Size(260, 25);
+            this.cb_immeuble.TabIndex = 22;
+            // 
+            // cb_type
+            // 
+            this.cb_type.FormattingEnabled = true;
+            this.cb_type.Location = new System.Drawing.Point(125, 205);
+            this.cb_type.Name = "cb_type";
+            this.cb_type.Size = new System.Drawing.Size(210, 25);
+            this.cb_type.TabIndex = 20;
+            // 
+            // txt_consomation
+            // 
+            this.txt_consomation.Location = new System.Drawing.Point(125, 307);
+            this.txt_consomation.Name = "txt_consomation";
+            this.txt_consomation.Size = new System.Drawing.Size(260, 24);
+            this.txt_consomation.TabIndex = 17;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(17, 345);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(110, 19);
+            this.label11.TabIndex = 16;
+            this.label11.Text = "Date Controle:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(17, 312);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(103, 19);
+            this.label6.TabIndex = 16;
+            this.label6.Text = "consomation:";
+            // 
+            // txt_foncier
+            // 
+            this.txt_foncier.Location = new System.Drawing.Point(125, 271);
+            this.txt_foncier.Name = "txt_foncier";
+            this.txt_foncier.Size = new System.Drawing.Size(260, 24);
+            this.txt_foncier.TabIndex = 17;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(17, 276);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(94, 19);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "titre foncier :";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(19, 242);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(95, 19);
+            this.label8.TabIndex = 14;
+            this.label8.Text = "Proprietaire :";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(21, 211);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(82, 19);
+            this.label9.TabIndex = 12;
+            this.label9.Text = "Type Bien :";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(17, 179);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(86, 19);
+            this.label10.TabIndex = 10;
+            this.label10.Text = "immeuble :";
+            // 
+            // txt_charge
+            // 
+            this.txt_charge.Location = new System.Drawing.Point(126, 143);
+            this.txt_charge.Name = "txt_charge";
+            this.txt_charge.Size = new System.Drawing.Size(260, 24);
+            this.txt_charge.TabIndex = 9;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(17, 148);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(72, 19);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "charges :";
+            // 
+            // txt_super
+            // 
+            this.txt_super.Location = new System.Drawing.Point(125, 113);
+            this.txt_super.Name = "txt_super";
+            this.txt_super.Size = new System.Drawing.Size(260, 24);
+            this.txt_super.TabIndex = 7;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(17, 118);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(82, 19);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "superficie :";
+            // 
+            // txt_etage
+            // 
+            this.txt_etage.Location = new System.Drawing.Point(125, 83);
+            this.txt_etage.Name = "txt_etage";
+            this.txt_etage.Size = new System.Drawing.Size(260, 24);
+            this.txt_etage.TabIndex = 5;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(17, 88);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(59, 19);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "etage :";
+            // 
+            // txt_nom
+            // 
+            this.txt_nom.Location = new System.Drawing.Point(125, 53);
+            this.txt_nom.Name = "txt_nom";
+            this.txt_nom.Size = new System.Drawing.Size(260, 24);
+            this.txt_nom.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(19, 61);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(110, 19);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Apparetemnt :";
+            // 
+            // txt_id
+            // 
+            this.txt_id.Enabled = false;
+            this.txt_id.Location = new System.Drawing.Point(125, 23);
+            this.txt_id.Name = "txt_id";
+            this.txt_id.Size = new System.Drawing.Size(260, 24);
+            this.txt_id.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(19, 28);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(30, 19);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "ID :";
+            // 
+            // grp_bien
+            // 
+            this.grp_bien.Controls.Add(this.btn_suivant);
+            this.grp_bien.Controls.Add(this.btn_precedent);
+            this.grp_bien.Controls.Add(this.btn_derniere);
+            this.grp_bien.Controls.Add(this.btn_premiere);
+            this.grp_bien.Controls.Add(this.lst_bien);
+            this.grp_bien.Controls.Add(this.txt_archive);
+            this.grp_bien.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grp_bien.Location = new System.Drawing.Point(14, 156);
+            this.grp_bien.Name = "grp_bien";
+            this.grp_bien.Size = new System.Drawing.Size(322, 466);
+            this.grp_bien.TabIndex = 2;
+            this.grp_bien.TabStop = false;
+            this.grp_bien.Text = "Tous Les Bien :";
             // 
             // btn_suivant
             // 
@@ -77,10 +337,10 @@
             this.btn_suivant.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_suivant.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_suivant.ForeColor = System.Drawing.Color.White;
-            this.btn_suivant.Location = new System.Drawing.Point(152, 486);
+            this.btn_suivant.Location = new System.Drawing.Point(198, 418);
             this.btn_suivant.Name = "btn_suivant";
             this.btn_suivant.Size = new System.Drawing.Size(46, 41);
-            this.btn_suivant.TabIndex = 52;
+            this.btn_suivant.TabIndex = 8;
             this.btn_suivant.UseVisualStyleBackColor = false;
             this.btn_suivant.Click += new System.EventHandler(this.btn_suivant_Click);
             // 
@@ -94,12 +354,12 @@
             this.btn_precedent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_precedent.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_precedent.ForeColor = System.Drawing.Color.White;
-            this.btn_precedent.Location = new System.Drawing.Point(74, 486);
+            this.btn_precedent.Location = new System.Drawing.Point(70, 418);
             this.btn_precedent.Name = "btn_precedent";
             this.btn_precedent.Size = new System.Drawing.Size(46, 41);
-            this.btn_precedent.TabIndex = 51;
+            this.btn_precedent.TabIndex = 7;
             this.btn_precedent.UseVisualStyleBackColor = false;
-            this.btn_precedent.Click += new System.EventHandler(this.btn_precedent_Click);
+            this.btn_precedent.Click += new System.EventHandler(this.btn_suivant_Click);
             // 
             // btn_derniere
             // 
@@ -111,12 +371,12 @@
             this.btn_derniere.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_derniere.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_derniere.ForeColor = System.Drawing.Color.White;
-            this.btn_derniere.Location = new System.Drawing.Point(204, 486);
+            this.btn_derniere.Location = new System.Drawing.Point(250, 418);
             this.btn_derniere.Name = "btn_derniere";
             this.btn_derniere.Size = new System.Drawing.Size(46, 41);
-            this.btn_derniere.TabIndex = 53;
+            this.btn_derniere.TabIndex = 9;
             this.btn_derniere.UseVisualStyleBackColor = false;
-            this.btn_derniere.Click += new System.EventHandler(this.btn_derniere_Click);
+            this.btn_derniere.Click += new System.EventHandler(this.btn_suivant_Click);
             // 
             // btn_premiere
             // 
@@ -128,109 +388,228 @@
             this.btn_premiere.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_premiere.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_premiere.ForeColor = System.Drawing.Color.White;
-            this.btn_premiere.Location = new System.Drawing.Point(22, 486);
+            this.btn_premiere.Location = new System.Drawing.Point(18, 418);
             this.btn_premiere.Name = "btn_premiere";
             this.btn_premiere.Size = new System.Drawing.Size(46, 41);
-            this.btn_premiere.TabIndex = 50;
+            this.btn_premiere.TabIndex = 6;
             this.btn_premiere.UseVisualStyleBackColor = false;
-            this.btn_premiere.Click += new System.EventHandler(this.btn_premiere_Click);
+            this.btn_premiere.Click += new System.EventHandler(this.btn_suivant_Click);
             // 
-            // txt_nomfich
+            // lst_bien
             // 
-            this.txt_nomfich.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_nomfich.ForeColor = System.Drawing.Color.Gray;
-            this.txt_nomfich.Location = new System.Drawing.Point(174, 28);
-            this.txt_nomfich.Name = "txt_nomfich";
-            this.txt_nomfich.Size = new System.Drawing.Size(309, 27);
-            this.txt_nomfich.TabIndex = 27;
-            this.txt_nomfich.Text = "Chercher Par Nom";
-            this.txt_nomfich.Enter += new System.EventHandler(this.txt_nomfich_Enter);
-            this.txt_nomfich.Leave += new System.EventHandler(this.txt_nomfich_Leave);
+            this.lst_bien.FormattingEnabled = true;
+            this.lst_bien.ItemHeight = 17;
+            this.lst_bien.Location = new System.Drawing.Point(6, 34);
+            this.lst_bien.Name = "lst_bien";
+            this.lst_bien.Size = new System.Drawing.Size(308, 378);
+            this.lst_bien.TabIndex = 0;
             // 
-            // btn_rechercher
+            // txt_archive
             // 
-            this.btn_rechercher.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
-            this.btn_rechercher.FlatAppearance.BorderSize = 0;
-            this.btn_rechercher.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.btn_rechercher.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_rechercher.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_rechercher.ForeColor = System.Drawing.Color.White;
-            this.btn_rechercher.Location = new System.Drawing.Point(583, 25);
-            this.btn_rechercher.Name = "btn_rechercher";
-            this.btn_rechercher.Size = new System.Drawing.Size(144, 34);
-            this.btn_rechercher.TabIndex = 26;
-            this.btn_rechercher.Text = "Rechercher";
-            this.btn_rechercher.UseVisualStyleBackColor = false;
-            this.btn_rechercher.Click += new System.EventHandler(this.btn_rechercher_Click);
+            this.txt_archive.Location = new System.Drawing.Point(99, 242);
+            this.txt_archive.Name = "txt_archive";
+            this.txt_archive.Size = new System.Drawing.Size(63, 24);
+            this.txt_archive.TabIndex = 23;
             // 
-            // btn_Bien_Supprimer
+            // btn_annuler
             // 
-            this.btn_Bien_Supprimer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
-            this.btn_Bien_Supprimer.FlatAppearance.BorderSize = 0;
-            this.btn_Bien_Supprimer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.btn_Bien_Supprimer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Bien_Supprimer.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Bien_Supprimer.ForeColor = System.Drawing.Color.White;
-            this.btn_Bien_Supprimer.Location = new System.Drawing.Point(611, 486);
-            this.btn_Bien_Supprimer.Name = "btn_Bien_Supprimer";
-            this.btn_Bien_Supprimer.Size = new System.Drawing.Size(116, 43);
-            this.btn_Bien_Supprimer.TabIndex = 22;
-            this.btn_Bien_Supprimer.Text = "Supprimer";
-            this.btn_Bien_Supprimer.UseVisualStyleBackColor = false;
-            this.btn_Bien_Supprimer.Click += new System.EventHandler(this.btn_Bien_Supprimer_Click);
+            this.btn_annuler.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
+            this.btn_annuler.FlatAppearance.BorderSize = 0;
+            this.btn_annuler.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btn_annuler.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_annuler.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_annuler.ForeColor = System.Drawing.Color.White;
+            this.btn_annuler.Location = new System.Drawing.Point(559, 589);
+            this.btn_annuler.Name = "btn_annuler";
+            this.btn_annuler.Size = new System.Drawing.Size(134, 41);
+            this.btn_annuler.TabIndex = 27;
+            this.btn_annuler.Text = "Annuler";
+            this.btn_annuler.UseVisualStyleBackColor = false;
+            this.btn_annuler.Click += new System.EventHandler(this.btn_supprimer_Click_1);
             // 
-            // btn_Bien_modifier
+            // btn_valider
             // 
-            this.btn_Bien_modifier.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
-            this.btn_Bien_modifier.FlatAppearance.BorderSize = 0;
-            this.btn_Bien_modifier.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.btn_Bien_modifier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Bien_modifier.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Bien_modifier.ForeColor = System.Drawing.Color.White;
-            this.btn_Bien_modifier.Location = new System.Drawing.Point(489, 486);
-            this.btn_Bien_modifier.Name = "btn_Bien_modifier";
-            this.btn_Bien_modifier.Size = new System.Drawing.Size(116, 43);
-            this.btn_Bien_modifier.TabIndex = 20;
-            this.btn_Bien_modifier.Text = "Modifier";
-            this.btn_Bien_modifier.UseVisualStyleBackColor = false;
-            this.btn_Bien_modifier.Click += new System.EventHandler(this.btn_Bien_Supprimer_Click);
+            this.btn_valider.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
+            this.btn_valider.FlatAppearance.BorderSize = 0;
+            this.btn_valider.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btn_valider.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_valider.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_valider.ForeColor = System.Drawing.Color.White;
+            this.btn_valider.Location = new System.Drawing.Point(419, 589);
+            this.btn_valider.Name = "btn_valider";
+            this.btn_valider.Size = new System.Drawing.Size(134, 41);
+            this.btn_valider.TabIndex = 26;
+            this.btn_valider.Text = "Valider";
+            this.btn_valider.UseVisualStyleBackColor = false;
+            this.btn_valider.Click += new System.EventHandler(this.btn_supprimer_Click_1);
             // 
-            // btn_Bien_Ajouter
+            // btn_modifier
             // 
-            this.btn_Bien_Ajouter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
-            this.btn_Bien_Ajouter.FlatAppearance.BorderSize = 0;
-            this.btn_Bien_Ajouter.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.btn_Bien_Ajouter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Bien_Ajouter.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Bien_Ajouter.ForeColor = System.Drawing.Color.White;
-            this.btn_Bien_Ajouter.Location = new System.Drawing.Point(367, 486);
-            this.btn_Bien_Ajouter.Name = "btn_Bien_Ajouter";
-            this.btn_Bien_Ajouter.Size = new System.Drawing.Size(116, 43);
-            this.btn_Bien_Ajouter.TabIndex = 19;
-            this.btn_Bien_Ajouter.Text = "Ajouter";
-            this.btn_Bien_Ajouter.UseVisualStyleBackColor = false;
-            this.btn_Bien_Ajouter.Click += new System.EventHandler(this.btn_Bien_Supprimer_Click);
+            this.btn_modifier.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
+            this.btn_modifier.FlatAppearance.BorderSize = 0;
+            this.btn_modifier.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btn_modifier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_modifier.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_modifier.ForeColor = System.Drawing.Color.White;
+            this.btn_modifier.Location = new System.Drawing.Point(491, 539);
+            this.btn_modifier.Name = "btn_modifier";
+            this.btn_modifier.Size = new System.Drawing.Size(134, 41);
+            this.btn_modifier.TabIndex = 24;
+            this.btn_modifier.Text = "Modifier";
+            this.btn_modifier.UseVisualStyleBackColor = false;
+            this.btn_modifier.Click += new System.EventHandler(this.btn_supprimer_Click_1);
             // 
-            // gridBien
+            // btn_supprimer
             // 
-            this.gridBien.AllowUserToAddRows = false;
-            this.gridBien.AllowUserToDeleteRows = false;
-            this.gridBien.BackgroundColor = System.Drawing.Color.White;
-            this.gridBien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridBien.Location = new System.Drawing.Point(22, 77);
-            this.gridBien.Name = "gridBien";
-            this.gridBien.ReadOnly = true;
-            this.gridBien.Size = new System.Drawing.Size(705, 328);
-            this.gridBien.TabIndex = 9;
+            this.btn_supprimer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
+            this.btn_supprimer.FlatAppearance.BorderSize = 0;
+            this.btn_supprimer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btn_supprimer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_supprimer.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_supprimer.ForeColor = System.Drawing.Color.White;
+            this.btn_supprimer.Location = new System.Drawing.Point(631, 539);
+            this.btn_supprimer.Name = "btn_supprimer";
+            this.btn_supprimer.Size = new System.Drawing.Size(134, 41);
+            this.btn_supprimer.TabIndex = 25;
+            this.btn_supprimer.Text = "Supprimer";
+            this.btn_supprimer.UseVisualStyleBackColor = false;
+            this.btn_supprimer.Click += new System.EventHandler(this.btn_supprimer_Click_1);
             // 
-            // label8
+            // btn_ajouter
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(19, 39);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(140, 16);
-            this.label8.TabIndex = 8;
-            this.label8.Text = "Nom  Appartement :";
+            this.btn_ajouter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
+            this.btn_ajouter.FlatAppearance.BorderSize = 0;
+            this.btn_ajouter.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btn_ajouter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_ajouter.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_ajouter.ForeColor = System.Drawing.Color.White;
+            this.btn_ajouter.Location = new System.Drawing.Point(351, 539);
+            this.btn_ajouter.Name = "btn_ajouter";
+            this.btn_ajouter.Size = new System.Drawing.Size(134, 41);
+            this.btn_ajouter.TabIndex = 23;
+            this.btn_ajouter.Text = "Ajouter";
+            this.btn_ajouter.UseVisualStyleBackColor = false;
+            this.btn_ajouter.Click += new System.EventHandler(this.btn_supprimer_Click_1);
+            // 
+            // grp_chercher
+            // 
+            this.grp_chercher.Controls.Add(this.rd_type);
+            this.grp_chercher.Controls.Add(this.rd_nomPrenom);
+            this.grp_chercher.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grp_chercher.Location = new System.Drawing.Point(12, 12);
+            this.grp_chercher.Name = "grp_chercher";
+            this.grp_chercher.Size = new System.Drawing.Size(745, 63);
+            this.grp_chercher.TabIndex = 28;
+            this.grp_chercher.TabStop = false;
+            this.grp_chercher.Text = "Recherche Par :";
+            // 
+            // rd_type
+            // 
+            this.rd_type.AutoSize = true;
+            this.rd_type.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rd_type.Location = new System.Drawing.Point(507, 25);
+            this.rd_type.Name = "rd_type";
+            this.rd_type.Size = new System.Drawing.Size(159, 22);
+            this.rd_type.TabIndex = 1;
+            this.rd_type.Text = "immeuble et etage ";
+            this.rd_type.UseVisualStyleBackColor = true;
+            this.rd_type.CheckedChanged += new System.EventHandler(this.rd_type_CheckedChanged_2);
+            // 
+            // rd_nomPrenom
+            // 
+            this.rd_nomPrenom.AutoSize = true;
+            this.rd_nomPrenom.Checked = true;
+            this.rd_nomPrenom.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rd_nomPrenom.Location = new System.Drawing.Point(114, 25);
+            this.rd_nomPrenom.Name = "rd_nomPrenom";
+            this.rd_nomPrenom.Size = new System.Drawing.Size(152, 22);
+            this.rd_nomPrenom.TabIndex = 0;
+            this.rd_nomPrenom.TabStop = true;
+            this.rd_nomPrenom.Text = "Nom Appartement";
+            this.rd_nomPrenom.UseVisualStyleBackColor = true;
+            this.rd_nomPrenom.CheckedChanged += new System.EventHandler(this.rd_type_CheckedChanged_2);
+            // 
+            // pnl_nom
+            // 
+            this.pnl_nom.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnl_nom.Controls.Add(this.btn_nom);
+            this.pnl_nom.Controls.Add(this.pnl_im);
+            this.pnl_nom.Controls.Add(this.txt_chercher);
+            this.pnl_nom.Location = new System.Drawing.Point(14, 81);
+            this.pnl_nom.Name = "pnl_nom";
+            this.pnl_nom.Size = new System.Drawing.Size(744, 69);
+            this.pnl_nom.TabIndex = 11;
+            // 
+            // pnl_im
+            // 
+            this.pnl_im.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnl_im.Controls.Add(this.btn_chercherType);
+            this.pnl_im.Controls.Add(this.cm_ch_im);
+            this.pnl_im.Controls.Add(this.cm_et);
+            this.pnl_im.Location = new System.Drawing.Point(-1, -1);
+            this.pnl_im.Name = "pnl_im";
+            this.pnl_im.Size = new System.Drawing.Size(743, 69);
+            this.pnl_im.TabIndex = 52;
+            // 
+            // btn_nom
+            // 
+            this.btn_nom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
+            this.btn_nom.FlatAppearance.BorderSize = 0;
+            this.btn_nom.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btn_nom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_nom.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_nom.ForeColor = System.Drawing.Color.White;
+            this.btn_nom.Location = new System.Drawing.Point(618, 17);
+            this.btn_nom.Name = "btn_nom";
+            this.btn_nom.Size = new System.Drawing.Size(115, 32);
+            this.btn_nom.TabIndex = 11;
+            this.btn_nom.Text = "Rechercher";
+            this.btn_nom.UseVisualStyleBackColor = false;
+            this.btn_nom.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // cm_ch_im
+            // 
+            this.cm_ch_im.FormattingEnabled = true;
+            this.cm_ch_im.Location = new System.Drawing.Point(53, 22);
+            this.cm_ch_im.Name = "cm_ch_im";
+            this.cm_ch_im.Size = new System.Drawing.Size(226, 21);
+            this.cm_ch_im.TabIndex = 22;
+            // 
+            // cm_et
+            // 
+            this.cm_et.FormattingEnabled = true;
+            this.cm_et.Location = new System.Drawing.Point(351, 22);
+            this.cm_et.Name = "cm_et";
+            this.cm_et.Size = new System.Drawing.Size(232, 21);
+            this.cm_et.TabIndex = 22;
+            // 
+            // txt_chercher
+            // 
+            this.txt_chercher.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_chercher.ForeColor = System.Drawing.Color.Gray;
+            this.txt_chercher.Location = new System.Drawing.Point(3, 22);
+            this.txt_chercher.Name = "txt_chercher";
+            this.txt_chercher.Size = new System.Drawing.Size(600, 27);
+            this.txt_chercher.TabIndex = 51;
+            this.txt_chercher.Text = "Taper un Nom Pour Chercher";
+            this.txt_chercher.Enter += new System.EventHandler(this.txt_chercher_Enter);
+            this.txt_chercher.Leave += new System.EventHandler(this.txt_chercher_Leave);
+            // 
+            // btn_chercherType
+            // 
+            this.btn_chercherType.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
+            this.btn_chercherType.FlatAppearance.BorderSize = 0;
+            this.btn_chercherType.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btn_chercherType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_chercherType.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_chercherType.ForeColor = System.Drawing.Color.White;
+            this.btn_chercherType.Location = new System.Drawing.Point(618, 17);
+            this.btn_chercherType.Name = "btn_chercherType";
+            this.btn_chercherType.Size = new System.Drawing.Size(115, 32);
+            this.btn_chercherType.TabIndex = 11;
+            this.btn_chercherType.Text = "Rechercher";
+            this.btn_chercherType.UseVisualStyleBackColor = false;
+            this.btn_chercherType.Click += new System.EventHandler(this.btn_chercherType_Click);
             // 
             // Frm_Bien1
             // 
@@ -238,31 +617,79 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(770, 634);
-            this.Controls.Add(this.grp_fichier);
+            this.Controls.Add(this.pnl_nom);
+            this.Controls.Add(this.grp_chercher);
+            this.Controls.Add(this.btn_annuler);
+            this.Controls.Add(this.grp_information);
+            this.Controls.Add(this.btn_valider);
+            this.Controls.Add(this.btn_modifier);
+            this.Controls.Add(this.grp_bien);
+            this.Controls.Add(this.btn_supprimer);
+            this.Controls.Add(this.btn_ajouter);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Frm_Bien1";
             this.Text = "Frm_Bien1";
             this.Load += new System.EventHandler(this.Frm_Bien1_Load);
-            this.grp_fichier.ResumeLayout(false);
-            this.grp_fichier.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridBien)).EndInit();
+            this.grp_information.ResumeLayout(false);
+            this.grp_information.PerformLayout();
+            this.grp_bien.ResumeLayout(false);
+            this.grp_bien.PerformLayout();
+            this.grp_chercher.ResumeLayout(false);
+            this.grp_chercher.PerformLayout();
+            this.pnl_nom.ResumeLayout(false);
+            this.pnl_nom.PerformLayout();
+            this.pnl_im.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.GroupBox grp_fichier;
-        private System.Windows.Forms.DataGridView gridBien;
+        private System.Windows.Forms.GroupBox grp_information;
+        private System.Windows.Forms.ComboBox cb_immeuble;
+        private System.Windows.Forms.ComboBox cb_type;
+        private System.Windows.Forms.TextBox txt_foncier;
+        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button btn_Bien_Supprimer;
-        private System.Windows.Forms.Button btn_Bien_modifier;
-        private System.Windows.Forms.Button btn_Bien_Ajouter;
-        private System.Windows.Forms.Button btn_rechercher;
-        private System.Windows.Forms.TextBox txt_nomfich;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txt_charge;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txt_super;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txt_etage;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txt_nom;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txt_id;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox grp_bien;
         private System.Windows.Forms.Button btn_suivant;
         private System.Windows.Forms.Button btn_precedent;
         private System.Windows.Forms.Button btn_derniere;
         private System.Windows.Forms.Button btn_premiere;
+        private System.Windows.Forms.ListBox lst_bien;
+        private System.Windows.Forms.TextBox txt_archive;
+        private System.Windows.Forms.Button btn_annuler;
+        private System.Windows.Forms.Button btn_valider;
+        private System.Windows.Forms.Button btn_modifier;
+        private System.Windows.Forms.Button btn_supprimer;
+        private System.Windows.Forms.Button btn_ajouter;
+        private System.Windows.Forms.ComboBox cb_prop;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DateTimePicker dt_date;
+        private System.Windows.Forms.TextBox txt_consomation;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.GroupBox grp_chercher;
+        private System.Windows.Forms.RadioButton rd_type;
+        private System.Windows.Forms.RadioButton rd_nomPrenom;
+        private System.Windows.Forms.Panel pnl_nom;
+        private System.Windows.Forms.Button btn_chercherType;
+        private System.Windows.Forms.TextBox txt_chercher;
+        private System.Windows.Forms.Panel pnl_im;
+        private System.Windows.Forms.Button btn_nom;
+        private System.Windows.Forms.ComboBox cm_ch_im;
+        private System.Windows.Forms.ComboBox cm_et;
     }
 }

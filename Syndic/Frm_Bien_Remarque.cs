@@ -14,157 +14,157 @@ namespace Syndic
 {
     public partial class Frm_Bien_Remarque : Form
     {
-        BindingSource BSbien = new BindingSource();
-        BindingSource BSrem = new BindingSource();
-        SqlConnection CN = new SqlConnection();
-        DataSet DS = new DataSet();
-        SqlDataAdapter AD;
+        BindingSource bsbien;
+        BindingSource bsRem;
+        SqlCommand cmd=new SqlCommand();
+        bool ajt = false;
+
         public Frm_Bien_Remarque()
         {
             InitializeComponent();
         }
-        public void ouvriConnectio()
+        private void activier(bool b)
         {
-            if (CN.State != ConnectionState.Open)
+            grp_bien.Enabled = b;
+            grp_remarque.Enabled = b;
+            grp_details.Enabled = !b;
+            btn_ajouter.Enabled = b;
+            if (b)
             {
-                CN.ConnectionString = ConfigurationManager.ConnectionStrings["SyndicCS"].ToString();
-                CN.Open();
+                btn_modifier.Text = "Modifier";
+                btn_supprimer.Text = "Supprimer";
+            }
+            else
+            {
+                btn_modifier.Text = "Valider";
+                btn_supprimer.Text = "Annuler";
             }
         }
 
-        private void btn_Bien_rem_Supprimer_Click(object sender, EventArgs e)
+        private void remplirLst()
         {
-            Button btn = (Button)sender;
-            switch (btn.Name)
+            int pos = 0;
+            if (cb_bien.Items.Count > 0)
             {
-                case "btn_Bien_rem_Ajouter":
-                    Frm_Bien_remarque_aj f = new Frm_Bien_remarque_aj("Ajouter", 0);
-                    f.ShowDialog();
-
-                    break;
-                case "btn_Bien_rem_modifier":
-                    Frm_Bien_remarque_aj ff = new Frm_Bien_remarque_aj("Modifier", int.Parse(List_rema.SelectedIndex.ToString()));
-                    ff.ShowDialog();
-
-                    break;
-                case "btn_Bien_rem_Supprimer":
-                    //DialogResult d = MessageBox.Show("Supprerimer", "Voulez Vous Supprime ce remarque ?", MessageBoxButtons.OK);
-                    //if (DialogResult.OK == d)
-                    //{
-
-
-                    //    SqlCommand com = new SqlCommand("Update remarque_bien set archive = 0 where id_remarque = " + int.Parse(grid_bien_rem.CurrentRow.Cells[0].Value.ToString()), CN);
-                    //    int a = 0;
-                    //    a = com.ExecuteNonQuery();
-                    //    if (a != 0)
-                    //    {
-                    //        MessageBox.Show("Supprimer !!");
-
-                    //        grid_bien_rem.Rows.RemoveAt(grid_bien_rem.CurrentRow.Index);
-
-                    //    }
-
-                    //    else
-                    //        MessageBox.Show("Error de Supprimer !!");
-
-                    //}
-
-                    break;
+                try
+                {
+                    pos = Convert.ToInt32(cb_bien.SelectedValue);
+                }
+                catch { }
+               
             }
+            string sql = "select * from remarque_bien where id_bien = "+ pos;
+            bsRem = Fonctions.remplirList(lst_Remaques, sql, "remarque_bien", "nom", "id_remarque");
+
+            txt_nomremarque.DataBindings.Clear();
+            txt_remarque.DataBindings.Clear();
+
+            txt_nomremarque.DataBindings.Add("Text", bsRem, "nom");
+            txt_remarque.DataBindings.Add("Text", bsRem, "remarque");
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            SqlCommandBuilder com = new SqlCommandBuilder(AD);
-            AD.Update(DS.Tables["remarque"]);
-
-            string f = txt_chercher_rem.Text == "Chercher Par Nom Bien" ? "" : "nom like '%" + txt_chercher_rem.Text + "%'";
 
 
-            BSbien.Filter = f;
-        }
-
-        private void grp_fichier_Enter(object sender, EventArgs e)
+        private void btn_derniere_Click(object sender, EventArgs e)
         {
 
         }
 
         private void Frm_Bien_Remarque_Load(object sender, EventArgs e)
         {
+            bsbien = Fonctions.remplirList(cb_bien, "bien", "NomApparetemnt", "id_bien");
 
-            ouvriConnectio();
-            AD = new SqlDataAdapter("select * from bien where archive = 1 ", CN);
-            if (!DS.Tables.Contains("bien"))
+            remplirLst();
 
-                AD.Fill(DS, "bien");
+            activier(true);
+        }
 
-            BSbien.DataSource = DS;
-            BSbien.DataMember = "bien";
+        private void btn_modifier_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            switch (btn.Text)
+            {
+                case "Ajouter":
+                    activier(false);
+                    ajt = true;
+                    txt_nomremarque.Clear();
+                    txt_remarque.Clear();
+                    break;
+                case "Modifier":
+                    activier(false);
+                    ajt = false;
+                    break;
+                case "Supprimer":
+                    if (lst_Remaques.Items.Count > 0)
+                    {
+                        if (DialogResult.Yes == MessageBox.Show("Voulez-vous Vraiment Supprimer Cette Remarque ?", "Supprimer", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+                        {
+                            cmd = new SqlCommand("delete from remarque_bien where id_remaque = " + lst_Remaques.SelectedValue + "", Fonctions.CnConnection());
+                            cmd.ExecuteNonQuery();
+                            MessageBox.Show("Remarque Supprimer Avec Succces.", "Supprimer", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            remplirLst();
+                        }
+                    }
+                    break;
+                case "Valider":
+                    if (ajt)
+                    {
+                        cmd = new SqlCommand("insert into remarque_bien values ('" + txt_nomremarque.Text + "','" + txt_remarque.Text + "','" + cb_bien.SelectedValue +"','1')", Fonctions.CnConnection());
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Remarque Ajouter Avec Succces.", "Ajouter", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        remplirLst();
+                    }
+                    else
+                    {
+                        if (lst_Remaques.Items.Count > 0)
+                        {
+                            cmd = new SqlCommand("update remarque_bien set nom = '" + txt_nomremarque.Text + "' , remarque = '" + txt_remarque.Text + "' where id_remaque = " + lst_Remaques.SelectedValue + "", Fonctions.CnConnection());
+                            cmd.ExecuteNonQuery();
+                            MessageBox.Show("Remarque Modifier Avec Succces.", "Modifier", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            remplirLst();
+                        }
+                    }
+                    activier(true);
+                    break;
+                case "Annuler":
+                    activier(true);
+                    break;
+            }
+        
+    }
 
-            cmb_bien.DataSource = BSbien;
-            cmb_bien.ValueMember = "id_bien";
-            cmb_bien.DisplayMember = "NomApparetemnt";
-
-            AD = null;
-
-
-
-            AD = new SqlDataAdapter("select * from remarque_bien where archive=1", CN);
-            if (!DS.Tables.Contains("remarque_bien"))
-                AD.Fill(DS, "remarque_bien");
-
-            BSrem.DataSource = DS;
-            BSrem.DataMember = "remarque_bien";
-
-            List_rema.DataSource = BSrem;
-            List_rema.ValueMember = "id_remarque";
-            List_rema.DisplayMember = "remarque";
-
-
+        private void grp_details_Enter(object sender, EventArgs e)
+        {
 
         }
 
-      
-        private void txt_chercher_bien_Leave(object sender, EventArgs e)
+        private void txt_chercher_TextChanged(object sender, EventArgs e)
         {
-            Fonctions.textHintLeave(txt_chercher_rem, "Chercher Par Nom Bien");
+            string f = txt_chercher.Text == "Tapez Nom Pour Chercher" ? "" : "nom like '%" + txt_chercher.Text + "%'";
+
+
+            bsRem.Filter = f;
         }
 
-        private void txt_chercher_bien_Enter(object sender, EventArgs e)
+        private void lst_Remaques_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Fonctions.textHintEntre(txt_chercher_rem, "Chercher Par Nom Bien");
+       
         }
 
-      
-
-        private void btn_premiere_Click(object sender, EventArgs e)
+        private void txt_chercher_Enter(object sender, EventArgs e)
         {
-            BSbien.MoveFirst();
+            Fonctions.textHintEntre(txt_chercher, "Tapez Nom Pour Chercher");
         }
 
-        private void btn_precedent_Click(object sender, EventArgs e)
+        private void txt_chercher_Leave(object sender, EventArgs e)
         {
-            BSbien.MovePrevious();
+            Fonctions.textHintLeave(txt_chercher, "Tapez Nom Pour Chercher");
         }
 
-        private void btn_suivant_Click(object sender, EventArgs e)
+        private void cb_bien_SelectedIndexChanged(object sender, EventArgs e)
         {
-            BSbien.MoveNext();
-        }
-
-        private void btn_derniere_Click(object sender, EventArgs e)
-        {
-            BSbien.MoveLast();
-        }
-
-        private void List_rema_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void cmb_bien_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            BSrem.Filter = "id_bien = '" + List_rema.SelectedValue + "'";
+            //bsRem.Filter = "id_bien = " + cb_bien.SelectedValue;
+            remplirLst();
         }
     }
 }

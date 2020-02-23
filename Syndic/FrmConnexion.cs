@@ -301,5 +301,10 @@ namespace Syndic
                     break;
             }
         }
+
+        private void grp_chercher_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

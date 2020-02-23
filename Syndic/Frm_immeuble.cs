@@ -80,7 +80,7 @@ namespace Syndic
         {
             SqlCommandBuilder com = new SqlCommandBuilder(AD);
             AD.Update(DS.Tables["immeuble"]);
-            string f = txt_chercher.Text == "Chercher Par Nom" ? "" : "[Nom immeuble] like '%" + txt_chercher.Text + "%'";
+            string f = txt_chercher.Text == "Taper un Nom Pour chercher" ? "" : "[Nom immeuble] like '%" + txt_chercher.Text + "%'";
             BSimm.Filter = f;
         }
 
@@ -126,17 +126,18 @@ namespace Syndic
 
         private void txt_chercher_TextChanged(object sender, EventArgs e)
         {
-
+            string f = txt_chercher.Text == "Taper un Nom Pour Chercher" ? "" : "[Nom immeuble] like '%" + txt_chercher.Text + "%'";
+            BSimm.Filter = f;
         }
 
         private void txt_chercher_Enter(object sender, EventArgs e)
         {
-            Fonctions.textHintEntre(txt_chercher,"Chercher Par Nom");
+            Fonctions.textHintEntre(txt_chercher, "Taper un Nom Pour Chercher");
         }
 
         private void txt_chercher_Leave(object sender, EventArgs e)
         {
-            Fonctions.textHintLeave(txt_chercher,"Chercher Par Nom");
+            Fonctions.textHintLeave(txt_chercher, "Taper un Nom Pour Chercher");
         }
     }
 }
