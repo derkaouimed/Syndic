@@ -110,15 +110,15 @@ namespace Syndic
             switch (btn.Name)
             {
                 case "btn_ajouter":
-                    frm_cotisationDocument_info f = new frm_cotisationDocument_info("Ajouter");
-                    f.ShowDialog();
+                    //frm_cotisationDocument_info f = new frm_cotisationDocument_info("Ajouter");
+                    //f.ShowDialog();
                     remplirDoc();
                     break;
                 case "btn_modifier":
                     if (lst_document.SelectedIndex != -1)
                     {
-                        frm_cotisationDocument_info fr = new frm_cotisationDocument_info("Modifier", GetID());
-                        fr.ShowDialog();
+                       // frm_cotisationDocument_info fr = new frm_cotisationDocument_info("Modifier", GetID());
+                       // fr.ShowDialog();
                         remplirDoc();
                     }
                     else
