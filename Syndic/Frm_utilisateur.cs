@@ -16,12 +16,18 @@ namespace Syndic
 {
     public partial class Frm_utilisateur : Form
     {
+
         public Frm_utilisateur()
         {
             InitializeComponent();
         }
 
         private void btn_derniere_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Frm_utilisateur_Load(object sender, EventArgs e)
         {
 
         }

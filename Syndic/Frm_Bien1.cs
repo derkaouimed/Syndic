@@ -21,8 +21,9 @@ namespace Syndic
         BindingSource bsType;
         BindingSource bsimmeub;
         BindingSource bsProp;
+        BindingSource bsconteur;
         // BindingSource bscon;
-        
+
 
         int pos = 0;
         public Frm_Bien1()
@@ -41,13 +42,14 @@ namespace Syndic
 
             btn_valider.Visible = !b;
             btn_annuler.Visible = !b;
+            
 
            // btn_ajouter.Enabled = b;
         }
 
         private void remplirEmps()
         {
-            string sql = "select b.* ,c.consomation,c.date_controle, (p.prenom+' '+p.nom) as nomcomplete from bien b inner join proprietaire p on p.id_proprietaire=b.id_proprietaire inner join conteur_eau c on c.id_conteurEau=b.id_conteurEau where b.archive = 1";
+            string sql = "select b.* ,c.consomation,c.date_controle, c.id_conteurEau,(p.prenom+' '+p.nom) as nomcomplete from bien b inner join proprietaire p on p.id_proprietaire=b.id_proprietaire inner join conteur_eau c on c.id_conteurEau=b.id_conteurEau where b.archive = 1";
             bsBien = Fonctions.remplirList(lst_bien, sql, "bien", "NomApparetemnt", "id_bien");
 
             txt_id.DataBindings.Clear();
@@ -66,8 +68,9 @@ namespace Syndic
             txt_super.DataBindings.Add("Text", bsBien, "superficie");
             txt_charge.DataBindings.Add("Text", bsBien, "charges");
             txt_foncier.DataBindings.Add("Text", bsBien, "titrefoncier");
+            txtid_conteurEau.DataBindings.Add("Text", bsBien, "id_conteurEau");
 
-           txt_consomation.DataBindings.Add("text", bsBien, "consomation");
+            txt_consomation.DataBindings.Add("text", bsBien, "consomation");
             dt_date.DataBindings.Add("text", bsBien, "date_controle");
           
 
@@ -76,6 +79,8 @@ namespace Syndic
             cb_type.DataBindings.Clear();
             cb_immeuble.DataBindings.Clear();
             cb_prop.DataBindings.Clear();
+
+            bsconteur = Fonctions.remplirList(cb_type, "conteur_eau", "consomation", "id_conteurEau");
 
             bsType = Fonctions.remplirList(cb_type, "type_bien", "nom", "id_type");
             cb_type.DataBindings.Add("SelectedValue", bsBien, "id_type_bien");
@@ -86,31 +91,35 @@ namespace Syndic
             bsProp = Fonctions.remplirList(cb_prop, "proprietaire", "nomcomplete", "id_proprietaire");
             cb_prop.DataBindings.Add("SelectedValue", bsBien, "id_proprietaire");
 
-
         }
-        private void afficherpnl()
-        {
-            if (rd_nomPrenom.Checked)
-            {
-                pnl_nom.Visible = true;
-                pnl_im.Visible = false;
-            }
-            else
-            {
-                pnl_nom.Visible = false;
-                pnl_im.Visible = true;
-            }
-        }
+       
 
         private void Frm_Bien1_Load(object sender, EventArgs e)
         {
             remplirEmps();
             activer(true);
-            afficherpnl();
+            
+        }
+        private void Affiche()
+        {
+            if (rd_nom.Checked)
+            {
+                pnl_im.Visible = false;
+                pnl_nom.Visible = true;
+            }
+            else
+            {
+                pnl_im.Visible = true;
+                pnl_nom.Visible = false;
+            }
+
         }
 
         private void btn_supprimer_Click_1(object sender, EventArgs e)
         {
+            
+            
+
             Button btn = (Button)sender;
             switch (btn.Name)
             {
@@ -145,6 +154,7 @@ namespace Syndic
                 case "btn_valider":
                     bsBien.EndEdit();
                     Fonctions.syncr("bien", Fonctions.CnConnection(), Fonctions.ds);
+                    Fonctions.syncr("conteur_eau", Fonctions.CnConnection(), Fonctions.ds);
                     remplirEmps();
                     lst_bien.SelectedIndex = pos;
                     activer(true);
@@ -197,15 +207,9 @@ namespace Syndic
            
         }
 
-        private void rd_type_Click(object sender, EventArgs e)
-        {
-            //pnlAfficher();
-        }
+       
 
-        private void rd_type_CheckedChanged_1(object sender, EventArgs e)
-        {
-            
-        }
+     
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -213,9 +217,9 @@ namespace Syndic
             bsBien.Filter = f;
         }
 
-        private void rd_type_CheckedChanged_2(object sender, EventArgs e)
+        private void rd_immeu_CheckedChanged(object sender, EventArgs e)
         {
-            afficherpnl();
+            Affiche();
         }
     }
 }
