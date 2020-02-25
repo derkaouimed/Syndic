@@ -76,6 +76,7 @@
             this.grp_chercher = new System.Windows.Forms.GroupBox();
             this.rd_immeu = new System.Windows.Forms.RadioButton();
             this.rd_nom = new System.Windows.Forms.RadioButton();
+            this.label12 = new System.Windows.Forms.Label();
             this.grp_information.SuspendLayout();
             this.grp_bien.SuspendLayout();
             this.pnl_nom.SuspendLayout();
@@ -337,6 +338,7 @@
             this.lst_bien.Name = "lst_bien";
             this.lst_bien.Size = new System.Drawing.Size(308, 378);
             this.lst_bien.TabIndex = 0;
+            this.lst_bien.SelectedIndexChanged += new System.EventHandler(this.lst_bien_SelectedIndexChanged);
             // 
             // txtid_conteurEau
             // 
@@ -620,12 +622,22 @@
             this.rd_nom.UseVisualStyleBackColor = true;
             this.rd_nom.CheckedChanged += new System.EventHandler(this.rd_immeu_CheckedChanged);
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(347, 603);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(13, 13);
+            this.label12.TabIndex = 81;
+            this.label12.Text = "0";
+            // 
             // Frm_Bien1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(770, 634);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.grp_chercher);
             this.Controls.Add(this.pnl_nom);
             this.Controls.Add(this.pnl_im);
@@ -650,6 +662,7 @@
             this.grp_chercher.ResumeLayout(false);
             this.grp_chercher.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -702,5 +715,6 @@
         private System.Windows.Forms.RadioButton rd_immeu;
         private System.Windows.Forms.RadioButton rd_nom;
         private System.Windows.Forms.TextBox txtid_conteurEau;
+        private System.Windows.Forms.Label label12;
     }
 }

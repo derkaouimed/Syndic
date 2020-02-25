@@ -29,185 +29,239 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Bien_Document_aj));
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btn_close = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.pnl_ajouter = new System.Windows.Forms.Panel();
+            this.btn_vider = new System.Windows.Forms.Button();
+            this.btn_annuler_ajt = new System.Windows.Forms.Button();
+            this.btn_valider_ajt = new System.Windows.Forms.Button();
+            this.pnl_modifier = new System.Windows.Forms.Panel();
+            this.btn_annuler_mod = new System.Windows.Forms.Button();
+            this.btn_valider_mod = new System.Windows.Forms.Button();
+            this.cb_doc = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txt_fich = new System.Windows.Forms.TextBox();
+            this.lbl_chemin = new System.Windows.Forms.Label();
+            this.btn_ficher = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.txt_nom = new System.Windows.Forms.TextBox();
-            this.cmb_bien = new System.Windows.Forms.ComboBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.btn_Recette_valider = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lbl_titre = new System.Windows.Forms.Label();
+            this.pnl_ajouter.SuspendLayout();
+            this.pnl_modifier.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // pnl_ajouter
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.btn_close);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(368, 23);
-            this.panel1.TabIndex = 2;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
+            this.pnl_ajouter.Controls.Add(this.btn_vider);
+            this.pnl_ajouter.Controls.Add(this.btn_annuler_ajt);
+            this.pnl_ajouter.Controls.Add(this.btn_valider_ajt);
+            this.pnl_ajouter.Location = new System.Drawing.Point(65, 307);
+            this.pnl_ajouter.Name = "pnl_ajouter";
+            this.pnl_ajouter.Size = new System.Drawing.Size(432, 61);
+            this.pnl_ajouter.TabIndex = 73;
             // 
-            // button2
+            // btn_vider
             // 
-            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(346, -1);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(22, 24);
-            this.button2.TabIndex = 21;
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btn_vider.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
+            this.btn_vider.FlatAppearance.BorderSize = 0;
+            this.btn_vider.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btn_vider.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_vider.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_vider.ForeColor = System.Drawing.Color.White;
+            this.btn_vider.Location = new System.Drawing.Point(10, 9);
+            this.btn_vider.Name = "btn_vider";
+            this.btn_vider.Size = new System.Drawing.Size(134, 41);
+            this.btn_vider.TabIndex = 3;
+            this.btn_vider.Text = "Vider";
+            this.btn_vider.UseVisualStyleBackColor = false;
+            this.btn_vider.Click += new System.EventHandler(this.btn_vider_Click);
             // 
-            // button1
+            // btn_annuler_ajt
             // 
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(362, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(22, 24);
-            this.button1.TabIndex = 20;
-            this.button1.UseVisualStyleBackColor = true;
+            this.btn_annuler_ajt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
+            this.btn_annuler_ajt.FlatAppearance.BorderSize = 0;
+            this.btn_annuler_ajt.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btn_annuler_ajt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_annuler_ajt.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_annuler_ajt.ForeColor = System.Drawing.Color.White;
+            this.btn_annuler_ajt.Location = new System.Drawing.Point(290, 9);
+            this.btn_annuler_ajt.Name = "btn_annuler_ajt";
+            this.btn_annuler_ajt.Size = new System.Drawing.Size(134, 41);
+            this.btn_annuler_ajt.TabIndex = 5;
+            this.btn_annuler_ajt.Text = "Annuler";
+            this.btn_annuler_ajt.UseVisualStyleBackColor = false;
+            this.btn_annuler_ajt.Click += new System.EventHandler(this.btn_annuler_ajt_Click);
             // 
-            // btn_close
+            // btn_valider_ajt
             // 
-            this.btn_close.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_close.BackgroundImage")));
-            this.btn_close.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_close.FlatAppearance.BorderSize = 0;
-            this.btn_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_close.Location = new System.Drawing.Point(380, -1);
-            this.btn_close.Name = "btn_close";
-            this.btn_close.Size = new System.Drawing.Size(22, 24);
-            this.btn_close.TabIndex = 19;
-            this.btn_close.UseVisualStyleBackColor = true;
+            this.btn_valider_ajt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
+            this.btn_valider_ajt.FlatAppearance.BorderSize = 0;
+            this.btn_valider_ajt.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btn_valider_ajt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_valider_ajt.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_valider_ajt.ForeColor = System.Drawing.Color.White;
+            this.btn_valider_ajt.Location = new System.Drawing.Point(150, 9);
+            this.btn_valider_ajt.Name = "btn_valider_ajt";
+            this.btn_valider_ajt.Size = new System.Drawing.Size(134, 41);
+            this.btn_valider_ajt.TabIndex = 4;
+            this.btn_valider_ajt.Text = "Valider";
+            this.btn_valider_ajt.UseVisualStyleBackColor = false;
+            this.btn_valider_ajt.Click += new System.EventHandler(this.btn_valider_ajt_Click);
             // 
-            // label3
+            // pnl_modifier
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(3, 4);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(0, 16);
-            this.label3.TabIndex = 39;
+            this.pnl_modifier.Controls.Add(this.btn_annuler_mod);
+            this.pnl_modifier.Controls.Add(this.btn_valider_mod);
+            this.pnl_modifier.Location = new System.Drawing.Point(65, 307);
+            this.pnl_modifier.Name = "pnl_modifier";
+            this.pnl_modifier.Size = new System.Drawing.Size(432, 61);
+            this.pnl_modifier.TabIndex = 74;
             // 
-            // label2
+            // btn_annuler_mod
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(51, 240);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(54, 16);
-            this.label2.TabIndex = 41;
-            this.label2.Text = "Fiche :";
+            this.btn_annuler_mod.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
+            this.btn_annuler_mod.FlatAppearance.BorderSize = 0;
+            this.btn_annuler_mod.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btn_annuler_mod.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_annuler_mod.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_annuler_mod.ForeColor = System.Drawing.Color.White;
+            this.btn_annuler_mod.Location = new System.Drawing.Point(229, 9);
+            this.btn_annuler_mod.Name = "btn_annuler_mod";
+            this.btn_annuler_mod.Size = new System.Drawing.Size(134, 41);
+            this.btn_annuler_mod.TabIndex = 7;
+            this.btn_annuler_mod.Text = "Annuler";
+            this.btn_annuler_mod.UseVisualStyleBackColor = false;
+            // 
+            // btn_valider_mod
+            // 
+            this.btn_valider_mod.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
+            this.btn_valider_mod.FlatAppearance.BorderSize = 0;
+            this.btn_valider_mod.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btn_valider_mod.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_valider_mod.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_valider_mod.ForeColor = System.Drawing.Color.White;
+            this.btn_valider_mod.Location = new System.Drawing.Point(64, 9);
+            this.btn_valider_mod.Name = "btn_valider_mod";
+            this.btn_valider_mod.Size = new System.Drawing.Size(134, 41);
+            this.btn_valider_mod.TabIndex = 6;
+            this.btn_valider_mod.Text = "Valider";
+            this.btn_valider_mod.UseVisualStyleBackColor = false;
+            // 
+            // cb_doc
+            // 
+            this.cb_doc.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.cb_doc.FormattingEnabled = true;
+            this.cb_doc.Location = new System.Drawing.Point(227, 154);
+            this.cb_doc.Name = "cb_doc";
+            this.cb_doc.Size = new System.Drawing.Size(302, 29);
+            this.cb_doc.TabIndex = 68;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(51, 176);
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(41, 154);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 16);
-            this.label1.TabIndex = 40;
-            this.label1.Text = " Bien :";
+            this.label1.Size = new System.Drawing.Size(56, 21);
+            this.label1.TabIndex = 76;
+            this.label1.Text = "Bien :";
             // 
-            // label7
+            // lbl_chemin
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label7.Location = new System.Drawing.Point(51, 123);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(48, 16);
-            this.label7.TabIndex = 39;
-            this.label7.Text = "Nom :";
+            this.lbl_chemin.AutoSize = true;
+            this.lbl_chemin.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_chemin.Location = new System.Drawing.Point(279, 221);
+            this.lbl_chemin.Name = "lbl_chemin";
+            this.lbl_chemin.Size = new System.Drawing.Size(0, 19);
+            this.lbl_chemin.TabIndex = 75;
             // 
-            // txt_fich
+            // btn_ficher
             // 
-            this.txt_fich.Location = new System.Drawing.Point(176, 236);
-            this.txt_fich.Name = "txt_fich";
-            this.txt_fich.Size = new System.Drawing.Size(121, 20);
-            this.txt_fich.TabIndex = 38;
+            this.btn_ficher.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
+            this.btn_ficher.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_ficher.BackgroundImage")));
+            this.btn_ficher.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_ficher.FlatAppearance.BorderSize = 0;
+            this.btn_ficher.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btn_ficher.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_ficher.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_ficher.ForeColor = System.Drawing.Color.White;
+            this.btn_ficher.Location = new System.Drawing.Point(227, 215);
+            this.btn_ficher.Name = "btn_ficher";
+            this.btn_ficher.Size = new System.Drawing.Size(44, 29);
+            this.btn_ficher.TabIndex = 70;
+            this.btn_ficher.UseVisualStyleBackColor = false;
+            this.btn_ficher.Click += new System.EventHandler(this.btn_ficher_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(41, 222);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(72, 21);
+            this.label4.TabIndex = 72;
+            this.label4.Text = "Ficher :";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(41, 96);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(162, 21);
+            this.label2.TabIndex = 71;
+            this.label2.Text = "Nom Document :";
             // 
             // txt_nom
             // 
-            this.txt_nom.Location = new System.Drawing.Point(176, 123);
+            this.txt_nom.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_nom.Location = new System.Drawing.Point(227, 96);
             this.txt_nom.Name = "txt_nom";
-            this.txt_nom.Size = new System.Drawing.Size(121, 20);
-            this.txt_nom.TabIndex = 37;
+            this.txt_nom.Size = new System.Drawing.Size(302, 27);
+            this.txt_nom.TabIndex = 67;
             // 
-            // cmb_bien
+            // panel1
             // 
-            this.cmb_bien.FormattingEnabled = true;
-            this.cmb_bien.Location = new System.Drawing.Point(176, 176);
-            this.cmb_bien.Name = "cmb_bien";
-            this.cmb_bien.Size = new System.Drawing.Size(121, 21);
-            this.cmb_bien.TabIndex = 36;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
+            this.panel1.Controls.Add(this.lbl_titre);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(566, 23);
+            this.panel1.TabIndex = 69;
             // 
-            // button3
+            // lbl_titre
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(176, 380);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(121, 38);
-            this.button3.TabIndex = 65;
-            this.button3.Text = "Annuler";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // btn_Recette_valider
-            // 
-            this.btn_Recette_valider.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
-            this.btn_Recette_valider.FlatAppearance.BorderSize = 0;
-            this.btn_Recette_valider.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.btn_Recette_valider.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Recette_valider.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Recette_valider.ForeColor = System.Drawing.Color.White;
-            this.btn_Recette_valider.Location = new System.Drawing.Point(28, 380);
-            this.btn_Recette_valider.Name = "btn_Recette_valider";
-            this.btn_Recette_valider.Size = new System.Drawing.Size(121, 38);
-            this.btn_Recette_valider.TabIndex = 64;
-            this.btn_Recette_valider.Text = "Valider";
-            this.btn_Recette_valider.UseVisualStyleBackColor = false;
-            this.btn_Recette_valider.Click += new System.EventHandler(this.btn_Recette_valider_Click);
+            this.lbl_titre.AutoSize = true;
+            this.lbl_titre.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_titre.ForeColor = System.Drawing.Color.White;
+            this.lbl_titre.Location = new System.Drawing.Point(224, 2);
+            this.lbl_titre.Name = "lbl_titre";
+            this.lbl_titre.Size = new System.Drawing.Size(127, 18);
+            this.lbl_titre.TabIndex = 1;
+            this.lbl_titre.Text = "Ajouter Document";
             // 
             // Frm_Bien_Document_aj
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(368, 446);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.btn_Recette_valider);
-            this.Controls.Add(this.label2);
+            this.ClientSize = new System.Drawing.Size(566, 396);
+            this.Controls.Add(this.pnl_ajouter);
+            this.Controls.Add(this.pnl_modifier);
+            this.Controls.Add(this.cb_doc);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.txt_fich);
+            this.Controls.Add(this.lbl_chemin);
+            this.Controls.Add(this.btn_ficher);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.txt_nom);
-            this.Controls.Add(this.cmb_bien);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Frm_Bien_Document_aj";
             this.Text = "Frm_Bien_Document_aj";
             this.Load += new System.EventHandler(this.Frm_Bien_Document_aj_Load);
+            this.pnl_ajouter.ResumeLayout(false);
+            this.pnl_modifier.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -217,18 +271,21 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button btn_close;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel pnl_ajouter;
+        private System.Windows.Forms.Button btn_vider;
+        private System.Windows.Forms.Button btn_annuler_ajt;
+        private System.Windows.Forms.Button btn_valider_ajt;
+        private System.Windows.Forms.Panel pnl_modifier;
+        private System.Windows.Forms.Button btn_annuler_mod;
+        private System.Windows.Forms.Button btn_valider_mod;
+        private System.Windows.Forms.ComboBox cb_doc;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txt_fich;
+        private System.Windows.Forms.Label lbl_chemin;
+        private System.Windows.Forms.Button btn_ficher;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txt_nom;
-        private System.Windows.Forms.ComboBox cmb_bien;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button btn_Recette_valider;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lbl_titre;
     }
 }

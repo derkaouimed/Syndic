@@ -306,5 +306,15 @@ namespace Syndic
         {
 
         }
+
+        private void cb_type_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dt_grid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

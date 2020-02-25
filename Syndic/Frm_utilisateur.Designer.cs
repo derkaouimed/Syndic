@@ -81,6 +81,7 @@
             this.btn_modifier.TabIndex = 61;
             this.btn_modifier.Text = "Modifier";
             this.btn_modifier.UseVisualStyleBackColor = false;
+            this.btn_modifier.Click += new System.EventHandler(this.btn_ajouter_Click_1);
             // 
             // btn_supprimer
             // 
@@ -96,6 +97,7 @@
             this.btn_supprimer.TabIndex = 60;
             this.btn_supprimer.Text = "Supprimer";
             this.btn_supprimer.UseVisualStyleBackColor = false;
+            this.btn_supprimer.Click += new System.EventHandler(this.btn_ajouter_Click_1);
             // 
             // btn_ajouter
             // 
@@ -111,6 +113,7 @@
             this.btn_ajouter.TabIndex = 59;
             this.btn_ajouter.Text = "Ajouter";
             this.btn_ajouter.UseVisualStyleBackColor = false;
+            this.btn_ajouter.Click += new System.EventHandler(this.btn_ajouter_Click_1);
             // 
             // btn_suivant
             // 
@@ -127,6 +130,7 @@
             this.btn_suivant.Size = new System.Drawing.Size(46, 41);
             this.btn_suivant.TabIndex = 58;
             this.btn_suivant.UseVisualStyleBackColor = false;
+            this.btn_suivant.Click += new System.EventHandler(this.btn_suivant_Click_1);
             // 
             // btn_precedent
             // 
@@ -143,6 +147,7 @@
             this.btn_precedent.Size = new System.Drawing.Size(46, 41);
             this.btn_precedent.TabIndex = 57;
             this.btn_precedent.UseVisualStyleBackColor = false;
+            this.btn_precedent.Click += new System.EventHandler(this.btn_suivant_Click_1);
             // 
             // btn_derniere
             // 
@@ -159,6 +164,7 @@
             this.btn_derniere.Size = new System.Drawing.Size(46, 41);
             this.btn_derniere.TabIndex = 56;
             this.btn_derniere.UseVisualStyleBackColor = false;
+            this.btn_derniere.Click += new System.EventHandler(this.btn_suivant_Click_1);
             // 
             // btn_premier
             // 
@@ -175,6 +181,7 @@
             this.btn_premier.Size = new System.Drawing.Size(46, 41);
             this.btn_premier.TabIndex = 55;
             this.btn_premier.UseVisualStyleBackColor = false;
+            this.btn_premier.Click += new System.EventHandler(this.btn_suivant_Click_1);
             // 
             // cb_rubrique
             // 
