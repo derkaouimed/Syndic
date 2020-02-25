@@ -52,13 +52,14 @@ namespace Syndic
                 catch { }
             }
 
-            string sql = "select * from remarque_cotisation where id_cotisation = " + pos;
+            string sql = "select * from remarque_cotisation where id_cotisation = " + pos+" and archive = 1";
             bsRem = Fonctions.remplirList(lst_Remaques, sql, "remarque_cotisation", "nomremarque", "id_remarque");
 
             txt_nomremarque.DataBindings.Clear();
             txt_remarque.DataBindings.Clear();
             txt_nomremarque.DataBindings.Add("Text", bsRem, "nomremarque");
             txt_remarque.DataBindings.Add("Text", bsRem, "remarque");
+
 
         }
         private void frm_Cotisation_Remarque_Load(object sender, EventArgs e)
@@ -106,9 +107,16 @@ namespace Syndic
                     {
                         if (DialogResult.Yes == MessageBox.Show("Voulez-vous Vraiment Supprimer Cette Remarque ?", "Supprimer", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
                         {
-                            cmd = new SqlCommand("delete from remarque_cotisation where id_remarque = " + lst_Remaques.SelectedValue + "", Fonctions.CnConnection());
-                            cmd.ExecuteNonQuery();
-                            MessageBox.Show("Remarque Supprimer Avec Succces.", "Supprimer", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show(""+lst_Remaques.SelectedValue);
+                            cmd = new SqlCommand("update remarque_cotisation  set archive = 0 where id_remarque = " + lst_Remaques.SelectedValue + "", Fonctions.CnConnection());
+                            int a = -1;
+                            a = cmd.ExecuteNonQuery();
+                            if(a != -1)
+                                MessageBox.Show("Remarque Supprimer Avec Succces.", "Supprimer", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            else
+                            {
+                                MessageBox.Show("Remarque Ne Pas Supprimer !!! ", "Supprimer", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
                             remplirLst();
                         }
                     }
@@ -177,6 +185,26 @@ namespace Syndic
         private void cb_facture_SelectedIndexChanged(object sender, EventArgs e)
         {
             remplirLst();
+        }
+
+        private void txt_chercher_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txt_chercher.Text != "Tapez Nom Pour Chercher")
+                    bsRem.Filter = "nomremarque like '%" + txt_chercher.Text.Replace("'", "''") + "%'";
+                else
+                {
+                    bsRem.Filter = "archive = 1 ";
+                    lst_Remaques.SelectedIndex = 0;
+                }
+
+            }
+            catch
+            {
+                bsRem.Filter = "archive = 1 ";
+                lst_Remaques.SelectedIndex = 0;
+            }
         }
     }
 }

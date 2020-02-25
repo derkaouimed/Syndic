@@ -96,8 +96,23 @@ namespace Syndic
 
         private void frm_Recette_type_FormClosing(object sender, FormClosingEventArgs e)
         {
-            frm_recette_information f = new frm_recette_information("Ajouter",id);
-            f.ShowDialog();
+            //frm_recette_information f = new frm_recette_information("Ajouter",id);
+            //f.ShowDialog();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -229,7 +229,9 @@ namespace Syndic
 
         static public void OuvrirDocument(string chemin)
         {
+            
             System.Diagnostics.Process.Start(chemin);
+
         }
 
     }

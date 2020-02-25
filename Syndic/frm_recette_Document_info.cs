@@ -10,6 +10,7 @@ using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.IO;
 
 namespace Syndic
 {
@@ -80,7 +81,7 @@ namespace Syndic
                 {
                     textBox1.Text = dr2[0].ToString();
                     comboBox1.Text = dr2[2].ToString();
-                    textBox2.Text = dr2[1].ToString();
+                    lbl_chemin.Text = dr2[1].ToString();
                 }
 
                 dr2.Close();
@@ -101,9 +102,14 @@ namespace Syndic
             {
                 if (textBox1.Text != "" && comboBox1.Text != "")
                 {
+                    //cmd = new SqlCommand("insert into document_cotisation values ('" + txt_nom.Text + "','" + lbl_chemin.Text + "'," + cb_fct.SelectedValue + ",1)"); ///*Fonctions.CnConnection()*/);
+                    //cmd.ExecuteNonQuery();
+                    //MessageBox.Show("Document Ajouter Avec Succes.", "Ajouter", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //File.Copy(ch, Application.StartupPath + @"\DocumentFacture\" + name);
+                    
 
-
-                    com22 = new SqlCommand("insert into document_recette values ('" + textBox1.Text.ToString() + "','" + textBox2.Text.ToString() + "'," + comboBox1.Text + ",1)", cn);
+                    com22 = new SqlCommand("insert into document_recette values ('" + textBox1.Text.ToString() + "','" + lbl_chemin.Text.ToString() + "'," + comboBox1.Text + ",1)", cn);
+                    File.Copy(ch, Application.StartupPath + @"\DocumentRecette\" + name);
                     int a = -1;
                     a = com22.ExecuteNonQuery();
                     if (a != -1)
@@ -117,11 +123,11 @@ namespace Syndic
                 }
             }
             else {
-                if (textBox1.Text.ToString() != "" && textBox2.Text.ToString() != "" && comboBox1.Text != "")
+                if (textBox1.Text.ToString() != "" && lbl_chemin.Text.ToString() != "" && comboBox1.Text != "")
                 {
 
 
-                    com = new SqlCommand("update document_recette set nomDocument = '" + textBox1.Text.ToString() + "' , ficher = '" + textBox2.Text.ToString() + "' , id_recette = " + comboBox1.Text.ToString() + " where id_document = " + id, cn);
+                    com = new SqlCommand("update document_recette set nomDocument = '" + textBox1.Text.ToString() + "' , ficher = '" + lbl_chemin.Text.ToString() + "' , id_recette = " + comboBox1.Text.ToString() + " where id_document = " + id, cn);
                     int a = -1;
                     a = com.ExecuteNonQuery();
 
@@ -149,7 +155,7 @@ namespace Syndic
         private void btn_RecetteDocument_Annuler_Click(object sender, EventArgs e)
         {
             textBox1.Text = "";
-            textBox2.Text = "";
+            lbl_chemin.Text = "";
             comboBox1.Text = "";
 
             
@@ -182,6 +188,20 @@ namespace Syndic
 
 
             }
+        }
+        string ch, name;
+        private void btn_ficher_Click(object sender, EventArgs e)
+        {
+
+            OpenFileDialog ofd = new OpenFileDialog();
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                ch = ofd.FileName;
+                name = DateTime.Now.ToString().Replace(":", "").Replace("/", "").Replace(" ", "");
+                name += Path.GetExtension(ch);
+                lbl_chemin.Text = (Application.StartupPath + @"\DocumentRecette\" + name);
+            }
+            MessageBox.Show(lbl_chemin.Text);
         }
     }
 }

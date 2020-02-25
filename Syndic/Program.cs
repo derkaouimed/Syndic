@@ -16,7 +16,7 @@ namespace Syndic
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmDocFacture());
+            Application.Run(new frm_Echeance());
         }
     }
 }

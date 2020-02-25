@@ -101,12 +101,8 @@ namespace Syndic
 
             bsProp.DataSource = ds;
             bsProp.DataMember = "Proprietaire";
-       
             dataGridView1.DataSource = bsProp;
-
-
-
-
+            
 
         }
 
