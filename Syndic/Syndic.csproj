@@ -78,6 +78,12 @@
     <Compile Include="FrmAMArticle.Designer.cs">
       <DependentUpon>FrmAMArticle.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmAMDocEmploye.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAMDocEmploye.Designer.cs">
+      <DependentUpon>FrmAMDocEmploye.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmAMDocFacture.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,11 +114,23 @@
     <Compile Include="FrmArticleStock.Designer.cs">
       <DependentUpon>FrmArticleStock.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmCongeEmploye.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCongeEmploye.Designer.cs">
+      <DependentUpon>FrmCongeEmploye.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmConnexion.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmConnexion.Designer.cs">
       <DependentUpon>FrmConnexion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmContratEmp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmContratEmp.Designer.cs">
+      <DependentUpon>FrmContratEmp.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmDocEmploye.cs">
       <SubType>Form</SubType>
@@ -161,6 +179,12 @@
     </Compile>
     <Compile Include="FrmOublie.Designer.cs">
       <DependentUpon>FrmOublie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRemEmploye.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRemEmploye.Designer.cs">
+      <DependentUpon>FrmRemEmploye.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmRemFacture.cs">
       <SubType>Form</SubType>
@@ -372,6 +396,9 @@
     <EmbeddedResource Include="FrmAMArticle.resx">
       <DependentUpon>FrmAMArticle.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmAMDocEmploye.resx">
+      <DependentUpon>FrmAMDocEmploye.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmAMDocFacture.resx">
       <DependentUpon>FrmAMDocFacture.cs</DependentUpon>
     </EmbeddedResource>
@@ -387,8 +414,14 @@
     <EmbeddedResource Include="FrmArticleStock.resx">
       <DependentUpon>FrmArticleStock.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmCongeEmploye.resx">
+      <DependentUpon>FrmCongeEmploye.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmConnexion.resx">
       <DependentUpon>FrmConnexion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmContratEmp.resx">
+      <DependentUpon>FrmContratEmp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmDocEmploye.resx">
       <DependentUpon>FrmDocEmploye.cs</DependentUpon>
@@ -413,6 +446,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmOublie.resx">
       <DependentUpon>FrmOublie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRemEmploye.resx">
+      <DependentUpon>FrmRemEmploye.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmRemFacture.resx">
       <DependentUpon>FrmRemFacture.cs</DependentUpon>

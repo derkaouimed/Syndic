@@ -144,5 +144,36 @@ namespace Syndic
                     break;
             }
         }
+
+        private void txt_chercher_Enter(object sender, EventArgs e)
+        {
+            Fonctions.textHintEntre(txt_chercher, "Tapez Nom & Prenom POur Chercher");
+        }
+
+        private void txt_chercher_Leave(object sender, EventArgs e)
+        {
+            Fonctions.textHintLeave(txt_chercher, "Tapez Nom & Prenom POur Chercher");
+        }
+
+        private void txt_chercher_TextChanged(object sender, EventArgs e)
+        {
+            if (txt_chercher.Text != "Tapez Nom Et Prenom Pour Chercher")
+            {
+                string nom, prenom;
+                string str = txt_chercher.Text.Replace("'", "''");
+                if (txt_chercher.Text.IndexOf(' ') != -1)
+                {
+                    nom = str.Substring(0, str.IndexOf(' '));
+                    prenom = str.Substring(str.IndexOf(' '), ((Convert.ToInt32(str.Length)) - str.IndexOf(' ')));
+                }
+                else
+                {
+                    nom = str;
+                    prenom = str;
+                }
+
+                bsEmp.Filter = " nom like '%" + nom + "%' or nom like '%" + prenom + "%' or prenom like '%" + nom + "%' or prenom like '%" + prenom + "%'";
+            }
+        }
     }
 }

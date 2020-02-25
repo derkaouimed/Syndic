@@ -15,7 +15,7 @@ namespace Syndic
     public partial class FrmAMDocFacture : Form
     {
         int id;
-        string frm,ch,name;
+        string frm,ch,name,ext;
         SqlCommand cmd;
         SqlDataReader dr;
         BindingSource bsFct;
@@ -78,10 +78,10 @@ namespace Syndic
                 case "btn_valider_ajt":
                     if (txt_nom.Text != "" && lbl_chemin.Text != "" && cb_fct.SelectedIndex != -1)
                     {
-                        cmd = new SqlCommand("insert into document_facture values ('" + txt_nom.Text + "','" + lbl_chemin.Text + "'," + cb_fct.SelectedValue + ",1)", Fonctions.CnConnection());
+                        cmd = new SqlCommand("insert into document_facture values ('" + txt_nom.Text + "','" + (lbl_chemin.Text + ext) + "'," + cb_fct.SelectedValue + ",1)", Fonctions.CnConnection());
                         cmd.ExecuteNonQuery();
                         MessageBox.Show("Document Ajouter Avec Succes.", "Ajouter", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        File.Copy(ch, Application.StartupPath + @"\DocumentFacture\" + name);
+                        File.Copy(ch, Application.StartupPath + @"\DocumentFacture\" + name + ext);
                     }
                     else
                         MessageBox.Show("Remplir Tous Les Champ S'il Vous Plait.", "Remplir", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -100,12 +100,12 @@ namespace Syndic
 
         private void btn_ficher_Click(object sender, EventArgs e)
         {
-
             OpenFileDialog ofd = new OpenFileDialog();
             if (ofd.ShowDialog() == DialogResult.OK)
             {
                 ch = ofd.FileName;
                 name = DateTime.Now.ToString().Replace(":", "").Replace("/", "").Replace(" ","");
+                ext = Path.GetExtension(ofd.FileName);
 
                 lbl_chemin.Text = (Application.StartupPath + @"\DocumentFacture\" + name);
             }

@@ -31,15 +31,15 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Employe));
             this.pnlMenuBar = new System.Windows.Forms.Panel();
             this.pnl_selection = new System.Windows.Forms.Panel();
+            this.pnlDrop = new System.Windows.Forms.Panel();
+            this.btn_repos = new System.Windows.Forms.Button();
+            this.btn_conge = new System.Windows.Forms.Button();
+            this.btn_contrat = new System.Windows.Forms.Button();
             this.btn_remarque = new System.Windows.Forms.Button();
             this.btn_drop = new System.Windows.Forms.Button();
             this.btn_document = new System.Windows.Forms.Button();
             this.btn_employe = new System.Windows.Forms.Button();
             this.pnlForms = new System.Windows.Forms.Panel();
-            this.pnlDrop = new System.Windows.Forms.Panel();
-            this.btn_repos = new System.Windows.Forms.Button();
-            this.btn_absence = new System.Windows.Forms.Button();
-            this.btn_contrat = new System.Windows.Forms.Button();
             this.pnlMenuBar.SuspendLayout();
             this.pnlDrop.SuspendLayout();
             this.SuspendLayout();
@@ -65,6 +65,64 @@
             this.pnl_selection.Name = "pnl_selection";
             this.pnl_selection.Size = new System.Drawing.Size(242, 5);
             this.pnl_selection.TabIndex = 9;
+            // 
+            // pnlDrop
+            // 
+            this.pnlDrop.Controls.Add(this.btn_repos);
+            this.pnlDrop.Controls.Add(this.btn_conge);
+            this.pnlDrop.Controls.Add(this.btn_contrat);
+            this.pnlDrop.Location = new System.Drawing.Point(527, 39);
+            this.pnlDrop.Name = "pnlDrop";
+            this.pnlDrop.Size = new System.Drawing.Size(243, 133);
+            this.pnlDrop.TabIndex = 0;
+            // 
+            // btn_repos
+            // 
+            this.btn_repos.BackColor = System.Drawing.Color.Black;
+            this.btn_repos.FlatAppearance.BorderSize = 0;
+            this.btn_repos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btn_repos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_repos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_repos.ForeColor = System.Drawing.Color.White;
+            this.btn_repos.Location = new System.Drawing.Point(0, 88);
+            this.btn_repos.Name = "btn_repos";
+            this.btn_repos.Size = new System.Drawing.Size(242, 43);
+            this.btn_repos.TabIndex = 11;
+            this.btn_repos.Text = "Les Repos";
+            this.btn_repos.UseVisualStyleBackColor = false;
+            this.btn_repos.Click += new System.EventHandler(this.btn_employe_Click);
+            // 
+            // btn_conge
+            // 
+            this.btn_conge.BackColor = System.Drawing.Color.Black;
+            this.btn_conge.FlatAppearance.BorderSize = 0;
+            this.btn_conge.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btn_conge.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_conge.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_conge.ForeColor = System.Drawing.Color.White;
+            this.btn_conge.Location = new System.Drawing.Point(0, 44);
+            this.btn_conge.Name = "btn_conge";
+            this.btn_conge.Size = new System.Drawing.Size(242, 43);
+            this.btn_conge.TabIndex = 10;
+            this.btn_conge.Text = "Les Conges";
+            this.btn_conge.UseVisualStyleBackColor = false;
+            this.btn_conge.Click += new System.EventHandler(this.btn_employe_Click);
+            // 
+            // btn_contrat
+            // 
+            this.btn_contrat.BackColor = System.Drawing.Color.Black;
+            this.btn_contrat.FlatAppearance.BorderSize = 0;
+            this.btn_contrat.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btn_contrat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_contrat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_contrat.ForeColor = System.Drawing.Color.White;
+            this.btn_contrat.Location = new System.Drawing.Point(0, 0);
+            this.btn_contrat.Name = "btn_contrat";
+            this.btn_contrat.Size = new System.Drawing.Size(242, 43);
+            this.btn_contrat.TabIndex = 9;
+            this.btn_contrat.Text = "Les Contrats";
+            this.btn_contrat.UseVisualStyleBackColor = false;
+            this.btn_contrat.Click += new System.EventHandler(this.btn_employe_Click);
             // 
             // btn_remarque
             // 
@@ -139,64 +197,6 @@
             this.pnlForms.Size = new System.Drawing.Size(770, 634);
             this.pnlForms.TabIndex = 1;
             // 
-            // pnlDrop
-            // 
-            this.pnlDrop.Controls.Add(this.btn_repos);
-            this.pnlDrop.Controls.Add(this.btn_absence);
-            this.pnlDrop.Controls.Add(this.btn_contrat);
-            this.pnlDrop.Location = new System.Drawing.Point(527, 39);
-            this.pnlDrop.Name = "pnlDrop";
-            this.pnlDrop.Size = new System.Drawing.Size(243, 133);
-            this.pnlDrop.TabIndex = 0;
-            // 
-            // btn_repos
-            // 
-            this.btn_repos.BackColor = System.Drawing.Color.Black;
-            this.btn_repos.FlatAppearance.BorderSize = 0;
-            this.btn_repos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.btn_repos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_repos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_repos.ForeColor = System.Drawing.Color.White;
-            this.btn_repos.Location = new System.Drawing.Point(0, 88);
-            this.btn_repos.Name = "btn_repos";
-            this.btn_repos.Size = new System.Drawing.Size(242, 43);
-            this.btn_repos.TabIndex = 11;
-            this.btn_repos.Text = "Les Repos";
-            this.btn_repos.UseVisualStyleBackColor = false;
-            this.btn_repos.Click += new System.EventHandler(this.btn_employe_Click);
-            // 
-            // btn_absence
-            // 
-            this.btn_absence.BackColor = System.Drawing.Color.Black;
-            this.btn_absence.FlatAppearance.BorderSize = 0;
-            this.btn_absence.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.btn_absence.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_absence.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_absence.ForeColor = System.Drawing.Color.White;
-            this.btn_absence.Location = new System.Drawing.Point(0, 44);
-            this.btn_absence.Name = "btn_absence";
-            this.btn_absence.Size = new System.Drawing.Size(242, 43);
-            this.btn_absence.TabIndex = 10;
-            this.btn_absence.Text = "Les Absences";
-            this.btn_absence.UseVisualStyleBackColor = false;
-            this.btn_absence.Click += new System.EventHandler(this.btn_employe_Click);
-            // 
-            // btn_contrat
-            // 
-            this.btn_contrat.BackColor = System.Drawing.Color.Black;
-            this.btn_contrat.FlatAppearance.BorderSize = 0;
-            this.btn_contrat.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.btn_contrat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_contrat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_contrat.ForeColor = System.Drawing.Color.White;
-            this.btn_contrat.Location = new System.Drawing.Point(0, 0);
-            this.btn_contrat.Name = "btn_contrat";
-            this.btn_contrat.Size = new System.Drawing.Size(242, 43);
-            this.btn_contrat.TabIndex = 9;
-            this.btn_contrat.Text = "Les Contrats";
-            this.btn_contrat.UseVisualStyleBackColor = false;
-            this.btn_contrat.Click += new System.EventHandler(this.btn_employe_Click);
-            // 
             // Frm_Employe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -225,7 +225,7 @@
         private System.Windows.Forms.Panel pnlForms;
         private System.Windows.Forms.Panel pnlDrop;
         private System.Windows.Forms.Button btn_repos;
-        private System.Windows.Forms.Button btn_absence;
+        private System.Windows.Forms.Button btn_conge;
         private System.Windows.Forms.Button btn_contrat;
         private System.Windows.Forms.Panel pnl_selection;
     }

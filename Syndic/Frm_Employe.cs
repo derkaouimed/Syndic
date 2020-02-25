@@ -60,24 +60,27 @@ namespace Syndic
             switch (btn.Name)
             {
                 case "btn_employe":
-                    ouvrire(new Frm_Employes());
                     cacher();
+                    ouvrire(new Frm_Employes());
                     pnl_selection.Location = new Point(0, 39);
                     break;
                 case "btn_document":
                     cacher();
+                    ouvrire(new FrmDocEmploye());
                     pnl_selection.Location = new Point(243, 39);
                     break;
                 case "btn_remarque":
                     cacher();
+                    ouvrire(new FrmRemEmploye());
                     pnl_selection.Location = new Point(486, 39);
                     break;
                 case "btn_contrat":
                     btn_drop.PerformClick();
                     pnl_selection.Location = new Point(526, 77);
                     break;
-                case "btn_absence":
+                case "btn_conge":
                     btn_drop.PerformClick();
+                    ouvrire(new FrmCongeEmploye());
                     pnl_selection.Location = new Point(526, 121);
                     break;
                 case "btn_repos":
