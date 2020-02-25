@@ -207,7 +207,7 @@
             this.btn_ficher.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_ficher.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_ficher.ForeColor = System.Drawing.Color.White;
-            this.btn_ficher.Location = new System.Drawing.Point(212, 168);
+            this.btn_ficher.Location = new System.Drawing.Point(210, 168);
             this.btn_ficher.Name = "btn_ficher";
             this.btn_ficher.Size = new System.Drawing.Size(44, 29);
             this.btn_ficher.TabIndex = 69;
