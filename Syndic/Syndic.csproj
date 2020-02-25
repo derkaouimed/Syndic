@@ -174,12 +174,6 @@
     <Compile Include="Frm_Bien1.Designer.cs">
       <DependentUpon>Frm_Bien1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Frm_Bien_Aj.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Frm_Bien_Aj.Designer.cs">
-      <DependentUpon>Frm_Bien_Aj.cs</DependentUpon>
-    </Compile>
     <Compile Include="Frm_Bien_Doc.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -215,6 +209,12 @@
     </Compile>
     <Compile Include="frm_Cotisation.designer.cs">
       <DependentUpon>frm_Cotisation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_cotisationDocument_info.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_cotisationDocument_info.Designer.cs">
+      <DependentUpon>frm_cotisationDocument_info.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_cotisation_Document.cs">
       <SubType>Form</SubType>
@@ -414,9 +414,6 @@
     <EmbeddedResource Include="Frm_Bien1.resx">
       <DependentUpon>Frm_Bien1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Frm_Bien_Aj.resx">
-      <DependentUpon>Frm_Bien_Aj.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Frm_Bien_Doc.resx">
       <DependentUpon>Frm_Bien_Doc.cs</DependentUpon>
     </EmbeddedResource>
@@ -434,6 +431,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_Cotisation.resx">
       <DependentUpon>frm_Cotisation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_cotisationDocument_info.resx">
+      <DependentUpon>frm_cotisationDocument_info.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_cotisation_Document.resx">
       <DependentUpon>frm_cotisation_Document.cs</DependentUpon>

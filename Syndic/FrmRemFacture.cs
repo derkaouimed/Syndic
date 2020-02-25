@@ -63,6 +63,7 @@ namespace Syndic
             remplirLst();
 
             activier(true);
+
         }
 
         private void btn_ajouter_Click(object sender, EventArgs e)

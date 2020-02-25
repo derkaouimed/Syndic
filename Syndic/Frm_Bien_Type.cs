@@ -61,10 +61,7 @@ namespace Syndic
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Close();
-
-            Frm_Bien_Aj ff = new Frm_Bien_Aj("Modifier", id);
-            ff.ShowDialog();
+           
         }
 
         private void panel1_MouseMove(object sender, MouseEventArgs e)
@@ -91,7 +88,9 @@ namespace Syndic
                 a = com.ExecuteNonQuery();
                 if (a != -1)
                 {
-                    MessageBox.Show("Enregistrer");
+                    DialogResult d = MessageBox.Show("Enregistrer", "enregistrer", MessageBoxButtons.OK);
+                    if (DialogResult.OK == d)
+                        this.Close();
                 }
                 else
                 {
@@ -100,9 +99,15 @@ namespace Syndic
             }
             else
             {
-                MessageBox.Show("if faut entre le nom !!!!!");
+                MessageBox.Show("il faut entre le type !!!!!");
             }
            
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = "";
+            this.Close();
         }
     }
 }

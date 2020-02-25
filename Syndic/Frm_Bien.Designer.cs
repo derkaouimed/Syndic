@@ -65,7 +65,7 @@
             this.btn_bien_document.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_bien_document.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_bien_document.ForeColor = System.Drawing.Color.White;
-            this.btn_bien_document.Location = new System.Drawing.Point(514, 0);
+            this.btn_bien_document.Location = new System.Drawing.Point(257, -1);
             this.btn_bien_document.Name = "btn_bien_document";
             this.btn_bien_document.Size = new System.Drawing.Size(257, 43);
             this.btn_bien_document.TabIndex = 3;
@@ -97,7 +97,7 @@
             this.btn_bien_remarque.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_bien_remarque.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_bien_remarque.ForeColor = System.Drawing.Color.White;
-            this.btn_bien_remarque.Location = new System.Drawing.Point(257, -1);
+            this.btn_bien_remarque.Location = new System.Drawing.Point(514, 0);
             this.btn_bien_remarque.Name = "btn_bien_remarque";
             this.btn_bien_remarque.Size = new System.Drawing.Size(257, 43);
             this.btn_bien_remarque.TabIndex = 2;

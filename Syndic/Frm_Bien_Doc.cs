@@ -172,5 +172,15 @@ namespace Syndic
             //txtidDoc.DataBindings.Add("Text", BSdoc, "id_document");
 
         }
+
+        private void grp_fichier_Enter_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_chercher_bien_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

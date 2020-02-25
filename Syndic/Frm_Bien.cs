@@ -38,15 +38,15 @@ namespace Syndic
                 case "btn_bien":
                     pnl_selection.Location = new Point(0, 38);
                     ouvrire(new Frm_Bien1());
+                   
                     break;
                 case "btn_bien_remarque":
-
-                    pnl_selection.Location = new Point(258, 38);
+                    pnl_selection.Location = new Point(514, 38);
                     ouvrire(new Frm_Bien_Remarque());
 
                     break;
                 case "btn_bien_document":
-                    pnl_selection.Location = new Point(514, 38);
+                    pnl_selection.Location = new Point(258, 38);
                     ouvrire(new Frm_Bien_Doc());
                     break;
 
@@ -55,12 +55,13 @@ namespace Syndic
 
         private void pnl_Bien_container_Paint(object sender, PaintEventArgs e)
         {
-
+           
         }
 
         private void Frm_Bien_Load(object sender, EventArgs e)
         {
-            ouvrire(new Frm_Bien1());
+            //ouvrire(new Frm_Bien1());
+            btn_bien.PerformClick();
         }
     }
 }
