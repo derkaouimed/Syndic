@@ -18,7 +18,7 @@ namespace Syndic
     {
 
         int id;
-        string frm, ch, name;
+        string frm, ch, name, ext;
         SqlCommand cmd;
         SqlDataReader dr;
         BindingSource bsFct;
@@ -72,12 +72,7 @@ namespace Syndic
             }
         }
 
-        private void btn_Recette_valider_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn_vider_Click(object sender, EventArgs e)
+        private void btn_vider_Click_1(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
             switch (btn.Name)
@@ -85,7 +80,7 @@ namespace Syndic
                 case "btn_valider_mod":
                     if (txt_nom.Text != "" && lbl_chemin.Text != "" && cb_doc.SelectedIndex != -1)
                     {
-                        cmd = new SqlCommand("update document_facture set nom = '" + txt_nom.Text + "' , fichier = '" + lbl_chemin.Text + "' where id_document = " + id, Fonctions.CnConnection());
+                        cmd = new SqlCommand("update document_bien set nom = '" + txt_nom.Text + "' , fichier = '" + lbl_chemin.Text + "' where id_document = " + id, Fonctions.CnConnection());
                         cmd.ExecuteNonQuery();
                         MessageBox.Show("Document Modifier Avec Succes.", "Modifier", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
@@ -95,10 +90,10 @@ namespace Syndic
                 case "btn_valider_ajt":
                     if (txt_nom.Text != "" && lbl_chemin.Text != "" && cb_doc.SelectedIndex != -1)
                     {
-                        cmd = new SqlCommand("insert into document_facture values ('" + txt_nom.Text + "','" + lbl_chemin.Text + "'," + cb_doc.SelectedValue + ",1)", Fonctions.CnConnection());
+                        cmd = new SqlCommand("insert into document_bien values ('" + txt_nom.Text + "','" + (lbl_chemin.Text + ext) + "'," + cb_doc.SelectedValue + ",1)", Fonctions.CnConnection());
                         cmd.ExecuteNonQuery();
                         MessageBox.Show("Document Ajouter Avec Succes.", "Ajouter", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        File.Copy(ch, Application.StartupPath + @"\DocumentFacture\" + name);
+                        File.Copy(ch, Application.StartupPath + @"\Documentbien\" + name + ext);
                     }
                     else
                         MessageBox.Show("Remplir Tous Les Champ S'il Vous Plait.", "Remplir", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -115,19 +110,12 @@ namespace Syndic
             }
         }
 
-        private void btn_annuler_ajt_Click(object sender, EventArgs e)
+        private void btn_vider_Click(object sender, EventArgs e)
         {
-
+          
         }
 
-        private void btn_valider_ajt_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-        }
+      
 
         private void btn_ficher_Click(object sender, EventArgs e)
         {
@@ -136,6 +124,7 @@ namespace Syndic
             {
                 ch = ofd.FileName;
                 name = DateTime.Now.ToString().Replace(":", "").Replace("/", "").Replace(" ", "");
+                ext = Path.GetExtension(ofd.FileName);
 
                 lbl_chemin.Text = (Application.StartupPath + @"\DocumentBien\" + name);
             }

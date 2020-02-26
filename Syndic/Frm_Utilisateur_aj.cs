@@ -64,8 +64,8 @@ namespace Syndic
             if (label3.Text == "Ajouter")
             {
                 txt_log.Text = "";
-                txt_pas.Text = "";
-                cmb_typ.Text = "";
+               // txt_pas.Text = "";
+                //cmb_typ.Text = "";
             }
             else
                 this.Close();

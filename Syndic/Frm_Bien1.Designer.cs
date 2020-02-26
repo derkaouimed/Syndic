@@ -77,6 +77,9 @@
             this.rd_immeu = new System.Windows.Forms.RadioButton();
             this.rd_nom = new System.Windows.Forms.RadioButton();
             this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.lstConn = new System.Windows.Forms.ListBox();
             this.grp_information.SuspendLayout();
             this.grp_bien.SuspendLayout();
             this.pnl_nom.SuspendLayout();
@@ -322,6 +325,7 @@
             this.grp_bien.Controls.Add(this.btn_derniere);
             this.grp_bien.Controls.Add(this.btn_premiere);
             this.grp_bien.Controls.Add(this.txt_archive);
+            this.grp_bien.Controls.Add(this.lstConn);
             this.grp_bien.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grp_bien.Location = new System.Drawing.Point(14, 156);
             this.grp_bien.Name = "grp_bien";
@@ -547,6 +551,8 @@
             this.pnl_im.Controls.Add(this.btn_chercherType);
             this.pnl_im.Controls.Add(this.cm_ch_im);
             this.pnl_im.Controls.Add(this.cm_et);
+            this.pnl_im.Controls.Add(this.label14);
+            this.pnl_im.Controls.Add(this.label13);
             this.pnl_im.Location = new System.Drawing.Point(14, 81);
             this.pnl_im.Name = "pnl_im";
             this.pnl_im.Size = new System.Drawing.Size(744, 69);
@@ -571,7 +577,7 @@
             // cm_ch_im
             // 
             this.cm_ch_im.FormattingEnabled = true;
-            this.cm_ch_im.Location = new System.Drawing.Point(53, 22);
+            this.cm_ch_im.Location = new System.Drawing.Point(87, 22);
             this.cm_ch_im.Name = "cm_ch_im";
             this.cm_ch_im.Size = new System.Drawing.Size(226, 21);
             this.cm_ch_im.TabIndex = 22;
@@ -579,9 +585,9 @@
             // cm_et
             // 
             this.cm_et.FormattingEnabled = true;
-            this.cm_et.Location = new System.Drawing.Point(351, 22);
+            this.cm_et.Location = new System.Drawing.Point(404, 22);
             this.cm_et.Name = "cm_et";
-            this.cm_et.Size = new System.Drawing.Size(232, 21);
+            this.cm_et.Size = new System.Drawing.Size(188, 21);
             this.cm_et.TabIndex = 22;
             // 
             // grp_chercher
@@ -631,6 +637,35 @@
             this.label12.TabIndex = 81;
             this.label12.Text = "0";
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.label13.Location = new System.Drawing.Point(3, 24);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(86, 19);
+            this.label13.TabIndex = 8;
+            this.label13.Text = "Immeuble :";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.label14.Location = new System.Drawing.Point(340, 24);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(58, 19);
+            this.label14.TabIndex = 8;
+            this.label14.Text = "Etage :";
+            // 
+            // lstConn
+            // 
+            this.lstConn.FormattingEnabled = true;
+            this.lstConn.ItemHeight = 17;
+            this.lstConn.Location = new System.Drawing.Point(6, 34);
+            this.lstConn.Name = "lstConn";
+            this.lstConn.Size = new System.Drawing.Size(308, 378);
+            this.lstConn.TabIndex = 82;
+            // 
             // Frm_Bien1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -659,6 +694,7 @@
             this.pnl_nom.ResumeLayout(false);
             this.pnl_nom.PerformLayout();
             this.pnl_im.ResumeLayout(false);
+            this.pnl_im.PerformLayout();
             this.grp_chercher.ResumeLayout(false);
             this.grp_chercher.PerformLayout();
             this.ResumeLayout(false);
@@ -716,5 +752,8 @@
         private System.Windows.Forms.RadioButton rd_nom;
         private System.Windows.Forms.TextBox txtid_conteurEau;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.ListBox lstConn;
     }
 }

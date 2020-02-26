@@ -75,7 +75,7 @@
             this.btn_modifier.TabIndex = 10;
             this.btn_modifier.Text = "Modifier";
             this.btn_modifier.UseVisualStyleBackColor = false;
-            this.btn_modifier.Click += new System.EventHandler(this.btn_modifier_Click);
+            this.btn_modifier.Click += new System.EventHandler(this.btn_ajouter_Click_1);
             // 
             // btn_supprimer
             // 
@@ -91,7 +91,7 @@
             this.btn_supprimer.TabIndex = 11;
             this.btn_supprimer.Text = "Supprimer";
             this.btn_supprimer.UseVisualStyleBackColor = false;
-            this.btn_supprimer.Click += new System.EventHandler(this.btn_supprimer_Click);
+            this.btn_supprimer.Click += new System.EventHandler(this.btn_ajouter_Click_1);
             // 
             // btn_ajouter
             // 
@@ -107,7 +107,7 @@
             this.btn_ajouter.TabIndex = 9;
             this.btn_ajouter.Text = "Ajouter";
             this.btn_ajouter.UseVisualStyleBackColor = false;
-            this.btn_ajouter.Click += new System.EventHandler(this.btn_ajouter_Click);
+            this.btn_ajouter.Click += new System.EventHandler(this.btn_ajouter_Click_1);
             // 
             // lst_document
             // 
@@ -146,7 +146,6 @@
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Les Bien";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // lst_bien
             // 

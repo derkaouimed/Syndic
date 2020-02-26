@@ -74,7 +74,7 @@
             this.btn_vider.TabIndex = 3;
             this.btn_vider.Text = "Vider";
             this.btn_vider.UseVisualStyleBackColor = false;
-            this.btn_vider.Click += new System.EventHandler(this.btn_vider_Click);
+            this.btn_vider.Click += new System.EventHandler(this.btn_vider_Click_1);
             // 
             // btn_annuler_ajt
             // 
@@ -90,7 +90,7 @@
             this.btn_annuler_ajt.TabIndex = 5;
             this.btn_annuler_ajt.Text = "Annuler";
             this.btn_annuler_ajt.UseVisualStyleBackColor = false;
-            this.btn_annuler_ajt.Click += new System.EventHandler(this.btn_annuler_ajt_Click);
+            this.btn_annuler_ajt.Click += new System.EventHandler(this.btn_vider_Click_1);
             // 
             // btn_valider_ajt
             // 
@@ -106,7 +106,7 @@
             this.btn_valider_ajt.TabIndex = 4;
             this.btn_valider_ajt.Text = "Valider";
             this.btn_valider_ajt.UseVisualStyleBackColor = false;
-            this.btn_valider_ajt.Click += new System.EventHandler(this.btn_valider_ajt_Click);
+            this.btn_valider_ajt.Click += new System.EventHandler(this.btn_vider_Click_1);
             // 
             // pnl_modifier
             // 

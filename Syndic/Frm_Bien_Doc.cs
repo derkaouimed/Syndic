@@ -38,7 +38,7 @@ namespace Syndic
                 dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
-                    lst_document.Items.Add(dr["nom"].ToString());
+                    lst_document.Items.Add(dr["idnom"].ToString());
                 }
                 dr.Close();
                 dr = null;
@@ -57,22 +57,6 @@ namespace Syndic
         }
 
 
-
-
-        private void grp_fichier_Enter_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txt_chercher_bien_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
 
         private void Frm_Bien_Doc_Load(object sender, EventArgs e)
         {
@@ -100,25 +84,7 @@ namespace Syndic
             Fonctions.textHintLeave(txt_chercher_doc, "Tapez ID Ou Nom De Document Pour Chercher");
         }
 
-        private void btn_derniere_Click(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void btn_precedent_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn_suivant_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn_premiere_Click(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void lst_bien_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -133,49 +99,7 @@ namespace Syndic
             Fonctions.OuvrirDocument(chemin);
         }
 
-        private void btn_supprimer_Click(object sender, EventArgs e)
-        {
-            Button btn = (Button)sender;
-            switch (btn.Name)
-            {
-                case "btn_ajouter":
-                    Frm_Bien_Document_aj f = new Frm_Bien_Document_aj(0,"Ajouter");
-                    f.ShowDialog();
-                    remplirDoc();
-                    break;
-                case "btn_modifier":
-                    if (lst_document.SelectedIndex != -1)
-                    {
-                        Frm_Bien_Document_aj fr = new Frm_Bien_Document_aj(GetID(), "Modifier");
-                        fr.ShowDialog();
-                        remplirDoc();
-                    }
-                    else
-                        MessageBox.Show("Selectionner Un Document S'il Vous Plait.", "Selectionner", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    break;
-                case "btn_supprimer":
-                    if (lst_document.Items.Count > 0)
-                    {
-                        if (DialogResult.Yes == MessageBox.Show("Voulez-vous Vraiment Supprimer Ce Document ?", "Supprimer", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
-                        {
-                            cmd = new SqlCommand("update document_bien set archive = 0 where id_document = " + GetID(), Fonctions.CnConnection());
-                            cmd.ExecuteNonQuery();
-                            remplirDoc();
-                        }
-                    }
-                    break;
-            }
-        }
-
-        private void btn_modifier_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn_ajouter_Click(object sender, EventArgs e)
-        {
-
-        }
+      
 
         private void txt_chercher_bien_TextChanged_1(object sender, EventArgs e)
         {
@@ -212,7 +136,7 @@ namespace Syndic
                     }
                     catch
                     {
-                        cmd = new SqlCommand("select concat(id_document,' - ',nom) as idnom from document_facture where archive = 1 and id_facture = " + pos + " and nom like '%" + filt + "%'", Fonctions.CnConnection());
+                        cmd = new SqlCommand("select (id_document+' - '+nom) as idnom from document_facture where archive = 1 and id_facture = " + pos + " and nom like '%" + filt + "%'", Fonctions.CnConnection());
                         dr = cmd.ExecuteReader();
                         while (dr.Read())
                         {
@@ -248,6 +172,41 @@ namespace Syndic
                     bsBien.MoveNext();
                     break;
             }
+        }
+
+        private void btn_ajouter_Click_1(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            switch (btn.Name)
+            {
+                case "btn_ajouter":
+                    Frm_Bien_Document_aj f = new Frm_Bien_Document_aj(0,"Ajouter");
+                    f.ShowDialog();
+                    remplirDoc();
+                    break;
+                case "btn_modifier":
+                    if (lst_document.SelectedIndex != -1)
+                    {
+                        FrmAMDocFacture fr = new FrmAMDocFacture(GetID(), "Modifier");
+                        fr.ShowDialog();
+                        remplirDoc();
+                    }
+                    else
+                        MessageBox.Show("Selectionner Un Document S'il Vous Plait.", "Selectionner", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    break;
+                case "btn_supprimer":
+                    if (lst_document.Items.Count > 0)
+                    {
+                        if (DialogResult.Yes == MessageBox.Show("Voulez-vous Vraiment Supprimer Ce Document ?", "Supprimer", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+                        {
+                            cmd = new SqlCommand("update document_bien set archive = 0 where id_document = " + GetID(), Fonctions.CnConnection());
+                            cmd.ExecuteNonQuery();
+                            remplirDoc();
+                        }
+                    }
+                    break;
+            }
+
         }
     }
 }
