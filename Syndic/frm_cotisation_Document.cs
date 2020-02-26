@@ -65,7 +65,10 @@ namespace Syndic
 
         private void frm_cotisation_Document_Load(object sender, EventArgs e)
         {
-            bsFact = Fonctions.remplirList(lst_cotisation, "Cotisation", "montant", "id_cotisation");
+            string sql2 = "Select distinct Concat(nom,' ',prenom) as nm,c.id_cotisation as id from document_cotisation d join cotisation c on c.id_cotisation = d.id_cotisation join proprietaire p on p.id_proprietaire = c.id_proprietaire where c.archive = 1";
+           
+
+            bsFact = Fonctions.remplirList(lst_cotisation, sql2,"Cotisation", "nm", "id");
             remplirDoc();
         }
 

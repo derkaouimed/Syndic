@@ -64,7 +64,8 @@ namespace Syndic
         }
         private void frm_Cotisation_Remarque_Load(object sender, EventArgs e)
         {
-            bsFac = Fonctions.remplirList(cb_facture,"cotisation", "montant", "id_cotisation");
+            string sql2 = "Select distinct Concat(nom,' ',prenom) as nm,c.id_cotisation as id from remarque_cotisation d join cotisation c on c.id_cotisation = d.id_cotisation join proprietaire p on p.id_proprietaire = c.id_proprietaire where c.archive = 1";
+            bsFac = Fonctions.remplirList(cb_facture,sql2,"cotisation", "nm", "id");
 
             remplirLst();
 

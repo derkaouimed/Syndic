@@ -97,6 +97,7 @@ namespace Syndic
             da = new SqlDataAdapter("Select id_Proprietaire as Num,nom as Nom,prenom as Prenom,adresse as Adresse,code_postale as 'Code Postal',telephone as Telephone,email as Email,nom_ville as Ville from Proprietaire p inner join ville v on v.id_ville = p.id_ville where archive = 1", cn);
             da.Fill(ds, "Proprietaire");
 
+           
             //ds.Tables["Proprietaire"].Columns.RemoveAt(0);
 
             bsProp.DataSource = ds;
