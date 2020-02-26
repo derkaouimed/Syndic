@@ -117,7 +117,7 @@
             this.lst_document.Name = "lst_document";
             this.lst_document.Size = new System.Drawing.Size(425, 466);
             this.lst_document.TabIndex = 7;
-            this.lst_document.SelectedIndexChanged += new System.EventHandler(this.lst_document_SelectedIndexChanged);
+           // this.lst_document.SelectedIndexChanged += new System.EventHandler(this.lst_document_SelectedIndexChanged);
             this.lst_document.DoubleClick += new System.EventHandler(this.lst_document_DoubleClick);
             // 
             // txt_chercher_doc
@@ -147,6 +147,7 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Les Cotisation";
+           // this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // lst_cotisation
             // 

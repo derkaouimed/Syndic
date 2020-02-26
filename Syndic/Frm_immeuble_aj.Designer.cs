@@ -38,8 +38,9 @@
             this.txt_nm = new System.Windows.Forms.TextBox();
             this.btn_immeuble_Annuler = new System.Windows.Forms.Button();
             this.btn_immeuble_valider = new System.Windows.Forms.Button();
-            this.txt_pai = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.rd_anne = new System.Windows.Forms.RadioButton();
+            this.rd_mois = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -81,7 +82,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(74, 194);
+            this.label2.Location = new System.Drawing.Point(84, 214);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(94, 16);
             this.label2.TabIndex = 57;
@@ -91,7 +92,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(74, 136);
+            this.label1.Location = new System.Drawing.Point(84, 142);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(115, 16);
             this.label1.TabIndex = 53;
@@ -99,16 +100,16 @@
             // 
             // txt_tit
             // 
-            this.txt_tit.Location = new System.Drawing.Point(225, 190);
+            this.txt_tit.Location = new System.Drawing.Point(233, 213);
             this.txt_tit.Name = "txt_tit";
-            this.txt_tit.Size = new System.Drawing.Size(162, 20);
+            this.txt_tit.Size = new System.Drawing.Size(197, 20);
             this.txt_tit.TabIndex = 55;
             // 
             // txt_nm
             // 
-            this.txt_nm.Location = new System.Drawing.Point(223, 136);
+            this.txt_nm.Location = new System.Drawing.Point(233, 142);
             this.txt_nm.Name = "txt_nm";
-            this.txt_nm.Size = new System.Drawing.Size(164, 20);
+            this.txt_nm.Size = new System.Drawing.Size(197, 20);
             this.txt_nm.TabIndex = 54;
             // 
             // btn_immeuble_Annuler
@@ -143,29 +144,45 @@
             this.btn_immeuble_valider.UseVisualStyleBackColor = false;
             this.btn_immeuble_valider.Click += new System.EventHandler(this.btn_immeuble_valider_Click);
             // 
-            // txt_pai
-            // 
-            this.txt_pai.Location = new System.Drawing.Point(225, 241);
-            this.txt_pai.Name = "txt_pai";
-            this.txt_pai.Size = new System.Drawing.Size(162, 20);
-            this.txt_pai.TabIndex = 80;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(74, 246);
+            this.label3.Location = new System.Drawing.Point(84, 276);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(68, 16);
             this.label3.TabIndex = 57;
             this.label3.Text = "Paiment :";
+            // 
+            // rd_anne
+            // 
+            this.rd_anne.AutoSize = true;
+            this.rd_anne.Location = new System.Drawing.Point(341, 276);
+            this.rd_anne.Name = "rd_anne";
+            this.rd_anne.Size = new System.Drawing.Size(56, 17);
+            this.rd_anne.TabIndex = 61;
+            this.rd_anne.TabStop = true;
+            this.rd_anne.Text = "Année";
+            this.rd_anne.UseVisualStyleBackColor = true;
+            // 
+            // rd_mois
+            // 
+            this.rd_mois.AutoSize = true;
+            this.rd_mois.Location = new System.Drawing.Point(235, 275);
+            this.rd_mois.Name = "rd_mois";
+            this.rd_mois.Size = new System.Drawing.Size(50, 17);
+            this.rd_mois.TabIndex = 61;
+            this.rd_mois.TabStop = true;
+            this.rd_mois.Text = "Mois ";
+            this.rd_mois.UseVisualStyleBackColor = true;
             // 
             // Frm_immeuble_aj
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(475, 517);
-            this.Controls.Add(this.txt_pai);
+            this.Controls.Add(this.rd_mois);
+            this.Controls.Add(this.rd_anne);
             this.Controls.Add(this.btn_immeuble_Annuler);
             this.Controls.Add(this.btn_immeuble_valider);
             this.Controls.Add(this.panel1);
@@ -196,7 +213,8 @@
         private System.Windows.Forms.Button btn_immeuble_Annuler;
         private System.Windows.Forms.Button btn_immeuble_valider;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txt_pai;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.RadioButton rd_anne;
+        private System.Windows.Forms.RadioButton rd_mois;
     }
 }

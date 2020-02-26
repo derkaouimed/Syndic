@@ -15,9 +15,14 @@ namespace Syndic
 {
     public partial class Frm_Utilisateur_aj : Form
     {
-        public Frm_Utilisateur_aj()
+        string s = "";
+        int id;
+        public Frm_Utilisateur_aj(String _S, int id)
         {
             InitializeComponent();
+            s = _S;
+            this.id = id;
+            label4.Text = _S;
         }
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
@@ -59,8 +64,8 @@ namespace Syndic
             if (label3.Text == "Ajouter")
             {
                 txt_log.Text = "";
-                txt_pas.Text = "";
-                cmb_typ.Text = "";
+               // txt_pas.Text = "";
+                //cmb_typ.Text = "";
             }
             else
                 this.Close();

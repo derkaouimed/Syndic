@@ -220,10 +220,5 @@ namespace Syndic
             
             Fonctions.OuvrirDocument(chemin);
         }
-
-        private void lst_document_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

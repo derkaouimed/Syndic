@@ -37,7 +37,7 @@ namespace Syndic
             switch (btn.Name)
             {
                 case "btn_immeuble_Ajouter":
-                    Frm_immeuble_aj f = new Frm_immeuble_aj("Ajouter",0);
+                    Frm_immeuble_aj f = new Frm_immeuble_aj("Ajouter", 0);
                     f.ShowDialog();
 
                     break;
@@ -48,25 +48,38 @@ namespace Syndic
 
                     break;
                 case "btn_immeuble_Supprimer":
-                    DialogResult d = MessageBox.Show("Supprerimer", "Voulez Vous Supprime cette immeuble ?", MessageBoxButtons.YesNo);
-                    if (DialogResult.Yes == d)
+                    DialogResult d = MessageBox.Show( "Voulez Vous Supprime cette immeuble ?", "Supprerimer", MessageBoxButtons.OKCancel);
+                    if (DialogResult.OK == d)
                     {
-
-
-                        SqlCommand com = new SqlCommand("Update immeuble set archive = 0 where id_immeuble = " + int.Parse(dtG_immeuble.CurrentRow.Cells[0].Value.ToString()), CN);
-                        int a = 0;
-                        a = com.ExecuteNonQuery();
-                        if (a != 0)
+                        SqlCommand com = new SqlCommand("SELECT  archive FROM bien WHERE id_immeuble = " + int.Parse(dtG_immeuble.CurrentRow.Cells[0].Value.ToString()), CN);
+                        SqlDataReader dr = com.ExecuteReader();
+                        int ly = 0;
+                        while (dr.Read())
                         {
-                            MessageBox.Show("Supprimer !!");
 
-                           // dtG_immeuble.Rows.RemoveAt(dtG_immeuble.CurrentRow.Index);
-
+                            if (dr[0].ToString() =="True")
+                                ly = 1;
                         }
-
+                        dr.Close();
+                        dr = null;
+                        if (ly == 1)
+                        {
+                            MessageBox.Show("ne peut pas supprimer cette immeuble car il y a des bien dans cette immeuble !! ", "erreur");
+                        }
                         else
-                            MessageBox.Show("Error de Supprimer !!");
+                        {
+                            com = null;
+                            com = new SqlCommand("Update immeuble set archive = 0 where id_immeuble = " + int.Parse(dtG_immeuble.CurrentRow.Cells[0].Value.ToString()), CN);
+                            int a = 0;
+                            a = com.ExecuteNonQuery();
+                            if (a != 0)
+                            {
+                                MessageBox.Show("Supprimer !!");
+                            }
 
+                            else
+                                MessageBox.Show("Error de Supprimer !!");
+                        }
                     }
 
 
@@ -75,7 +88,7 @@ namespace Syndic
             }
         }
 
-     
+
         private void btn_rechercher_Click(object sender, EventArgs e)
         {
             SqlCommandBuilder com = new SqlCommandBuilder(AD);
@@ -87,6 +100,7 @@ namespace Syndic
         private void Frm_immeuble_Load(object sender, EventArgs e)
         {
             ouvriConnectio();
+
             AD = new SqlDataAdapter("select id_immeuble as [ID] , nom as [Nom immeuble],titrefoncier as[titre foncier],paiment from immeuble  where archive='1' ", CN);
 
             if (!DS.Tables.Contains("immeuble"))
