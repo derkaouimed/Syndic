@@ -73,13 +73,12 @@
             this.btn_chercherType = new System.Windows.Forms.Button();
             this.cm_ch_im = new System.Windows.Forms.ComboBox();
             this.cm_et = new System.Windows.Forms.ComboBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.grp_chercher = new System.Windows.Forms.GroupBox();
             this.rd_immeu = new System.Windows.Forms.RadioButton();
             this.rd_nom = new System.Windows.Forms.RadioButton();
             this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.lstConn = new System.Windows.Forms.ListBox();
             this.grp_information.SuspendLayout();
             this.grp_bien.SuspendLayout();
             this.pnl_nom.SuspendLayout();
@@ -89,6 +88,7 @@
             // 
             // grp_information
             // 
+            this.grp_information.Controls.Add(this.txtid_conteurEau);
             this.grp_information.Controls.Add(this.dt_date);
             this.grp_information.Controls.Add(this.button2);
             this.grp_information.Controls.Add(this.cb_prop);
@@ -135,7 +135,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(341, 205);
+            this.button2.Location = new System.Drawing.Point(341, 204);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(41, 25);
             this.button2.TabIndex = 79;
@@ -318,14 +318,12 @@
             // 
             // grp_bien
             // 
-            this.grp_bien.Controls.Add(this.lst_bien);
-            this.grp_bien.Controls.Add(this.txtid_conteurEau);
             this.grp_bien.Controls.Add(this.btn_suivant);
+            this.grp_bien.Controls.Add(this.lst_bien);
             this.grp_bien.Controls.Add(this.btn_precedent);
             this.grp_bien.Controls.Add(this.btn_derniere);
             this.grp_bien.Controls.Add(this.btn_premiere);
             this.grp_bien.Controls.Add(this.txt_archive);
-            this.grp_bien.Controls.Add(this.lstConn);
             this.grp_bien.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grp_bien.Location = new System.Drawing.Point(14, 156);
             this.grp_bien.Name = "grp_bien";
@@ -338,18 +336,18 @@
             // 
             this.lst_bien.FormattingEnabled = true;
             this.lst_bien.ItemHeight = 17;
-            this.lst_bien.Location = new System.Drawing.Point(6, 34);
+            this.lst_bien.Location = new System.Drawing.Point(8, 28);
             this.lst_bien.Name = "lst_bien";
             this.lst_bien.Size = new System.Drawing.Size(308, 378);
             this.lst_bien.TabIndex = 0;
-            this.lst_bien.SelectedIndexChanged += new System.EventHandler(this.lst_bien_SelectedIndexChanged);
+
             // 
             // txtid_conteurEau
             // 
             this.txtid_conteurEau.Enabled = false;
-            this.txtid_conteurEau.Location = new System.Drawing.Point(212, 173);
+            this.txtid_conteurEau.Location = new System.Drawing.Point(78, 23);
             this.txtid_conteurEau.Name = "txtid_conteurEau";
-            this.txtid_conteurEau.Size = new System.Drawing.Size(11, 24);
+            this.txtid_conteurEau.Size = new System.Drawing.Size(25, 24);
             this.txtid_conteurEau.TabIndex = 81;
             // 
             // btn_suivant
@@ -590,6 +588,26 @@
             this.cm_et.Size = new System.Drawing.Size(188, 21);
             this.cm_et.TabIndex = 22;
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.label14.Location = new System.Drawing.Point(340, 24);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(58, 19);
+            this.label14.TabIndex = 8;
+            this.label14.Text = "Etage :";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.label13.Location = new System.Drawing.Point(3, 24);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(86, 19);
+            this.label13.TabIndex = 8;
+            this.label13.Text = "Immeuble :";
+            // 
             // grp_chercher
             // 
             this.grp_chercher.Controls.Add(this.rd_immeu);
@@ -601,6 +619,7 @@
             this.grp_chercher.TabIndex = 53;
             this.grp_chercher.TabStop = false;
             this.grp_chercher.Text = "Recherche Par :";
+      
             // 
             // rd_immeu
             // 
@@ -636,35 +655,6 @@
             this.label12.Size = new System.Drawing.Size(13, 13);
             this.label12.TabIndex = 81;
             this.label12.Text = "0";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.label13.Location = new System.Drawing.Point(3, 24);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(86, 19);
-            this.label13.TabIndex = 8;
-            this.label13.Text = "Immeuble :";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.label14.Location = new System.Drawing.Point(340, 24);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(58, 19);
-            this.label14.TabIndex = 8;
-            this.label14.Text = "Etage :";
-            // 
-            // lstConn
-            // 
-            this.lstConn.FormattingEnabled = true;
-            this.lstConn.ItemHeight = 17;
-            this.lstConn.Location = new System.Drawing.Point(6, 34);
-            this.lstConn.Name = "lstConn";
-            this.lstConn.Size = new System.Drawing.Size(308, 378);
-            this.lstConn.TabIndex = 82;
             // 
             // Frm_Bien1
             // 
@@ -754,6 +744,5 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.ListBox lstConn;
     }
 }

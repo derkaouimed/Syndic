@@ -100,6 +100,7 @@ namespace Syndic
         private void Frm_immeuble_Load(object sender, EventArgs e)
         {
             ouvriConnectio();
+
             AD = new SqlDataAdapter("select id_immeuble as [ID] , nom as [Nom immeuble],titrefoncier as[titre foncier],paiment from immeuble  where archive='1' ", CN);
 
             if (!DS.Tables.Contains("immeuble"))

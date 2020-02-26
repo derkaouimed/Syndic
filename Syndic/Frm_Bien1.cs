@@ -77,21 +77,18 @@ namespace Syndic
             txt_etage.DataBindings.Add("Text", bsBien, "etage");
             txt_super.DataBindings.Add("Text", bsBien, "superficie");
             txt_charge.DataBindings.Add("Text", bsBien, "charges");
-            txt_foncier.DataBindings.Add("Text", bsBien, "titrefoncier");
-
-            // txtid_conteurEau.DataBindings.Add("Text", bsBien, "id_conteurEau");
-
+            txt_foncier.DataBindings.Add("Text", bsBien, "titrefoncier"); 
+            txtid_conteurEau.DataBindings.Clear();
+            txtid_conteurEau.DataBindings.Add("Text", bsBien, "id_conteurEau");
             txt_consomation.DataBindings.Add("text", bsBien, "consomation");
             dt_date.DataBindings.Add("text", bsBien, "date_controle");
-
-
+            
             txt_archive.DataBindings.Add("Text", bsBien, "archive");
 
             cb_type.DataBindings.Clear();
             cb_immeuble.DataBindings.Clear();
             cb_prop.DataBindings.Clear();
 
-            // bsconteur = Fonctions.remplirList(cb_type, "conteur_eau", "consomation", "id_conteurEau");
 
             bsType = Fonctions.remplirList(cb_type, "type_bien", "nom", "id_type");
             cb_type.DataBindings.Add("SelectedValue", bsBien, "id_type_bien");
@@ -115,37 +112,20 @@ namespace Syndic
         {
             if (rd_nom.Checked)
             {
-                // pnl_im.Visible = false;
+               
                 pnl_nom.Visible = true;
             }
             else
             {
-                //   pnl_im.Visible = true;
+               
                 pnl_nom.Visible = false;
-                //cm_et.Items.Clear();
-                //cmd = new SqlCommand("select etage from bien", Fonctions.CnConnection());
-                //dr = cmd.ExecuteReader();
-                //while (dr.Read())
-                //{
-                //    cm_et.Items.Add(dr[0].ToString());
-                //}
-                //dr.Close();
-                //dr = null;
+              
 
                 Fonctions.remplirList(cm_et, "bien", "etage", "id_bien");
 
-               // cm_ch_im.Items.Clear();
+              
                 Fonctions.remplirList(cm_ch_im, "immeuble", "nom", "id_immeuble");
 
-
-                //    cmd = new SqlCommand("select nom from immeuble", Fonctions.CnConnection());
-                //    dr = cmd.ExecuteReader();
-                //    while (dr.Read())
-                //    {
-                //        cm_ch_im.Items.Add(dr[0].ToString());
-                //    }
-                //    dr.Close();
-                //    dr = null;
 
             }
 
@@ -227,6 +207,7 @@ namespace Syndic
                         com1 = null;
                         com1 = new SqlCommand("Select max(id_conteurEau) from conteur_eau", Fonctions.CnConnection());
                         int idConteur = int.Parse(com1.ExecuteScalar().ToString());
+
                         SqlCommand com = new SqlCommand(" insert into bien values( '" + txt_nom.Text + "' , '"
                        + txt_etage.Text + "' , '" + txt_super.Text + "' , '"
                        + txt_charge.Text + "' , '" + I + "' , '" + T + "' ,  '" + P + "' , '"
@@ -266,17 +247,21 @@ namespace Syndic
                         comP = null;
                         DRP.Close();
 
-                        SqlCommand com = new SqlCommand("update conteur_eau set consomation = '" + txt_consomation.Text + "' , date_controle = '"+dt_date.Value+ "' where id_conteurEau = '" + txtid_conteurEau.Text+"'", Fonctions.CnConnection());
-                       com.ExecuteNonQuery();
-                        com = null;
 
-                        com =new SqlCommand("update bien set NomApparetemnt = '" + txt_nom.Text + "', etage = '"
+
+
+                        SqlCommand com =new SqlCommand("update bien set NomApparetemnt = '" + txt_nom.Text + "', etage = '"
                    + txt_etage.Text + "' , superficie = '" + txt_super.Text
-                   + "' , charges = '" + txt_charge.Text + "' , id_immeuble = '" + I + "', id_type_bien = '"
-                   + T + "', id_proprietaire = '" + P + "', titrefoncier = '" + txt_foncier.Text + "' where id_bien = '" + txt_id.Text+"'", Fonctions.CnConnection());
+                   + "' , charges = '" + Convert.ToDouble( txt_charge.Text) + "' , id_immeuble = '" + I + "', id_type_bien = '"
+                   + T + "', id_proprietaire = '" + P + "', titrefoncier = '" + txt_foncier.Text + "' where id_bien = '" + txt_id.Text+ "'", Fonctions.CnConnection());
                         com.ExecuteNonQuery();
 
-                        //bsBien.EndEdit();
+                        com = null;
+
+                         com = new SqlCommand("update conteur_eau set consomation = '" + txt_consomation.Text + "' , date_controle = GETDATE() where id_conteurEau = '" + txtid_conteurEau.Text + "'", Fonctions.CnConnection());
+                        com.ExecuteNonQuery();
+                       
+
                         rempliBien();
                         lst_bien.SelectedIndex = pos;
                         activer(true);
@@ -348,9 +333,6 @@ namespace Syndic
             Affiche();
         }
 
-        private void lst_bien_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 }
