@@ -77,7 +77,7 @@ namespace Syndic
         {
             Affiche();
             string sqlEmp = "select u.id_utilisateur,u.login,u.password,u.salt,t.nom_type,(e.prenom+' '+e.nom) as [Nom Complete] from utilisateur u inner join type_utilisateur t on t.id_type = u.id_type inner join employe e on e.id_employe = u.id_table where  t.nom_type = 'Employée' and u.archive = 1";
-            string sqlPrp = "select u.id_utilisateur,u.login,u.password,u.salt,t.nom_type,(e.prenom+' '+e.nom) as [Nom Complete] from utilisateur u inner join type_utilisateur t on t.id_type = u.id_type inner join employe e on e.id_employe = u.id_table where  t.nom_type = 'Proprietaire' and u.archive = 1";
+            string sqlPrp = "select u.id_utilisateur,u.login,u.password,u.salt,t.nom_type,(e.prenom+' '+e.nom) as [Nom Complete] from utilisateur u inner join type_utilisateur t on t.id_type = u.id_type inner join proprietaire e on e.id_proprietaire=u.id_table where t.nom_type = 'Proprietaire' and u.archive = 1";
 
             cmd = new SqlCommand(sqlEmp, Fonctions.CnConnection());
             dr = cmd.ExecuteReader();
@@ -87,9 +87,6 @@ namespace Syndic
             }
             dr.Close();
             dr = null;
-
-
-
 
             cmd = new SqlCommand(sqlPrp, Fonctions.CnConnection());
             dr = cmd.ExecuteReader();
@@ -106,25 +103,25 @@ namespace Syndic
             Button btn = (Button)sender;
             switch (btn.Name)
             {
-                case "btn_Bien_Ajouter":
+                case "btn_ajouter":
                     Frm_Utilisateur_aj f = new Frm_Utilisateur_aj("Ajouter", 0);
                     f.ShowDialog();
 
                     break;
-                case "btn_Bien_modifier":
+                case "btn_modifier":
 
                     Frm_Utilisateur_aj ff = new Frm_Utilisateur_aj("Modifier", int.Parse(dt_grid.CurrentRow.Cells[0].Value.ToString()));
                     ff.ShowDialog();
 
 
                     break;
-                case "btn_Bien_Supprimer":
-                    DialogResult d = MessageBox.Show("Voulez Vous Supprime cette Bien ?", "Supprerimer", MessageBoxButtons.YesNo);
+                case "btn_supprimer":
+                    DialogResult d = MessageBox.Show("Voulez Vous Supprime cette utilisateur ?", "Supprerimer", MessageBoxButtons.YesNo);
                     if (DialogResult.OK == d)
                     {
 
 
-                        SqlCommand com = new SqlCommand("Update utilisateur set archive = 0 where id_bien = " + int.Parse(dt_grid.CurrentRow.Cells[0].Value.ToString()), Fonctions.CnConnection());
+                        SqlCommand com = new SqlCommand("Update utilisateur set archive = 0 where id_utilisateur = " + int.Parse(dt_grid.CurrentRow.Cells[0].Value.ToString()), Fonctions.CnConnection());
                         int a = 0;
                         a = com.ExecuteNonQuery();
                         if (a != 0)
@@ -203,7 +200,7 @@ namespace Syndic
             string prenom = txt_chercher.Text.Substring(a, (txt_chercher.Text.Length - a));
             if (prenom == "") prenom = " ";
 
-            string sqlPrp = "select u.id_utilisateur,u.login,u.password,u.salt,t.nom_type,(e.prenom+' '+e.nom) as [Nom Complete] from utilisateur u inner join type_utilisateur t on t.id_type = u.id_type inner join employe e on e.id_employe = u.id_table where  t.nom_type = 'Proprietaire'  and (nom like '%" + nom + "%' or nom like '%" + prenom + "%' or prenom like '%" + nom + "%' or prenom like '%" + prenom + "%')";
+            string sqlPrp = "select u.id_utilisateur,u.login,u.password,u.salt,t.nom_type,(e.prenom+' '+e.nom) as [Nom Complete] from utilisateur u inner join type_utilisateur t on t.id_type = u.id_type inner join proprietaire e on e.id_proprietaire=u.id_table where  t.nom_type = 'Proprietaire'  and (nom like '%" + nom + "%' or nom like '%" + prenom + "%' or prenom like '%" + nom + "%' or prenom like '%" + prenom + "%')";
 
             cmd = new SqlCommand(sqlPrp, Fonctions.CnConnection());
             dr = cmd.ExecuteReader();

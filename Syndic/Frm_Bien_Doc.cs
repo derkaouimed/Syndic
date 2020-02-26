@@ -125,7 +125,7 @@ namespace Syndic
                     string filt = txt_chercher_doc.Text.Replace("'", "''");
                     try
                     {
-                        cmd = new SqlCommand("select concat(id_document,' - ',nom) as idnom from document_bien where archive = 1 and id_bien = " + pos + " and id_document = " + Convert.ToInt32(filt), Fonctions.CnConnection());
+                        cmd = new SqlCommand("select (id_document+' - '+nom) as idnom from document_bien where archive = 1 and id_bien = " + pos + " and id_document = " + Convert.ToInt32(filt), Fonctions.CnConnection());
                         dr = cmd.ExecuteReader();
                         while (dr.Read())
                         {
@@ -136,7 +136,7 @@ namespace Syndic
                     }
                     catch
                     {
-                        cmd = new SqlCommand("select (id_document+' - '+nom) as idnom from document_facture where archive = 1 and id_facture = " + pos + " and nom like '%" + filt + "%'", Fonctions.CnConnection());
+                        cmd = new SqlCommand("select (id_document+' - '+nom) as idnom from document_bien where archive = 1 and id_bien = " + pos + " and nom like '%" + filt + "%'", Fonctions.CnConnection());
                         dr = cmd.ExecuteReader();
                         while (dr.Read())
                         {

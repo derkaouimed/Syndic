@@ -18,8 +18,7 @@ namespace Syndic
         SqlCommand com = new SqlCommand();
         SqlCommand com1 = new SqlCommand();
         SqlDataReader DR1;
-       // SqlCommand comR = new SqlCommand();
-        //SqlDataReader DRR;
+     
         SqlConnection CN = new SqlConnection();
         string s = "";
         int id;

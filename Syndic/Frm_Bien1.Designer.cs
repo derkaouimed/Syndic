@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Bien1));
             this.grp_information = new System.Windows.Forms.GroupBox();
+            this.txtid_conteurEau = new System.Windows.Forms.TextBox();
             this.dt_date = new System.Windows.Forms.DateTimePicker();
             this.button2 = new System.Windows.Forms.Button();
             this.cb_prop = new System.Windows.Forms.ComboBox();
@@ -54,9 +55,8 @@
             this.txt_id = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.grp_bien = new System.Windows.Forms.GroupBox();
-            this.lst_bien = new System.Windows.Forms.ListBox();
-            this.txtid_conteurEau = new System.Windows.Forms.TextBox();
             this.btn_suivant = new System.Windows.Forms.Button();
+            this.lst_bien = new System.Windows.Forms.ListBox();
             this.btn_precedent = new System.Windows.Forms.Button();
             this.btn_derniere = new System.Windows.Forms.Button();
             this.btn_premiere = new System.Windows.Forms.Button();
@@ -88,7 +88,6 @@
             // 
             // grp_information
             // 
-            this.grp_information.Controls.Add(this.txtid_conteurEau);
             this.grp_information.Controls.Add(this.dt_date);
             this.grp_information.Controls.Add(this.button2);
             this.grp_information.Controls.Add(this.cb_prop);
@@ -119,6 +118,14 @@
             this.grp_information.TabIndex = 3;
             this.grp_information.TabStop = false;
             this.grp_information.Text = "Les Informations :";
+            // 
+            // txtid_conteurEau
+            // 
+            this.txtid_conteurEau.Enabled = false;
+            this.txtid_conteurEau.Location = new System.Drawing.Point(198, 103);
+            this.txtid_conteurEau.Name = "txtid_conteurEau";
+            this.txtid_conteurEau.Size = new System.Drawing.Size(25, 24);
+            this.txtid_conteurEau.TabIndex = 81;
             // 
             // dt_date
             // 
@@ -318,8 +325,9 @@
             // 
             // grp_bien
             // 
-            this.grp_bien.Controls.Add(this.btn_suivant);
             this.grp_bien.Controls.Add(this.lst_bien);
+            this.grp_bien.Controls.Add(this.txtid_conteurEau);
+            this.grp_bien.Controls.Add(this.btn_suivant);
             this.grp_bien.Controls.Add(this.btn_precedent);
             this.grp_bien.Controls.Add(this.btn_derniere);
             this.grp_bien.Controls.Add(this.btn_premiere);
@@ -331,24 +339,6 @@
             this.grp_bien.TabIndex = 2;
             this.grp_bien.TabStop = false;
             this.grp_bien.Text = "Tous Les Bien :";
-            // 
-            // lst_bien
-            // 
-            this.lst_bien.FormattingEnabled = true;
-            this.lst_bien.ItemHeight = 17;
-            this.lst_bien.Location = new System.Drawing.Point(8, 28);
-            this.lst_bien.Name = "lst_bien";
-            this.lst_bien.Size = new System.Drawing.Size(308, 378);
-            this.lst_bien.TabIndex = 0;
-
-            // 
-            // txtid_conteurEau
-            // 
-            this.txtid_conteurEau.Enabled = false;
-            this.txtid_conteurEau.Location = new System.Drawing.Point(78, 23);
-            this.txtid_conteurEau.Name = "txtid_conteurEau";
-            this.txtid_conteurEau.Size = new System.Drawing.Size(25, 24);
-            this.txtid_conteurEau.TabIndex = 81;
             // 
             // btn_suivant
             // 
@@ -366,6 +356,15 @@
             this.btn_suivant.TabIndex = 8;
             this.btn_suivant.UseVisualStyleBackColor = false;
             this.btn_suivant.Click += new System.EventHandler(this.btn_suivant_Click);
+            // 
+            // lst_bien
+            // 
+            this.lst_bien.FormattingEnabled = true;
+            this.lst_bien.ItemHeight = 17;
+            this.lst_bien.Location = new System.Drawing.Point(8, 28);
+            this.lst_bien.Name = "lst_bien";
+            this.lst_bien.Size = new System.Drawing.Size(308, 378);
+            this.lst_bien.TabIndex = 0;
             // 
             // btn_precedent
             // 
@@ -619,7 +618,6 @@
             this.grp_chercher.TabIndex = 53;
             this.grp_chercher.TabStop = false;
             this.grp_chercher.Text = "Recherche Par :";
-      
             // 
             // rd_immeu
             // 
@@ -655,6 +653,7 @@
             this.label12.Size = new System.Drawing.Size(13, 13);
             this.label12.TabIndex = 81;
             this.label12.Text = "0";
+            this.label12.Visible = false;
             // 
             // Frm_Bien1
             // 
