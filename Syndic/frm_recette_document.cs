@@ -161,5 +161,30 @@ namespace Syndic
                 }
             }
         }
+
+        SqlCommand cmd;
+        string chemin = "";
+
+        private void dataGridView1_DoubleClick(object sender, EventArgs e)
+        {
+            int id = int.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString());
+            
+            cmd = new SqlCommand("select ficher from document_recette where id_document = " + id, Fonctions.CnConnection());
+            chemin = cmd.ExecuteScalar().ToString();
+            
+            try
+            {
+                Fonctions.OuvrirDocument(chemin);
+            }
+            catch
+            {
+                MessageBox.Show("Error in Opening File");
+            }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

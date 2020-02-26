@@ -76,13 +76,12 @@ namespace Syndic
             }
 
             //remplire type
-           
 
+            BindingSource bscombo = Fonctions.remplirList(cmb_type, "Select * from type_cotisation where archive = 1","type_cotisation", "nomType", "id_type");
+            cmb_type.DataSource = bscombo;
             
             dr.Close();
             
-
-
         }
 
 
@@ -136,24 +135,24 @@ namespace Syndic
            
             
          }
-        int move = 0;
+        //int move = 0;
         private void frm_cotisation_information_MouseMove(object sender, MouseEventArgs e)
         {
-            move++;
-            if (move <= 1 && cmb_type.Text != "")
-            {
-                com22 = new SqlCommand("Select * from type_cotisation where archive = 1", cn);
-                dr2 = com22.ExecuteReader();
-                while (dr2.Read())
-                {
+            //move++;
+            //if (move <= 1 && cmb_type.Text != "")
+            //{
+            //    com22 = new SqlCommand("Select * from type_cotisation where archive = 1", cn);
+            //    dr2 = com22.ExecuteReader();
+            //    while (dr2.Read())
+            //    {
 
-                    cmb_type.Items.Add(dr2[1].ToString());
+            //        cmb_type.Items.Add(dr2[1].ToString());
 
-                }
+            //    }
 
 
-            }
-            dr2.Close();
+            //}
+            ////dr2.Close();
         }
 
         private void frm_cotisation_information_FormClosed(object sender, FormClosedEventArgs e)
@@ -161,6 +160,17 @@ namespace Syndic
             
 
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            Cotisation_type f = new Cotisation_type();
+            f.ShowDialog();
         }
     }
 }

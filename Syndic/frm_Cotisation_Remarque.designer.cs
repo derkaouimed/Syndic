@@ -66,7 +66,7 @@
             this.cb_facture.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cb_facture.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cb_facture.FormattingEnabled = true;
-            this.cb_facture.Location = new System.Drawing.Point(21, 41);
+            this.cb_facture.Location = new System.Drawing.Point(21, 30);
             this.cb_facture.Name = "cb_facture";
             this.cb_facture.Size = new System.Drawing.Size(261, 28);
             this.cb_facture.TabIndex = 1;
@@ -114,6 +114,7 @@
             this.txt_chercher.Size = new System.Drawing.Size(288, 27);
             this.txt_chercher.TabIndex = 3;
             this.txt_chercher.Text = "Tapez Nom Pour Chercher";
+            this.txt_chercher.TextChanged += new System.EventHandler(this.txt_chercher_TextChanged);
             this.txt_chercher.Enter += new System.EventHandler(this.txt_chercher_Enter);
             this.txt_chercher.Leave += new System.EventHandler(this.txt_chercher_Leave);
             // 
@@ -236,10 +237,10 @@
             // grp_facture
             // 
             this.grp_facture.Controls.Add(this.cb_facture);
-            this.grp_facture.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grp_facture.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grp_facture.Location = new System.Drawing.Point(9, 13);
             this.grp_facture.Name = "grp_facture";
-            this.grp_facture.Size = new System.Drawing.Size(301, 100);
+            this.grp_facture.Size = new System.Drawing.Size(301, 75);
             this.grp_facture.TabIndex = 15;
             this.grp_facture.TabStop = false;
             this.grp_facture.Text = "Les cotisation:";
@@ -268,7 +269,7 @@
             this.grp_remarque.Controls.Add(this.txt_chercher);
             this.grp_remarque.Controls.Add(this.btn_premiere);
             this.grp_remarque.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grp_remarque.Location = new System.Drawing.Point(9, 122);
+            this.grp_remarque.Location = new System.Drawing.Point(9, 93);
             this.grp_remarque.Name = "grp_remarque";
             this.grp_remarque.Size = new System.Drawing.Size(301, 499);
             this.grp_remarque.TabIndex = 16;

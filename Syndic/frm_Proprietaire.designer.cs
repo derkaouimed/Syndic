@@ -160,7 +160,7 @@
             this.txt_search.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_search.Location = new System.Drawing.Point(12, 38);
             this.txt_search.Name = "txt_search";
-            this.txt_search.Size = new System.Drawing.Size(487, 29);
+            this.txt_search.Size = new System.Drawing.Size(596, 29);
             this.txt_search.TabIndex = 13;
             this.txt_search.Enter += new System.EventHandler(this.txt_search_Enter);
             this.txt_search.Leave += new System.EventHandler(this.txt_search_Leave);
@@ -173,9 +173,9 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(614, 33);
+            this.button1.Location = new System.Drawing.Point(614, 38);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(144, 34);
+            this.button1.Size = new System.Drawing.Size(144, 29);
             this.button1.TabIndex = 14;
             this.button1.Text = "Rechercher";
             this.button1.UseVisualStyleBackColor = false;

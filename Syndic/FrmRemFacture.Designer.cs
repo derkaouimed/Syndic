@@ -164,7 +164,7 @@
             this.grp_details.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grp_details.Location = new System.Drawing.Point(320, 13);
             this.grp_details.Name = "grp_details";
-            this.grp_details.Size = new System.Drawing.Size(445, 433);
+            this.grp_details.Size = new System.Drawing.Size(445, 483);
             this.grp_details.TabIndex = 9;
             this.grp_details.TabStop = false;
             this.grp_details.Text = "Information De Remarques :";
@@ -200,7 +200,7 @@
             this.txt_remarque.Location = new System.Drawing.Point(7, 133);
             this.txt_remarque.Multiline = true;
             this.txt_remarque.Name = "txt_remarque";
-            this.txt_remarque.Size = new System.Drawing.Size(432, 280);
+            this.txt_remarque.Size = new System.Drawing.Size(432, 330);
             this.txt_remarque.TabIndex = 11;
             // 
             // grp_facture
@@ -233,7 +233,7 @@
             this.btn_modifier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_modifier.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_modifier.ForeColor = System.Drawing.Color.White;
-            this.btn_modifier.Location = new System.Drawing.Point(473, 479);
+            this.btn_modifier.Location = new System.Drawing.Point(471, 513);
             this.btn_modifier.Name = "btn_modifier";
             this.btn_modifier.Size = new System.Drawing.Size(134, 41);
             this.btn_modifier.TabIndex = 13;
@@ -249,7 +249,7 @@
             this.btn_supprimer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_supprimer.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_supprimer.ForeColor = System.Drawing.Color.White;
-            this.btn_supprimer.Location = new System.Drawing.Point(613, 479);
+            this.btn_supprimer.Location = new System.Drawing.Point(611, 513);
             this.btn_supprimer.Name = "btn_supprimer";
             this.btn_supprimer.Size = new System.Drawing.Size(134, 41);
             this.btn_supprimer.TabIndex = 14;
@@ -265,7 +265,7 @@
             this.btn_ajouter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_ajouter.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_ajouter.ForeColor = System.Drawing.Color.White;
-            this.btn_ajouter.Location = new System.Drawing.Point(333, 479);
+            this.btn_ajouter.Location = new System.Drawing.Point(331, 513);
             this.btn_ajouter.Name = "btn_ajouter";
             this.btn_ajouter.Size = new System.Drawing.Size(134, 41);
             this.btn_ajouter.TabIndex = 12;
