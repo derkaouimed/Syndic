@@ -42,7 +42,11 @@ namespace Syndic
 
         private void frm_cotisationDocument_info_Load(object sender, EventArgs e)
         {
-           bsFct = Fonctions.remplirList(cb_fct, "Cotisation", "montant", "id_cotisation");
+            string sql2 = "Select distinct Concat(nom,' ',prenom) as nm,c.id_cotisation as id from document_cotisation d join cotisation c on c.id_cotisation = d.id_cotisation join proprietaire p on p.id_proprietaire = c.id_proprietaire where c.archive = 1";
+
+
+            
+            bsFct = Fonctions.remplirList(cb_fct, sql2,"Cotisation", "nm", "id");
             if (lbl_titre.Text == "Modifier")
             {
                 cmd = new SqlCommand("select * from document_cotisation where id_document = " + id,Fonctions.CnConnection());
