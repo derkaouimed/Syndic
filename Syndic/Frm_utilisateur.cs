@@ -15,10 +15,10 @@ namespace Syndic
 {
     public partial class Frm_utilisateur : Form
     {
-        BindingSource BSimm;
+      //  BindingSource BSimm;
         SqlCommand cmd;
         SqlDataReader dr;
-        SqlDataAdapter AD;
+        //SqlDataAdapter AD;
         int row = 0;
 
         public Frm_utilisateur()
@@ -70,9 +70,7 @@ namespace Syndic
             dr.Close();
             dr = null;
         }
-
-
-
+        
         private void Frm_utilisateur_Load(object sender, EventArgs e)
         {
             Affiche();
