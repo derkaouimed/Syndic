@@ -113,7 +113,6 @@ namespace Syndic
             switch (btn.Name)
             {
                 case "btn_ajouter":
-                   
                     frm_cotisationDocument_info f = new frm_cotisationDocument_info("Ajouter");
                     f.ShowDialog();
                     remplirDoc();
