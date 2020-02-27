@@ -58,6 +58,7 @@
             this.dt_grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dt_grid.ColumnHeadersHeight = 35;
             this.dt_grid.Location = new System.Drawing.Point(12, 73);
+            this.dt_grid.MultiSelect = false;
             this.dt_grid.Name = "dt_grid";
             this.dt_grid.ReadOnly = true;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

@@ -72,6 +72,18 @@
     <Compile Include="FrmAMArticle.Designer.cs">
       <DependentUpon>FrmAMArticle.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmAMConge.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAMConge.Designer.cs">
+      <DependentUpon>FrmAMConge.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAMContract.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAMContract.Designer.cs">
+      <DependentUpon>FrmAMContract.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmAMDocEmploye.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -380,6 +392,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAMArticle.resx">
       <DependentUpon>FrmAMArticle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAMConge.resx">
+      <DependentUpon>FrmAMConge.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAMContract.resx">
+      <DependentUpon>FrmAMContract.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAMDocEmploye.resx">
       <DependentUpon>FrmAMDocEmploye.cs</DependentUpon>

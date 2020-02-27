@@ -22,7 +22,7 @@ namespace Syndic
 
         private void remplirListe()
         {
-            string sql = "select c.id_conge,e.prenom,e.nom,c.date_sortie as 'Date Début',c.date_entree as 'Date Fin' from conge_employe c inner join employe e on e.id_employe = c.id_employe where c.archive = 1";
+            string sql = "select c.id_conge,e.prenom,e.nom,c.date_sortie as 'Date Début',c.date_entree as 'Date Fin',c.id_employe from conge_employe c inner join employe e on e.id_employe = c.id_employe where c.archive = 1";
             bsCon = Fonctions.remplirGrille(dt_grid, sql, "conge_employe");
         }
 
@@ -30,6 +30,7 @@ namespace Syndic
         {
             remplirListe();
             dt_grid.Columns[0].Visible = false;
+            dt_grid.Columns[5].Visible = false;
         }
 
         private void dt_grid_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -113,18 +114,28 @@ namespace Syndic
             switch (btn.Name)
             {
                 case "btn_ajouter":
+                    FrmAMConge f = new FrmAMConge("Ajouter");
+                    f.ShowDialog();
+                    remplirListe();
                     break;
                 case "btn_modifier":
+                    int pos = dt_grid.CurrentRow.Index;
+                    FrmAMConge fr = new FrmAMConge(Convert.ToInt32(dt_grid.CurrentRow.Cells[5].Value), Convert.ToInt32(dt_grid.CurrentRow.Cells[0].Value), "Modifier");
+                    fr.ShowDialog();
+                    remplirListe();
+                    dt_grid.Rows[pos].Cells[1].Selected = true;
                     break;
                 case "btn_supprimer":
                     if (dt_grid.Rows.Count > 0)
                     {
+                        pos = dt_grid.CurrentRow.Index;
                         if (DialogResult.Yes == MessageBox.Show("Voulez-vous Vraiment Supprimer Ce Document ?", "Supprimer", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
                         {
                             cmd = new SqlCommand("update conge_employe set archive = 0 where id_conge = " + dt_grid.CurrentRow.Cells[0].Value, Fonctions.CnConnection());
                             cmd.ExecuteNonQuery();
                             remplirListe();
                         }
+                        dt_grid.Rows[pos - 1].Cells[1].Selected = true;
                     }
                     break;
             }
