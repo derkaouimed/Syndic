@@ -229,6 +229,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(566, 23);
             this.panel1.TabIndex = 69;
+            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             // 
             // lbl_titre
             // 

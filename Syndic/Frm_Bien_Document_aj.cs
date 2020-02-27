@@ -48,7 +48,7 @@ namespace Syndic
 
             bsFct = Fonctions.remplirList(cb_doc, "bien", "NomApparetemnt", "id_bien");
 
-            if (frm == "Modifier")
+            if (frm == "Modifier Document")
             {
                 cmd = new SqlCommand("select * from document_bien where id_document = " + id, Fonctions.CnConnection());
                 dr = cmd.ExecuteReader();
@@ -69,6 +69,15 @@ namespace Syndic
                 pnl_modifier.Visible = false;
                 pnl_ajouter.Visible = true;
                 lbl_titre.Text = "Ajouter Document";
+            }
+        }
+
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == System.Windows.Forms.MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(this.Handle, WM_NCLBUTTONDOWN, new IntPtr(HT_CAPTION), IntPtr.Zero);
             }
         }
 
@@ -104,6 +113,8 @@ namespace Syndic
                     txt_nom.Focus();
                     break;
                 case "btn_annuler_ajt":
+                    this.Close();
+                    break;
                 case "btn_annuler_mod":
                     this.Close();
                     break;

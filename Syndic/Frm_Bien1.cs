@@ -175,99 +175,132 @@ namespace Syndic
 
                     if (label12.Text == "0")
                     {
-                        comT = new SqlCommand("Select id_type from type_bien where nom like '" + cb_type.Text + "'", Fonctions.CnConnection());
-                        DRT = comT.ExecuteReader();
-                        DRT.Read();
-                        int T = int.Parse(DRT[0].ToString());
+                        if (txt_charge.Text != "" && txt_archive.Text != "" && txt_consomation.Text != "" && txt_etage.Text != "" && txt_foncier.Text != "" && txt_nom.Text != "" && txt_super.Text != "")
+                        {
+                            comT = new SqlCommand("Select id_type from type_bien where nom like '" + cb_type.Text + "'", Fonctions.CnConnection());
+                            DRT = comT.ExecuteReader();
+                            DRT.Read();
+                            int T = int.Parse(DRT[0].ToString());
 
-                        comT = null;
-                        DRT.Close();
+                            comT = null;
+                            DRT.Close();
 
-                        comI = new SqlCommand("Select id_immeuble from immeuble where nom like '" + cb_immeuble.Text + "'", Fonctions.CnConnection());
-                        DRI = comI.ExecuteReader();
-                        DRI.Read();
+                            comI = new SqlCommand("Select id_immeuble from immeuble where nom like '" + cb_immeuble.Text + "'", Fonctions.CnConnection());
+                            DRI = comI.ExecuteReader();
+                            DRI.Read();
 
-                        int I = int.Parse(DRI[0].ToString());
+                            int I = int.Parse(DRI[0].ToString());
 
-                        comI = null;
-                        DRI.Close();
+                            comI = null;
+                            DRI.Close();
 
-                        comP = new SqlCommand("Select id_proprietaire from Proprietaire where (prenom+' '+nom)  like'" + cb_prop.Text + "'", Fonctions.CnConnection());
-                        DRP = comP.ExecuteReader();
-                        DRP.Read();
-                        int P = int.Parse(DRP[0].ToString());
+                            comP = new SqlCommand("Select id_proprietaire from Proprietaire where (prenom+' '+nom)  like'" + cb_prop.Text + "'", Fonctions.CnConnection());
+                            DRP = comP.ExecuteReader();
+                            DRP.Read();
+                            int P = int.Parse(DRP[0].ToString());
 
 
-                        comP = null;
-                        DRP.Close();
+                            comP = null;
+                            DRP.Close();
 
-                       
-                        SqlCommand com1 = new SqlCommand("insert into conteur_eau (consomation,date_controle,archive) values (0,GETDATE(),1)", Fonctions.CnConnection());
-                        com1.ExecuteNonQuery();
-                        com1 = null;
-                        com1 = new SqlCommand("Select max(id_conteurEau) from conteur_eau", Fonctions.CnConnection());
-                        int idConteur = int.Parse(com1.ExecuteScalar().ToString());
 
-                        SqlCommand com = new SqlCommand(" insert into bien values( '" + txt_nom.Text + "' , '"
-                       + txt_etage.Text + "' , '" + txt_super.Text + "' , '"
-                       + txt_charge.Text + "' , '" + I + "' , '" + T + "' ,  '" + P + "' , '"
-                       + txt_foncier.Text + "' , '" +idConteur + "' ,'1')", Fonctions.CnConnection());
-                        com.ExecuteNonQuery();
+                            SqlCommand com1 = new SqlCommand("insert into conteur_eau (consomation,date_controle,archive) values (0,GETDATE(),1)", Fonctions.CnConnection());
+                            com1.ExecuteNonQuery();
+                            com1 = null;
+                            com1 = new SqlCommand("Select max(id_conteurEau) from conteur_eau", Fonctions.CnConnection());
+                            int idConteur = int.Parse(com1.ExecuteScalar().ToString());
 
-                        rempliBien();
-                      
+                            SqlCommand com = new SqlCommand(" insert into bien values( '" + txt_nom.Text + "' , '"
+                           + txt_etage.Text + "' , '" + txt_super.Text + "' , '"
+                           + txt_charge.Text + "' , '" + I + "' , '" + T + "' ,  '" + P + "' , '"
+                           + txt_foncier.Text + "' , '" + idConteur + "' ,'1')", Fonctions.CnConnection());
+                            int a = -1;
+                            a = com.ExecuteNonQuery();
+                            if (a != -1)
+                            {
+                                DialogResult d = MessageBox.Show("Enregistrer acev succés ", "Enregistrer", MessageBoxButtons.OK);
+                                if (DialogResult.OK == d)
+                                    rempliBien();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Erreur  !!");
+                            }
+                        
+                        }
+                        else
+                            MessageBox.Show("Remplire Les champs");
+
+
                         activer(true);
                     }
 
                     else
                     {
-                        comT = new SqlCommand("Select id_type from type_bien where nom like '" + cb_type.Text + "'", Fonctions.CnConnection());
-                        DRT = comT.ExecuteReader();
-                        DRT.Read();
-                        int T = int.Parse(DRT[0].ToString());
+                        if (txt_charge.Text != "" && txt_archive.Text != "" && txt_consomation.Text != "" && txt_etage.Text != "" && txt_foncier.Text != "" && txt_nom.Text != "" && txt_super.Text != "")
+                        {
+                            comT = new SqlCommand("Select id_type from type_bien where nom like '" + cb_type.Text + "'", Fonctions.CnConnection());
+                            DRT = comT.ExecuteReader();
+                            DRT.Read();
+                            int T = int.Parse(DRT[0].ToString());
 
-                        comT = null;
-                        DRT.Close();
+                            comT = null;
+                            DRT.Close();
 
-                        comI = new SqlCommand("Select id_immeuble from immeuble where nom like '" + cb_immeuble.Text + "'", Fonctions.CnConnection());
-                        DRI = comI.ExecuteReader();
-                        DRI.Read();
+                            comI = new SqlCommand("Select id_immeuble from immeuble where nom like '" + cb_immeuble.Text + "'", Fonctions.CnConnection());
+                            DRI = comI.ExecuteReader();
+                            DRI.Read();
 
-                        int I = int.Parse(DRI[0].ToString());
+                            int I = int.Parse(DRI[0].ToString());
 
-                        comI = null;
-                        DRI.Close();
+                            comI = null;
+                            DRI.Close();
 
-                        comP = new SqlCommand("Select id_proprietaire from Proprietaire where (prenom+' '+nom) like'" + cb_prop.Text + "'", Fonctions.CnConnection());
-                        DRP = comP.ExecuteReader();
-                        DRP.Read();
-                        int P = int.Parse(DRP[0].ToString());
-
-
-                        comP = null;
-                        DRP.Close();
+                            comP = new SqlCommand("Select id_proprietaire from Proprietaire where (prenom+' '+nom) like'" + cb_prop.Text + "'", Fonctions.CnConnection());
+                            DRP = comP.ExecuteReader();
+                            DRP.Read();
+                            int P = int.Parse(DRP[0].ToString());
 
 
+                            comP = null;
+                            DRP.Close();
 
 
-                        SqlCommand com =new SqlCommand("update bien set NomApparetemnt = '" + txt_nom.Text + "', etage = '"
-                   + txt_etage.Text + "' , superficie = '" + txt_super.Text
-                   + "' , charges = '" + Convert.ToDouble( txt_charge.Text) + "' , id_immeuble = '" + I + "', id_type_bien = '"
-                   + T + "', id_proprietaire = '" + P + "', titrefoncier = '" + txt_foncier.Text + "' where id_bien = '" + txt_id.Text+ "'", Fonctions.CnConnection());
-                        com.ExecuteNonQuery();
 
-                        com = null;
 
-                         com = new SqlCommand("update conteur_eau set consomation = '" + txt_consomation.Text + "' , date_controle = GETDATE() where id_conteurEau = '" + txtid_conteurEau.Text + "'", Fonctions.CnConnection());
-                        com.ExecuteNonQuery();
-                       
+                            SqlCommand com = new SqlCommand("update bien set NomApparetemnt = '" + txt_nom.Text + "', etage = '"
+                       + txt_etage.Text + "' , superficie = '" + txt_super.Text
+                       + "' , charges = '" + Convert.ToDouble(txt_charge.Text) + "' , id_immeuble = '" + I + "', id_type_bien = '"
+                       + T + "', id_proprietaire = '" + P + "', titrefoncier = '" + txt_foncier.Text + "' where id_bien = '" + txt_id.Text + "'", Fonctions.CnConnection());
+                            int f = -1;
+                            f = com.ExecuteNonQuery();
 
-                        rempliBien();
-                        lst_bien.SelectedIndex = pos;
-                        activer(true);
+                            com = null;
+
+                            com = new SqlCommand("update conteur_eau set consomation = '" + txt_consomation.Text + "' , date_controle = GETDATE() where id_conteurEau = '" + txtid_conteurEau.Text + "'", Fonctions.CnConnection());
+                            com.ExecuteNonQuery();
+
+                            if (f != -1)
+                            {
+                                DialogResult d = MessageBox.Show("Modifier avec succès !!", "Modifier", MessageBoxButtons.OK);
+                                if (DialogResult.OK == d)
+                                {
+                                    rempliBien();
+                                    lst_bien.SelectedIndex = pos;
+                                    activer(true);
+                                }
+
+                               
+
+                            }
+                            else
+                            {
+                                MessageBox.Show("Les champs doit être remplir !!! ");
+                            }
+
+                        }
+
                     }
-
-
                     break;
                 case "btn_annuler":
                     bsBien.CancelEdit();
@@ -298,7 +331,7 @@ namespace Syndic
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Frm_Bien_Type f = new Frm_Bien_Type("Modifier", pos);
+            Frm_Bien_Type f = new Frm_Bien_Type("Ajouter type", pos);
             f.ShowDialog();
         }
 

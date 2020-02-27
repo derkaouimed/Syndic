@@ -34,7 +34,7 @@ namespace Syndic
                 { pos = Convert.ToInt32(lst_bien.SelectedValue); }
                 catch { }
 
-                cmd = new SqlCommand("select (id_document+' - '+ nom) as [idnom] from document_bien where archive = 1 and id_bien = " + pos, Fonctions.CnConnection());
+                cmd = new SqlCommand("select cast(id_document as varchar)+' - '+nom as idnom from document_bien where archive = 1 and id_bien = " + pos, Fonctions.CnConnection());
                 dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
@@ -43,11 +43,8 @@ namespace Syndic
                 dr.Close();
                 dr = null;
             }
-
-
-
         }
-        private int GetID()
+             private int GetID()
         {
             string str = lst_document.Text;
 
@@ -55,8 +52,7 @@ namespace Syndic
 
             return id;
         }
-
-
+    
 
         private void Frm_Bien_Doc_Load(object sender, EventArgs e)
         {
@@ -66,12 +62,12 @@ namespace Syndic
 
         private void txt_chercher_Fact_Enter(object sender, EventArgs e)
         {
-            Fonctions.textHintEntre(txt_chercher_bien, "Tapez Designation Pour Chercher");
+            Fonctions.textHintEntre(txt_chercher_bien, "Tapez Nom Pour Chercher");
         }
 
         private void txt_chercher_Fact_Leave(object sender, EventArgs e)
         {
-            Fonctions.textHintLeave(txt_chercher_bien, "Tapez Designation Pour Chercher");
+            Fonctions.textHintLeave(txt_chercher_bien, "Tapez Nom Pour Chercher");
         }
 
         private void txt_chercher_doc_Enter(object sender, EventArgs e)
@@ -93,6 +89,7 @@ namespace Syndic
 
         private void lst_document_DoubleClick(object sender, EventArgs e)
         {
+
             cmd = new SqlCommand("select fichier from document_bien where id_document = " + GetID(), Fonctions.CnConnection());
             string chemin = cmd.ExecuteScalar().ToString();
 
@@ -103,7 +100,7 @@ namespace Syndic
 
         private void txt_chercher_bien_TextChanged_1(object sender, EventArgs e)
         {
-            if (txt_chercher_bien.Text != "Tapez Designation Pour Chercher")
+            if (txt_chercher_bien.Text != "Tapez Nom Pour Chercher")
                 bsBien.Filter = "NomApparetemnt like '%" + txt_chercher_bien.Text.Replace("'", "''") + "%'";
             else
                 bsBien.Filter = "NomApparetemnt like '%%'";
@@ -111,6 +108,7 @@ namespace Syndic
 
         private void txt_chercher_doc_TextChanged(object sender, EventArgs e)
         {
+
             if (txt_chercher_doc.Text != "Tapez ID Ou Nom De Document Pour Chercher")
             {
                 if (lst_bien.Items.Count > 0)
@@ -125,7 +123,7 @@ namespace Syndic
                     string filt = txt_chercher_doc.Text.Replace("'", "''");
                     try
                     {
-                        cmd = new SqlCommand("select (id_document+' - '+nom) as idnom from document_bien where archive = 1 and id_bien = " + pos + " and id_document = " + Convert.ToInt32(filt), Fonctions.CnConnection());
+                        cmd = new SqlCommand("select cast(id_document as varchar)+' - '+nom as idnom from document_bien where archive = 1 and id_bien = " + pos + " and id_document = " + Convert.ToInt32(filt), Fonctions.CnConnection());
                         dr = cmd.ExecuteReader();
                         while (dr.Read())
                         {
@@ -136,7 +134,7 @@ namespace Syndic
                     }
                     catch
                     {
-                        cmd = new SqlCommand("select (id_document+' - '+nom) as idnom from document_bien where archive = 1 and id_bien = " + pos + " and nom like '%" + filt + "%'", Fonctions.CnConnection());
+                        cmd = new SqlCommand("select cast(id_document as varchar)+' - '+nom as idnom from document_bien where archive = 1 and id_bien = " + pos + " and NomApparetemnt like '%" + filt + "%'", Fonctions.CnConnection());
                         dr = cmd.ExecuteReader();
                         while (dr.Read())
                         {
@@ -180,16 +178,16 @@ namespace Syndic
             switch (btn.Name)
             {
                 case "btn_ajouter":
-                    Frm_Bien_Document_aj f = new Frm_Bien_Document_aj(0,"Ajouter");
+                    Frm_Bien_Document_aj f = new Frm_Bien_Document_aj(0, "Ajouter Document");
                     f.ShowDialog();
-                    remplirDoc();
+                    
                     break;
                 case "btn_modifier":
                     if (lst_document.SelectedIndex != -1)
                     {
-                        FrmAMDocFacture fr = new FrmAMDocFacture(GetID(), "Modifier");
+                        Frm_Bien_Document_aj fr = new Frm_Bien_Document_aj(GetID(), "Modifier Document");
                         fr.ShowDialog();
-                        remplirDoc();
+                       
                     }
                     else
                         MessageBox.Show("Selectionner Un Document S'il Vous Plait.", "Selectionner", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -206,6 +204,11 @@ namespace Syndic
                     }
                     break;
             }
+
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
 
         }
     }

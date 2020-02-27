@@ -15,6 +15,7 @@ namespace Syndic
         public Frm_Bien()
         {
             InitializeComponent();
+            btn_bien.PerformClick();
         }
         private void ouvrire(Form frm)
         {
@@ -38,7 +39,6 @@ namespace Syndic
                 case "btn_bien":
                     pnl_selection.Location = new Point(0, 38);
                     ouvrire(new Frm_Bien1());
-                   
                     break;
                 case "btn_bien_remarque":
                     pnl_selection.Location = new Point(514, 38);
@@ -61,7 +61,7 @@ namespace Syndic
         private void Frm_Bien_Load(object sender, EventArgs e)
         {
             //ouvrire(new Frm_Bien1());
-            btn_bien.PerformClick();
+           
         }
     }
 }
