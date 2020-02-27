@@ -107,6 +107,7 @@
             this.button2.TabIndex = 68;
             this.button2.Text = "Annuler";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // btn_Recette_valider
             // 
@@ -122,6 +123,7 @@
             this.btn_Recette_valider.TabIndex = 67;
             this.btn_Recette_valider.Text = "Valider";
             this.btn_Recette_valider.UseVisualStyleBackColor = false;
+            this.btn_Recette_valider.Click += new System.EventHandler(this.btn_Recette_valider_Click);
             // 
             // Frm_utilisateur_type
             // 
@@ -137,6 +139,7 @@
             this.Name = "Frm_utilisateur_type";
             this.Text = "Frm_utilisateur_type";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Frm_utilisateur_type_FormClosing);
+            this.Load += new System.EventHandler(this.Frm_utilisateur_type_Load);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

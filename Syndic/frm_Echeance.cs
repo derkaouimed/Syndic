@@ -18,6 +18,13 @@ namespace Syndic
         SqlDataReader reader;
         SqlConnection cn;
         SqlCommand com;
+
+        SqlCommand comMontant = new SqlCommand();
+        SqlCommand comRecu = new SqlCommand();
+        SqlDataReader readerMontant;
+        SqlDataReader readerAll;
+        SqlDataReader readerRecu;
+
         string sqlQuery="";
         
         string WhoChecked = "";
@@ -55,13 +62,6 @@ namespace Syndic
             com = new SqlCommand(sqlQuery, Fonctions.CnConnection());
             reader = com.ExecuteReader();
 
-            //SqlDataReader reader = com.ExecuteReader();
-            //DataTable table = new DataTable();
-            //table.Load(reader);
-
-            //dataGridView1.DataSource = table;
-
-
             dataGridView1.ColumnCount = 6;
             dataGridView1.Columns[0].Name = "Id";
             dataGridView1.Columns[1].Name = "Mois";
@@ -69,6 +69,15 @@ namespace Syndic
             dataGridView1.Columns[3].Name = "Montant";
             dataGridView1.Columns[4].Name = "Montant Recu";
             dataGridView1.Columns[5].Name = "Bien";
+            /////////////////////////////////
+             com = new SqlCommand("Select montant from Bien",cn);
+            readerMontant = com.ExecuteReader();
+            while (readerMontant.Read())
+            {
+
+            }
+
+
 
             while (reader.Read())
             {

@@ -15,10 +15,8 @@ namespace Syndic
 {
     public partial class Frm_utilisateur : Form
     {
-      //  BindingSource BSimm;
         SqlCommand cmd;
         SqlDataReader dr;
-        //SqlDataAdapter AD;
         int row = 0;
 
         public Frm_utilisateur()
@@ -49,23 +47,26 @@ namespace Syndic
             string sqlEmp = "select u.id_utilisateur,u.login,u.password,u.salt,t.nom_type,(e.prenom+' '+e.nom) as [Nom Complete] from utilisateur u inner join type_utilisateur t on t.id_type = u.id_type inner join employe e on e.id_employe = u.id_table where  t.nom_type = 'Employée' and u.archive = 1";
             cmd = new SqlCommand(sqlEmp, Fonctions.CnConnection());
             dr = cmd.ExecuteReader();
+            dt_grid.Columns[0].Visible = false;
             while (dr.Read())
             {
-                dt_grid.Rows.Add(dr["Nom Complete"].ToString(), dr["login"].ToString(), dr["password"].ToString(), dr["nom_type"].ToString());
+                dt_grid.Rows.Add(dr[0].ToString(), dr[5].ToString(), dr[1].ToString(), dr[2].ToString(), dr[4].ToString());
             }
             dr.Close();
             dr = null;
+
         }
 
         private void remplirGrilutilProp()
         {
-            string sqlPrp = "select u.id_utilisateur,u.login,u.password,u.salt,t.nom_type,(e.prenom+' '+e.nom) as [Nom Complete] from utilisateur u inner join type_utilisateur t on t.id_type = u.id_type inner join employe e on e.id_employe = u.id_table where  t.nom_type = 'Proprietaire' and u.archive = 1";
+            string sqlPrp = "select u.id_utilisateur,u.login,u.password,u.salt,t.nom_type,(e.prenom+' '+e.nom) as [Nom Complete] from utilisateur u inner join type_utilisateur t on t.id_type = u.id_type inner join proprietaire e on e.id_proprietaire=u.id_table where  t.nom_type = 'Proprietaire' and u.archive = 1";
 
             cmd = new SqlCommand(sqlPrp, Fonctions.CnConnection());
             dr = cmd.ExecuteReader();
+            dt_grid.Columns[0].Visible = false;
             while (dr.Read())
             {
-                dt_grid.Rows.Add(dr["Nom Complete"].ToString(), dr["login"].ToString(), dr["password"].ToString(), dr["nom_type"].ToString());
+                dt_grid.Rows.Add(dr[0].ToString(), dr[5].ToString(), dr[1].ToString(), dr[2].ToString(), dr[4].ToString());
             }
             dr.Close();
             dr = null;
@@ -79,18 +80,21 @@ namespace Syndic
 
             cmd = new SqlCommand(sqlEmp, Fonctions.CnConnection());
             dr = cmd.ExecuteReader();
+            dt_grid.Columns[0].Visible = false;
             while (dr.Read())
             {
-                dt_grid.Rows.Add(dr["Nom Complete"].ToString(), dr["login"].ToString(), dr["password"].ToString(), dr["nom_type"].ToString());
+                dt_grid.Rows.Add(dr[0].ToString(), dr[5].ToString(), dr[1].ToString(), dr[2].ToString(), dr[4].ToString());
             }
             dr.Close();
             dr = null;
 
             cmd = new SqlCommand(sqlPrp, Fonctions.CnConnection());
             dr = cmd.ExecuteReader();
+            dt_grid.Columns[0].Visible = false;
             while (dr.Read())
             {
-                dt_grid.Rows.Add(dr["Nom Complete"].ToString(), dr["login"].ToString(), dr["password"].ToString(), dr["nom_type"].ToString());
+                dt_grid.Rows.Add(dr[0].ToString(),dr[5].ToString(), dr[1].ToString(), dr[2].ToString(), dr[4].ToString());
+               
             }
             dr.Close();
             dr = null;
@@ -102,20 +106,20 @@ namespace Syndic
             switch (btn.Name)
             {
                 case "btn_ajouter":
-                    Frm_Utilisateur_aj f = new Frm_Utilisateur_aj("Ajouter", 0);
+                    Frm_Utilisateur_aj f = new Frm_Utilisateur_aj("Ajouter utilisateur", 0);
                     f.ShowDialog();
 
                     break;
                 case "btn_modifier":
 
-                    Frm_Utilisateur_aj ff = new Frm_Utilisateur_aj("Modifier", int.Parse(dt_grid.CurrentRow.Cells[0].Value.ToString()));
+                    Frm_Utilisateur_aj ff = new Frm_Utilisateur_aj("Modifier utilisateur", int.Parse(dt_grid.CurrentRow.Cells[0].Value.ToString()));
                     ff.ShowDialog();
 
 
                     break;
                 case "btn_supprimer":
                     DialogResult d = MessageBox.Show("Voulez Vous Supprime cette utilisateur ?", "Supprerimer", MessageBoxButtons.YesNo);
-                    if (DialogResult.OK == d)
+                    if (DialogResult.Yes == d)
                     {
 
 
@@ -202,9 +206,10 @@ namespace Syndic
 
             cmd = new SqlCommand(sqlPrp, Fonctions.CnConnection());
             dr = cmd.ExecuteReader();
+            dt_grid.Columns[0].Visible = false;
             while (dr.Read())
             {
-                dt_grid.Rows.Add(dr["Nom Complete"].ToString(), dr["login"].ToString(), dr["password"].ToString(), dr["nom_type"].ToString());
+                dt_grid.Rows.Add(dr[0].ToString(),dr[5].ToString(), dr[1].ToString(), dr[2].ToString(), dr[4].ToString());
             }
             dr.Close();
             dr = null;
@@ -212,9 +217,10 @@ namespace Syndic
             string sqlEmp = "select u.id_utilisateur,u.login,u.password,u.salt,t.nom_type,(e.prenom+' '+e.nom) as [Nom Complete] from utilisateur u inner join type_utilisateur t on t.id_type = u.id_type inner join employe e on e.id_employe = u.id_table where  t.nom_type = 'Employée' and (nom like '%" + nom + "%' or nom like '%" + prenom + "%' or prenom like '%" + nom + "%' or prenom like '%" + prenom + "%')";
             cmd = new SqlCommand(sqlEmp, Fonctions.CnConnection());
             dr = cmd.ExecuteReader();
+            dt_grid.Columns[0].Visible = false;
             while (dr.Read())
             {
-                dt_grid.Rows.Add(dr["Nom Complete"].ToString(), dr["login"].ToString(), dr["password"].ToString(), dr["nom_type"].ToString());
+                dt_grid.Rows.Add(dr[0].ToString(),dr[5].ToString(), dr[1].ToString(), dr[2].ToString(), dr[4].ToString());
             }
             dr.Close();
             dr = null;
@@ -239,9 +245,10 @@ namespace Syndic
 
                     cmd = new SqlCommand(sql, Fonctions.CnConnection());
                     dr = cmd.ExecuteReader();
+                    dt_grid.Columns[0].Visible = false;
                     while (dr.Read())
                     {
-                        dt_grid.Rows.Add(dr["Nom Complete"].ToString(), dr["login"].ToString(), dr["password"].ToString(), dr["nom_type"].ToString());
+                        dt_grid.Rows.Add(dr[0].ToString(),dr[5].ToString(), dr[1].ToString(), dr[2].ToString(), dr[4].ToString());
                     }
                     dr.Close();
                     dr = null;
