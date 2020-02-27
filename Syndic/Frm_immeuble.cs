@@ -37,12 +37,12 @@ namespace Syndic
             switch (btn.Name)
             {
                 case "btn_immeuble_Ajouter":
-                    Frm_immeuble_aj f = new Frm_immeuble_aj("Ajouter", 0);
+                    Frm_immeuble_aj f = new Frm_immeuble_aj("Ajouter Immeuble", 0);
                     f.ShowDialog();
 
                     break;
                 case "btn_immeuble_modifier":
-                    Frm_immeuble_aj ff = new Frm_immeuble_aj("Modifier", int.Parse(dtG_immeuble.CurrentRow.Cells[0].Value.ToString()));
+                    Frm_immeuble_aj ff = new Frm_immeuble_aj("Modifier Immeuble", int.Parse(dtG_immeuble.CurrentRow.Cells[0].Value.ToString()));
                     ff.ShowDialog();
 
 

@@ -30,9 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Bien1));
             this.grp_information = new System.Windows.Forms.GroupBox();
-            this.txtid_conteurEau = new System.Windows.Forms.TextBox();
             this.dt_date = new System.Windows.Forms.DateTimePicker();
-            this.button2 = new System.Windows.Forms.Button();
             this.cb_prop = new System.Windows.Forms.ComboBox();
             this.cb_immeuble = new System.Windows.Forms.ComboBox();
             this.cb_type = new System.Windows.Forms.ComboBox();
@@ -54,9 +52,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txt_id = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.txtid_conteurEau = new System.Windows.Forms.TextBox();
             this.grp_bien = new System.Windows.Forms.GroupBox();
-            this.btn_suivant = new System.Windows.Forms.Button();
             this.lst_bien = new System.Windows.Forms.ListBox();
+            this.btn_suivant = new System.Windows.Forms.Button();
             this.btn_precedent = new System.Windows.Forms.Button();
             this.btn_derniere = new System.Windows.Forms.Button();
             this.btn_premiere = new System.Windows.Forms.Button();
@@ -79,6 +78,7 @@
             this.rd_immeu = new System.Windows.Forms.RadioButton();
             this.rd_nom = new System.Windows.Forms.RadioButton();
             this.label12 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.grp_information.SuspendLayout();
             this.grp_bien.SuspendLayout();
             this.pnl_nom.SuspendLayout();
@@ -88,8 +88,8 @@
             // 
             // grp_information
             // 
-            this.grp_information.Controls.Add(this.dt_date);
             this.grp_information.Controls.Add(this.button2);
+            this.grp_information.Controls.Add(this.dt_date);
             this.grp_information.Controls.Add(this.cb_prop);
             this.grp_information.Controls.Add(this.cb_immeuble);
             this.grp_information.Controls.Add(this.cb_type);
@@ -119,36 +119,12 @@
             this.grp_information.TabStop = false;
             this.grp_information.Text = "Les Informations :";
             // 
-            // txtid_conteurEau
-            // 
-            this.txtid_conteurEau.Enabled = false;
-            this.txtid_conteurEau.Location = new System.Drawing.Point(198, 103);
-            this.txtid_conteurEau.Name = "txtid_conteurEau";
-            this.txtid_conteurEau.Size = new System.Drawing.Size(25, 24);
-            this.txtid_conteurEau.TabIndex = 81;
-            // 
             // dt_date
             // 
             this.dt_date.Location = new System.Drawing.Point(125, 340);
             this.dt_date.Name = "dt_date";
             this.dt_date.Size = new System.Drawing.Size(260, 24);
             this.dt_date.TabIndex = 80;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(341, 204);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(41, 25);
-            this.button2.TabIndex = 79;
-            this.button2.Text = "...";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // cb_prop
             // 
@@ -323,6 +299,14 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "ID :";
             // 
+            // txtid_conteurEau
+            // 
+            this.txtid_conteurEau.Enabled = false;
+            this.txtid_conteurEau.Location = new System.Drawing.Point(198, 103);
+            this.txtid_conteurEau.Name = "txtid_conteurEau";
+            this.txtid_conteurEau.Size = new System.Drawing.Size(25, 24);
+            this.txtid_conteurEau.TabIndex = 81;
+            // 
             // grp_bien
             // 
             this.grp_bien.Controls.Add(this.lst_bien);
@@ -340,6 +324,15 @@
             this.grp_bien.TabStop = false;
             this.grp_bien.Text = "Tous Les Bien :";
             // 
+            // lst_bien
+            // 
+            this.lst_bien.FormattingEnabled = true;
+            this.lst_bien.ItemHeight = 17;
+            this.lst_bien.Location = new System.Drawing.Point(8, 28);
+            this.lst_bien.Name = "lst_bien";
+            this.lst_bien.Size = new System.Drawing.Size(308, 378);
+            this.lst_bien.TabIndex = 0;
+            // 
             // btn_suivant
             // 
             this.btn_suivant.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
@@ -356,15 +349,6 @@
             this.btn_suivant.TabIndex = 8;
             this.btn_suivant.UseVisualStyleBackColor = false;
             this.btn_suivant.Click += new System.EventHandler(this.btn_suivant_Click);
-            // 
-            // lst_bien
-            // 
-            this.lst_bien.FormattingEnabled = true;
-            this.lst_bien.ItemHeight = 17;
-            this.lst_bien.Location = new System.Drawing.Point(8, 28);
-            this.lst_bien.Name = "lst_bien";
-            this.lst_bien.Size = new System.Drawing.Size(308, 378);
-            this.lst_bien.TabIndex = 0;
             // 
             // btn_precedent
             // 
@@ -655,11 +639,27 @@
             this.label12.Text = "0";
             this.label12.Visible = false;
             // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(341, 200);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(31, 30);
+            this.button2.TabIndex = 81;
+            this.button2.Text = "+";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // Frm_Bien1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(770, 634);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.grp_chercher);
@@ -724,7 +724,6 @@
         private System.Windows.Forms.Button btn_supprimer;
         private System.Windows.Forms.Button btn_ajouter;
         private System.Windows.Forms.ComboBox cb_prop;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DateTimePicker dt_date;
         private System.Windows.Forms.TextBox txt_consomation;
         private System.Windows.Forms.Label label11;
@@ -743,5 +742,6 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Button button2;
     }
 }

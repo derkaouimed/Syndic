@@ -365,7 +365,5 @@ namespace Syndic
         {
             Affiche();
         }
-
-       
     }
 }

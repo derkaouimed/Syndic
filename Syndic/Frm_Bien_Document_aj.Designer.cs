@@ -68,7 +68,7 @@
             this.btn_vider.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_vider.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_vider.ForeColor = System.Drawing.Color.White;
-            this.btn_vider.Location = new System.Drawing.Point(10, 9);
+            this.btn_vider.Location = new System.Drawing.Point(12, 9);
             this.btn_vider.Name = "btn_vider";
             this.btn_vider.Size = new System.Drawing.Size(134, 41);
             this.btn_vider.TabIndex = 3;
@@ -100,7 +100,7 @@
             this.btn_valider_ajt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_valider_ajt.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_valider_ajt.ForeColor = System.Drawing.Color.White;
-            this.btn_valider_ajt.Location = new System.Drawing.Point(150, 9);
+            this.btn_valider_ajt.Location = new System.Drawing.Point(152, 9);
             this.btn_valider_ajt.Name = "btn_valider_ajt";
             this.btn_valider_ajt.Size = new System.Drawing.Size(134, 41);
             this.btn_valider_ajt.TabIndex = 4;
@@ -131,6 +131,7 @@
             this.btn_annuler_mod.TabIndex = 7;
             this.btn_annuler_mod.Text = "Annuler";
             this.btn_annuler_mod.UseVisualStyleBackColor = false;
+            this.btn_annuler_mod.Click += new System.EventHandler(this.btn_vider_Click_1);
             // 
             // btn_valider_mod
             // 
@@ -146,6 +147,7 @@
             this.btn_valider_mod.TabIndex = 6;
             this.btn_valider_mod.Text = "Valider";
             this.btn_valider_mod.UseVisualStyleBackColor = false;
+            this.btn_valider_mod.Click += new System.EventHandler(this.btn_vider_Click_1);
             // 
             // cb_doc
             // 
