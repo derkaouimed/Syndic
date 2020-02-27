@@ -10,37 +10,25 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace Syndic
 {
     public partial class Frm_Bien_Document_aj : Form
     {
-        SqlDataReader DR;
-        SqlCommand com = new SqlCommand();
-        SqlCommand comI = new SqlCommand();
-        SqlConnection CN = new SqlConnection();
-        SqlDataReader DRT;
-        SqlCommand comT = new SqlCommand();
 
-        string s = "";
         int id;
-
-        public Frm_Bien_Document_aj(string s, int id)
+        string frm, ch, name, ext;
+        SqlCommand cmd;
+        SqlDataReader dr;
+        BindingSource bsFct;
+        public Frm_Bien_Document_aj(int id = 0, string frm = "")
         {
             InitializeComponent();
             this.id = id;
-            this.s = s;
-            label3.Text = s;
+            this.frm = frm;
         }
-        public void ouvrirconnection()
-        {
-            if (CN.State != ConnectionState.Open)
-            {
-                CN.ConnectionString = ConfigurationManager.ConnectionStrings["SyndicCS"].ToString();
-                CN.Open();
-            }
-        }
-
+       
 
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
@@ -57,123 +45,89 @@ namespace Syndic
 
         private void Frm_Bien_Document_aj_Load(object sender, EventArgs e)
         {
-            ouvrirconnection();
-            if (label3.Text == "Modifier")
+
+            bsFct = Fonctions.remplirList(cb_doc, "bien", "NomApparetemnt", "id_bien");
+
+            if (frm == "Modifier")
             {
-                    MessageBox.Show(""+id);
-                if (CN.State != ConnectionState.Open)
-                    CN.Open();
-                com = new SqlCommand("select nom, fichier, b.NomApparetemnt from document_bien d inner join bien b on b.id_bien = d.id_bien where b.id_bien = " + id, CN);
+                cmd = new SqlCommand("select * from document_bien where id_document = " + id, Fonctions.CnConnection());
+                dr = cmd.ExecuteReader();
 
-                DR = com.ExecuteReader();
+                dr.Read();
+                txt_nom.Text = dr["nom"].ToString();
+                lbl_chemin.Text = dr["fichier"].ToString();
 
-                while (DR.Read())
-                {
-                    txt_nom.Text = DR[0].ToString();
-                    txt_fich.Text = DR[1].ToString();
-                    cmb_bien.Text = DR[2].ToString();
-                }
-                DR.Close();
-                com = null;
+                lbl_titre.Text = "Modifier Document";
 
-            }
+                cb_doc.SelectedValue = id;
 
-
-            comT = new SqlCommand("Select NomApparetemnt from bien", CN);
-            DRT = comT.ExecuteReader();
-            while (DRT.Read())
-            {
-                cmb_bien.Items.Add("" + DRT[0].ToString());
-
-            }
-            comT = null;
-            DRT.Close();
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel1_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (e.Button == System.Windows.Forms.MouseButtons.Left)
-            {
-                ReleaseCapture();
-                SendMessage(this.Handle, WM_NCLBUTTONDOWN, new IntPtr(HT_CAPTION), IntPtr.Zero);
-            }
-        }
-
-        private void btn_Recette_valider_Click(object sender, EventArgs e)
-        {
-            if (label3.Text == "Ajouter")
-            {
-                comT = new SqlCommand("Select id_bien from bien where NomApparetemnt like '" + cmb_bien.Text + "'", CN);
-                DRT = comT.ExecuteReader();
-                DRT.Read();
-                int T = int.Parse(DRT[0].ToString());
-
-                comT = null;
-                DRT.Close();
-
-                if (txt_nom.Text != "" && txt_fich.Text != "")
-                {
-
-
-                    comI = new SqlCommand("insert into document_bien values('" + txt_nom.Text + "','" + txt_fich.Text + "','" + T + "','1')", CN);
-                    int a = -1;
-                    a = comI.ExecuteNonQuery();
-                    if (a != -1)
-                    {
-                        MessageBox.Show("Enregistrer !!! ");
-                    }
-                    else
-                    {
-                        MessageBox.Show("not enregistrer !!");
-                    }
-
-                }
-                else
-                    MessageBox.Show("Remplir tous les champs !!!");
-            }
-            else if (label3.Text == "Modifier")
-            {
-                int I = 0;
-                comI = new SqlCommand("Select distinct id_bien from bien where NomApparetemnt like '%" + cmb_bien.Text + "%'", CN);
-                DR = comI.ExecuteReader();
-                DR.Read();
-                I = int.Parse(DR[0].ToString());
-
-                comI = null;
-                DR.Close();
-
-                comI = new SqlCommand("update document_bien set nom = '" + txt_nom.Text + "',fichier = '" + txt_fich.Text + "',id_bien = '" + I + "' where id_bien = " + id, CN);
-                int f = -1;
-                f = comI.ExecuteNonQuery();
-                if (f != -1)
-                {
-                    MessageBox.Show("modifie");
-                }
-                else
-                {
-                    MessageBox.Show("Erreur modifie !!");
-                }
-
-            }
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            if (label3.Text == "Ajouter")
-            {
-                txt_fich.Text = "";
-                txt_nom.Text = "";
-                cmb_bien.Text = "";
+                pnl_ajouter.Visible = false;
+                pnl_modifier.Visible = true;
             }
             else
-                this.Close();
+            {
+                pnl_modifier.Visible = false;
+                pnl_ajouter.Visible = true;
+                lbl_titre.Text = "Ajouter Document";
+            }
+        }
+
+        private void btn_vider_Click_1(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            switch (btn.Name)
+            {
+                case "btn_valider_mod":
+                    if (txt_nom.Text != "" && lbl_chemin.Text != "" && cb_doc.SelectedIndex != -1)
+                    {
+                        cmd = new SqlCommand("update document_bien set nom = '" + txt_nom.Text + "' , fichier = '" + lbl_chemin.Text + "' where id_document = " + id, Fonctions.CnConnection());
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Document Modifier Avec Succes.", "Modifier", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                        MessageBox.Show("Remplir Tous Les Champ S'il Vous Plait.", "Remplir", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    break;
+                case "btn_valider_ajt":
+                    if (txt_nom.Text != "" && lbl_chemin.Text != "" && cb_doc.SelectedIndex != -1)
+                    {
+                        cmd = new SqlCommand("insert into document_bien values ('" + txt_nom.Text + "','" + (lbl_chemin.Text + ext) + "'," + cb_doc.SelectedValue + ",1)", Fonctions.CnConnection());
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Document Ajouter Avec Succes.", "Ajouter", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        File.Copy(ch, Application.StartupPath + @"\Documentbien\" + name + ext);
+                    }
+                    else
+                        MessageBox.Show("Remplir Tous Les Champ S'il Vous Plait.", "Remplir", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    break;
+                case "btn_vider":
+                    txt_nom.Clear();
+                    lbl_chemin.Text = "";
+                    txt_nom.Focus();
+                    break;
+                case "btn_annuler_ajt":
+                case "btn_annuler_mod":
+                    this.Close();
+                    break;
+            }
+        }
+
+        private void btn_vider_Click(object sender, EventArgs e)
+        {
+          
+        }
+
+      
+
+        private void btn_ficher_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                ch = ofd.FileName;
+                name = DateTime.Now.ToString().Replace(":", "").Replace("/", "").Replace(" ", "");
+                ext = Path.GetExtension(ofd.FileName);
+
+                lbl_chemin.Text = (Application.StartupPath + @"\DocumentBien\" + name);
+            }
         }
     }
 }

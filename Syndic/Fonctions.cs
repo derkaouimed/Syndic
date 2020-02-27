@@ -229,7 +229,75 @@ namespace Syndic
 
         static public void OuvrirDocument(string chemin)
         {
+            
             System.Diagnostics.Process.Start(chemin);
+
+        }
+        static public void Sunchronizer(string table)
+        {
+            SqlDataAdapter da = new SqlDataAdapter();
+            SqlCommandBuilder com = new SqlCommandBuilder(da);
+            da.Update(ds.Tables[table]);
+
+        }
+        static public string GiveMeSalt(string _nom,string _prenom)
+        {
+            string Result = "";
+
+            List<string> listNom = new List<string>();
+            List<string> listPrenom = new List<string>();
+
+            int lenght = 0;
+            int max_nom = 0;
+            int max_Prenom = 0;
+
+            if (_nom.Length < _prenom.Length)
+                lenght = _nom.Length;
+            else { lenght = _prenom.Length;
+            }
+
+            if (_nom != "" && _prenom != "" && _nom.Length > 2 && _prenom.Length > 2)
+            {
+                max_nom = _nom.Length;
+                max_Prenom = _prenom.Length;
+                //algo homie
+                for (int i = 0; i < lenght; i++)
+                {
+                    listNom.Add(_nom[i].ToString());
+                    listPrenom.Add(_prenom[i].ToString());
+                }
+
+                //string RandomName = "";
+                //string RandomPrenom = "" ;
+                int randomNumberNom = 0;
+                int randomNumberPrenom = 0;
+                int randomNumbers = 0;
+                Random rNb = new Random();
+                Random r2 = new Random();
+                Random r = new Random();
+                //1 time dude
+                for (int i = 0; i < 2; i++)
+                {
+                    randomNumberNom = r.Next(i, max_nom);
+                    
+                    randomNumberPrenom = r2.Next(i, max_Prenom);
+                    Result += listNom[randomNumberNom].ToString();
+                    Result += listPrenom[randomNumberPrenom].ToString();
+                    randomNumbers = rNb.Next(10, 99);
+                    Result += "" + randomNumbers;
+                    randomNumberNom = 0;
+                    randomNumberPrenom = 0;
+                    randomNumbers = 0;
+                }
+              
+            }
+            else {
+                MessageBox.Show("Nom Ou Prenom Not Siaise Est Le minimum est 3 charactere en nom et prenom");
+
+            }
+
+
+            return Result;
         }
 
     }

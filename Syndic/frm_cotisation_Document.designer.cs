@@ -56,7 +56,7 @@
             this.groupBox2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(316, 9);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(437, 609);
+            this.groupBox2.Size = new System.Drawing.Size(437, 596);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Led Documents :";
@@ -69,7 +69,7 @@
             this.btn_modifier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_modifier.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_modifier.ForeColor = System.Drawing.Color.White;
-            this.btn_modifier.Location = new System.Drawing.Point(151, 555);
+            this.btn_modifier.Location = new System.Drawing.Point(151, 547);
             this.btn_modifier.Name = "btn_modifier";
             this.btn_modifier.Size = new System.Drawing.Size(134, 41);
             this.btn_modifier.TabIndex = 10;
@@ -85,7 +85,7 @@
             this.btn_supprimer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_supprimer.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_supprimer.ForeColor = System.Drawing.Color.White;
-            this.btn_supprimer.Location = new System.Drawing.Point(291, 555);
+            this.btn_supprimer.Location = new System.Drawing.Point(291, 547);
             this.btn_supprimer.Name = "btn_supprimer";
             this.btn_supprimer.Size = new System.Drawing.Size(134, 41);
             this.btn_supprimer.TabIndex = 11;
@@ -101,7 +101,7 @@
             this.btn_ajouter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_ajouter.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_ajouter.ForeColor = System.Drawing.Color.White;
-            this.btn_ajouter.Location = new System.Drawing.Point(11, 555);
+            this.btn_ajouter.Location = new System.Drawing.Point(11, 547);
             this.btn_ajouter.Name = "btn_ajouter";
             this.btn_ajouter.Size = new System.Drawing.Size(134, 41);
             this.btn_ajouter.TabIndex = 9;
@@ -117,6 +117,7 @@
             this.lst_document.Name = "lst_document";
             this.lst_document.Size = new System.Drawing.Size(425, 466);
             this.lst_document.TabIndex = 7;
+           // this.lst_document.SelectedIndexChanged += new System.EventHandler(this.lst_document_SelectedIndexChanged);
             this.lst_document.DoubleClick += new System.EventHandler(this.lst_document_DoubleClick);
             // 
             // txt_chercher_doc
@@ -142,10 +143,11 @@
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(8, 9);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(301, 609);
+            this.groupBox1.Size = new System.Drawing.Size(301, 596);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Les Cotisation";
+           // this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // lst_cotisation
             // 
@@ -169,7 +171,7 @@
             this.btn_suivant.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_suivant.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_suivant.ForeColor = System.Drawing.Color.White;
-            this.btn_suivant.Location = new System.Drawing.Point(187, 555);
+            this.btn_suivant.Location = new System.Drawing.Point(187, 546);
             this.btn_suivant.Name = "btn_suivant";
             this.btn_suivant.Size = new System.Drawing.Size(46, 41);
             this.btn_suivant.TabIndex = 4;
@@ -186,7 +188,7 @@
             this.btn_precedent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_precedent.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_precedent.ForeColor = System.Drawing.Color.White;
-            this.btn_precedent.Location = new System.Drawing.Point(68, 555);
+            this.btn_precedent.Location = new System.Drawing.Point(68, 546);
             this.btn_precedent.Name = "btn_precedent";
             this.btn_precedent.Size = new System.Drawing.Size(46, 41);
             this.btn_precedent.TabIndex = 3;
@@ -203,7 +205,7 @@
             this.btn_derniere.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_derniere.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_derniere.ForeColor = System.Drawing.Color.White;
-            this.btn_derniere.Location = new System.Drawing.Point(239, 555);
+            this.btn_derniere.Location = new System.Drawing.Point(239, 546);
             this.btn_derniere.Name = "btn_derniere";
             this.btn_derniere.Size = new System.Drawing.Size(46, 41);
             this.btn_derniere.TabIndex = 5;
@@ -230,7 +232,7 @@
             this.btn_premiere.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_premiere.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_premiere.ForeColor = System.Drawing.Color.White;
-            this.btn_premiere.Location = new System.Drawing.Point(16, 555);
+            this.btn_premiere.Location = new System.Drawing.Point(16, 546);
             this.btn_premiere.Name = "btn_premiere";
             this.btn_premiere.Size = new System.Drawing.Size(46, 41);
             this.btn_premiere.TabIndex = 2;

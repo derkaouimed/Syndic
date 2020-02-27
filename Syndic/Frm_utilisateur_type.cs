@@ -43,8 +43,7 @@ namespace Syndic
 
         private void Frm_utilisateur_type_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Frm_Utilisateur_aj f = new Frm_Utilisateur_aj();
-            f.ShowDialog();
+           
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)

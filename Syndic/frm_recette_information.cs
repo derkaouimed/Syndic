@@ -102,9 +102,8 @@ namespace Syndic
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            frm_Recette_type f = new frm_Recette_type("Modifier",id);
-            f.ShowDialog();
+            
+           
         }
         SqlCommand com2 = new SqlCommand();
         //SqlDataReader dr2;
@@ -195,6 +194,12 @@ namespace Syndic
 
 
             }
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            frm_Recette_type f = new frm_Recette_type("Modifier", id);
+            f.ShowDialog();
         }
     }
 }

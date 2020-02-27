@@ -15,9 +15,15 @@ namespace Syndic
 {
     public partial class Frm_Utilisateur_aj : Form
     {
-        public Frm_Utilisateur_aj()
+        string s = "";
+        int id;
+        SqlDataReader dr;
+        public Frm_Utilisateur_aj(String _S, int id)
         {
             InitializeComponent();
+            s = _S;
+            this.id = id;
+            label4.Text = _S;
         }
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
@@ -37,10 +43,7 @@ namespace Syndic
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+      
 
         private void button3_Click(object sender, EventArgs e)
         {
@@ -51,19 +54,87 @@ namespace Syndic
 
         private void Frm_Utilisateur_aj_Load(object sender, EventArgs e)
         {
+            Fonctions.ouvrireConnection();
+            if (lbl_titre.Text == "Modifier")
+            {
+                if (Fonctions.CnConnection().State != ConnectionState.Open)
+                    Fonctions.CnConnection().Open();
+
+                string sql = "select u.id_utilisateur,u.login,u.password,u.salt,t.nom_type,(e.prenom+' '+e.nom) as [Nom Complete] from utilisateur u inner join type_utilisateur t on t.id_type = u.id_type inner join employe e on e.id_employe = u.id_table where u.id_utilisateur= " +id;
+                SqlCommand com = new SqlCommand(sql, Fonctions.CnConnection());
+
+                dr = com.ExecuteReader();
+                dr.Read();
+                txt_log.Text = dr[1].ToString();
+                txt_pass.Text = dr[2].ToString();
+                cb_type.Text = dr[4].ToString();
+                cb_nomc.Text = dr[5].ToString();
+
+                dr = null;
+                dr.Close();
+            }
+
+             SqlCommand com1 = new SqlCommand("Select nom_type from type_utilisateur where archive =1", Fonctions.CnConnection());
+            dr = com1.ExecuteReader();
+            while (dr.Read())
+            {
+                cb_type.Items.Add("" + dr[0].ToString());
+
+            }
+            com1 = null;
+            dr.Close();
+
+            //com1 = new SqlCommand("Select nom+' '+prenom from Employe where archive=1", Fonctions.CnConnection());
+            //dr = com1.ExecuteReader();
+            //while (dr.Read())
+            //{
+            //    cb_nomc.Items.Add("" + dr[0].ToString());
+
+            //}
+            //com1 = null;
+            //dr.Close();
+
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+
+        private void btn_close_Click(object sender, EventArgs e)
         {
-            if (label3.Text == "Ajouter")
+
+            this.Close();
+        }
+
+        private void btn_vider_Click(object sender, EventArgs e)
+        {
+            txt_log.Text = "";
+            txt_pass.Text = "";
+            cb_type.Text = "";
+        }
+
+        private void btn_annuler_ajt_Click(object sender, EventArgs e)
+        {
+            txt_log.Text = "";
+            txt_pass.Text = "";
+            cb_type.Text = "";
+            this.Close();
+
+        }
+
+        private void btn_valider_ajt_Click(object sender, EventArgs e)
+        {
+            if (lbl_titre.Text == "Ajouter")
             {
-                txt_log.Text = "";
-                txt_pas.Text = "";
-                cmb_typ.Text = "";
+
+            }
+            else if (lbl_titre.Text == "Modifier")
+            {
+
             }
             else
-                this.Close();
+            {
+
+            }
+
         }
     }
 }

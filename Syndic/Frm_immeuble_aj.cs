@@ -18,8 +18,7 @@ namespace Syndic
         SqlCommand com = new SqlCommand();
         SqlCommand com1 = new SqlCommand();
         SqlDataReader DR1;
-       // SqlCommand comR = new SqlCommand();
-        //SqlDataReader DRR;
+     
         SqlConnection CN = new SqlConnection();
         string s = "";
         int id;
@@ -70,18 +69,21 @@ namespace Syndic
         {
             if (label5.Text == "Ajouter")
             {
-                //comR = new SqlCommand("select id_residence from residence where nom like '" + cmb_res.Text + "'", CN);
-                //DRR = comR.ExecuteReader();
-                //DRR.Read();
-                //int T = int.Parse(DRR[0].ToString());
-
-                //comR = null;
-                //DRR.Close();
-
-                if(txt_nm.Text!="" && txt_tit.Text!="" && txt_pai.Text != "")
+               
+                if(txt_nm.Text!="" && txt_tit.Text!="" )
                 {
-                    com= new SqlCommand("insert into immeuble values('" + txt_nm.Text + "' ,'4', '" + txt_tit.Text + "' , '"
-                        + txt_pai.Text+ "' ,'1')", CN);
+                    if (rd_mois.Checked == true)
+                    {
+                        com = new SqlCommand("insert into immeuble values('" + txt_nm.Text + "' ,'4', '" + txt_tit.Text + "' , '"
+                       + rd_mois.Text + "' ,'1')", CN);
+
+                    }
+                    else
+                    {
+                        com = new SqlCommand("insert into immeuble values('" + txt_nm.Text + "' ,'4', '" + txt_tit.Text + "' , '"
+                      + rd_anne.Text + "' ,'1')", CN);
+                    }
+                   
                     int a = -1;
                     a = com.ExecuteNonQuery();
                     if (a != -1)
@@ -106,16 +108,15 @@ namespace Syndic
                 DR1.Close();
                 com1 = null;
 
-                //int T = 0;
-                //com = new SqlCommand("Select distinct id_residence from residence where nom like '%" + cmb_res.Text + "%'", CN);
-                //DR1 = com.ExecuteReader();
-                //DR1.Read();
-                //T = int.Parse(DR1[0].ToString());
+                if (rd_anne.Checked == true)
+                {
+                    com = new SqlCommand("update immeuble set nom = '" + txt_nm.Text + "',titrefoncier = '" + txt_tit.Text + "', paiment = '" +rd_anne .Text + "' where id_immeuble = " + id, CN);
+                }
+                else
+                {
+                    com = new SqlCommand("update immeuble set nom = '" + txt_nm.Text + "',titrefoncier = '" + txt_tit.Text + "', paiment = '" + rd_mois.Text + "' where id_immeuble = " + id, CN);
 
-                //DR1.Close();
-                //com = null;
-                //////
-                com = new SqlCommand("update immeuble set nom = '" + txt_nm.Text + "',titrefoncier = '" + txt_tit.Text + "', paiment = '" + txt_pai.Text + "' where id_immeuble = " + id, CN);
+                }
                 int f = -1;
                 f = com.ExecuteNonQuery();
                 if (f != -1)
@@ -153,20 +154,18 @@ namespace Syndic
                 DR1.Read();
                 txt_nm.Text = DR1[1].ToString();
                 txt_tit.Text = DR1[2].ToString();
-                txt_pai.Text = DR1[3].ToString();
+                if (DR1[3].ToString() == "Année")
+                {
+                    rd_anne.Checked = true;
+                }
+                else
+                    rd_mois.Checked = true;
+
 
                 DR1.Close();
                 com1 = null;
             }
-            //comR = new SqlCommand("Select nom from residence", CN);
-            //DRR = comR.ExecuteReader();
-            //while (DRR.Read())
-            //{
-            //    cmb_res.Items.Add("" + DRR[0].ToString());
-
-            //}
-            //comR = null;
-            //DRR.Close();
+            
         }
 
         private void btn_immeuble_Annuler_Click(object sender, EventArgs e)
@@ -174,9 +173,9 @@ namespace Syndic
             if (label5.Text == "Ajouter")
             {
                 txt_nm.Text = "";
-                txt_pai.Text = "";
+               
                 txt_tit.Text = "";
-               // cmb_res.Text = "";
+              
             }
             else
                 this.Close();

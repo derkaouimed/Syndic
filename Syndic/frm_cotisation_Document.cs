@@ -50,7 +50,7 @@ namespace Syndic
             string str = lst_document.Text;
 
             int id = Int32.Parse((str).Substring(0, str.IndexOf(' ')));
-            MessageBox.Show(""+id);
+            //MessageBox.Show(""+id);
             return id;
         }
         private void txt_search_Enter(object sender, EventArgs e)
@@ -65,7 +65,10 @@ namespace Syndic
 
         private void frm_cotisation_Document_Load(object sender, EventArgs e)
         {
-            bsFact = Fonctions.remplirList(lst_cotisation, "Cotisation", "montant", "id_cotisation");
+            string sql2 = "Select distinct Concat(nom,' ',prenom) as nm,c.id_cotisation as id from document_cotisation d join cotisation c on c.id_cotisation = d.id_cotisation join proprietaire p on p.id_proprietaire = c.id_proprietaire where c.archive = 1";
+           
+
+            bsFact = Fonctions.remplirList(lst_cotisation, sql2,"Cotisation", "nm", "id");
             remplirDoc();
         }
 
@@ -110,15 +113,15 @@ namespace Syndic
             switch (btn.Name)
             {
                 case "btn_ajouter":
-                    //frm_cotisationDocument_info f = new frm_cotisationDocument_info("Ajouter");
-                    //f.ShowDialog();
+                    frm_cotisationDocument_info f = new frm_cotisationDocument_info("Ajouter");
+                    f.ShowDialog();
                     remplirDoc();
                     break;
                 case "btn_modifier":
                     if (lst_document.SelectedIndex != -1)
                     {
-                       // frm_cotisationDocument_info fr = new frm_cotisationDocument_info("Modifier", GetID());
-                       // fr.ShowDialog();
+                        frm_cotisationDocument_info fr = new frm_cotisationDocument_info("Modifier", GetID());
+                        fr.ShowDialog();
                         remplirDoc();
                     }
                     else
@@ -213,7 +216,7 @@ namespace Syndic
         {
             cmd = new SqlCommand("select ficher from document_cotisation where id_document = " + GetID(), Fonctions.CnConnection());
             string chemin = cmd.ExecuteScalar().ToString();
-            MessageBox.Show(chemin);
+            
             Fonctions.OuvrirDocument(chemin);
         }
     }

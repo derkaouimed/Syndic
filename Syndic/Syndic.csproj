@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cotisation_type.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cotisation_type.Designer.cs">
+      <DependentUpon>Cotisation_type.cs</DependentUpon>
+    </Compile>
     <Compile Include="Fonctions.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -246,6 +252,12 @@
     <Compile Include="frm_Cotisation.designer.cs">
       <DependentUpon>frm_Cotisation.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_cotisationDocument_info.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_cotisationDocument_info.designer.cs">
+      <DependentUpon>frm_cotisationDocument_info.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_cotisation_Document.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -381,6 +393,9 @@
     <Compile Include="MyHint.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Cotisation_type.resx">
+      <DependentUpon>Cotisation_type.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -479,6 +494,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_Cotisation.resx">
       <DependentUpon>frm_Cotisation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_cotisationDocument_info.resx">
+      <DependentUpon>frm_cotisationDocument_info.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_cotisation_Document.resx">
       <DependentUpon>frm_cotisation_Document.cs</DependentUpon>

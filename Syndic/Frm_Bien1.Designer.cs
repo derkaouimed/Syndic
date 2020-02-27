@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Bien1));
             this.grp_information = new System.Windows.Forms.GroupBox();
+            this.txtid_conteurEau = new System.Windows.Forms.TextBox();
             this.dt_date = new System.Windows.Forms.DateTimePicker();
             this.button2 = new System.Windows.Forms.Button();
             this.cb_prop = new System.Windows.Forms.ComboBox();
@@ -55,31 +56,34 @@
             this.label1 = new System.Windows.Forms.Label();
             this.grp_bien = new System.Windows.Forms.GroupBox();
             this.btn_suivant = new System.Windows.Forms.Button();
+            this.lst_bien = new System.Windows.Forms.ListBox();
             this.btn_precedent = new System.Windows.Forms.Button();
             this.btn_derniere = new System.Windows.Forms.Button();
             this.btn_premiere = new System.Windows.Forms.Button();
-            this.lst_bien = new System.Windows.Forms.ListBox();
             this.txt_archive = new System.Windows.Forms.TextBox();
             this.btn_annuler = new System.Windows.Forms.Button();
             this.btn_valider = new System.Windows.Forms.Button();
             this.btn_modifier = new System.Windows.Forms.Button();
             this.btn_supprimer = new System.Windows.Forms.Button();
             this.btn_ajouter = new System.Windows.Forms.Button();
-            this.grp_chercher = new System.Windows.Forms.GroupBox();
-            this.rd_type = new System.Windows.Forms.RadioButton();
-            this.rd_nomPrenom = new System.Windows.Forms.RadioButton();
             this.pnl_nom = new System.Windows.Forms.Panel();
-            this.pnl_im = new System.Windows.Forms.Panel();
             this.btn_nom = new System.Windows.Forms.Button();
+            this.txt_chercher = new System.Windows.Forms.TextBox();
+            this.pnl_im = new System.Windows.Forms.Panel();
+            this.btn_chercherType = new System.Windows.Forms.Button();
             this.cm_ch_im = new System.Windows.Forms.ComboBox();
             this.cm_et = new System.Windows.Forms.ComboBox();
-            this.txt_chercher = new System.Windows.Forms.TextBox();
-            this.btn_chercherType = new System.Windows.Forms.Button();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.grp_chercher = new System.Windows.Forms.GroupBox();
+            this.rd_immeu = new System.Windows.Forms.RadioButton();
+            this.rd_nom = new System.Windows.Forms.RadioButton();
+            this.label12 = new System.Windows.Forms.Label();
             this.grp_information.SuspendLayout();
             this.grp_bien.SuspendLayout();
-            this.grp_chercher.SuspendLayout();
             this.pnl_nom.SuspendLayout();
             this.pnl_im.SuspendLayout();
+            this.grp_chercher.SuspendLayout();
             this.SuspendLayout();
             // 
             // grp_information
@@ -115,6 +119,14 @@
             this.grp_information.TabStop = false;
             this.grp_information.Text = "Les Informations :";
             // 
+            // txtid_conteurEau
+            // 
+            this.txtid_conteurEau.Enabled = false;
+            this.txtid_conteurEau.Location = new System.Drawing.Point(198, 103);
+            this.txtid_conteurEau.Name = "txtid_conteurEau";
+            this.txtid_conteurEau.Size = new System.Drawing.Size(25, 24);
+            this.txtid_conteurEau.TabIndex = 81;
+            // 
             // dt_date
             // 
             this.dt_date.Location = new System.Drawing.Point(125, 340);
@@ -130,7 +142,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(341, 205);
+            this.button2.Location = new System.Drawing.Point(341, 204);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(41, 25);
             this.button2.TabIndex = 79;
@@ -313,11 +325,12 @@
             // 
             // grp_bien
             // 
+            this.grp_bien.Controls.Add(this.lst_bien);
+            this.grp_bien.Controls.Add(this.txtid_conteurEau);
             this.grp_bien.Controls.Add(this.btn_suivant);
             this.grp_bien.Controls.Add(this.btn_precedent);
             this.grp_bien.Controls.Add(this.btn_derniere);
             this.grp_bien.Controls.Add(this.btn_premiere);
-            this.grp_bien.Controls.Add(this.lst_bien);
             this.grp_bien.Controls.Add(this.txt_archive);
             this.grp_bien.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grp_bien.Location = new System.Drawing.Point(14, 156);
@@ -343,6 +356,15 @@
             this.btn_suivant.TabIndex = 8;
             this.btn_suivant.UseVisualStyleBackColor = false;
             this.btn_suivant.Click += new System.EventHandler(this.btn_suivant_Click);
+            // 
+            // lst_bien
+            // 
+            this.lst_bien.FormattingEnabled = true;
+            this.lst_bien.ItemHeight = 17;
+            this.lst_bien.Location = new System.Drawing.Point(8, 28);
+            this.lst_bien.Name = "lst_bien";
+            this.lst_bien.Size = new System.Drawing.Size(308, 378);
+            this.lst_bien.TabIndex = 0;
             // 
             // btn_precedent
             // 
@@ -394,15 +416,6 @@
             this.btn_premiere.TabIndex = 6;
             this.btn_premiere.UseVisualStyleBackColor = false;
             this.btn_premiere.Click += new System.EventHandler(this.btn_suivant_Click);
-            // 
-            // lst_bien
-            // 
-            this.lst_bien.FormattingEnabled = true;
-            this.lst_bien.ItemHeight = 17;
-            this.lst_bien.Location = new System.Drawing.Point(6, 34);
-            this.lst_bien.Name = "lst_bien";
-            this.lst_bien.Size = new System.Drawing.Size(308, 378);
-            this.lst_bien.TabIndex = 0;
             // 
             // txt_archive
             // 
@@ -491,65 +504,15 @@
             this.btn_ajouter.UseVisualStyleBackColor = false;
             this.btn_ajouter.Click += new System.EventHandler(this.btn_supprimer_Click_1);
             // 
-            // grp_chercher
-            // 
-            this.grp_chercher.Controls.Add(this.rd_type);
-            this.grp_chercher.Controls.Add(this.rd_nomPrenom);
-            this.grp_chercher.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grp_chercher.Location = new System.Drawing.Point(12, 12);
-            this.grp_chercher.Name = "grp_chercher";
-            this.grp_chercher.Size = new System.Drawing.Size(745, 63);
-            this.grp_chercher.TabIndex = 28;
-            this.grp_chercher.TabStop = false;
-            this.grp_chercher.Text = "Recherche Par :";
-            // 
-            // rd_type
-            // 
-            this.rd_type.AutoSize = true;
-            this.rd_type.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rd_type.Location = new System.Drawing.Point(507, 25);
-            this.rd_type.Name = "rd_type";
-            this.rd_type.Size = new System.Drawing.Size(159, 22);
-            this.rd_type.TabIndex = 1;
-            this.rd_type.Text = "immeuble et etage ";
-            this.rd_type.UseVisualStyleBackColor = true;
-            this.rd_type.CheckedChanged += new System.EventHandler(this.rd_type_CheckedChanged_2);
-            // 
-            // rd_nomPrenom
-            // 
-            this.rd_nomPrenom.AutoSize = true;
-            this.rd_nomPrenom.Checked = true;
-            this.rd_nomPrenom.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rd_nomPrenom.Location = new System.Drawing.Point(114, 25);
-            this.rd_nomPrenom.Name = "rd_nomPrenom";
-            this.rd_nomPrenom.Size = new System.Drawing.Size(152, 22);
-            this.rd_nomPrenom.TabIndex = 0;
-            this.rd_nomPrenom.TabStop = true;
-            this.rd_nomPrenom.Text = "Nom Appartement";
-            this.rd_nomPrenom.UseVisualStyleBackColor = true;
-            this.rd_nomPrenom.CheckedChanged += new System.EventHandler(this.rd_type_CheckedChanged_2);
-            // 
             // pnl_nom
             // 
             this.pnl_nom.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnl_nom.Controls.Add(this.btn_nom);
-            this.pnl_nom.Controls.Add(this.pnl_im);
             this.pnl_nom.Controls.Add(this.txt_chercher);
             this.pnl_nom.Location = new System.Drawing.Point(14, 81);
             this.pnl_nom.Name = "pnl_nom";
             this.pnl_nom.Size = new System.Drawing.Size(744, 69);
             this.pnl_nom.TabIndex = 11;
-            // 
-            // pnl_im
-            // 
-            this.pnl_im.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnl_im.Controls.Add(this.btn_chercherType);
-            this.pnl_im.Controls.Add(this.cm_ch_im);
-            this.pnl_im.Controls.Add(this.cm_et);
-            this.pnl_im.Location = new System.Drawing.Point(-1, -1);
-            this.pnl_im.Name = "pnl_im";
-            this.pnl_im.Size = new System.Drawing.Size(743, 69);
-            this.pnl_im.TabIndex = 52;
             // 
             // btn_nom
             // 
@@ -567,22 +530,6 @@
             this.btn_nom.UseVisualStyleBackColor = false;
             this.btn_nom.Click += new System.EventHandler(this.button1_Click);
             // 
-            // cm_ch_im
-            // 
-            this.cm_ch_im.FormattingEnabled = true;
-            this.cm_ch_im.Location = new System.Drawing.Point(53, 22);
-            this.cm_ch_im.Name = "cm_ch_im";
-            this.cm_ch_im.Size = new System.Drawing.Size(226, 21);
-            this.cm_ch_im.TabIndex = 22;
-            // 
-            // cm_et
-            // 
-            this.cm_et.FormattingEnabled = true;
-            this.cm_et.Location = new System.Drawing.Point(351, 22);
-            this.cm_et.Name = "cm_et";
-            this.cm_et.Size = new System.Drawing.Size(232, 21);
-            this.cm_et.TabIndex = 22;
-            // 
             // txt_chercher
             // 
             this.txt_chercher.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -594,6 +541,19 @@
             this.txt_chercher.Text = "Taper un Nom Pour Chercher";
             this.txt_chercher.Enter += new System.EventHandler(this.txt_chercher_Enter);
             this.txt_chercher.Leave += new System.EventHandler(this.txt_chercher_Leave);
+            // 
+            // pnl_im
+            // 
+            this.pnl_im.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnl_im.Controls.Add(this.btn_chercherType);
+            this.pnl_im.Controls.Add(this.cm_ch_im);
+            this.pnl_im.Controls.Add(this.cm_et);
+            this.pnl_im.Controls.Add(this.label14);
+            this.pnl_im.Controls.Add(this.label13);
+            this.pnl_im.Location = new System.Drawing.Point(14, 81);
+            this.pnl_im.Name = "pnl_im";
+            this.pnl_im.Size = new System.Drawing.Size(744, 69);
+            this.pnl_im.TabIndex = 52;
             // 
             // btn_chercherType
             // 
@@ -611,14 +571,100 @@
             this.btn_chercherType.UseVisualStyleBackColor = false;
             this.btn_chercherType.Click += new System.EventHandler(this.btn_chercherType_Click);
             // 
+            // cm_ch_im
+            // 
+            this.cm_ch_im.FormattingEnabled = true;
+            this.cm_ch_im.Location = new System.Drawing.Point(87, 22);
+            this.cm_ch_im.Name = "cm_ch_im";
+            this.cm_ch_im.Size = new System.Drawing.Size(226, 21);
+            this.cm_ch_im.TabIndex = 22;
+            // 
+            // cm_et
+            // 
+            this.cm_et.FormattingEnabled = true;
+            this.cm_et.Location = new System.Drawing.Point(404, 22);
+            this.cm_et.Name = "cm_et";
+            this.cm_et.Size = new System.Drawing.Size(188, 21);
+            this.cm_et.TabIndex = 22;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.label14.Location = new System.Drawing.Point(340, 24);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(58, 19);
+            this.label14.TabIndex = 8;
+            this.label14.Text = "Etage :";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.label13.Location = new System.Drawing.Point(3, 24);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(86, 19);
+            this.label13.TabIndex = 8;
+            this.label13.Text = "Immeuble :";
+            // 
+            // grp_chercher
+            // 
+            this.grp_chercher.Controls.Add(this.rd_immeu);
+            this.grp_chercher.Controls.Add(this.rd_nom);
+            this.grp_chercher.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grp_chercher.Location = new System.Drawing.Point(12, 9);
+            this.grp_chercher.Name = "grp_chercher";
+            this.grp_chercher.Size = new System.Drawing.Size(746, 66);
+            this.grp_chercher.TabIndex = 53;
+            this.grp_chercher.TabStop = false;
+            this.grp_chercher.Text = "Recherche Par :";
+            // 
+            // rd_immeu
+            // 
+            this.rd_immeu.AutoSize = true;
+            this.rd_immeu.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rd_immeu.Location = new System.Drawing.Point(479, 25);
+            this.rd_immeu.Name = "rd_immeu";
+            this.rd_immeu.Size = new System.Drawing.Size(156, 22);
+            this.rd_immeu.TabIndex = 2;
+            this.rd_immeu.Text = "Immeuble et Etage";
+            this.rd_immeu.UseVisualStyleBackColor = true;
+            this.rd_immeu.CheckedChanged += new System.EventHandler(this.rd_immeu_CheckedChanged);
+            // 
+            // rd_nom
+            // 
+            this.rd_nom.AutoSize = true;
+            this.rd_nom.Checked = true;
+            this.rd_nom.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rd_nom.Location = new System.Drawing.Point(139, 25);
+            this.rd_nom.Name = "rd_nom";
+            this.rd_nom.Size = new System.Drawing.Size(152, 22);
+            this.rd_nom.TabIndex = 0;
+            this.rd_nom.TabStop = true;
+            this.rd_nom.Text = "Nom Appartement";
+            this.rd_nom.UseVisualStyleBackColor = true;
+            this.rd_nom.CheckedChanged += new System.EventHandler(this.rd_immeu_CheckedChanged);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(347, 603);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(13, 13);
+            this.label12.TabIndex = 81;
+            this.label12.Text = "0";
+            this.label12.Visible = false;
+            // 
             // Frm_Bien1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(770, 634);
-            this.Controls.Add(this.pnl_nom);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.grp_chercher);
+            this.Controls.Add(this.pnl_nom);
+            this.Controls.Add(this.pnl_im);
             this.Controls.Add(this.btn_annuler);
             this.Controls.Add(this.grp_information);
             this.Controls.Add(this.btn_valider);
@@ -634,12 +680,14 @@
             this.grp_information.PerformLayout();
             this.grp_bien.ResumeLayout(false);
             this.grp_bien.PerformLayout();
-            this.grp_chercher.ResumeLayout(false);
-            this.grp_chercher.PerformLayout();
             this.pnl_nom.ResumeLayout(false);
             this.pnl_nom.PerformLayout();
             this.pnl_im.ResumeLayout(false);
+            this.pnl_im.PerformLayout();
+            this.grp_chercher.ResumeLayout(false);
+            this.grp_chercher.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -681,9 +729,6 @@
         private System.Windows.Forms.TextBox txt_consomation;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.GroupBox grp_chercher;
-        private System.Windows.Forms.RadioButton rd_type;
-        private System.Windows.Forms.RadioButton rd_nomPrenom;
         private System.Windows.Forms.Panel pnl_nom;
         private System.Windows.Forms.Button btn_chercherType;
         private System.Windows.Forms.TextBox txt_chercher;
@@ -691,5 +736,12 @@
         private System.Windows.Forms.Button btn_nom;
         private System.Windows.Forms.ComboBox cm_ch_im;
         private System.Windows.Forms.ComboBox cm_et;
+        private System.Windows.Forms.GroupBox grp_chercher;
+        private System.Windows.Forms.RadioButton rd_immeu;
+        private System.Windows.Forms.RadioButton rd_nom;
+        private System.Windows.Forms.TextBox txtid_conteurEau;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label13;
     }
 }
