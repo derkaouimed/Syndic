@@ -32,6 +32,12 @@ namespace Syndic
             this.id = id;
             this.frm = frm;
         }
+
+        private void btn_close_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         private void FrmAMDocFacture_Load(object sender, EventArgs e)
         {
             bsFct = Fonctions.remplirList(cb_fct, "Facture", "designation", "id_facture");

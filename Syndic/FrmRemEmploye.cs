@@ -124,19 +124,23 @@ namespace Syndic
                         poss = lst_Remaques.SelectedIndex;
                     break;
                 case "Supprimer":
-                    if (lst_Remaques.Items.Count > 0)
+                    if (lst_Remaques.SelectedIndex != -1)
                     {
-                        poss = lst_Remaques.SelectedIndex;
-                        if (DialogResult.Yes == MessageBox.Show("Voulez-vous Vraiment Supprimer Cette Remarque ?", "Supprimer", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+                        if (lst_Remaques.Items.Count > 0)
                         {
-                            cmd = new SqlCommand("update remarque_employe set archive = 0 where id_remarque = " + lst_Remaques.SelectedValue + "", Fonctions.CnConnection());
-                            cmd.ExecuteNonQuery();
-                            MessageBox.Show("Remarque Supprimer Avec Succces.", "Supprimer", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            remplirLst();
-                            if (lst_Remaques.Items.Count > 0)
-                                lst_Remaques.SelectedIndex = poss - 1;
+                            poss = lst_Remaques.SelectedIndex;
+                            if (DialogResult.Yes == MessageBox.Show("Voulez-vous Vraiment Supprimer Cette Remarque ?", "Supprimer", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+                            {
+                                cmd = new SqlCommand("update remarque_employe set archive = 0 where id_remarque = " + lst_Remaques.SelectedValue + "", Fonctions.CnConnection());
+                                cmd.ExecuteNonQuery();
+                                remplirLst();
+                                if (lst_Remaques.Items.Count > 0)
+                                    lst_Remaques.SelectedIndex = poss - 1;
+                            }
                         }
                     }
+                    else
+                        MessageBox.Show("Selectionner Un Remaque S'il Vous Plait .", "Selectionner", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     break;
                 case "Valider":
                     if (ajt)

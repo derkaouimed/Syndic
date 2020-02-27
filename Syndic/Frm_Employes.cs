@@ -35,7 +35,7 @@ namespace Syndic
 
             btn_ajouter.Enabled = b;
         }
-
+        
         private void remplirEmps()
         {
             string sql = "select *,concat(prenom,' ',nom) as nomcomplete from employe where archive = 1";
@@ -115,6 +115,7 @@ namespace Syndic
                     break;
                 case "btn_modifier":
                     activer(false);
+                    pos = lst_emps.SelectedIndex;
                     break;
                 case "btn_supprimer":
                     if (lst_emps.Items.Count > 0)
@@ -147,17 +148,17 @@ namespace Syndic
 
         private void txt_chercher_Enter(object sender, EventArgs e)
         {
-            Fonctions.textHintEntre(txt_chercher, "Tapez Nom & Prenom POur Chercher");
+            Fonctions.textHintEntre(txt_chercher, "Tapez Nom & Prenom Pour Chercher");
         }
 
         private void txt_chercher_Leave(object sender, EventArgs e)
         {
-            Fonctions.textHintLeave(txt_chercher, "Tapez Nom & Prenom POur Chercher");
+            Fonctions.textHintLeave(txt_chercher, "Tapez Nom & Prenom Pour Chercher");
         }
 
         private void txt_chercher_TextChanged(object sender, EventArgs e)
         {
-            if (txt_chercher.Text != "Tapez Nom Et Prenom Pour Chercher")
+            if (txt_chercher.Text != "Tapez Nom & Prenom Pour Chercher")
             {
                 string nom, prenom;
                 string str = txt_chercher.Text.Replace("'", "''");
@@ -174,6 +175,13 @@ namespace Syndic
 
                 bsEmp.Filter = " nom like '%" + nom + "%' or nom like '%" + prenom + "%' or prenom like '%" + nom + "%' or prenom like '%" + prenom + "%'";
             }
+        }
+
+        private void btn_pays_Click(object sender, EventArgs e)
+        {
+            FrmVille f = new FrmVille();
+            f.ShowDialog();
+            remplirEmps();
         }
     }
 }

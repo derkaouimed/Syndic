@@ -63,20 +63,12 @@ namespace Syndic
         }
         private void txt_chercher_Enter(object sender, EventArgs e)
         {
-            if ((txt_chercher.Text != "") && (txt_chercher.Text == "Tapez Un Text Pour Rechercher"))
-            {
-                txt_chercher.Clear();
-                txt_chercher.ForeColor = Color.Black;
-            }
+            Fonctions.textHintEntre(txt_chercher, "Tapez Designation Ou La date De Facture Pour Rechercher");
         }
 
         private void txt_chercher_Leave(object sender, EventArgs e)
         {
-            if (txt_chercher.Text == "")
-            {
-                txt_chercher.Text = "Tapez Un Text Pour Rechercher";
-                txt_chercher.ForeColor = Color.Gray;
-            }
+            Fonctions.textHintLeave(txt_chercher, "Tapez Designation Ou La date De Facture Pour Rechercher");
         }
 
         private void FrmFacture_Load(object sender, EventArgs e)
@@ -152,6 +144,91 @@ namespace Syndic
                             remplirDataGrid();
                         }
                     }
+                    break;
+            }
+        }
+
+        private void btn_chercher_Click(object sender, EventArgs e)
+        {
+            if (txt_chercher.Text != "")
+            {
+                string ch, sql;
+                if (txt_chercher.Text != "Tapez Designation Ou La date De Facture Pour Rechercher")
+                {
+                    string str = txt_chercher.Text.Replace("'", "''");
+                    try
+                    {
+                        ch = Convert.ToDateTime(str).ToShortDateString();
+                        
+                        dt_facture.Rows.Clear();
+
+                        sql = sqlEmp("numCheque") + " and date_facture = '" + ch + "'";
+                        cmd = new SqlCommand(sql, cn);
+                        remplirdt(cmd);
+
+                        sql = sqlEmp("numVirement") + " and date_facture = '" + ch + "'";
+                        cmd = new SqlCommand(sql, cn);
+                        remplirdt(cmd);
+
+                        sql = sqlFrn("numCheque") + " and date_facture = '" + ch + "'";
+                        cmd = new SqlCommand(sql, cn);
+                        remplirdt(cmd);
+
+                        sql = sqlFrn("numVirement") + " and date_facture = '" + ch + "'";
+                        cmd = new SqlCommand(sql, cn);
+                        remplirdt(cmd);
+
+                        dt_facture.Columns[0].Visible = false;
+                        dt_facture.Sort(dt_facture.Columns[0], ListSortDirection.Ascending);
+
+                    }
+                    catch
+                    {
+                        ch = txt_chercher.Text.Replace("'", "''");
+                        dt_facture.Rows.Clear();
+
+                        sql = sqlEmp("numCheque") + " and designation like '%" + ch + "%'";
+                        cmd = new SqlCommand(sql, cn);
+                        remplirdt(cmd);
+
+                        sql = sqlEmp("numVirement") + " and designation like '%" + ch + "%'";
+                        cmd = new SqlCommand(sql, cn);
+                        remplirdt(cmd);
+
+                        sql = sqlFrn("numCheque") + " and designation like '%" + ch + "%'";
+                        cmd = new SqlCommand(sql, cn);
+                        remplirdt(cmd);
+
+                        sql = sqlFrn("numVirement") + " and designation like '%" + ch + "%'";
+                        cmd = new SqlCommand(sql, cn);
+                        remplirdt(cmd);
+
+                        dt_facture.Columns[0].Visible = false;
+                        dt_facture.Sort(dt_facture.Columns[0], ListSortDirection.Ascending);
+                    }
+                }
+                else
+                    remplirDataGrid();
+            }
+        }
+
+        private void btn_imprimerTous_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            switch (btn.Name)
+            {
+                case "btn_imprimerTous":
+                    RptFactureFournisseur r = new RptFactureFournisseur();
+                    r.SetDatabaseLogon("sa", "123456");
+                    Imprimer imprimer = new Imprimer(r);
+                    imprimer.ShowDialog();
+                    break;
+                case "btn_imprimer":
+                    RptFactureFournisseur r1 = new RptFactureFournisseur();
+                    r1.SetDatabaseLogon("sa", "123456");
+                    string filter = "{facture.designation} = '" + dt_facture.CurrentRow.Cells[1].Value + "'";
+                    Imprimer imprimer1 = new Imprimer(r1,filter);
+                    imprimer1.ShowDialog();
                     break;
             }
         }

@@ -14,7 +14,7 @@ namespace Syndic
     public partial class FrmAchat : Form
     {
         BindingSource bsAchat;
-        string sql = "select a.id_article,a.id_facture,ar.designation as Article,f.designation as Facture,a.qteAchat as 'Quantite Achat',cast(a.prix as decimal(18,2)) as Prix from achat a inner join article ar on ar.id_article=a.id_article inner join facture f on f.id_facture=a.id_facture where a.archive = 1";
+        string sql = "select a.id_article,a.id_facture,ar.designation as Article,f.designation as Facture,a.qteAchat as 'Quantite Achat',cast(a.prix as decimal(18,2)) as Prix, cast((a.prix * a.qteAchat) as decimal(18,2)) as 'Total' from achat a inner join article ar on ar.id_article=a.id_article inner join facture f on f.id_facture=a.id_facture where a.archive = 1";
         public FrmAchat()
         {
             InitializeComponent();

@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAMArticle));
             this.pnlMenuBar = new System.Windows.Forms.Panel();
+            this.btn_close = new System.Windows.Forms.PictureBox();
             this.lbl_titre = new System.Windows.Forms.Label();
             this.txt_designation = new System.Windows.Forms.TextBox();
             this.txt_qteMinimale = new System.Windows.Forms.TextBox();
@@ -47,6 +49,7 @@
             this.btn_annuler_mod = new System.Windows.Forms.Button();
             this.btn_valider_mod = new System.Windows.Forms.Button();
             this.pnlMenuBar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_close)).BeginInit();
             this.pnl_ajouter.SuspendLayout();
             this.pnl_modifier.SuspendLayout();
             this.SuspendLayout();
@@ -54,12 +57,25 @@
             // pnlMenuBar
             // 
             this.pnlMenuBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
+            this.pnlMenuBar.Controls.Add(this.btn_close);
             this.pnlMenuBar.Controls.Add(this.lbl_titre);
             this.pnlMenuBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlMenuBar.Location = new System.Drawing.Point(0, 0);
             this.pnlMenuBar.Name = "pnlMenuBar";
             this.pnlMenuBar.Size = new System.Drawing.Size(566, 23);
             this.pnlMenuBar.TabIndex = 0;
+            // 
+            // btn_close
+            // 
+            this.btn_close.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_close.Image = ((System.Drawing.Image)(resources.GetObject("btn_close.Image")));
+            this.btn_close.Location = new System.Drawing.Point(539, 0);
+            this.btn_close.Name = "btn_close";
+            this.btn_close.Size = new System.Drawing.Size(24, 23);
+            this.btn_close.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btn_close.TabIndex = 67;
+            this.btn_close.TabStop = false;
+            this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
             // 
             // lbl_titre
             // 
@@ -75,7 +91,7 @@
             // txt_designation
             // 
             this.txt_designation.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_designation.Location = new System.Drawing.Point(232, 108);
+            this.txt_designation.Location = new System.Drawing.Point(234, 62);
             this.txt_designation.Name = "txt_designation";
             this.txt_designation.Size = new System.Drawing.Size(264, 27);
             this.txt_designation.TabIndex = 1;
@@ -83,7 +99,7 @@
             // txt_qteMinimale
             // 
             this.txt_qteMinimale.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_qteMinimale.Location = new System.Drawing.Point(232, 220);
+            this.txt_qteMinimale.Location = new System.Drawing.Point(234, 174);
             this.txt_qteMinimale.Name = "txt_qteMinimale";
             this.txt_qteMinimale.Size = new System.Drawing.Size(264, 27);
             this.txt_qteMinimale.TabIndex = 2;
@@ -91,7 +107,7 @@
             // txt_qteStock
             // 
             this.txt_qteStock.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_qteStock.Location = new System.Drawing.Point(232, 162);
+            this.txt_qteStock.Location = new System.Drawing.Point(234, 116);
             this.txt_qteStock.Name = "txt_qteStock";
             this.txt_qteStock.Size = new System.Drawing.Size(264, 27);
             this.txt_qteStock.TabIndex = 3;
@@ -100,7 +116,7 @@
             // 
             this.cb_Rubrique.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.cb_Rubrique.FormattingEnabled = true;
-            this.cb_Rubrique.Location = new System.Drawing.Point(232, 271);
+            this.cb_Rubrique.Location = new System.Drawing.Point(234, 225);
             this.cb_Rubrique.Name = "cb_Rubrique";
             this.cb_Rubrique.Size = new System.Drawing.Size(264, 29);
             this.cb_Rubrique.TabIndex = 4;
@@ -108,40 +124,40 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(15, 108);
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(17, 62);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(115, 22);
+            this.label2.Size = new System.Drawing.Size(111, 21);
             this.label2.TabIndex = 5;
             this.label2.Text = "Designation :";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(17, 278);
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(19, 232);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(163, 22);
+            this.label3.Size = new System.Drawing.Size(155, 21);
             this.label3.TabIndex = 6;
             this.label3.Text = "Nom De Rubrique :";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(17, 220);
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(19, 174);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(163, 22);
+            this.label4.Size = new System.Drawing.Size(164, 21);
             this.label4.TabIndex = 7;
             this.label4.Text = "Quantite Minimale :";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(15, 162);
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(17, 116);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(165, 22);
+            this.label5.Size = new System.Drawing.Size(160, 21);
             this.label5.TabIndex = 8;
             this.label5.Text = "Quantite En Stock :";
             // 
@@ -185,12 +201,13 @@
             this.btn_rubrique.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_rubrique.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_rubrique.ForeColor = System.Drawing.Color.White;
-            this.btn_rubrique.Location = new System.Drawing.Point(503, 271);
+            this.btn_rubrique.Location = new System.Drawing.Point(505, 225);
             this.btn_rubrique.Name = "btn_rubrique";
             this.btn_rubrique.Size = new System.Drawing.Size(31, 30);
             this.btn_rubrique.TabIndex = 60;
             this.btn_rubrique.Text = "+";
             this.btn_rubrique.UseVisualStyleBackColor = false;
+            this.btn_rubrique.Click += new System.EventHandler(this.btn_rubrique_Click);
             // 
             // btn_vider
             // 
@@ -213,7 +230,7 @@
             this.pnl_ajouter.Controls.Add(this.btn_vider);
             this.pnl_ajouter.Controls.Add(this.btn_annuler_ajt);
             this.pnl_ajouter.Controls.Add(this.btn_valider_ajt);
-            this.pnl_ajouter.Location = new System.Drawing.Point(50, 362);
+            this.pnl_ajouter.Location = new System.Drawing.Point(67, 316);
             this.pnl_ajouter.Name = "pnl_ajouter";
             this.pnl_ajouter.Size = new System.Drawing.Size(432, 61);
             this.pnl_ajouter.TabIndex = 62;
@@ -222,7 +239,7 @@
             // 
             this.pnl_modifier.Controls.Add(this.btn_annuler_mod);
             this.pnl_modifier.Controls.Add(this.btn_valider_mod);
-            this.pnl_modifier.Location = new System.Drawing.Point(50, 362);
+            this.pnl_modifier.Location = new System.Drawing.Point(67, 316);
             this.pnl_modifier.Name = "pnl_modifier";
             this.pnl_modifier.Size = new System.Drawing.Size(432, 61);
             this.pnl_modifier.TabIndex = 63;
@@ -263,7 +280,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(566, 505);
+            this.ClientSize = new System.Drawing.Size(566, 412);
             this.Controls.Add(this.pnl_modifier);
             this.Controls.Add(this.pnl_ajouter);
             this.Controls.Add(this.btn_rubrique);
@@ -283,6 +300,7 @@
             this.Load += new System.EventHandler(this.FrmAMArticle_Load);
             this.pnlMenuBar.ResumeLayout(false);
             this.pnlMenuBar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_close)).EndInit();
             this.pnl_ajouter.ResumeLayout(false);
             this.pnl_modifier.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -310,5 +328,6 @@
         private System.Windows.Forms.Panel pnl_modifier;
         private System.Windows.Forms.Button btn_annuler_mod;
         private System.Windows.Forms.Button btn_valider_mod;
+        private System.Windows.Forms.PictureBox btn_close;
     }
 }
