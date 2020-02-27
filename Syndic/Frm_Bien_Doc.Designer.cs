@@ -60,6 +60,7 @@
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Led Documents :";
+            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // btn_modifier
             // 
@@ -216,7 +217,7 @@
             this.txt_chercher_bien.Name = "txt_chercher_bien";
             this.txt_chercher_bien.Size = new System.Drawing.Size(288, 27);
             this.txt_chercher_bien.TabIndex = 0;
-            this.txt_chercher_bien.Text = "Tapez Designation Pour Chercher";
+            this.txt_chercher_bien.Text = "Tapez Nom Pour Chercher";
             this.txt_chercher_bien.TextChanged += new System.EventHandler(this.txt_chercher_bien_TextChanged_1);
             this.txt_chercher_bien.Enter += new System.EventHandler(this.txt_chercher_Fact_Enter);
             this.txt_chercher_bien.Leave += new System.EventHandler(this.txt_chercher_Fact_Leave);
@@ -242,10 +243,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(770, 634);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.ForeColor = System.Drawing.SystemColors.Control;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Frm_Bien_Doc";
             this.Text = "Frm_Bien_Doc";

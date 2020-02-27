@@ -234,12 +234,6 @@
     <Compile Include="Frm_Bien_Remarque.Designer.cs">
       <DependentUpon>Frm_Bien_Remarque.cs</DependentUpon>
     </Compile>
-    <Compile Include="Frm_Bien_remarque_aj.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Frm_Bien_remarque_aj.Designer.cs">
-      <DependentUpon>Frm_Bien_remarque_aj.cs</DependentUpon>
-    </Compile>
     <Compile Include="Frm_Bien_Type.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -311,6 +305,12 @@
     </Compile>
     <Compile Include="Frm_immeuble_aj.Designer.cs">
       <DependentUpon>Frm_immeuble_aj.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_journal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_journal.Designer.cs">
+      <DependentUpon>frm_journal.cs</DependentUpon>
     </Compile>
     <Compile Include="Frm_Propietaire_Information.cs">
       <SubType>Form</SubType>
@@ -486,9 +486,6 @@
     <EmbeddedResource Include="Frm_Bien_Remarque.resx">
       <DependentUpon>Frm_Bien_Remarque.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Frm_Bien_remarque_aj.resx">
-      <DependentUpon>Frm_Bien_remarque_aj.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Frm_Bien_Type.resx">
       <DependentUpon>Frm_Bien_Type.cs</DependentUpon>
     </EmbeddedResource>
@@ -524,6 +521,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_immeuble_aj.resx">
       <DependentUpon>Frm_immeuble_aj.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_journal.resx">
+      <DependentUpon>frm_journal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_Propietaire_Information.resx">
       <DependentUpon>Frm_Propietaire_Information.cs</DependentUpon>

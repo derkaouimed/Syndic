@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_utilisateur));
             this.dt_grid = new System.Windows.Forms.DataGridView();
             this.btn_modifier = new System.Windows.Forms.Button();
@@ -48,6 +48,7 @@
             this.txt_chercher = new System.Windows.Forms.TextBox();
             this.cb_type = new System.Windows.Forms.ComboBox();
             this.btn_chercher_rubrique = new System.Windows.Forms.Button();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,16 +64,17 @@
             this.dt_grid.AllowUserToAddRows = false;
             this.dt_grid.AllowUserToDeleteRows = false;
             this.dt_grid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Century Gothic", 12F);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dt_grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 12F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dt_grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dt_grid.ColumnHeadersHeight = 35;
             this.dt_grid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column5,
             this.Column1,
             this.Column2,
             this.Column3,
@@ -80,10 +82,10 @@
             this.dt_grid.Location = new System.Drawing.Point(12, 154);
             this.dt_grid.Name = "dt_grid";
             this.dt_grid.ReadOnly = true;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dt_grid.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dt_grid.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dt_grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dt_grid.Size = new System.Drawing.Size(746, 369);
+            this.dt_grid.Size = new System.Drawing.Size(746, 406);
             this.dt_grid.TabIndex = 45;
             // 
             // btn_modifier
@@ -94,7 +96,7 @@
             this.btn_modifier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_modifier.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_modifier.ForeColor = System.Drawing.Color.White;
-            this.btn_modifier.Location = new System.Drawing.Point(484, 529);
+            this.btn_modifier.Location = new System.Drawing.Point(483, 581);
             this.btn_modifier.Name = "btn_modifier";
             this.btn_modifier.Size = new System.Drawing.Size(134, 41);
             this.btn_modifier.TabIndex = 61;
@@ -110,7 +112,7 @@
             this.btn_supprimer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_supprimer.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_supprimer.ForeColor = System.Drawing.Color.White;
-            this.btn_supprimer.Location = new System.Drawing.Point(625, 529);
+            this.btn_supprimer.Location = new System.Drawing.Point(624, 581);
             this.btn_supprimer.Name = "btn_supprimer";
             this.btn_supprimer.Size = new System.Drawing.Size(134, 41);
             this.btn_supprimer.TabIndex = 60;
@@ -126,7 +128,7 @@
             this.btn_ajouter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_ajouter.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_ajouter.ForeColor = System.Drawing.Color.White;
-            this.btn_ajouter.Location = new System.Drawing.Point(344, 529);
+            this.btn_ajouter.Location = new System.Drawing.Point(343, 581);
             this.btn_ajouter.Name = "btn_ajouter";
             this.btn_ajouter.Size = new System.Drawing.Size(134, 41);
             this.btn_ajouter.TabIndex = 59;
@@ -144,7 +146,7 @@
             this.btn_suivant.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_suivant.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_suivant.ForeColor = System.Drawing.Color.White;
-            this.btn_suivant.Location = new System.Drawing.Point(142, 529);
+            this.btn_suivant.Location = new System.Drawing.Point(141, 581);
             this.btn_suivant.Name = "btn_suivant";
             this.btn_suivant.Size = new System.Drawing.Size(46, 41);
             this.btn_suivant.TabIndex = 58;
@@ -161,7 +163,7 @@
             this.btn_precedent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_precedent.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_precedent.ForeColor = System.Drawing.Color.White;
-            this.btn_precedent.Location = new System.Drawing.Point(65, 529);
+            this.btn_precedent.Location = new System.Drawing.Point(64, 581);
             this.btn_precedent.Name = "btn_precedent";
             this.btn_precedent.Size = new System.Drawing.Size(46, 41);
             this.btn_precedent.TabIndex = 57;
@@ -178,7 +180,7 @@
             this.btn_derniere.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_derniere.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_derniere.ForeColor = System.Drawing.Color.White;
-            this.btn_derniere.Location = new System.Drawing.Point(194, 529);
+            this.btn_derniere.Location = new System.Drawing.Point(193, 581);
             this.btn_derniere.Name = "btn_derniere";
             this.btn_derniere.Size = new System.Drawing.Size(46, 41);
             this.btn_derniere.TabIndex = 56;
@@ -195,7 +197,7 @@
             this.btn_premier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_premier.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_premier.ForeColor = System.Drawing.Color.White;
-            this.btn_premier.Location = new System.Drawing.Point(13, 529);
+            this.btn_premier.Location = new System.Drawing.Point(12, 581);
             this.btn_premier.Name = "btn_premier";
             this.btn_premier.Size = new System.Drawing.Size(46, 41);
             this.btn_premier.TabIndex = 55;
@@ -314,6 +316,12 @@
             this.btn_chercher_rubrique.UseVisualStyleBackColor = false;
             this.btn_chercher_rubrique.Click += new System.EventHandler(this.btn_chercher_rubrique_Click);
             // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "ID";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
             // Column1
             // 
             this.Column1.HeaderText = "Nom Complet";
@@ -387,6 +395,7 @@
         private System.Windows.Forms.Panel pnl_nom;
         private System.Windows.Forms.Button btn_chercher_designation;
         private System.Windows.Forms.TextBox txt_chercher;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
