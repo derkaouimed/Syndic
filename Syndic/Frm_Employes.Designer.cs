@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Employes));
             this.grp_emps = new System.Windows.Forms.GroupBox();
+            this.txt_chercher = new System.Windows.Forms.TextBox();
             this.btn_suivant = new System.Windows.Forms.Button();
             this.btn_precedent = new System.Windows.Forms.Button();
             this.btn_derniere = new System.Windows.Forms.Button();
@@ -64,7 +65,7 @@
             this.btn_ajouter = new System.Windows.Forms.Button();
             this.btn_annuler = new System.Windows.Forms.Button();
             this.btn_valider = new System.Windows.Forms.Button();
-            this.txt_chercher = new System.Windows.Forms.TextBox();
+            this.btn_pays = new System.Windows.Forms.Button();
             this.grp_emps.SuspendLayout();
             this.grp_information.SuspendLayout();
             this.SuspendLayout();
@@ -85,6 +86,18 @@
             this.grp_emps.TabIndex = 0;
             this.grp_emps.TabStop = false;
             this.grp_emps.Text = "Tous Les Employes :";
+            // 
+            // txt_chercher
+            // 
+            this.txt_chercher.ForeColor = System.Drawing.Color.Gray;
+            this.txt_chercher.Location = new System.Drawing.Point(7, 42);
+            this.txt_chercher.Name = "txt_chercher";
+            this.txt_chercher.Size = new System.Drawing.Size(308, 27);
+            this.txt_chercher.TabIndex = 23;
+            this.txt_chercher.Text = "Tapez Nom & Prenom Pour Chercher";
+            this.txt_chercher.TextChanged += new System.EventHandler(this.txt_chercher_TextChanged);
+            this.txt_chercher.Enter += new System.EventHandler(this.txt_chercher_Enter);
+            this.txt_chercher.Leave += new System.EventHandler(this.txt_chercher_Leave);
             // 
             // btn_suivant
             // 
@@ -172,6 +185,7 @@
             // 
             // grp_information
             // 
+            this.grp_information.Controls.Add(this.btn_pays);
             this.grp_information.Controls.Add(this.cb_ville);
             this.grp_information.Controls.Add(this.label11);
             this.grp_information.Controls.Add(this.cb_type);
@@ -207,7 +221,7 @@
             this.cb_ville.FormattingEnabled = true;
             this.cb_ville.Location = new System.Drawing.Point(125, 398);
             this.cb_ville.Name = "cb_ville";
-            this.cb_ville.Size = new System.Drawing.Size(261, 29);
+            this.cb_ville.Size = new System.Drawing.Size(224, 29);
             this.cb_ville.TabIndex = 22;
             // 
             // label11
@@ -461,17 +475,21 @@
             this.btn_valider.UseVisualStyleBackColor = false;
             this.btn_valider.Click += new System.EventHandler(this.btn_ajouter_Click);
             // 
-            // txt_chercher
+            // btn_pays
             // 
-            this.txt_chercher.ForeColor = System.Drawing.Color.Gray;
-            this.txt_chercher.Location = new System.Drawing.Point(7, 42);
-            this.txt_chercher.Name = "txt_chercher";
-            this.txt_chercher.Size = new System.Drawing.Size(308, 27);
-            this.txt_chercher.TabIndex = 23;
-            this.txt_chercher.Text = "Tapez Nom & Prenom POur Chercher";
-            this.txt_chercher.TextChanged += new System.EventHandler(this.txt_chercher_TextChanged);
-            this.txt_chercher.Enter += new System.EventHandler(this.txt_chercher_Enter);
-            this.txt_chercher.Leave += new System.EventHandler(this.txt_chercher_Leave);
+            this.btn_pays.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
+            this.btn_pays.FlatAppearance.BorderSize = 0;
+            this.btn_pays.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btn_pays.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_pays.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_pays.ForeColor = System.Drawing.Color.White;
+            this.btn_pays.Location = new System.Drawing.Point(355, 398);
+            this.btn_pays.Name = "btn_pays";
+            this.btn_pays.Size = new System.Drawing.Size(31, 28);
+            this.btn_pays.TabIndex = 71;
+            this.btn_pays.Text = "+";
+            this.btn_pays.UseVisualStyleBackColor = false;
+            this.btn_pays.Click += new System.EventHandler(this.btn_pays_Click);
             // 
             // Frm_Employes
             // 
@@ -536,5 +554,6 @@
         private System.Windows.Forms.Button btn_valider;
         private System.Windows.Forms.TextBox txt_archive;
         private System.Windows.Forms.TextBox txt_chercher;
+        private System.Windows.Forms.Button btn_pays;
     }
 }

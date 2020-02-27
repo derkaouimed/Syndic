@@ -56,6 +56,12 @@ namespace Syndic
                 txt_prix.Text = dr["prix"].ToString();
             }
         }
+
+        private void btn_close_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         private void btn_vider_Click(object sender, EventArgs e)
         {
             Button btn = (Button)sender;

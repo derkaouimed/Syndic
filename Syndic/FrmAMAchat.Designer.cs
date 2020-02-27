@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAMAchat));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_close = new System.Windows.Forms.PictureBox();
             this.lbl_titre = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txt_qteachat = new System.Windows.Forms.TextBox();
@@ -46,6 +48,7 @@
             this.btn_annuler_ajt = new System.Windows.Forms.Button();
             this.btn_valider_ajt = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_close)).BeginInit();
             this.pnl_modifier.SuspendLayout();
             this.pnl_ajouter.SuspendLayout();
             this.SuspendLayout();
@@ -53,12 +56,25 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
+            this.panel1.Controls.Add(this.btn_close);
             this.panel1.Controls.Add(this.lbl_titre);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(566, 23);
             this.panel1.TabIndex = 0;
+            // 
+            // btn_close
+            // 
+            this.btn_close.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_close.Image = ((System.Drawing.Image)(resources.GetObject("btn_close.Image")));
+            this.btn_close.Location = new System.Drawing.Point(539, 0);
+            this.btn_close.Name = "btn_close";
+            this.btn_close.Size = new System.Drawing.Size(24, 23);
+            this.btn_close.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btn_close.TabIndex = 67;
+            this.btn_close.TabStop = false;
+            this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
             // 
             // lbl_titre
             // 
@@ -74,17 +90,17 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(63, 226);
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(63, 188);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(139, 22);
+            this.label2.Size = new System.Drawing.Size(145, 21);
             this.label2.TabIndex = 7;
             this.label2.Text = "Quantite Achat :";
             // 
             // txt_qteachat
             // 
             this.txt_qteachat.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_qteachat.Location = new System.Drawing.Point(249, 226);
+            this.txt_qteachat.Location = new System.Drawing.Point(249, 188);
             this.txt_qteachat.Name = "txt_qteachat";
             this.txt_qteachat.Size = new System.Drawing.Size(264, 27);
             this.txt_qteachat.TabIndex = 2;
@@ -92,10 +108,10 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(65, 108);
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(65, 70);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(70, 22);
+            this.label3.Size = new System.Drawing.Size(69, 21);
             this.label3.TabIndex = 9;
             this.label3.Text = "Article :";
             // 
@@ -105,7 +121,7 @@
             this.cb_article.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cb_article.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.cb_article.FormattingEnabled = true;
-            this.cb_article.Location = new System.Drawing.Point(249, 101);
+            this.cb_article.Location = new System.Drawing.Point(249, 63);
             this.cb_article.Name = "cb_article";
             this.cb_article.Size = new System.Drawing.Size(264, 29);
             this.cb_article.TabIndex = 0;
@@ -113,10 +129,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(65, 170);
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(65, 132);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 22);
+            this.label1.Size = new System.Drawing.Size(79, 21);
             this.label1.TabIndex = 11;
             this.label1.Text = "Facture :";
             // 
@@ -126,7 +142,7 @@
             this.cb_facture.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cb_facture.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.cb_facture.FormattingEnabled = true;
-            this.cb_facture.Location = new System.Drawing.Point(249, 163);
+            this.cb_facture.Location = new System.Drawing.Point(249, 125);
             this.cb_facture.Name = "cb_facture";
             this.cb_facture.Size = new System.Drawing.Size(264, 29);
             this.cb_facture.TabIndex = 1;
@@ -134,17 +150,17 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(63, 293);
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(63, 255);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(51, 22);
+            this.label4.Size = new System.Drawing.Size(43, 21);
             this.label4.TabIndex = 13;
             this.label4.Text = "Prix :";
             // 
             // txt_prix
             // 
             this.txt_prix.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_prix.Location = new System.Drawing.Point(249, 293);
+            this.txt_prix.Location = new System.Drawing.Point(249, 255);
             this.txt_prix.Name = "txt_prix";
             this.txt_prix.Size = new System.Drawing.Size(264, 27);
             this.txt_prix.TabIndex = 3;
@@ -153,7 +169,7 @@
             // 
             this.pnl_modifier.Controls.Add(this.btn_annuler_mod);
             this.pnl_modifier.Controls.Add(this.btn_valider_mod);
-            this.pnl_modifier.Location = new System.Drawing.Point(60, 389);
+            this.pnl_modifier.Location = new System.Drawing.Point(60, 351);
             this.pnl_modifier.Name = "pnl_modifier";
             this.pnl_modifier.Size = new System.Drawing.Size(432, 61);
             this.pnl_modifier.TabIndex = 64;
@@ -195,7 +211,7 @@
             this.pnl_ajouter.Controls.Add(this.btn_vider);
             this.pnl_ajouter.Controls.Add(this.btn_annuler_ajt);
             this.pnl_ajouter.Controls.Add(this.btn_valider_ajt);
-            this.pnl_ajouter.Location = new System.Drawing.Point(60, 389);
+            this.pnl_ajouter.Location = new System.Drawing.Point(60, 351);
             this.pnl_ajouter.Name = "pnl_ajouter";
             this.pnl_ajouter.Size = new System.Drawing.Size(432, 61);
             this.pnl_ajouter.TabIndex = 63;
@@ -252,7 +268,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(566, 505);
+            this.ClientSize = new System.Drawing.Size(566, 451);
             this.Controls.Add(this.pnl_ajouter);
             this.Controls.Add(this.pnl_modifier);
             this.Controls.Add(this.label4);
@@ -271,6 +287,7 @@
             this.Load += new System.EventHandler(this.FrmAMAchat_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_close)).EndInit();
             this.pnl_modifier.ResumeLayout(false);
             this.pnl_ajouter.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -297,5 +314,6 @@
         private System.Windows.Forms.Button btn_vider;
         private System.Windows.Forms.Button btn_annuler_ajt;
         private System.Windows.Forms.Button btn_valider_ajt;
+        private System.Windows.Forms.PictureBox btn_close;
     }
 }

@@ -145,5 +145,17 @@ namespace Syndic
                     break;
             }
         }
+
+        private void dt_grid_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            for(int i = 0; i < dt_grid.Rows.Count; i++)
+            {
+                if (Convert.ToInt32(dt_grid.Rows[i].Cells[2].Value.ToString()) > Convert.ToInt32(dt_grid.Rows[i].Cells[3].Value.ToString()))
+                {
+                    dt_grid.Rows[i].Cells[2].Style.ForeColor = Color.White;
+                    dt_grid.Rows[i].Cells[2].Style.BackColor = Color.Red;
+                }
+            }
+        }
     }
 }

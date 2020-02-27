@@ -18,10 +18,10 @@ namespace Syndic
         SqlCommand com = new SqlCommand();
         SqlCommand com1 = new SqlCommand();
         SqlDataReader DR1;
-        //SqlDataReader dr;
+        SqlDataReader dr;
         SqlConnection CN = new SqlConnection();
-        //string anciennes;
-        //string nouvelles;
+        string anciennes="";
+        string nouvelles="";
         string s = "";
         int id;
         public Frm_immeuble_aj(string _S, int id)
@@ -38,6 +38,18 @@ namespace Syndic
                 CN.ConnectionString = ConfigurationManager.ConnectionStrings["SyndicCS"].ToString();
                 CN.Open();
             }
+        }
+        private void journal()
+        {
+            com = new SqlCommand("select * from immeuble where id_immeuble =" + id, Fonctions.CnConnection());
+            dr = com.ExecuteReader();
+            dr.Read();
+            nouvelles += "nom =" + DR1[1].ToString() + " tittre foncier =" + DR1[2].ToString() + "paiment = " + DR1[4].ToString();
+            dr.Close();
+            com = null;
+
+            com = new SqlCommand("insert into journal values (1," + DateTime.Now.ToShortDateString() + "',Modifier','immeuble'," + anciennes + "," + nouvelles + ",1", Fonctions.CnConnection());
+            com.ExecuteNonQuery();
         }
 
         public const int WM_NCLBUTTONDOWN = 0xA1;
@@ -88,11 +100,16 @@ namespace Syndic
                    
                     int a = -1;
                     a = com.ExecuteNonQuery();
+                    journal();
                     if (a != -1)
                     {
                        DialogResult d= MessageBox.Show("Enregistrer acev succés ", "Enregistrer", MessageBoxButtons.OK);
                         if (DialogResult.OK == d)
+                        {
+                           
                             this.Close();
+                        }
+                           
                     }
                     else
                     {
@@ -128,19 +145,8 @@ namespace Syndic
                     DialogResult d = MessageBox.Show("Modifier avec succès !!", "Modifier", MessageBoxButtons.OK);
                     if (DialogResult.OK == d)
                     {
-                        //this.Close();
-                        //com = null;
-                        //dr = null;
-                        //com = new SqlCommand("select * from immeuble where id_immeuble =" + id, Fonctions.CnConnection());
-                        //dr = com.ExecuteReader();
-                        //dr.Read();
-                        //nouvelles += "nom =" + DR1[1].ToString() + " tittre foncier =" + DR1[2].ToString() + "paiment = " + DR1[4].ToString();
 
-                        //com = null;
-
-                        //com = new SqlCommand("insert into journal values (1," + DateTime.Now.ToShortDateString() + "',Modifier','immeuble'," + anciennes + "," + nouvelles + ",1", Fonctions.CnConnection());
-                        //com.ExecuteNonQuery();
-
+                        this.Close();
 
                     }
                 }
@@ -179,7 +185,7 @@ namespace Syndic
                 else
                     rd_mois.Checked = true;
 
-              //  anciennes += "nom =" + DR1[1].ToString() + " tittre foncier =" + DR1[2].ToString() + "paiment = " + DR1[3].ToString();
+              anciennes += "nom =" + DR1[1].ToString() + " tittre foncier =" + DR1[2].ToString() + "paiment = " + DR1[3].ToString();
 
                 DR1.Close();
                 com1 = null;

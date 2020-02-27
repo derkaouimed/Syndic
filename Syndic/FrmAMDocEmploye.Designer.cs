@@ -45,14 +45,17 @@
             this.btn_ficher = new System.Windows.Forms.Button();
             this.cb_emps = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btn_close = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.pnl_ajouter.SuspendLayout();
             this.pnl_modifier.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_close)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
+            this.panel1.Controls.Add(this.btn_close);
             this.panel1.Controls.Add(this.lbl_titre);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -243,6 +246,18 @@
             this.label1.TabIndex = 76;
             this.label1.Text = "Employe :";
             // 
+            // btn_close
+            // 
+            this.btn_close.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_close.Image = ((System.Drawing.Image)(resources.GetObject("btn_close.Image")));
+            this.btn_close.Location = new System.Drawing.Point(541, 0);
+            this.btn_close.Name = "btn_close";
+            this.btn_close.Size = new System.Drawing.Size(24, 23);
+            this.btn_close.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btn_close.TabIndex = 67;
+            this.btn_close.TabStop = false;
+            this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
+            // 
             // FrmAMDocEmploye
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -267,6 +282,7 @@
             this.panel1.PerformLayout();
             this.pnl_ajouter.ResumeLayout(false);
             this.pnl_modifier.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.btn_close)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -290,5 +306,6 @@
         private System.Windows.Forms.Button btn_ficher;
         private System.Windows.Forms.ComboBox cb_emps;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox btn_close;
     }
 }

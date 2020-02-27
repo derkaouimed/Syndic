@@ -17,6 +17,7 @@ namespace Syndic
         SqlCommand cmd;
         SqlDataReader dr;
         string frm;
+        string ancien = "", nouvelle = "";
         int idemp, idcon;
         public FrmAMContract(string frm = "")
         {
@@ -38,6 +39,19 @@ namespace Syndic
             pnl_modifier.Visible = !b;
         }
         
+        private void journal()
+        {
+            cmd = new SqlCommand("select * from contrat where id_contrat = " + idcon, Fonctions.CnConnection());
+            dr = cmd.ExecuteReader();
+            dr.Read();
+
+            nouvelle += "id_employe  = " + dr["id_employe"].ToString() + " date_debut = " + dr["date_debut"].ToString() + " date_fin = " + dr["date_fin"].ToString() + " salaire = " + dr["salaire"].ToString();
+            dr.Close();
+            dr = null;
+            cmd = new SqlCommand("insert into journal values (1,'" + DateTime.Now.ToShortDateString() + "','Modifier','Contract','" + ancien + "','" + nouvelle + "',1)", Fonctions.CnConnection());
+            cmd.ExecuteNonQuery();
+        }
+
         private void FrmAMContract_Load(object sender, EventArgs e)
         {
             string sql = "select id_employe,concat(prenom,' ',nom) as nomComplet from employe where archive = 1";
@@ -51,6 +65,7 @@ namespace Syndic
                 dr = cmd.ExecuteReader();
                 dr.Read();
 
+                ancien += "id_employe  = " + dr["id_employe"].ToString() + " date_debut = " + dr["date_debut"].ToString() + " date_fin = " + dr["date_fin"].ToString() + " salaire = " + dr["salaire"].ToString();
                 dt_debut.Text = dr["date_debut"].ToString();
                 dt_fin.Text = dr["date_fin"].ToString();
                 txt_salaire.Text = dr["salaire"].ToString();
@@ -65,6 +80,11 @@ namespace Syndic
                 lbl_titre.Text = "Ajouter Contract";
                 activier(true);
             }
+        }
+
+        private void btn_close_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         private void btn_valider_mod_Click(object sender, EventArgs e)
@@ -90,6 +110,7 @@ namespace Syndic
                         cmd = new SqlCommand("update contrat set id_employe = " + cb_emps.SelectedValue + ",date_debut = '" + dt_debut.Value + "',date_fin = '" + dt_fin.Value + "',salaire =" + float.Parse(txt_salaire.Text) + " where id_contrat = " + idcon, Fonctions.CnConnection());
                         cmd.ExecuteNonQuery();
                         MessageBox.Show("Contract Modifier Avec Succes.", "Modifier", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        journal();
                     }
                     else
                     {

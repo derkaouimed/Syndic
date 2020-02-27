@@ -38,6 +38,7 @@ namespace Syndic
             {
                 case "btn_tableBord":
                     lbl_titre.Text = "Tableau de bord - Syndic";
+                    ouvrire(new FrmDashboard());
                     break;
                 case "btn_facture":
                     lbl_titre.Text = "Facture - Syndic";
@@ -92,9 +93,13 @@ namespace Syndic
                     break;
                 case "btn_parametre":
                     lbl_titre.Text = "Parametre - Syndic";
+                    ouvrire(new FrmParametre());
                     break;
                 case "btn_deconnection":
                     lbl_titre.Text = "Deconnecte - Syndic";
+                    FrmLogin f = new FrmLogin();
+                    f.Show();
+                    this.Close();
                     break;
             }
         }
@@ -128,6 +133,11 @@ namespace Syndic
                 ReleaseCapture();
                 SendMessage(this.Handle, WM_NCLBUTTONDOWN, new IntPtr(HT_CAPTION), IntPtr.Zero);
             }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            btn_tableBord.PerformClick();
         }
     }
 }
