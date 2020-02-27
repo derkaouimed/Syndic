@@ -269,7 +269,7 @@
             this.grp_remarque.Controls.Add(this.txt_chercher);
             this.grp_remarque.Controls.Add(this.btn_premiere);
             this.grp_remarque.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grp_remarque.Location = new System.Drawing.Point(9, 93);
+            this.grp_remarque.Location = new System.Drawing.Point(9, 89);
             this.grp_remarque.Name = "grp_remarque";
             this.grp_remarque.Size = new System.Drawing.Size(301, 499);
             this.grp_remarque.TabIndex = 16;

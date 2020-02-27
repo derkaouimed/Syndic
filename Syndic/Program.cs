@@ -14,9 +14,13 @@ namespace Syndic
         [STAThread]
         static void Main()
         {
+
             Application.EnableVisualStyles();
+
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmContratEmp());
+
+            Application.Run(new frm_cotisation_real());
+
         }
     }
 }

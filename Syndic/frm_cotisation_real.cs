@@ -32,8 +32,13 @@ namespace Syndic
             //da.Update(ds.Tables["cotisation"]);
 
 
-            frm_cotisation_information f = new frm_cotisation_information("Ajouter");
+            //frm_cotisation_information f = new frm_cotisation_information("Ajouter");
+            //f.ShowDialog();
+
+
+            frm_cotisation_ajouter f = new frm_cotisation_ajouter();
             f.ShowDialog();
+            
             SqlCommandBuilder com2 = new SqlCommandBuilder(da);
             da.Update(ds.Tables["cotisation"]);
         }
@@ -43,7 +48,6 @@ namespace Syndic
             rd_nomPrenom.Checked = true;
             pnl_nomPrenom.Visible = true;
             ///
-            
             ////////////
             txt_chercher = MyHint.LoadText(txt_chercher,"Nom ou Prenom");
             //////////
@@ -54,9 +58,11 @@ namespace Syndic
                 cn.ConnectionString = ConfigurationManager.ConnectionStrings["SyndicCS"].ToString();
                 cn.Open();
             }
-            da = new SqlDataAdapter("Select id_cotisation as [NumCotisation],date_cotisation as Date,montant as Montant,concat(nom,' ',prenom) as Proprietaire,id_typeCotisation as Type from cotisation c join proprietaire p on p.id_proprietaire = c.id_proprietaire where c.archive = 1", cn);
+            da = new SqlDataAdapter("Select id_cotisation as [NumCotisation],date_cotisation as Date,montant as Montant,concat(nom,' ',prenom) as Proprietaire,nomType as Type from cotisation c join proprietaire p on p.id_proprietaire = c.id_proprietaire  join type_cotisation t on t.id_type = c.id_typeCotisation  where c.archive = 1", cn);
             if (!ds.Tables.Contains("cotisation"))
                da.Fill(ds, "cotisation");
+
+
 
             bsProp.DataSource = ds;
             bsProp.DataMember = "cotisation";
