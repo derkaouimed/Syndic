@@ -109,9 +109,7 @@
     <Compile Include="FrmAMFacture.Designer.cs">
       <DependentUpon>FrmAMFacture.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmAMFournisseur.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="FrmAMFournisseur.cs" />
     <Compile Include="FrmAMFournisseur.Designer.cs">
       <DependentUpon>FrmAMFournisseur.cs</DependentUpon>
     </Compile>
