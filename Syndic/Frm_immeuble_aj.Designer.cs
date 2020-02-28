@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_immeuble_aj));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -40,7 +41,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.rd_anne = new System.Windows.Forms.RadioButton();
             this.rd_mois = new System.Windows.Forms.RadioButton();
-            this.label5 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,6 +55,17 @@
             this.panel1.Size = new System.Drawing.Size(475, 23);
             this.panel1.TabIndex = 26;
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(168, 1);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(122, 18);
+            this.label5.TabIndex = 62;
+            this.label5.Text = "Ajouter Immeuble";
             // 
             // button2
             // 
@@ -94,14 +105,14 @@
             this.txt_tit.Location = new System.Drawing.Point(233, 213);
             this.txt_tit.Name = "txt_tit";
             this.txt_tit.Size = new System.Drawing.Size(197, 20);
-            this.txt_tit.TabIndex = 55;
+            this.txt_tit.TabIndex = 2;
             // 
             // txt_nm
             // 
             this.txt_nm.Location = new System.Drawing.Point(233, 142);
             this.txt_nm.Name = "txt_nm";
             this.txt_nm.Size = new System.Drawing.Size(197, 20);
-            this.txt_nm.TabIndex = 54;
+            this.txt_nm.TabIndex = 1;
             // 
             // btn_immeuble_Annuler
             // 
@@ -151,7 +162,7 @@
             this.rd_anne.Location = new System.Drawing.Point(341, 276);
             this.rd_anne.Name = "rd_anne";
             this.rd_anne.Size = new System.Drawing.Size(56, 17);
-            this.rd_anne.TabIndex = 61;
+            this.rd_anne.TabIndex = 4;
             this.rd_anne.TabStop = true;
             this.rd_anne.Text = "Année";
             this.rd_anne.UseVisualStyleBackColor = true;
@@ -162,21 +173,10 @@
             this.rd_mois.Location = new System.Drawing.Point(235, 275);
             this.rd_mois.Name = "rd_mois";
             this.rd_mois.Size = new System.Drawing.Size(50, 17);
-            this.rd_mois.TabIndex = 61;
+            this.rd_mois.TabIndex = 3;
             this.rd_mois.TabStop = true;
             this.rd_mois.Text = "Mois ";
             this.rd_mois.UseVisualStyleBackColor = true;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(168, 1);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(122, 18);
-            this.label5.TabIndex = 62;
-            this.label5.Text = "Ajouter Immeuble";
             // 
             // Frm_immeuble_aj
             // 

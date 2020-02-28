@@ -112,7 +112,7 @@
             this.txt_pass.Location = new System.Drawing.Point(170, 162);
             this.txt_pass.Name = "txt_pass";
             this.txt_pass.Size = new System.Drawing.Size(264, 27);
-            this.txt_pass.TabIndex = 81;
+            this.txt_pass.TabIndex = 2;
             // 
             // cb_type
             // 
@@ -121,7 +121,7 @@
             this.cb_type.Location = new System.Drawing.Point(170, 227);
             this.cb_type.Name = "cb_type";
             this.cb_type.Size = new System.Drawing.Size(264, 29);
-            this.cb_type.TabIndex = 80;
+            this.cb_type.TabIndex = 3;
             this.cb_type.SelectedIndexChanged += new System.EventHandler(this.cb_type_SelectedIndexChanged);
             // 
             // pnl_ajouter
@@ -198,7 +198,7 @@
             this.txt_log.Location = new System.Drawing.Point(170, 96);
             this.txt_log.Name = "txt_log";
             this.txt_log.Size = new System.Drawing.Size(264, 27);
-            this.txt_log.TabIndex = 85;
+            this.txt_log.TabIndex = 1;
             // 
             // cb_nomc
             // 
@@ -207,7 +207,7 @@
             this.cb_nomc.Location = new System.Drawing.Point(170, 287);
             this.cb_nomc.Name = "cb_nomc";
             this.cb_nomc.Size = new System.Drawing.Size(264, 29);
-            this.cb_nomc.TabIndex = 80;
+            this.cb_nomc.TabIndex = 4;
             // 
             // label2
             // 
@@ -225,7 +225,7 @@
             this.txt_salt.Location = new System.Drawing.Point(170, 347);
             this.txt_salt.Name = "txt_salt";
             this.txt_salt.Size = new System.Drawing.Size(264, 27);
-            this.txt_salt.TabIndex = 81;
+            this.txt_salt.TabIndex = 5;
             this.txt_salt.Visible = false;
             // 
             // btn_rubrique

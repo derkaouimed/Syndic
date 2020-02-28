@@ -87,13 +87,13 @@ namespace Syndic
                 {
                     if (rd_mois.Checked == true)
                     {
-                        com = new SqlCommand("insert into immeuble values('" + txt_nm.Text + "' ,'4', '" + txt_tit.Text + "' , '"
+                        com = new SqlCommand("insert into immeuble values('" + txt_nm.Text + "' ,'1', '" + txt_tit.Text + "' , '"
                        + "mois" + "' ,'1')", CN);
 
                     }
                     else
                     {
-                        com = new SqlCommand("insert into immeuble values('" + txt_nm.Text + "' ,'4', '" + txt_tit.Text + "' , '"
+                        com = new SqlCommand("insert into immeuble values('" + txt_nm.Text + "' ,'1', '" + txt_tit.Text + "' , '"
                       + "annee" + "' ,'1')", CN);
                     }
 
