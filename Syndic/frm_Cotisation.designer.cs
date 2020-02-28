@@ -39,7 +39,7 @@
             // 
             // pnl_form
             // 
-            this.pnl_form.Location = new System.Drawing.Point(0, 45);
+            this.pnl_form.Location = new System.Drawing.Point(0, 43);
             this.pnl_form.Name = "pnl_form";
             this.pnl_form.Size = new System.Drawing.Size(770, 634);
             this.pnl_form.TabIndex = 9;
@@ -54,13 +54,13 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(770, 45);
+            this.panel3.Size = new System.Drawing.Size(770, 43);
             this.panel3.TabIndex = 15;
             // 
             // pnl_selection
             // 
             this.pnl_selection.BackColor = System.Drawing.Color.Orange;
-            this.pnl_selection.Location = new System.Drawing.Point(1, 42);
+            this.pnl_selection.Location = new System.Drawing.Point(0, 38);
             this.pnl_selection.Name = "pnl_selection";
             this.pnl_selection.Size = new System.Drawing.Size(255, 5);
             this.pnl_selection.TabIndex = 14;
@@ -73,7 +73,7 @@
             this.btn_cotisation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_cotisation.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_cotisation.ForeColor = System.Drawing.Color.White;
-            this.btn_cotisation.Location = new System.Drawing.Point(1, 1);
+            this.btn_cotisation.Location = new System.Drawing.Point(1, 0);
             this.btn_cotisation.Name = "btn_cotisation";
             this.btn_cotisation.Size = new System.Drawing.Size(256, 43);
             this.btn_cotisation.TabIndex = 11;
@@ -89,7 +89,7 @@
             this.btn_cotisation_Remarque.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_cotisation_Remarque.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_cotisation_Remarque.ForeColor = System.Drawing.Color.White;
-            this.btn_cotisation_Remarque.Location = new System.Drawing.Point(514, 1);
+            this.btn_cotisation_Remarque.Location = new System.Drawing.Point(514, 0);
             this.btn_cotisation_Remarque.Name = "btn_cotisation_Remarque";
             this.btn_cotisation_Remarque.Size = new System.Drawing.Size(255, 43);
             this.btn_cotisation_Remarque.TabIndex = 13;
@@ -105,7 +105,7 @@
             this.btn_cotisation_Document.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_cotisation_Document.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_cotisation_Document.ForeColor = System.Drawing.Color.White;
-            this.btn_cotisation_Document.Location = new System.Drawing.Point(258, 1);
+            this.btn_cotisation_Document.Location = new System.Drawing.Point(258, 0);
             this.btn_cotisation_Document.Name = "btn_cotisation_Document";
             this.btn_cotisation_Document.Size = new System.Drawing.Size(255, 43);
             this.btn_cotisation_Document.TabIndex = 12;
@@ -118,7 +118,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(770, 634);
+            this.ClientSize = new System.Drawing.Size(770, 677);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.pnl_form);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

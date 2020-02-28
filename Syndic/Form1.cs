@@ -90,6 +90,7 @@ namespace Syndic
                     break;
                 case "btn_statistique":
                     lbl_titre.Text = "Statistique - Syndic";
+                    ouvrire(new Statistique());
                     break;
                 case "btn_parametre":
                     lbl_titre.Text = "Parametre - Syndic";

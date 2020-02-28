@@ -55,9 +55,9 @@ namespace Syndic
             ////les annee
 
             ////les Mois
-            
+            WhoChecked = "";
 
-            sqlQuery = "Select id_echeance,mois,annee,montant,montant_recu,NomApparetemnt from echeance e inner join Bien b on b.id_bien = e.id_bien join immeuble i on i.id_immeuble = b.id_immeuble where i.archive = 1 and paiment like '%"+WhoChecked+"%' ";
+            sqlQuery = "Select id_echeance,mois,annee,montant,montant_recu,NomApparetemnt from echeance e inner join Bien b on b.id_bien = e.id_bien join immeuble i on i.id_immeuble = b.id_immeuble where e.archive = 1 and paiment like '%"+WhoChecked+"%' ";
 
             com = new SqlCommand(sqlQuery, Fonctions.CnConnection());
             reader = com.ExecuteReader();
@@ -70,12 +70,12 @@ namespace Syndic
             dataGridView1.Columns[4].Name = "Montant Recu";
             dataGridView1.Columns[5].Name = "Bien";
             /////////////////////////////////
-             com = new SqlCommand("Select montant from Bien",cn);
-            readerMontant = com.ExecuteReader();
-            while (readerMontant.Read())
-            {
+            // com = new SqlCommand("Select montant from Bien",cn);
+            //readerMontant = com.ExecuteReader();
+            //while (readerMontant.Read())
+            //{
 
-            }
+            //}
 
 
 
@@ -140,30 +140,38 @@ namespace Syndic
                 if (rd_Mois.Checked) WhoChecked = "mois";
                 if (rd_nomPrenom.Checked) WhoChecked = "annee";
                 
-                sqlQuery = "Select id_echeance,mois,annee,montant,montant_recu,NomApparetemnt from echeance e inner join Bien b on b.id_bien = e.id_bien join immeuble i on i.id_immeuble = b.id_immeuble where i.archive = 1 and NomApparetemnt like '%"+text+"%' ";
+                sqlQuery = "Select id_echeance,mois,annee,montant,montant_recu,NomApparetemnt from echeance e inner join Bien b on b.id_bien = e.id_bien join immeuble i on i.id_immeuble = b.id_immeuble where e.archive = 1 and NomApparetemnt like '%"+text+"%' ";
                  com = new SqlCommand(sqlQuery, cn);
-                reader = com.ExecuteReader();
-                dataGridView1.ColumnCount = 6;
-                dataGridView1.Columns[0].Name = "Id";
-                dataGridView1.Columns[1].Name = "Mois";
-                dataGridView1.Columns[2].Name = "Anne";
-                dataGridView1.Columns[3].Name = "Montant";
-                dataGridView1.Columns[4].Name = "Montant Recu";
-                dataGridView1.Columns[5].Name = "Bien";
-
-
-                while (reader.Read())
+                try
                 {
-                    dataGridView1.Rows.Add(reader[0].ToString(), reader[1].ToString(), reader[2].ToString(), reader[3].ToString(), reader[4].ToString(), reader[5].ToString());
+                    reader = com.ExecuteReader();
+                    dataGridView1.ColumnCount = 6;
+                    dataGridView1.Columns[0].Name = "Id";
+                    dataGridView1.Columns[1].Name = "Mois";
+                    dataGridView1.Columns[2].Name = "Anne";
+                    dataGridView1.Columns[3].Name = "Montant";
+                    dataGridView1.Columns[4].Name = "Montant Recu";
+                    dataGridView1.Columns[5].Name = "Bien";
+
+
+                    while (reader.Read())
+                    {
+                        dataGridView1.Rows.Add(reader[0].ToString(), reader[1].ToString(), reader[2].ToString(), reader[3].ToString(), reader[4].ToString(), reader[5].ToString());
+
+                    }
+                }
+                catch
+                {
 
                 }
+              
 
             }
             reader.Close();
             if (text == "Taper Nom de bien pour rechercher")
             {
                 //MessageBox.Show("Nice");
-                sqlQuery = "Select id_echeance,mois,annee,montant,montant_recu,NomApparetemnt from echeance e inner join Bien b on b.id_bien = e.id_bien join immeuble i on i.id_immeuble = b.id_immeuble where i.archive = 1 ";
+                sqlQuery = "Select id_echeance,mois,annee,montant,montant_recu,NomApparetemnt from echeance e inner join Bien b on b.id_bien = e.id_bien join immeuble i on i.id_immeuble = b.id_immeuble where e.archive = 1 ";
                 com = new SqlCommand(sqlQuery, cn);
                 reader = com.ExecuteReader();
                 dataGridView1.ColumnCount = 6;
@@ -190,7 +198,7 @@ namespace Syndic
             
             dataGridView1.Rows.Clear();
 
-            sqlQuery = "Select id_echeance,mois,annee,montant,montant_recu,NomApparetemnt from echeance e inner join Bien b on b.id_bien = e.id_bien join immeuble i on i.id_immeuble = b.id_immeuble where i.archive = 1 and paiment like '%" + WhoChecked + "%' ";
+            sqlQuery = "Select id_echeance,mois,annee,montant,montant_recu,NomApparetemnt from echeance e inner join Bien b on b.id_bien = e.id_bien join immeuble i on i.id_immeuble = b.id_immeuble where e.archive = 1 and paiment like '%" + WhoChecked + "%' ";
 
 
             if (rd_Mois.Checked) WhoChecked = "mois";
@@ -216,7 +224,7 @@ namespace Syndic
             dataGridView1.Rows.Clear();
 
 
-            sqlQuery = "Select id_echeance,mois,annee,montant,montant_recu,NomApparetemnt from echeance e inner join Bien b on b.id_bien = e.id_bien join immeuble i on i.id_immeuble = b.id_immeuble where i.archive = 1 and paiment like '%" + WhoChecked + "%' ";
+            sqlQuery = "Select id_echeance,mois,annee,montant,montant_recu,NomApparetemnt from echeance e inner join Bien b on b.id_bien = e.id_bien join immeuble i on i.id_immeuble = b.id_immeuble where e.archive = 1 and paiment like '%" + WhoChecked + "%' ";
 
 
             if (rd_Mois.Checked) WhoChecked = "mois";
@@ -248,7 +256,7 @@ namespace Syndic
             
             dataGridView1.Rows.Clear();
             WhoChecked = "";
-            sqlQuery = "Select id_echeance,mois,annee,montant,montant_recu,NomApparetemnt from echeance e inner join Bien b on b.id_bien = e.id_bien join immeuble i on i.id_immeuble = b.id_immeuble where i.archive = 1 and paiment like '%" + WhoChecked + "%' ";
+            sqlQuery = "Select id_echeance,mois,annee,montant,montant_recu,NomApparetemnt from echeance e inner join Bien b on b.id_bien = e.id_bien join immeuble i on i.id_immeuble = b.id_immeuble where e.archive = 1 and paiment like '%" + WhoChecked + "%' ";
             
             if (rd_Mois.Checked) WhoChecked = "mois";
             if (rd_nomPrenom.Checked) WhoChecked = "annee";

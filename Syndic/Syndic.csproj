@@ -452,13 +452,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RptContractEmp.rpt</DependentUpon>
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="RptFactureFournisseur.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RptFactureFournisseur.rpt</DependentUpon>
-      <SubType>Component</SubType>
     </Compile>
     <EmbeddedResource Include="Cotisation_type.resx">
       <DependentUpon>Cotisation_type.cs</DependentUpon>

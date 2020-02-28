@@ -205,8 +205,8 @@ namespace Syndic
 
         private void Frm_Propietaire_Information_FormClosing(object sender, FormClosingEventArgs e)
         {
-            frm_Proprietaire f = new frm_Proprietaire();
-            f.ShowDialog();
+            //frm_Proprietaire f = new frm_Proprietaire();
+            //f.ShowDialog();
         }
 
         private void txtPhone_KeyPress(object sender, KeyPressEventArgs e)
