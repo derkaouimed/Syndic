@@ -37,6 +37,7 @@ namespace Syndic
             {
                 case "btn_journal":
                     pnl_selection.Location = new Point(0, 38);
+                    ouvrire(new frm_journal());
                     break;
                 case "btn_connexion":
                     pnl_selection.Location = new Point(386, 38);

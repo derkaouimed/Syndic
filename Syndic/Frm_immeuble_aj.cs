@@ -17,11 +17,10 @@ namespace Syndic
     {
         SqlCommand com = new SqlCommand();
         SqlCommand com1 = new SqlCommand();
-        SqlDataReader DR1;
         SqlDataReader dr;
         SqlConnection CN = new SqlConnection();
-        string anciennes="";
-        string nouvelles="";
+        string anciennes = "";
+        string nouvelles = "";
         string s = "";
         int id;
         public Frm_immeuble_aj(string _S, int id)
@@ -41,15 +40,15 @@ namespace Syndic
         }
         private void journal()
         {
-            com = new SqlCommand("select * from immeuble where id_immeuble =" + id, Fonctions.CnConnection());
+            com = new SqlCommand("select id_immeuble as [ID] , nom as [Nom immeuble],titrefoncier as[titre foncier],paiment from immeuble where id_immeuble =" + id, Fonctions.CnConnection());
             dr = com.ExecuteReader();
             dr.Read();
-            nouvelles += "nom =" + DR1[1].ToString() + " tittre foncier =" + DR1[2].ToString() + "paiment = " + DR1[4].ToString();
+            nouvelles += " Nom immeuble =" + dr["Nom immeuble"].ToString() + "titre foncier = " + dr["titre foncier"].ToString() + "paiment = " + dr["paiment"].ToString();
             dr.Close();
             com = null;
 
-            com = new SqlCommand("insert into journal values (1," + DateTime.Now.ToShortDateString() + "',Modifier','immeuble'," + anciennes + "," + nouvelles + ",1", Fonctions.CnConnection());
-            com.ExecuteNonQuery();
+            com1 = new SqlCommand("insert into journal values (1,GETDATE(),'Modifier','immeuble','" + anciennes + "','" + nouvelles + "',1)", Fonctions.CnConnection());
+            com1.ExecuteNonQuery();
         }
 
         public const int WM_NCLBUTTONDOWN = 0xA1;
@@ -76,15 +75,15 @@ namespace Syndic
 
         private void button3_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void btn_immeuble_valider_Click(object sender, EventArgs e)
         {
             if (label5.Text == "Ajouter Immeuble")
             {
-               
-                if(txt_nm.Text!="" && txt_tit.Text!="" )
+
+                if (txt_nm.Text != "" && txt_tit.Text != "")
                 {
                     if (rd_mois.Checked == true)
                     {
@@ -97,19 +96,19 @@ namespace Syndic
                         com = new SqlCommand("insert into immeuble values('" + txt_nm.Text + "' ,'4', '" + txt_tit.Text + "' , '"
                       + "annee" + "' ,'1')", CN);
                     }
-                   
+
                     int a = -1;
                     a = com.ExecuteNonQuery();
                     journal();
                     if (a != -1)
                     {
-                       DialogResult d= MessageBox.Show("Enregistrer acev succés ", "Enregistrer", MessageBoxButtons.OK);
+                        DialogResult d = MessageBox.Show("Enregistrer acev succés ", "Enregistrer", MessageBoxButtons.OK);
                         if (DialogResult.OK == d)
                         {
-                           
+
                             this.Close();
                         }
-                           
+
                     }
                     else
                     {
@@ -124,12 +123,12 @@ namespace Syndic
             {
                 com = null;
 
-                DR1.Close();
+                dr.Close();
                 com1 = null;
 
                 if (rd_anne.Checked == true)
                 {
-                    com = new SqlCommand("update immeuble set nom = '" + txt_nm.Text + "',titrefoncier = '" + txt_tit.Text + "', paiment = '" +rd_anne .Text + "' where id_immeuble = " + id, CN);
+                    com = new SqlCommand("update immeuble set nom = '" + txt_nm.Text + "',titrefoncier = '" + txt_tit.Text + "', paiment = '" + rd_anne.Text + "' where id_immeuble = " + id, CN);
 
                 }
                 else
@@ -137,9 +136,10 @@ namespace Syndic
                     com = new SqlCommand("update immeuble set nom = '" + txt_nm.Text + "',titrefoncier = '" + txt_tit.Text + "', paiment = '" + rd_mois.Text + "' where id_immeuble = " + id, CN);
 
                 }
-               
+
                 int f = -1;
                 f = com.ExecuteNonQuery();
+                journal();
                 if (f != -1)
                 {
                     DialogResult d = MessageBox.Show("Modifier avec succès !!", "Modifier", MessageBoxButtons.OK);
@@ -150,7 +150,7 @@ namespace Syndic
 
                     }
                 }
-              
+
                 else
                 {
                     MessageBox.Show("Erreur modifie !!");
@@ -159,11 +159,7 @@ namespace Syndic
             }
 
 
-
-
-         }
-
-        
+        }
 
         private void Frm_immeuble_aj_Load(object sender, EventArgs e)
         {
@@ -172,25 +168,28 @@ namespace Syndic
             {
                 if (CN.State != ConnectionState.Open)
                     CN.Open();
-                com1 = new SqlCommand("select id_immeuble as [ID] , nom as [Nom immeuble],titrefoncier as[titre foncier],paiment from immeuble where id_immeuble = " + id, CN);
-                DR1 = com1.ExecuteReader();
+                com = null;
+                com = new SqlCommand("select id_immeuble as [ID] , nom as [Nom immeuble],titrefoncier as[titre foncier],paiment from immeuble where id_immeuble = " + id, CN);
+                dr = com.ExecuteReader();
 
-                DR1.Read();
-                txt_nm.Text = DR1[1].ToString();
-                txt_tit.Text = DR1[2].ToString();
-                if (DR1[3].ToString() == "Année")
+                dr.Read();
+
+                anciennes += " Nom immeuble =" + dr["Nom immeuble"].ToString() + "titre foncier = " + dr["titre foncier"].ToString() + "paiment = " + dr["paiment"].ToString();
+
+                txt_nm.Text = dr[1].ToString();
+                txt_tit.Text = dr[2].ToString();
+                if (dr[3].ToString() == "Année")
                 {
                     rd_anne.Checked = true;
                 }
                 else
                     rd_mois.Checked = true;
 
-              anciennes += "nom =" + DR1[1].ToString() + " tittre foncier =" + DR1[2].ToString() + "paiment = " + DR1[3].ToString();
 
-                DR1.Close();
-                com1 = null;
+                dr.Close();
+                com = null;
             }
-            
+
         }
 
         private void btn_immeuble_Annuler_Click(object sender, EventArgs e)
@@ -198,9 +197,9 @@ namespace Syndic
             if (label5.Text == "Ajouter Immeuble")
             {
                 txt_nm.Text = "";
-               
+
                 txt_tit.Text = "";
-              
+
             }
             else
                 this.Close();

@@ -22,6 +22,8 @@ namespace Syndic
         SqlCommand com;
         SqlDataReader dr;
         SqlDataReader DR;
+        string anciennes = "";
+        string nouvelles = "";
 
 
         private string passInc(string pass, string salt)
@@ -51,6 +53,22 @@ namespace Syndic
             this.id = id;
             lbl_titre.Text = _S;
         }
+        private void journal()
+        {
+            string sql = "select u.id_utilisateur,u.login,u.password,u.salt,t.nom_type,(e.prenom+' '+e.nom) as [Nom Complete] from utilisateur u inner join type_utilisateur t on t.id_type = u.id_type inner join employe e on e.id_employe = u.id_table where  t.nom_type = 'Employée' and u.archive = 1 and u.id_utilisateur =" + id +
+        "union select u.id_utilisateur,u.login,u.password,u.salt,t.nom_type,(e.prenom + ' ' + e.nom) as [Nom Complete] from utilisateur u inner join type_utilisateur t on t.id_type = u.id_type inner join proprietaire e on e.id_proprietaire = u.id_table where t.nom_type = 'Proprietaire' and u.archive = 1 and u.id_utilisateur= " + id;
+
+            com = new SqlCommand(sql, Fonctions.CnConnection());
+            dr = com.ExecuteReader();
+            dr.Read();
+            nouvelles += "Id =" + dr["id_utilisateur"].ToString() + " Nom Complet =" + dr["Nom Complete"].ToString() + "Login = " + dr["login"].ToString() + "Password =" + dr["password"].ToString() + "type=" + dr["nom_type"].ToString();
+            dr.Close();
+            com = null;
+
+            com = new SqlCommand("insert into journal values (1,GETDATE(),'Modifier','utilisateur','" + anciennes + "','" + nouvelles + "',1)", Fonctions.CnConnection());
+            com.ExecuteNonQuery();
+        }
+
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
 
@@ -83,17 +101,23 @@ namespace Syndic
                 if (Fonctions.CnConnection().State != ConnectionState.Open)
                     Fonctions.CnConnection().Open();
 
-                string sql = "select u.id_utilisateur,u.login,u.password,u.salt,t.nom_type,(e.prenom+' '+e.nom) as [Nom Complete] from utilisateur u inner join type_utilisateur t on t.id_type = u.id_type inner join employe e on e.id_employe = u.id_table where u.id_utilisateur= " + id;
+                string sql = "select u.id_utilisateur,u.login,u.password,u.salt,t.nom_type,(e.prenom+' '+e.nom) as [Nom Complete] from utilisateur u inner join type_utilisateur t on t.id_type = u.id_type inner join employe e on e.id_employe = u.id_table where  t.nom_type = 'employee' and u.archive = 1 and u.id_utilisateur =" + id +
+                    "union select u.id_utilisateur,u.login,u.password,u.salt,t.nom_type,(e.prenom + ' ' + e.nom) as [Nom Complete] from utilisateur u inner join type_utilisateur t on t.id_type = u.id_type inner join proprietaire e on e.id_proprietaire = u.id_table where t.nom_type = 'proprietaire' and u.archive = 1 and u.id_utilisateur= " + id;
                 SqlCommand com = new SqlCommand(sql, Fonctions.CnConnection());
 
                 dr = com.ExecuteReader();
                 dr.Read();
+
+                anciennes += "Id =" + dr["id_utilisateur"].ToString() + " Nom Complet =" + dr["Nom Complete"].ToString() + "Login = " + dr["login"].ToString() + "Password" + dr["password"].ToString() + "type" + dr["nom_type"].ToString();
+
                 txt_log.Text = dr[1].ToString();
                 txt_pass.Text = dr[2].ToString();
                 cb_type.Text = dr[4].ToString();
                 cb_nomc.Text = dr[5].ToString();
                 txt_salt.Text = dr[3].ToString();
                 dr.Close();
+                dr = null;
+
             }
 
             SqlCommand com1 = new SqlCommand("Select nom_type from type_utilisateur where archive =1", Fonctions.CnConnection());
@@ -134,11 +158,11 @@ namespace Syndic
         {
             if (lbl_titre.Text == "Ajouter utilisateur")
             {
+
                 if (txt_log.Text != "" && txt_pass.Text != "")
                 {
 
                     com1 = null;
-
                     com1 = new SqlCommand("Select id_type from type_utilisateur where nom_type like '" + cb_type.Text + "'", Fonctions.CnConnection());
                     DR = com1.ExecuteReader();
                     DR.Read();
@@ -161,22 +185,26 @@ namespace Syndic
 
                     com1 = null;
                     dr = null;
-                    if (cb_type.Text == "Proprietaire")
+                    if (cb_type.Text == "proprietaire")
                     {
-                        com1 = new SqlCommand(" select nom from proprietaire where nom+' '+prenom like '" + cb_nomc.Text + "'", Fonctions.CnConnection());
+                        com1 = null;
+                        DR = null;
+                        com1 = new SqlCommand(" select nom from proprietaire where (nom+' '+prenom) like  '" + cb_nomc.Text + "'", Fonctions.CnConnection());
                         DR = com1.ExecuteReader();
                         DR.Read();
                         string NP = DR[0].ToString();
+                        // MessageBox.Show(NP);
                         com1 = null;
 
-                        dr = null;
+                        DR.Close();
 
-                        com1 = new SqlCommand(" select prenom from proprietaire where nom+' '+prenom like '" + cb_nomc.Text + "'", Fonctions.CnConnection());
+                        com1 = new SqlCommand(" select prenom from proprietaire where (nom+' '+prenom) like '" + cb_nomc.Text + "'", Fonctions.CnConnection());
                         DR = com1.ExecuteReader();
                         DR.Read();
                         string PP = DR[0].ToString();
+                        //  MessageBox.Show(PP);
                         com1 = null;
-                        dr = null;
+                        DR.Close();
 
                         string slt = Fonctions.GiveMeSalt(NP, PP);
 
@@ -184,21 +212,25 @@ namespace Syndic
                         com = new SqlCommand("insert into utilisateur values('" + txt_log.Text + "', '" + passInc(txt_pass.Text, slt) + "' , '"
                       + slt + "','" + T + "','" + P + "','1')", Fonctions.CnConnection());
                     }
-                    if (cb_type.Text == "Employée")
+                    if (cb_type.Text == "employee")
                     {
-                        com1 = new SqlCommand("Select nom from employe where nom+' '+prenom like '" + cb_nomc.Text + "'", Fonctions.CnConnection());
-                        DR = com1.ExecuteReader();
-                        DR.Read();
-                        string NE = DR[0].ToString();
                         com1 = null;
-                        dr = null;
+                        //dr = null;
+                        com1 = new SqlCommand("select nom from employe where (nom+' '+prenom) like '" + cb_nomc.Text + "'", Fonctions.CnConnection());
+                        dr = com1.ExecuteReader();
+                        dr.Read();
+                        string NE = dr[0].ToString();
+                        // MessageBox.Show(NE);
+                        com1 = null;
+                        dr.Close();
 
-                        com1 = new SqlCommand("Select prenom from employe where nom+' '+prenom like '" + cb_nomc.Text + "'", Fonctions.CnConnection());
-                        DR = com1.ExecuteReader();
-                        DR.Read();
-                        string PE = DR[0].ToString();
+                        com1 = new SqlCommand("Select prenom from employe where (nom+' '+prenom) like '" + cb_nomc.Text + "'", Fonctions.CnConnection());
+                        dr = com1.ExecuteReader();
+                        dr.Read();
+                        string PE = dr[0].ToString();
+                        // MessageBox.Show(PE);
                         com1 = null;
-                        DR.Close();
+                        dr.Close();
                         string slt = Fonctions.GiveMeSalt(NE, PE);
 
                         com = new SqlCommand("insert into utilisateur values('" + txt_log.Text + "' , '" + passInc(txt_pass.Text, slt) + "' , '"
@@ -210,7 +242,7 @@ namespace Syndic
                     a = com.ExecuteNonQuery();
                     if (a != -1)
                     {
-                        DialogResult d = MessageBox.Show("Enregistrer acev succés ", "Enregistrer", MessageBoxButtons.OK);
+                        DialogResult d = MessageBox.Show("Enregistrer avec sucées", "enregistrer", MessageBoxButtons.OK);
                         if (DialogResult.OK == d)
                             this.Close();
                     }
@@ -224,6 +256,8 @@ namespace Syndic
                     MessageBox.Show("Remplire Les champs");
 
             }
+
+
             else if (lbl_titre.Text == "Modifier utilisateur")
             {
                 com1 = null;
@@ -251,7 +285,7 @@ namespace Syndic
                 com1 = null;
                 dr = null;
 
-                if (cb_nomc.Text == "Proprietaire")
+                if (cb_nomc.Text == "proprietaire")
                 {
                     com = new SqlCommand("update utilisateur set login ='" + txt_log.Text + "', password = '" + passInc(txt_pass.Text, txt_salt.Text) +
                          "',id_type='" + T + "',id_table='" + P + "' where id_utilisateur  = " + id, Fonctions.CnConnection());
@@ -264,6 +298,7 @@ namespace Syndic
                 }
                 int f = -1;
                 f = com.ExecuteNonQuery();
+                journal();
                 if (f != -1)
                 {
                     DialogResult d = MessageBox.Show("Modifier avec succès !!", "Modifier", MessageBoxButtons.OK);
@@ -278,7 +313,7 @@ namespace Syndic
         private void cb_type_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            if (cb_type.Text == "Employée")
+            if (cb_type.Text == "employee")
             {
                 cb_nomc.Items.Clear();
                 com1 = new SqlCommand("select nom+' '+prenom from employe where archive=1", Fonctions.CnConnection());
