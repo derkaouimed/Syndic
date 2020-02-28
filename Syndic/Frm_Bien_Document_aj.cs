@@ -95,17 +95,20 @@ namespace Syndic
                     }
                     else
                         MessageBox.Show("Remplir Tous Les Champ S'il Vous Plait.", "Remplir", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                     break;
                 case "btn_valider_ajt":
-                    if (txt_nom.Text != "" && lbl_chemin.Text != "" && cb_doc.SelectedIndex != -1)
-                    {
-                        cmd = new SqlCommand("insert into document_bien values ('" + txt_nom.Text + "','" + (lbl_chemin.Text + ext) + "'," + cb_doc.SelectedValue + ",1)", Fonctions.CnConnection());
-                        cmd.ExecuteNonQuery();
-                        MessageBox.Show("Document Ajouter Avec Succes.", "Ajouter", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        File.Copy(ch, Application.StartupPath + @"\Documentbien\" + name + ext);
-                    }
-                    else
-                        MessageBox.Show("Remplir Tous Les Champ S'il Vous Plait.", "Remplir", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                   
+                        if (txt_nom.Text != "" && lbl_chemin.Text != "" && cb_doc.SelectedIndex != -1)
+                        {
+                            cmd = new SqlCommand("insert into document_bien values ('" + txt_nom.Text + "','" + (lbl_chemin.Text + ext) + "'," + cb_doc.SelectedValue + ",1)", Fonctions.CnConnection());
+                            cmd.ExecuteNonQuery();
+                            MessageBox.Show("Document Ajouter Avec Succes.", "Ajouter", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            File.Copy(ch, Application.StartupPath + @"\Documentbien\" + name + ext);
+                        }
+                        else
+                            MessageBox.Show("Remplir Tous Les Champ S'il Vous Plait.", "Remplir", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                 
                     break;
                 case "btn_vider":
                     txt_nom.Clear();
@@ -113,7 +116,9 @@ namespace Syndic
                     txt_nom.Focus();
                     break;
                 case "btn_annuler_ajt":
-                    this.Close();
+                     
+                        this.Close();
+
                     break;
                 case "btn_annuler_mod":
                     this.Close();

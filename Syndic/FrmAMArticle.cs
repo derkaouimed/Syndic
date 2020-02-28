@@ -98,5 +98,17 @@ namespace Syndic
                     break;
             }
         }
+
+        private void btn_close_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btn_rubrique_Click(object sender, EventArgs e)
+        {
+            FrmRubrique f = new FrmRubrique();
+            f.ShowDialog();
+            bsRub = Fonctions.remplirList(cb_Rubrique, "rubrique", "nomrubrique", "id_rubrique");
+        }
     }   
 }

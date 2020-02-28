@@ -33,10 +33,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AxShockwaveFlashObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -109,9 +115,11 @@
     <Compile Include="FrmAMFacture.Designer.cs">
       <DependentUpon>FrmAMFacture.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmAMFournisseur.cs" />
-    <Compile Include="FrmAMFournisseur.Designer.cs">
-      <DependentUpon>FrmAMFournisseur.cs</DependentUpon>
+    <Compile Include="FrmAMRepos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAMRepos.Designer.cs">
+      <DependentUpon>FrmAMRepos.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmArticle.cs">
       <SubType>Form</SubType>
@@ -142,6 +150,12 @@
     </Compile>
     <Compile Include="FrmContratEmp.Designer.cs">
       <DependentUpon>FrmContratEmp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDashboard.Designer.cs">
+      <DependentUpon>FrmDashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmDocEmploye.cs">
       <SubType>Form</SubType>
@@ -191,6 +205,18 @@
     <Compile Include="FrmOublie.Designer.cs">
       <DependentUpon>FrmOublie.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmParametre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmParametre.Designer.cs">
+      <DependentUpon>FrmParametre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPays.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPays.Designer.cs">
+      <DependentUpon>FrmPays.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmRemEmploye.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -202,6 +228,24 @@
     </Compile>
     <Compile Include="FrmRemFacture.Designer.cs">
       <DependentUpon>FrmRemFacture.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmReposEmp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReposEmp.Designer.cs">
+      <DependentUpon>FrmReposEmp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRubrique.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRubrique.Designer.cs">
+      <DependentUpon>FrmRubrique.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmVille.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmVille.Designer.cs">
+      <DependentUpon>FrmVille.cs</DependentUpon>
     </Compile>
     <Compile Include="Frm_Bien.cs">
       <SubType>Form</SubType>
@@ -395,14 +439,24 @@
     <Compile Include="Frm_utilisateur_type.Designer.cs">
       <DependentUpon>Frm_utilisateur_type.cs</DependentUpon>
     </Compile>
+    <Compile Include="Imprimer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Imprimer.Designer.cs">
+      <DependentUpon>Imprimer.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyHint.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Statistique.cs">
-      <SubType>Form</SubType>
+    <Compile Include="RptContractEmp.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptContractEmp.rpt</DependentUpon>
     </Compile>
-    <Compile Include="Statistique.Designer.cs">
-      <DependentUpon>Statistique.cs</DependentUpon>
+    <Compile Include="RptFactureFournisseur.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptFactureFournisseur.rpt</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Cotisation_type.resx">
       <DependentUpon>Cotisation_type.cs</DependentUpon>
@@ -434,8 +488,8 @@
     <EmbeddedResource Include="FrmAMFacture.resx">
       <DependentUpon>FrmAMFacture.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmAMFournisseur.resx">
-      <DependentUpon>FrmAMFournisseur.cs</DependentUpon>
+    <EmbeddedResource Include="FrmAMRepos.resx">
+      <DependentUpon>FrmAMRepos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmArticle.resx">
       <DependentUpon>FrmArticle.cs</DependentUpon>
@@ -451,6 +505,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmContratEmp.resx">
       <DependentUpon>FrmContratEmp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDashboard.resx">
+      <DependentUpon>FrmDashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmDocEmploye.resx">
       <DependentUpon>FrmDocEmploye.cs</DependentUpon>
@@ -476,11 +533,26 @@
     <EmbeddedResource Include="FrmOublie.resx">
       <DependentUpon>FrmOublie.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmParametre.resx">
+      <DependentUpon>FrmParametre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPays.resx">
+      <DependentUpon>FrmPays.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmRemEmploye.resx">
       <DependentUpon>FrmRemEmploye.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmRemFacture.resx">
       <DependentUpon>FrmRemFacture.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmReposEmp.resx">
+      <DependentUpon>FrmReposEmp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRubrique.resx">
+      <DependentUpon>FrmRubrique.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmVille.resx">
+      <DependentUpon>FrmVille.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_Bien.resx">
       <DependentUpon>Frm_Bien.cs</DependentUpon>
@@ -578,6 +650,9 @@
     <EmbeddedResource Include="Frm_utilisateur_type.resx">
       <DependentUpon>Frm_utilisateur_type.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Imprimer.resx">
+      <DependentUpon>Imprimer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -587,8 +662,13 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Statistique.resx">
-      <DependentUpon>Statistique.cs</DependentUpon>
+    <EmbeddedResource Include="RptContractEmp.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptContractEmp.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RptFactureFournisseur.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptFactureFournisseur.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -602,6 +682,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

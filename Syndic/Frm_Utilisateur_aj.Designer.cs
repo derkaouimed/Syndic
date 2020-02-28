@@ -70,9 +70,9 @@
             this.lbl_titre.ForeColor = System.Drawing.Color.White;
             this.lbl_titre.Location = new System.Drawing.Point(188, 2);
             this.lbl_titre.Name = "lbl_titre";
-            this.lbl_titre.Size = new System.Drawing.Size(108, 18);
+            this.lbl_titre.Size = new System.Drawing.Size(120, 18);
             this.lbl_titre.TabIndex = 87;
-            this.lbl_titre.Text = "Ajouter Facture";
+            this.lbl_titre.Text = "Ajouter utilisateur";
             // 
             // btn_close
             // 

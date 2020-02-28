@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_immeuble_aj));
             this.panel1 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txt_tit = new System.Windows.Forms.TextBox();
@@ -41,14 +40,15 @@
             this.label3 = new System.Windows.Forms.Label();
             this.rd_anne = new System.Windows.Forms.RadioButton();
             this.rd_mois = new System.Windows.Forms.RadioButton();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
-            this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.button2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -68,15 +68,6 @@
             this.button2.TabIndex = 21;
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label5.Location = new System.Drawing.Point(3, 3);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(0, 16);
-            this.label5.TabIndex = 57;
             // 
             // label2
             // 
@@ -176,6 +167,17 @@
             this.rd_mois.Text = "Mois ";
             this.rd_mois.UseVisualStyleBackColor = true;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(168, 1);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(122, 18);
+            this.label5.TabIndex = 62;
+            this.label5.Text = "Ajouter Immeuble";
+            // 
             // Frm_immeuble_aj
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -212,9 +214,9 @@
         private System.Windows.Forms.TextBox txt_nm;
         private System.Windows.Forms.Button btn_immeuble_Annuler;
         private System.Windows.Forms.Button btn_immeuble_valider;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.RadioButton rd_anne;
         private System.Windows.Forms.RadioButton rd_mois;
+        private System.Windows.Forms.Label label5;
     }
 }

@@ -65,6 +65,11 @@ namespace Syndic
             }
         }
 
+        private void btn_close_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         private void btn_valider_ajt_Click(object sender, EventArgs e)
         {
             Button btn = (Button)sender;

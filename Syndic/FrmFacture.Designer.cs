@@ -48,6 +48,9 @@
             this.nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.typePaiment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numpaiment = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btn_chercher = new System.Windows.Forms.Button();
+            this.btn_imprimerTous = new System.Windows.Forms.Button();
+            this.btn_imprimer = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dt_facture)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,9 +60,9 @@
             this.txt_chercher.ForeColor = System.Drawing.Color.Gray;
             this.txt_chercher.Location = new System.Drawing.Point(12, 12);
             this.txt_chercher.Name = "txt_chercher";
-            this.txt_chercher.Size = new System.Drawing.Size(745, 27);
+            this.txt_chercher.Size = new System.Drawing.Size(613, 27);
             this.txt_chercher.TabIndex = 0;
-            this.txt_chercher.Text = "Tapez Un Text Pour Rechercher";
+            this.txt_chercher.Text = "Tapez Designation Ou La date De Facture Pour Rechercher";
             this.txt_chercher.Enter += new System.EventHandler(this.txt_chercher_Enter);
             this.txt_chercher.Leave += new System.EventHandler(this.txt_chercher_Leave);
             // 
@@ -71,7 +74,7 @@
             this.btn_modifier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_modifier.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_modifier.ForeColor = System.Drawing.Color.White;
-            this.btn_modifier.Location = new System.Drawing.Point(482, 566);
+            this.btn_modifier.Location = new System.Drawing.Point(482, 533);
             this.btn_modifier.Name = "btn_modifier";
             this.btn_modifier.Size = new System.Drawing.Size(134, 41);
             this.btn_modifier.TabIndex = 7;
@@ -89,7 +92,7 @@
             this.btn_suivant.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_suivant.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_suivant.ForeColor = System.Drawing.Color.White;
-            this.btn_suivant.Location = new System.Drawing.Point(141, 566);
+            this.btn_suivant.Location = new System.Drawing.Point(141, 533);
             this.btn_suivant.Name = "btn_suivant";
             this.btn_suivant.Size = new System.Drawing.Size(46, 41);
             this.btn_suivant.TabIndex = 4;
@@ -106,7 +109,7 @@
             this.btn_precedent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_precedent.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_precedent.ForeColor = System.Drawing.Color.White;
-            this.btn_precedent.Location = new System.Drawing.Point(63, 566);
+            this.btn_precedent.Location = new System.Drawing.Point(63, 533);
             this.btn_precedent.Name = "btn_precedent";
             this.btn_precedent.Size = new System.Drawing.Size(46, 41);
             this.btn_precedent.TabIndex = 3;
@@ -123,7 +126,7 @@
             this.btn_derniere.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_derniere.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_derniere.ForeColor = System.Drawing.Color.White;
-            this.btn_derniere.Location = new System.Drawing.Point(193, 566);
+            this.btn_derniere.Location = new System.Drawing.Point(193, 533);
             this.btn_derniere.Name = "btn_derniere";
             this.btn_derniere.Size = new System.Drawing.Size(46, 41);
             this.btn_derniere.TabIndex = 5;
@@ -140,7 +143,7 @@
             this.btn_premiere.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_premiere.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_premiere.ForeColor = System.Drawing.Color.White;
-            this.btn_premiere.Location = new System.Drawing.Point(11, 566);
+            this.btn_premiere.Location = new System.Drawing.Point(11, 533);
             this.btn_premiere.Name = "btn_premiere";
             this.btn_premiere.Size = new System.Drawing.Size(46, 41);
             this.btn_premiere.TabIndex = 2;
@@ -155,7 +158,7 @@
             this.btn_supprimer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_supprimer.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_supprimer.ForeColor = System.Drawing.Color.White;
-            this.btn_supprimer.Location = new System.Drawing.Point(622, 566);
+            this.btn_supprimer.Location = new System.Drawing.Point(622, 533);
             this.btn_supprimer.Name = "btn_supprimer";
             this.btn_supprimer.Size = new System.Drawing.Size(134, 41);
             this.btn_supprimer.TabIndex = 8;
@@ -171,7 +174,7 @@
             this.btn_ajouter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_ajouter.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_ajouter.ForeColor = System.Drawing.Color.White;
-            this.btn_ajouter.Location = new System.Drawing.Point(342, 566);
+            this.btn_ajouter.Location = new System.Drawing.Point(342, 533);
             this.btn_ajouter.Name = "btn_ajouter";
             this.btn_ajouter.Size = new System.Drawing.Size(134, 41);
             this.btn_ajouter.TabIndex = 6;
@@ -202,7 +205,7 @@
             this.nom,
             this.typePaiment,
             this.numpaiment});
-            this.dt_facture.Location = new System.Drawing.Point(12, 45);
+            this.dt_facture.Location = new System.Drawing.Point(12, 52);
             this.dt_facture.MultiSelect = false;
             this.dt_facture.Name = "dt_facture";
             this.dt_facture.ReadOnly = true;
@@ -212,7 +215,7 @@
             this.dt_facture.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Century Gothic", 10F);
             this.dt_facture.RowTemplate.Height = 28;
             this.dt_facture.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dt_facture.Size = new System.Drawing.Size(746, 515);
+            this.dt_facture.Size = new System.Drawing.Size(746, 475);
             this.dt_facture.TabIndex = 1;
             // 
             // id
@@ -263,11 +266,62 @@
             this.numpaiment.Name = "numpaiment";
             this.numpaiment.ReadOnly = true;
             // 
+            // btn_chercher
+            // 
+            this.btn_chercher.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
+            this.btn_chercher.FlatAppearance.BorderSize = 0;
+            this.btn_chercher.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btn_chercher.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_chercher.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_chercher.ForeColor = System.Drawing.Color.White;
+            this.btn_chercher.Location = new System.Drawing.Point(631, 10);
+            this.btn_chercher.Name = "btn_chercher";
+            this.btn_chercher.Size = new System.Drawing.Size(125, 30);
+            this.btn_chercher.TabIndex = 9;
+            this.btn_chercher.Text = "Chercher";
+            this.btn_chercher.UseVisualStyleBackColor = false;
+            this.btn_chercher.Click += new System.EventHandler(this.btn_chercher_Click);
+            // 
+            // btn_imprimerTous
+            // 
+            this.btn_imprimerTous.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
+            this.btn_imprimerTous.FlatAppearance.BorderSize = 0;
+            this.btn_imprimerTous.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btn_imprimerTous.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_imprimerTous.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_imprimerTous.ForeColor = System.Drawing.Color.White;
+            this.btn_imprimerTous.Location = new System.Drawing.Point(342, 580);
+            this.btn_imprimerTous.Name = "btn_imprimerTous";
+            this.btn_imprimerTous.Size = new System.Drawing.Size(274, 41);
+            this.btn_imprimerTous.TabIndex = 10;
+            this.btn_imprimerTous.Text = "Imprimer Tous";
+            this.btn_imprimerTous.UseVisualStyleBackColor = false;
+            this.btn_imprimerTous.Click += new System.EventHandler(this.btn_imprimerTous_Click);
+            // 
+            // btn_imprimer
+            // 
+            this.btn_imprimer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
+            this.btn_imprimer.FlatAppearance.BorderSize = 0;
+            this.btn_imprimer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btn_imprimer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_imprimer.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_imprimer.ForeColor = System.Drawing.Color.White;
+            this.btn_imprimer.Location = new System.Drawing.Point(622, 580);
+            this.btn_imprimer.Name = "btn_imprimer";
+            this.btn_imprimer.Size = new System.Drawing.Size(134, 41);
+            this.btn_imprimer.TabIndex = 11;
+            this.btn_imprimer.Text = "Imprimer";
+            this.btn_imprimer.UseVisualStyleBackColor = false;
+            this.btn_imprimer.Click += new System.EventHandler(this.btn_imprimerTous_Click);
+            // 
             // FrmFacture
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(770, 634);
+            this.Controls.Add(this.btn_imprimerTous);
+            this.Controls.Add(this.btn_imprimer);
+            this.Controls.Add(this.btn_chercher);
             this.Controls.Add(this.dt_facture);
             this.Controls.Add(this.btn_suivant);
             this.Controls.Add(this.btn_modifier);
@@ -306,5 +360,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nom;
         private System.Windows.Forms.DataGridViewTextBoxColumn typePaiment;
         private System.Windows.Forms.DataGridViewTextBoxColumn numpaiment;
+        private System.Windows.Forms.Button btn_chercher;
+        private System.Windows.Forms.Button btn_imprimerTous;
+        private System.Windows.Forms.Button btn_imprimer;
     }
 }

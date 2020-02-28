@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAMContract));
             this.btn_valider_mod = new System.Windows.Forms.Button();
             this.pnl_modifier = new System.Windows.Forms.Panel();
             this.btn_annuler_mod = new System.Windows.Forms.Button();
@@ -44,9 +45,11 @@
             this.pnlMenuBar = new System.Windows.Forms.Panel();
             this.dt_debut = new System.Windows.Forms.DateTimePicker();
             this.dt_fin = new System.Windows.Forms.DateTimePicker();
+            this.btn_close = new System.Windows.Forms.PictureBox();
             this.pnl_modifier.SuspendLayout();
             this.pnl_ajouter.SuspendLayout();
             this.pnlMenuBar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_close)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_valider_mod
@@ -69,7 +72,7 @@
             // 
             this.pnl_modifier.Controls.Add(this.btn_annuler_mod);
             this.pnl_modifier.Controls.Add(this.btn_valider_mod);
-            this.pnl_modifier.Location = new System.Drawing.Point(76, 344);
+            this.pnl_modifier.Location = new System.Drawing.Point(76, 321);
             this.pnl_modifier.Name = "pnl_modifier";
             this.pnl_modifier.Size = new System.Drawing.Size(432, 61);
             this.pnl_modifier.TabIndex = 75;
@@ -94,7 +97,7 @@
             // 
             this.pnl_ajouter.Controls.Add(this.btn_annuler_ajt);
             this.pnl_ajouter.Controls.Add(this.btn_valider_ajt);
-            this.pnl_ajouter.Location = new System.Drawing.Point(76, 344);
+            this.pnl_ajouter.Location = new System.Drawing.Point(76, 321);
             this.pnl_ajouter.Name = "pnl_ajouter";
             this.pnl_ajouter.Size = new System.Drawing.Size(432, 61);
             this.pnl_ajouter.TabIndex = 74;
@@ -135,7 +138,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(41, 144);
+            this.label5.Location = new System.Drawing.Point(41, 121);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(154, 21);
             this.label5.TabIndex = 72;
@@ -145,7 +148,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(43, 202);
+            this.label4.Location = new System.Drawing.Point(43, 179);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(122, 21);
             this.label4.TabIndex = 71;
@@ -155,7 +158,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(43, 260);
+            this.label3.Location = new System.Drawing.Point(43, 253);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(76, 21);
             this.label3.TabIndex = 70;
@@ -165,7 +168,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(41, 90);
+            this.label2.Location = new System.Drawing.Point(41, 67);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(136, 21);
             this.label2.TabIndex = 69;
@@ -175,7 +178,7 @@
             // 
             this.cb_emps.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.cb_emps.FormattingEnabled = true;
-            this.cb_emps.Location = new System.Drawing.Point(240, 83);
+            this.cb_emps.Location = new System.Drawing.Point(240, 60);
             this.cb_emps.Name = "cb_emps";
             this.cb_emps.Size = new System.Drawing.Size(282, 29);
             this.cb_emps.TabIndex = 68;
@@ -183,7 +186,7 @@
             // txt_salaire
             // 
             this.txt_salaire.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_salaire.Location = new System.Drawing.Point(240, 255);
+            this.txt_salaire.Location = new System.Drawing.Point(240, 232);
             this.txt_salaire.Name = "txt_salaire";
             this.txt_salaire.Size = new System.Drawing.Size(282, 27);
             this.txt_salaire.TabIndex = 65;
@@ -202,6 +205,7 @@
             // pnlMenuBar
             // 
             this.pnlMenuBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(244)))));
+            this.pnlMenuBar.Controls.Add(this.btn_close);
             this.pnlMenuBar.Controls.Add(this.lbl_titre);
             this.pnlMenuBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlMenuBar.Location = new System.Drawing.Point(0, 0);
@@ -212,7 +216,7 @@
             // dt_debut
             // 
             this.dt_debut.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.dt_debut.Location = new System.Drawing.Point(240, 138);
+            this.dt_debut.Location = new System.Drawing.Point(240, 115);
             this.dt_debut.Name = "dt_debut";
             this.dt_debut.Size = new System.Drawing.Size(282, 27);
             this.dt_debut.TabIndex = 76;
@@ -220,16 +224,28 @@
             // dt_fin
             // 
             this.dt_fin.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.dt_fin.Location = new System.Drawing.Point(240, 197);
+            this.dt_fin.Location = new System.Drawing.Point(240, 174);
             this.dt_fin.Name = "dt_fin";
             this.dt_fin.Size = new System.Drawing.Size(282, 27);
             this.dt_fin.TabIndex = 77;
+            // 
+            // btn_close
+            // 
+            this.btn_close.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_close.Image = ((System.Drawing.Image)(resources.GetObject("btn_close.Image")));
+            this.btn_close.Location = new System.Drawing.Point(540, 0);
+            this.btn_close.Name = "btn_close";
+            this.btn_close.Size = new System.Drawing.Size(24, 23);
+            this.btn_close.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btn_close.TabIndex = 67;
+            this.btn_close.TabStop = false;
+            this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
             // 
             // FrmAMContract
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(566, 443);
+            this.ClientSize = new System.Drawing.Size(566, 427);
             this.Controls.Add(this.dt_fin);
             this.Controls.Add(this.dt_debut);
             this.Controls.Add(this.pnl_modifier);
@@ -250,6 +266,7 @@
             this.pnl_ajouter.ResumeLayout(false);
             this.pnlMenuBar.ResumeLayout(false);
             this.pnlMenuBar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_close)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -273,5 +290,6 @@
         private System.Windows.Forms.Panel pnlMenuBar;
         private System.Windows.Forms.DateTimePicker dt_debut;
         private System.Windows.Forms.DateTimePicker dt_fin;
+        private System.Windows.Forms.PictureBox btn_close;
     }
 }

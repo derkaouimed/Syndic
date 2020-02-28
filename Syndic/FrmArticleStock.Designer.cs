@@ -172,6 +172,7 @@
             this.dt_grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dt_grid.Size = new System.Drawing.Size(746, 406);
             this.dt_grid.TabIndex = 44;
+            this.dt_grid.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dt_grid_CellFormatting);
             // 
             // btn_modifier
             // 

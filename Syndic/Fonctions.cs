@@ -229,9 +229,7 @@ namespace Syndic
 
         static public void OuvrirDocument(string chemin)
         {
-            
             System.Diagnostics.Process.Start(chemin);
-
         }
         static public void Sunchronizer(string table)
         {

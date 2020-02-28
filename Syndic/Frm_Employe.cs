@@ -76,6 +76,7 @@ namespace Syndic
                     break;
                 case "btn_contrat":
                     btn_drop.PerformClick();
+                    ouvrire(new FrmContratEmp());
                     pnl_selection.Location = new Point(526, 77);
                     break;
                 case "btn_conge":
@@ -85,6 +86,7 @@ namespace Syndic
                     break;
                 case "btn_repos":
                     btn_drop.PerformClick();
+                    ouvrire(new FrmReposEmp());
                     pnl_selection.Location = new Point(526, 165);
                     break;
             }

@@ -78,7 +78,7 @@ namespace Syndic
         private void Frm_Utilisateur_aj_Load(object sender, EventArgs e)
         {
             Fonctions.ouvrireConnection();
-            if (lbl_titre.Text == "Modifier")
+            if (lbl_titre.Text == "Modifier utilisateur")
             {
                 if (Fonctions.CnConnection().State != ConnectionState.Open)
                     Fonctions.CnConnection().Open();
@@ -210,7 +210,7 @@ namespace Syndic
                     a = com.ExecuteNonQuery();
                     if (a != -1)
                     {
-                        DialogResult d = MessageBox.Show("Enregistrer", "enregistrer", MessageBoxButtons.OK);
+                        DialogResult d = MessageBox.Show("Enregistrer acev succés ", "Enregistrer", MessageBoxButtons.OK);
                         if (DialogResult.OK == d)
                             this.Close();
                     }
@@ -266,7 +266,7 @@ namespace Syndic
                 f = com.ExecuteNonQuery();
                 if (f != -1)
                 {
-                    DialogResult d = MessageBox.Show("Modifier", "Modification", MessageBoxButtons.OK);
+                    DialogResult d = MessageBox.Show("Modifier avec succès !!", "Modifier", MessageBoxButtons.OK);
                     if (DialogResult.OK == d)
                     {
                         this.Close();

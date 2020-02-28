@@ -118,5 +118,54 @@ namespace Syndic
                     break;
             }
         }
+
+        private void txt_chercher_Enter(object sender, EventArgs e)
+        {
+            Fonctions.textHintEntre(txt_chercher, "Tapez Nom Ou Prenom Pour Chercher");
+        }
+
+        private void txt_chercher_Leave(object sender, EventArgs e)
+        {
+            Fonctions.textHintLeave(txt_chercher, "Tapez Nom Ou Prenom Pour Chercher");
+        }
+
+        private void txt_chercher_TextChanged(object sender, EventArgs e)
+        {
+            if(txt_chercher.Text!= "Tapez Nom Ou Prenom Pour Chercher")
+            {
+                string str = txt_chercher.Text.Replace("'", "''");
+                string nom = "", prenom = " ";
+                if (str.IndexOf(' ') != -1)
+                {
+                    nom = str.Substring(0, str.IndexOf(' '));
+                    prenom = str.Substring(str.IndexOf(' '), (str.Length - str.IndexOf(' ')));
+                }
+                else
+                    nom = str;
+
+                bsCon.Filter = " nom like '%" + nom + "%' or nom like '%" + prenom + "%' or prenom like '%" + nom + "%' or prenom like '%" + prenom + "%'";
+            }
+        }
+
+        private void btn_imrimerTous_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            switch (btn.Name)
+            {
+                case "btn_imrimerTous":
+                    RptContractEmp r = new RptContractEmp();
+                    r.SetDatabaseLogon("sa", "123456");
+                    Imprimer imprimer = new Imprimer(r);
+                    imprimer.ShowDialog();
+                    break;
+                case "btn_imprimer":
+                    RptContractEmp r1 = new RptContractEmp();
+                    r1.SetDatabaseLogon("sa", "123456");
+                    string filter1 = "{contrat.id_contrat} = " + dt_grid.CurrentRow.Cells[0].Value;
+                    Imprimer imprimer1 = new Imprimer(r1,filter1);
+                    imprimer1.ShowDialog();
+                    break;
+            }
+        }
     }
 }

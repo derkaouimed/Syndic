@@ -130,15 +130,20 @@ namespace Syndic
                         MessageBox.Show("Selectionner Un Document S'il Vous Plait.", "Selectionner", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     break;
                 case "btn_supprimer":
-                    if (lst_documents.Items.Count > 0)
+                    if (lst_documents.SelectedIndex != -1)
                     {
-                        if (DialogResult.Yes == MessageBox.Show("Voulez-vous Vraiment Supprimer Ce Document ?", "Supprimer", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+                        if (lst_documents.Items.Count > 0)
                         {
-                            cmd = new SqlCommand("update document_facture set archive = 0 where id_document = " + GetID(), Fonctions.CnConnection());
-                            cmd.ExecuteNonQuery();
-                            remplirDoc();
+                            if (DialogResult.Yes == MessageBox.Show("Voulez-vous Vraiment Supprimer Ce Document ?", "Supprimer", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+                            {
+                                cmd = new SqlCommand("update document_facture set archive = 0 where id_document = " + GetID(), Fonctions.CnConnection());
+                                cmd.ExecuteNonQuery();
+                                remplirDoc();
+                            }
                         }
                     }
+                    else
+                        MessageBox.Show("Selectionner Un Document S'il Vous Plait.", "Selectionner", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     break;
             }
         }
