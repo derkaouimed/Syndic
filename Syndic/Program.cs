@@ -19,7 +19,7 @@ namespace Syndic
 
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Application.Run(new frm_cotisation_real());
+            Application.Run(new Form1());
 
         }
     }
