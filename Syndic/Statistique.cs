@@ -50,17 +50,7 @@ namespace Syndic
             
             chart2.Series["Recette"].YValueMembers = "montant";
             chart2.Series["Recette"].YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
-            ////echeance
-
-            //com = new SqlCommand("Select distinct mois,montant,annee from Echeance where archive = 1", Fonctions.CnConnection());
-            //reader = com.ExecuteReader();
-            //chart3.DataSource = reader;
-
-            //chart3.Series["echeance"].XValueMember = "mois";
-            //chart3.Series["echeance"].XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.String;
-
-            //chart3.Series["echeance"].YValueMembers = "montant";
-            //chart3.Series["echeance"].YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+           
 
 
         }
